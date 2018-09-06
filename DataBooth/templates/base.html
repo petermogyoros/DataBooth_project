@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+{% load staticfiles %}
+
+<head>
+
+    <!-- Line chart to show A and B OK parts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Side A', 'Side B'],
+          ['2004',  {% block a_ok %} {% endblock %}, {% block b_ok %} {% endblock %}],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Good Parts',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('A_B_OK'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+
+  <body>
+    <div id="A_B_OK" style="width: 400px; height: 500px"></div>
+  </body>
