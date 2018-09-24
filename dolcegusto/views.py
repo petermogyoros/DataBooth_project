@@ -1,15 +1,21 @@
 from django.shortcuts import render
 from django.views import View
 
-from dolcegusto.models import Values_in_db
+from dolcegusto.models import DolceGusto_table
 
-
-# Create your views here.
 class Line(View):
-    model = Values_in_db
+    model = DolceGusto_table
 
     def get(self, request):
-        qs = Values_in_db.objects.filter(line=8)
+
+        print(qs)
+        return render(request, "dolcegusto/line.html")
+
+# Create your views here.
+class Line8(View):
+    model = DolceGusto_table
+
+    def get(self, request):
         value_dict = {}
 
         # loop counters

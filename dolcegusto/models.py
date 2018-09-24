@@ -1,7 +1,8 @@
 from django.db import models
 
-class Values_in_db(models.Model):
-    raw_time = models.IntegerField()
+class DolceGusto_table(models.Model):
+    csv_datetime = models.DateTimeField(
+    default="1980-09-25 00:00:00",max_length=9)
     line = models.IntegerField()
     batch = models.IntegerField()
     a_ok = models.IntegerField()
@@ -15,14 +16,10 @@ class Values_in_db(models.Model):
     a_side_ng = models.IntegerField()
     b_side_ng = models.IntegerField()
     combined_side_a_re = models.IntegerField()
-    combined_side_b_re = models.IntegerField(default=0)
+    combined_side_b_re = models.IntegerField()
     a_top_re = models.IntegerField()
     b_top_re = models.IntegerField()
     a_bottom_re = models.IntegerField()
     b_bottom_re = models.IntegerField()
     a_side_re = models.IntegerField()
     b_side_re = models.IntegerField()
-
-    def __str__(self):
-        return '%s %s %s %s %s %s %s' % (self.raw_time, self.line, self.batch, self.a_ok,
-        self.b_ok, self.combined_side_a_ng, self.combined_side_b_ng)
