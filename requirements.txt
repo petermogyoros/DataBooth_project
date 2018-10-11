@@ -1,0 +1,39 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: win-64
+amqp=2.3.2=py_1
+billiard=3.5.0.4=py36hfa6e2cd_0
+blas=1.0=mkl
+ca-certificates=2018.8.24=ha4d7672_0
+celery=4.2.1=py_0
+certifi=2018.8.24=py36_0
+django=2.1.1=py36_0
+icc_rt=2017.0.4=h97af966_0
+intel-openmp=2018.0.3=0
+kombu=4.2.1=py_0
+krb5=1.16.1=h038dc86_6
+libpq=10.5=h5fe2233_0
+mkl=2018.0.3=1
+mkl_fft=1.0.6=py36_0
+mkl_random=1.0.1=py36_0
+numpy=1.15.1=py36ha559c80_0
+numpy-base=1.15.1=py36h8128ebf_0
+openssl=1.0.2p=hfa6e2cd_0
+pandas=0.23.4=py36h830ac7b_0
+pip=18.0=py36_1
+postgresql=10.5=h5fe2233_0
+psycopg2=2.7.5=py36h74b6da3_1
+python=3.6.6=he025d50_0
+python-dateutil=2.7.3=py_0
+pytz=2018.5=py_0
+setuptools=40.2.0=py36_0
+simplejson=3.16.0=py36hfa6e2cd_1
+six=1.11.0=py36_1
+sqlalchemy=1.2.11=py36hfa6e2cd_0
+tk=8.6.8=hfa6e2cd_0
+vc=14.1=h0510ff6_3
+vine=1.1.4=py_1
+vs2015_runtime=15.5.2=3
+wheel=0.31.1=py36_1
+wincertstore=0.2=py36_2
+zlib=1.2.11=h8395fce_2
