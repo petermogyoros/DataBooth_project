@@ -18,7 +18,7 @@ class Collector():
     pattern = '*.csv' # choose search pater
 
     # copy csv to this new directory (backup)
-    new_location = '/home/peter/Documents/log/line8/2018/%s'
+    new_location = '/home/peter/csv/line8/2018/%s'
 
     def get_values_72_imp_stack_tool(csv1, list_of_results):
         datetime_list = []
