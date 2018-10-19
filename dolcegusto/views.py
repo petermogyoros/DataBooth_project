@@ -1,18 +1,16 @@
 from django.shortcuts import render
 from django.views import View
 
-from dolcegusto.models import DolceGusto_table
+from dolcegusto.models import DolceGusto_table, scrap_rate
 
 class Line(View):
     model = DolceGusto_table
 
-    def test_get():
-        print(row)
-        
     def get(self, request):
+        print(scrap_rate(self))
 
-        print(row)
-        return render(request, "dolcegusto/line.html")
+        return render(request, "dolcegusto/line.html", {"side_a_ng": int(scrap_rate(self)[0]), "side_b_ng": int(scrap_rate(self)[1]),
+        "side_a_re": int(scrap_rate(self)[2]), "side_b_re": int(scrap_rate(self)[3])})
 
 # Create your views here.
 class Line8(View):

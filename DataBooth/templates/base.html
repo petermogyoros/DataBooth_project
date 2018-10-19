@@ -12,15 +12,15 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Day', 'Side A', 'Side B'],
-          ['2004',  {% block a_ok %} {% endblock %}, {% block b_ok %} {% endblock %}],
+          ['Day', 'Rejects', 'Recycles'],
+          ['2004',  {% block side_a_ng %} {% endblock %}, {% block side_a_re %} {% endblock %}],
           ['2005',  1170,      460],
           ['2006',  660,       1120],
           ['2007',  1030,      540]
         ]);
 
         var options = {
-          title: 'Good Parts',
+          title: 'Rejected Parts',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
