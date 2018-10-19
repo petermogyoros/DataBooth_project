@@ -6,9 +6,12 @@ from dolcegusto.models import DolceGusto_table
 class Line(View):
     model = DolceGusto_table
 
+    def test_get():
+        print(row)
+        
     def get(self, request):
 
-        print(qs)
+        print(row)
         return render(request, "dolcegusto/line.html")
 
 # Create your views here.
