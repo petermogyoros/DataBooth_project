@@ -1,16 +1,120 @@
 from django.shortcuts import render
 from django.views import View
 
-from dolcegusto.models import Past_Week
+from dolcegusto.models import past_week_scrap
 
 class Line(View):
-    model = Past_Week
+    model = past_week_scrap
 
     def get(self, request):
-        pass
 
-        # return render(request, "dolcegusto/line.html", {"side_a_ng": int(scrap_rate(self)[0]), "side_b_ng": int(scrap_rate(self)[1]),
-        # "side_a_re": int(scrap_rate(self)[2]), "side_b_re": int(scrap_rate(self)[3])})
+        try:
+            day_1_side_a_ng = int(past_week_scrap(self)[0])
+            day_1_side_b_ng = int(past_week_scrap(self)[1])
+            day_1_side_a_re = int(past_week_scrap(self)[2])
+            day_1_side_b_re = int(past_week_scrap(self)[3])
+
+        except:
+            day_1_side_a_ng = 0
+            day_1_side_b_ng = 0
+            day_1_side_a_re = 0
+            day_1_side_b_re = 0
+
+
+        try:
+            day_2_side_a_ng = int(past_week_scrap(self)[4])
+            day_2_side_b_ng = int(past_week_scrap(self)[5])
+            day_2_side_a_re = int(past_week_scrap(self)[6])
+            day_2_side_b_re = int(past_week_scrap(self)[7])
+
+        except:
+            day_2_side_a_ng = 0
+            day_2_side_b_ng = 0
+            day_2_side_a_re = 0
+            day_2_side_b_re = 0
+
+
+        try:
+            day_3_side_a_ng = int(past_week_scrap(self)[8])
+            day_3_side_b_ng = int(past_week_scrap(self)[9])
+            day_3_side_a_re = int(past_week_scrap(self)[10])
+            day_3_side_b_re = int(past_week_scrap(self)[11])
+
+        except:
+            day_3_side_a_ng = 0
+            day_3_side_b_ng = 0
+            day_3_side_a_re = 0
+            day_3_side_b_re = 0
+
+
+        try:
+            day_4_side_a_ng = int(past_week_scrap(self)[12])
+            day_4_side_b_ng = int(past_week_scrap(self)[13])
+            day_4_side_a_re = int(past_week_scrap(self)[14])
+            day_4_side_b_re = int(past_week_scrap(self)[15])
+
+        except:
+            day_4_side_a_ng = 0
+            day_4_side_b_ng = 0
+            day_4_side_a_re = 0
+            day_4_side_b_re = 0
+
+
+        try:
+            day_5_side_a_ng = int(past_week_scrap(self)[16])
+            day_5_side_b_ng = int(past_week_scrap(self)[17])
+            day_5_side_a_re = int(past_week_scrap(self)[18])
+            day_5_side_b_re = int(past_week_scrap(self)[19])
+
+        except:
+            day_5_side_a_ng = 0
+            day_5_side_b_ng = 0
+            day_5_side_a_re = 0
+            day_5_side_b_re = 0
+
+
+        try:
+            day_6_side_a_ng = int(past_week_scrap(self)[20])
+            day_6_side_b_ng = int(past_week_scrap(self)[21])
+            day_6_side_a_re = int(past_week_scrap(self)[22])
+            day_6_side_b_re = int(past_week_scrap(self)[23])
+
+        except:
+            day_6_side_a_ng = 0
+            day_6_side_b_ng = 0
+            day_6_side_a_re = 0
+            day_6_side_b_re = 0
+
+
+        try:
+            day_7_side_a_ng = int(past_week_scrap(self)[24])
+            day_7_side_b_ng = int(past_week_scrap(self)[25])
+            day_7_side_a_re = int(past_week_scrap(self)[26])
+            day_7_side_b_re = int(past_week_scrap(self)[27])
+
+        except:
+            day_7_side_a_ng = 0
+            day_7_side_b_ng = 0
+            day_7_side_a_re = 0
+            day_7_side_b_re = 0
+
+
+        return render(request, "dolcegusto/line.html", {
+        "day_1_side_a_ng": day_1_side_a_ng, "day_1_side_b_ng": day_1_side_b_ng,
+        "day_1_side_a_re": day_1_side_a_re, "day_1_side_b_re": day_1_side_b_re,
+        "day_2_side_a_ng": day_2_side_a_ng, "day_2_side_b_ng": day_2_side_b_ng,
+        "day_2_side_a_re": day_2_side_a_re, "day_2_side_b_re": day_2_side_b_re,
+        "day_3_side_a_ng": day_3_side_a_ng, "day_3_side_b_ng": day_3_side_b_ng,
+        "day_3_side_a_re": day_3_side_a_re, "day_3_side_b_re": day_3_side_b_re,
+        "day_4_side_a_ng": day_4_side_a_ng, "day_4_side_b_ng": day_4_side_b_ng,
+        "day_4_side_a_re": day_4_side_a_re, "day_4_side_b_re": day_4_side_b_re,
+        "day_5_side_a_ng": day_5_side_a_ng, "day_5_side_b_ng": day_5_side_b_ng,
+        "day_5_side_a_re": day_5_side_a_re, "day_5_side_b_re": day_5_side_b_re,
+        "day_6_side_a_ng": day_6_side_a_ng, "day_6_side_b_ng": day_6_side_b_ng,
+        "day_6_side_a_re": day_6_side_a_re, "day_6_side_b_re": day_6_side_b_re,
+        "day_7_side_a_ng": day_7_side_a_ng, "day_7_side_b_ng": day_7_side_b_ng,
+        "day_7_side_a_re": day_7_side_a_re, "day_7_side_b_re": day_7_side_b_re,
+        })
 
 # Create your views here.
 # class Line8(View):
