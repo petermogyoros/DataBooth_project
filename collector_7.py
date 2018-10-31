@@ -152,12 +152,10 @@ class Collector():
                 os.rename(entry, move_to)
 
                 # completion feedback after every file. Probably can be removed after testing
-                print(line, entry)
+                print("From Line", line, entry)
 
                 # change back working directory to where collector.py is located
                 os.chdir(working_directory)
-
-                return csv1, list_of_results
 
                 time.sleep(0.2)
 
@@ -165,13 +163,17 @@ class Collector():
 
     while True:
         try:
+            print( "line 5 looped")
             loop_through_folders(5)
         except:
+            print("line 5 loop fault")
             time.sleep(10)
             continue
 
         try:
+            print("line 8 looped")
             loop_through_folders(8)
         except:
+            print("line 8 loop fault")
             time.sleep(10)
             continue
