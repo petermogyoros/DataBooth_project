@@ -10,6 +10,7 @@ CREATE OR REPLACE VIEW past_week (
 )
 
 AS SELECT
+line = 5, line = 8,
 -- query for today
 (SELECT avg(combined_side_a_ng) FROM dolcegusto_dolcegusto_table WHERE csv_datetime >= TIMESTAMP 'today'),
 (SELECT avg(combined_side_b_ng) FROM dolcegusto_dolcegusto_table WHERE csv_datetime >= TIMESTAMP 'today'),

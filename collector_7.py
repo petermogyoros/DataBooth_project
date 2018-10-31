@@ -152,7 +152,7 @@ class Collector():
                 os.rename(entry, move_to)
 
                 # completion feedback after every file. Probably can be removed after testing
-                print("From Line", line, entry)
+                print("From Line", line, "-", entry)
 
                 # change back working directory to where collector.py is located
                 os.chdir(working_directory)
