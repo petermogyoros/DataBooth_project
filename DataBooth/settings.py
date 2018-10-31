@@ -100,14 +100,24 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+<<<<<<< HEAD
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, '/static')
 ]
+=======
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
+# STATICFILES_DIR = [
+#     os.path.join(BASE_DIR, '/static')
+# ]
+>>>>>>> 5dfe21199b73abd432497c48706b38e804cbbe60
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
