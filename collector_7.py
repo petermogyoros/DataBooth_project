@@ -167,7 +167,6 @@ class Collector():
             loop_through_folders(5)
         except:
             print("line 5 loop fault")
-            time.sleep(10)
             continue
 
         try:
@@ -175,5 +174,6 @@ class Collector():
             loop_through_folders(8)
         except:
             print("line 8 loop fault")
-            time.sleep(10)
             continue
+
+        time.sleep(10)
