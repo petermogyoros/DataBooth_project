@@ -8,6 +8,7 @@ import time
 # searches for csv and updates database
 class Collector():
 
+    # loop through folders to find new csv files and update datebase
     def loop_through_folders(line):
 
         def get_values_72_imp_stack_tool(csv1, list_of_results):
@@ -163,6 +164,14 @@ class Collector():
 
 
     while True:
-        loop_through_folders(5)
-        loop_through_folders(8)
-        time.sleep(1)
+        try:
+            loop_through_folders(5)
+        except:
+            time.sleep(10)
+            continue
+
+        try:
+            loop_through_folders(8)
+        except:
+            time.sleep(10)
+            continue
