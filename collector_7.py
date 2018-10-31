@@ -163,14 +163,12 @@ class Collector():
 
     while True:
         try:
-            print( "line 5 looped")
             loop_through_folders(5)
         except:
             print("line 5 loop fault")
             continue
 
         try:
-            print("line 8 looped")
             loop_through_folders(8)
         except:
             print("line 8 loop fault")
