@@ -1,4 +1,6 @@
 from django.db import models, connection
+import pandas as import pd
+from pandas import DataFrame
 
 class DolceGusto_table(models.Model):
     csv_datetime = models.DateTimeField(
@@ -25,14 +27,20 @@ class DolceGusto_table(models.Model):
     b_side_re = models.IntegerField()
 
 # bypassing django model and querying SQL views directely
-def past_week_scrap(self):
+def daily_report_for_8(self):
 
     with connection.cursor() as cursor:
         cursor.execute(
-        "SELECT * FROM public.past_week"
+        "SELECT * FROM public.daily WHERE line = 8 LIMIT 7"
         )
-        today = cursor.fetchone()
-    return today
+        daily_report_for_8 = cursor.fetchone()
+    daily_report_for_8_df = DataFrame(daily_report_for_8, columns = [
+    'line','batch',
+    'combined_side_a_ng', 'combined_side_b_ng',
+    'combined_side_a_re', 'combined_side_b_re',
+    'day'])
+
+    return daily_report_for_8_df
 
 
 # class Past_Week(models.Model):
