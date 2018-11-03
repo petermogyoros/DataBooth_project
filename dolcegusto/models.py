@@ -1,7 +1,6 @@
 from django.db import models, connection
 import pandas as pd
 from pandas import DataFrame
-from
 
 class DolceGusto_table(models.Model):
     csv_datetime = models.DateTimeField(
