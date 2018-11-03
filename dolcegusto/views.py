@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.views import View
+import pandas as pd
+from pandas import DataFrame
 
-from dolcegusto.models import past_week_scrap
+from dolcegusto.models import daily_report_for_8
 
 class Line(View):
-    model = past_week_scrap
+    model = daily_report_for_8
 
     def get(self, request):
 
         try:
-            day_1_side_a_ng = int(past_week_scrap(self)[0])
-            day_1_side_b_ng = int(past_week_scrap(self)[1])
-            day_1_side_a_re = int(past_week_scrap(self)[2])
-            day_1_side_b_re = int(past_week_scrap(self)[3])
+            day_1_side_a_ng = int(daily_report_for_8(self))
+            day_1_side_b_ng = int(daily_report_for_8(self))
+            day_1_side_a_re = int(daily_report_for_8(self))
+            day_1_side_b_re = int(daily_report_for_8(self))
 
         except:
             day_1_side_a_ng = 0
