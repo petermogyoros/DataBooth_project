@@ -1,4 +1,7 @@
 from django.db import models, connection
+import pandas as pd
+from pandas import DataFrame
+from
 
 class DolceGusto_table(models.Model):
     csv_datetime = models.DateTimeField(
@@ -25,54 +28,17 @@ class DolceGusto_table(models.Model):
     b_side_re = models.IntegerField()
 
 # bypassing django model and querying SQL views directely
-def past_week_scrap(self):
+def daily_report_for_8(self):
 
     with connection.cursor() as cursor:
         cursor.execute(
-        "SELECT * FROM public.past_week"
+        "SELECT * FROM public.daily WHERE line = 8 LIMIT 7"
         )
-        today = cursor.fetchone()
-    return today
+        daily_report_for_8 = cursor.fetchall()
+    daily_report_for_8_df = DataFrame(daily_report_for_8, columns = [
+    'line','batch',
+    'combined_side_a_ng', 'combined_side_b_ng',
+    'combined_side_a_re', 'combined_side_b_re',
+    'day'])
 
-
-# class Past_Week(models.Model):
-#     # id = models.IntegerField(primary_key = True)
-#     combined_side_a_ng_avg_1 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_1 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_1 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_1 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#
-#     combined_side_a_ng_avg_2 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_2 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_2 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_2 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     combined_side_a_ng_avg_3 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_3 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_3 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_3 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     combined_side_a_ng_avg_4 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_4 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_4 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_4 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     combined_side_a_ng_avg_5 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_5 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_5 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_5 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     combined_side_a_ng_avg_6 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_6 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_6 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_6 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     combined_side_a_ng_avg_7 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_ng_avg_7 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_a_re_avg_7 = models.DecimalField(max_digits=22, decimal_places=16)
-#     combined_side_b_re_avg_7 = models.DecimalField(max_digits=22, decimal_places=16)
-#
-#     class Meta:
-#         managed = False
-#         db_table = 'past_week'
+    return daily_report_for_8_df

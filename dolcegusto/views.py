@@ -1,19 +1,28 @@
 from django.shortcuts import render
 from django.views import View
+import pandas as pd
+from pandas import DataFrame
 
-from dolcegusto.models import past_week_scrap
+from dolcegusto.models import daily_report_for_8
 
 class Line(View):
-    model = past_week_scrap
+    model = daily_report_for_8
 
     def get(self, request):
 
         # TEMPORARY! get the percantage value from db
         try:
+<<<<<<< HEAD
             day_1_side_a_ng = (int(past_week_scrap(self)[0]) / 15000) *100
             day_1_side_b_ng = (int(past_week_scrap(self)[1]) / 15000) *100
             day_1_side_a_re = (int(past_week_scrap(self)[2]) / 15000) *100
             day_1_side_b_re = (int(past_week_scrap(self)[3]) / 15000) *100
+=======
+            day_1_side_a_ng = int(daily_report_for_8(self))
+            day_1_side_b_ng = int(daily_report_for_8(self))
+            day_1_side_a_re = int(daily_report_for_8(self))
+            day_1_side_b_re = int(daily_report_for_8(self))
+>>>>>>> 9091b43e685fbab4e231f90f02af8b9f47c96670
 
         except:
             day_1_side_a_ng = 0
