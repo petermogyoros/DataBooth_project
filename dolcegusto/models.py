@@ -1,6 +1,7 @@
 from django.db import models, connection
 import pandas as pd
 from pandas import DataFrame
+from
 
 class DolceGusto_table(models.Model):
     csv_datetime = models.DateTimeField(
@@ -33,7 +34,7 @@ def daily_report_for_8(self):
         cursor.execute(
         "SELECT * FROM public.daily WHERE line = 8 LIMIT 7"
         )
-        daily_report_for_8 = cursor.fetchone()
+        daily_report_for_8 = cursor.fetchall()
     daily_report_for_8_df = DataFrame(daily_report_for_8, columns = [
     'line','batch',
     'combined_side_a_ng', 'combined_side_b_ng',
