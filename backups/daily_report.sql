@@ -1,9 +1,8 @@
 SELECT dolcegusto_dolcegusto_table.line,
-    avg(dolcegusto_dolcegusto_table.batch) AS batch,
-    avg(dolcegusto_dolcegusto_table.combined_side_a_ng) AS combined_side_a_ng,
-    avg(dolcegusto_dolcegusto_table.combined_side_b_ng) AS combined_side_b_ng,
-    avg(dolcegusto_dolcegusto_table.combined_side_a_re) AS combined_side_a_re,
-    avg(dolcegusto_dolcegusto_table.combined_side_b_re) AS combined_side_b_re,
+    round(avg(dolcegusto_dolcegusto_table.combined_side_a_ng) / avg(dolcegusto_dolcegusto_table.batch) * 100, 2) AS combined_side_a_ng,
+    round(avg(dolcegusto_dolcegusto_table.combined_side_b_ng) / avg(dolcegusto_dolcegusto_table.batch) * 100, 2) AS combined_side_b_ng,
+    round(avg(dolcegusto_dolcegusto_table.combined_side_a_re) / avg(dolcegusto_dolcegusto_table.batch) * 100, 2) AS combined_side_a_re,
+    round(avg(dolcegusto_dolcegusto_table.combined_side_b_re) / avg(dolcegusto_dolcegusto_table.batch) * 100, 2) AS combined_side_b_re,
 
     date_trunc('day'::text, dolcegusto_dolcegusto_table.csv_datetime) AS day
    FROM dolcegusto_dolcegusto_table

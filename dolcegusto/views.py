@@ -10,7 +10,9 @@ class Line(View):
 
     def get(self, request):
 
-        return render(request, "dolcegusto/line.html", {"data": daily_report_for_8(8)})
+        print(daily_report_for_8(8))
+
+        return render(request, "dolcegusto/lines.html", {"data": daily_report_for_8(8)})
 
         # TEMPORARY! get the percantage value from db
         # try:

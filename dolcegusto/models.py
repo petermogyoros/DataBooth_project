@@ -31,11 +31,11 @@ def daily_report_for_8(self):
 
     with connection.cursor() as cursor:
         cursor.execute(
-        "SELECT * FROM public.daily WHERE line = 8 LIMIT 7"
+        "SELECT * FROM public.daily_scrap WHERE line = 8 LIMIT 7"
         )
         daily_report_for_8 = cursor.fetchall()
     daily_report_for_8_df = DataFrame(daily_report_for_8, columns = [
-    'line','batch',
+    'line',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'day'])
