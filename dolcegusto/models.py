@@ -38,6 +38,6 @@ def daily_report_for_8(self):
     'line',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
-    'day'])
+    'production_day'])
 
     return daily_report_for_8_df
