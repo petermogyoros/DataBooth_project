@@ -13,17 +13,17 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Day', 'Side A', 'Side B'],
-          [{% block day0 %} {% endblock %},  {% block combined_side_a_ng0 %} {% endblock %}, {% block combined_side_b_ng0 %} {% endblock %}],
-          [{% block day1 %} {% endblock %},  {% block combined_side_a_ng1 %} {% endblock %}, {% block combined_side_b_ng1 %} {% endblock %}],
-          [{% block day2 %} {% endblock %},  {% block combined_side_a_ng2 %} {% endblock %}, {% block combined_side_b_ng2 %} {% endblock %}],
-          [{% block day3 %} {% endblock %},  {% block combined_side_a_ng3 %} {% endblock %}, {% block combined_side_b_ng3 %} {% endblock %}],
-          [{% block day4 %} {% endblock %},  {% block combined_side_a_ng4 %} {% endblock %}, {% block combined_side_b_ng4 %} {% endblock %}],
-          [{% block day5 %} {% endblock %},  {% block combined_side_a_ng5 %} {% endblock %}, {% block combined_side_b_ng5 %} {% endblock %}],
-          [{% block day6 %} {% endblock %},  {% block combined_side_a_ng6 %} {% endblock %}, {% block combined_side_b_ng6 %} {% endblock %}],
+          ["1",  {% block combined_side_a_ng0 %} {% endblock %}, {% block combined_side_b_ng0 %} {% endblock %}],
+          ["2",  {% block combined_side_a_ng1 %} {% endblock %}, {% block combined_side_b_ng1 %} {% endblock %}],
+          ["3",  {% block combined_side_a_ng2 %} {% endblock %}, {% block combined_side_b_ng2 %} {% endblock %}],
+          ["4",  {% block combined_side_a_ng3 %} {% endblock %}, {% block combined_side_b_ng3 %} {% endblock %}],
+          ["5",  {% block combined_side_a_ng4 %} {% endblock %}, {% block combined_side_b_ng4 %} {% endblock %}],
+          ["6",  {% block combined_side_a_ng5 %} {% endblock %}, {% block combined_side_b_ng5 %} {% endblock %}],
+          ["7",  {% block combined_side_a_ng6 %} {% endblock %}, {% block combined_side_b_ng6 %} {% endblock %}],
         ]);
 
         var options = {
-          title: 'Rejected Parts',
+          title: {% block line %} {% endblock %},
           curveType: 'function',
           legend: { position: 'bottom' }
         };

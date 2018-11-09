@@ -27,17 +27,17 @@ class DolceGusto_table(models.Model):
     b_side_re = models.IntegerField()
 
 # bypassing django model and querying SQL views directely
-def daily_report_for_8(self):
+def daily_report(self):
 
     with connection.cursor() as cursor:
         cursor.execute(
-        "SELECT * FROM public.daily_scrap WHERE line = 8 LIMIT 7"
+        "SELECT * FROM public.daily_scrap WHERE line = %s LIMIT 7", [self]
         )
-        daily_report_for_8 = cursor.fetchall()
-    daily_report_for_8_df = DataFrame(daily_report_for_8, columns = [
+        daily_report = cursor.fetchall()
+    daily_report_df = DataFrame(daily_report, columns = [
     'line',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'production_day'])
-
-    return daily_report_for_8_df
+    
+    return daily_report_df
