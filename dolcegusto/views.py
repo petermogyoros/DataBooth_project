@@ -40,7 +40,7 @@ class Line(View):
         day6 = get_weekday(datetime.strptime(str(daily_report_for_8(8).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
 
 
-        return render(request, "dolcegusto/lines.html", {
+        return render(request, "dolcegusto/line.html", {
         "day0": day0,
         "combined_side_a_ng0": daily_report_for_8(8).combined_side_a_ng[0],
         "combined_side_b_ng0": daily_report_for_8(8).combined_side_b_ng[0],
