@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
+
   <head>
 
     <meta charset="utf-8">
@@ -143,7 +145,8 @@
         <li class="nav-item">
           <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>{% block day0 %}
+            {% endblock %}</span></a>
         </li>
       </ul>
 
@@ -177,7 +180,9 @@
               var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7"],
+                  labels: [{% block day0 %}
+                  {% endblock %}
+],
                   datasets: [{
                     label: "Sessions",
                     lineTension: 0.3,
@@ -191,13 +196,13 @@
                     pointHitRadius: 50,
                     pointBorderWidth: 2,
                     data: [
-                      {% block day_7_side_a_ng %} {% endblock %},
-                      {% block day_6_side_a_ng %} {% endblock %},
-                      {% block day_5_side_a_ng %} {% endblock %},
-                      {% block day_4_side_a_ng %} {% endblock %},
-                      {% block day_3_side_a_ng %} {% endblock %},
-                      {% block day_2_side_a_ng %} {% endblock %},
-                      {% block day_1_side_a_ng %} {% endblock %},
+                      {% block combined_side_a_ng6 %} {% endblock %},
+                      {% block combined_side_a_ng5 %} {% endblock %},
+                      {% block combined_side_a_ng4 %} {% endblock %},
+                      {% block combined_side_a_ng3 %} {% endblock %},
+                      {% block combined_side_a_ng2 %} {% endblock %},
+                      {% block combined_side_a_ng1 %} {% endblock %},
+                      {% block combined_side_a_ng0 %} {% endblock %},
 
                     ],
                   }
@@ -249,9 +254,8 @@
           </div>
 
           <!-- Area Chart Example-->
-          <!-- <div class="card mb-3">
-=======
-          <!-- Area Chart Example-->
+          <div class="card mb-3">
+          <!-- Area Chart Example -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-chart-area"></i>
