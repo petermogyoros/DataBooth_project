@@ -154,12 +154,15 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Production Site</th>
-                      <th>Line Number</th>
-                      <th>Product Name</th>
-                      <th>Box Frequency</th>
-                      <th>Production Date</th>
-                      <th>Production Time</th>
+                      <th>Site</th>
+                      <th>Line</th>
+                      <th>Product</th>
+                      <th>Side A NG</th>
+                      <th>Side B NG</th>
+                      <th>Side A RE</th>
+                      <th>Side B RE</th>
+                      <th> Day</th>
+
                     </tr>
                   </thead>
                   <!-- <tfoot>
@@ -176,17 +179,20 @@
                     <tr>
                       <td>Eaton Socon</td>
                       <td>{% block line %}
-
                       {% endblock %}</td>
                       <td>Dolce Gusto</td>
-                      <td> </td>
+                      <td>{% block combined_side_a_ng0 %}
+                      {% endblock %}</td>
+                      <td>{% block combined_side_b_ng0 %}
+                      {% endblock %}</td>
+                      <td>{% block combined_side_a_re0 %}
+                      {% endblock %}</td>
+                      <td>{% block combined_side_b_re0 %}
+                      {% endblock %}</td>
                       <td>{% block day1 %}
-
-                      {% endblock %}
-</td>
-                      <td>$320,800</td>
+                        {% endblock %}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                       <td>Garrett Winters</td>
                       <td>Accountant</td>
                       <td>Tokyo</td>
@@ -633,7 +639,7 @@
                       <td>27</td>
                       <td>2011/01/25</td>
                       <td>$112,000</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
