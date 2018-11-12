@@ -169,15 +169,15 @@ class Collector():
     while True:
         while_counter += 1
         print(while_counter)
+
+        # add machine here to update database
+        # also update loop_through_folders() function
         try:
             loop_through_folders(5)
         except:
             time.sleep(10)
             continue
 
-        # add machine here to update database
-        # also update loop_through_folders() function
-        
         try:
             loop_through_folders(8)
         except:
