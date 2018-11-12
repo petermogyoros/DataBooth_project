@@ -29,6 +29,7 @@ class DolceGusto_table(models.Model):
 # bypassing django model and querying SQL views directely
 def daily_report(self):
 
+    print(self)
     with connection.cursor() as cursor:
         cursor.execute(
         "SELECT * FROM public.daily_scrap WHERE line = %s LIMIT 7", [self]
@@ -39,5 +40,5 @@ def daily_report(self):
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'production_day'])
-    
+
     return daily_report_df

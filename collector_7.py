@@ -122,6 +122,11 @@ class Collector():
             csv_working_directory = '/home/peter/csv/line8'
             new_location = '/home/peter/csv/line8/2018/%s'
 
+        elif line == 9:
+            csv_working_directory = '/home/peter/csv/line9'
+            new_location = '/home/peter/csv/line9/2018/%s'
+
+
         # list through each file in the working_directory
         log_folder = os.listdir(csv_working_directory)
         pattern = '*.csv' # choose search pater
@@ -167,17 +172,23 @@ class Collector():
         try:
             loop_through_folders(5)
         except:
-            print("line 5 loop fault")
+            time.sleep(10)
+            continue
+
+        # add machine here to update database
+        # also update loop_through_folders() function
+        
+        try:
+            loop_through_folders(8)
+        except:
             time.sleep(10)
             continue
 
         try:
-            loop_through_folders(8)
+            loop_through_folders(9)
         except:
-            print("line 8 loop fault")
             time.sleep(10)
             continue
 
         if while_counter == 3:
-            print("Quiting")
             quit()
