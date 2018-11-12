@@ -160,8 +160,10 @@ class Collector():
                 time.sleep(0.2)
 
 
-
+    while_counter = 0
     while True:
+        while_counter += 1
+        print(while_counter)
         try:
             loop_through_folders(5)
         except:
@@ -176,4 +178,6 @@ class Collector():
             time.sleep(10)
             continue
 
-        time.sleep(10)
+        if while_counter == 3:
+            print("Quiting")
+            quit()
