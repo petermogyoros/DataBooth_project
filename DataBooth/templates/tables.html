@@ -148,22 +148,30 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Data Table Example</div>
+              Combined Reject Rate per Machine</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Site</th>
-                      <th>Line</th>
                       <th>Product</th>
-                      <th>Side A NG</th>
-                      <th>Side B NG</th>
-                      <th>Side A RE</th>
-                      <th>Side B RE</th>
-                      <th> Day</th>
-
+                      <th>Line</th>
+                      <th>{% block day0 %}
+                      {% endblock %}</th>
+                      <th>{% block day1 %}
+                      {% endblock %}</th>
+                      <th>{% block day2 %}
+                      {% endblock %}</th>
+                      <th>{% block day3 %}
+                      {% endblock %}</th>
+                      <th>{% block day4 %}
+                      {% endblock %}</th>
+                      <th>{% block day5 %}
+                      {% endblock %}</th>
+                      <th>{% block day6 %}
+                      {% endblock %}</th>
                     </tr>
+
                   </thead>
                   <!-- <tfoot>
                     <tr>
@@ -177,20 +185,23 @@
                   </tfoot> -->
                   <tbody>
                     <tr>
-                      <td>Eaton Socon</td>
+                      <td>Dolce Gusto</td>
                       <td>{% block line %}
                       {% endblock %}</td>
-                      <td>Dolce Gusto</td>
-                      <td>{% block combined_side_a_ng0 %}
+                      <td>{% block combined_scrap_0 %}
                       {% endblock %}</td>
-                      <td>{% block combined_side_b_ng0 %}
+                      <td>{% block combined_scrap_1 %}
                       {% endblock %}</td>
-                      <td>{% block combined_side_a_re0 %}
+                      <td>{% block combined_scrap_2 %}
                       {% endblock %}</td>
-                      <td>{% block combined_side_b_re0 %}
+                      <td>{% block combined_scrap_3 %}
                       {% endblock %}</td>
-                      <td>{% block day1 %}
-                        {% endblock %}</td>
+                      <td>{% block combined_scrap_4 %}
+                      {% endblock %}</td>
+                      <td>{% block combined_scrap_5 %}
+                      {% endblock %}</td>
+                      <td>{% block combined_scrap_6 %}
+                      {% endblock %}</td>
                     </tr>
                     <!-- <tr>
                       <td>Garrett Winters</td>
