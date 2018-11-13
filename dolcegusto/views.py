@@ -6,7 +6,7 @@ from datetime import datetime
 
 from dolcegusto.models import daily_report
 
-class Line(View):
+class Table(View):
     model = daily_report
 
     def get(self, request):
@@ -204,4 +204,4 @@ class Line(View):
 
         lines = render_per_line(5, 8, 9)
 
-        return render(request, "dolcegusto/line.html", lines)
+        return render(request, "dolcegusto/scrap_rate.html", lines)
