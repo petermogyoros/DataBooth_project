@@ -145,9 +145,6 @@ class Collector():
             new_location = '/home/peter/csv/line10/2018/%s'
 
 
-
-
-
         # list through each file in the working_directory
         log_folder = os.listdir(csv_working_directory)
         pattern = '*.csv' # choose search pater
