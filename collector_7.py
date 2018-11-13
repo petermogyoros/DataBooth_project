@@ -106,7 +106,9 @@ class Collector():
             a_bottom_re = int(recycle_dict["bottom_a"]),
             b_bottom_re = int(recycle_dict["bottom_b"]),
             a_side_re = int(recycle_dict["side_a"]),
-            b_side_re = int(recycle_dict["side_b"]))
+            b_side_re = int(recycle_dict["side_b"]),
+            product = "Dolce Gusto",
+            production_site = "Eaton Socon")
 
             db_update.save()
 

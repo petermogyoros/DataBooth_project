@@ -45,285 +45,267 @@ class Table(View):
 
             # get combined reject rate for the whole machine. Rejects for each side + recycles for each side
             # if one side is not running, do not devide final vale by 2
-            if line3 == 3:
-                line = 3
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_3 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_3 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_3 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_3 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
+            # statements for Line 3
+            if daily_report(line3).combined_side_a_ng[0] < 0.1 or daily_report(line3).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_3 = daily_report(line3).combined_side_a_ng[0] + daily_report(line3).combined_side_b_ng[0] + daily_report(line3).combined_side_a_re[0] + daily_report(line3).combined_side_b_re[0]
+            elif daily_report(line3).combined_side_a_ng[0] > 0.1 and daily_report(line3).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_3 = (daily_report(line3).combined_side_a_ng[0] + daily_report(line3).combined_side_b_ng[0] + daily_report(line3).combined_side_a_re[0] + daily_report(line3).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_3 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_3 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            if daily_report(line3).combined_side_a_ng[1] < 0.1 or daily_report(line3).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_3 = daily_report(line3).combined_side_a_ng[1] + daily_report(line3).combined_side_b_ng[1] + daily_report(line3).combined_side_a_re[1] + daily_report(line3).combined_side_b_re[1]
+            elif daily_report(line3).combined_side_a_ng[1] > 0.1 and daily_report(line3).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_3 = (daily_report(line3).combined_side_a_ng[1] + daily_report(line3).combined_side_b_ng[1] + daily_report(line3).combined_side_a_re[1] + daily_report(line3).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_3 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_3 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
+            if daily_report(line3).combined_side_a_ng[2] < 0.1 or daily_report(line3).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_3 = daily_report(line3).combined_side_a_ng[2] + daily_report(line3).combined_side_b_ng[2] + daily_report(line3).combined_side_a_re[2] + daily_report(line3).combined_side_b_re[2]
+            elif daily_report(line3).combined_side_a_ng[2] > 0.1 and daily_report(line3).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_3 = (daily_report(line3).combined_side_a_ng[2] + daily_report(line3).combined_side_b_ng[2] + daily_report(line3).combined_side_a_re[2] + daily_report(line3).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_3 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_3 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            if daily_report(line3).combined_side_a_ng[3] < 0.1 or daily_report(line3).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_3 = daily_report(line3).combined_side_a_ng[3] + daily_report(line3).combined_side_b_ng[3] + daily_report(line3).combined_side_a_re[3] + daily_report(line3).combined_side_b_re[3]
+            elif daily_report(line3).combined_side_a_ng[3] > 0.1 and daily_report(line3).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_3 = (daily_report(line3).combined_side_a_ng[3] + daily_report(line3).combined_side_b_ng[3] + daily_report(line3).combined_side_a_re[3] + daily_report(line3).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_3 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_3 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line3).combined_side_a_ng[4] < 0.1 or daily_report(line3).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_3 = daily_report(line3).combined_side_a_ng[4] + daily_report(line3).combined_side_b_ng[4] + daily_report(line3).combined_side_a_re[4] + daily_report(line3).combined_side_b_re[4]
+            elif daily_report(line3).combined_side_a_ng[4] > 0.1 and daily_report(line3).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_3 = (daily_report(line3).combined_side_a_ng[4] + daily_report(line3).combined_side_b_ng[4] + daily_report(line3).combined_side_a_re[4] + daily_report(line3).combined_side_b_re[4]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_3 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_3 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line3).combined_side_a_ng[5] < 0.1 or daily_report(line3).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_3 = daily_report(line3).combined_side_a_ng[5] + daily_report(line3).combined_side_b_ng[5] + daily_report(line3).combined_side_a_re[5] + daily_report(line3).combined_side_b_re[5]
+            elif daily_report(line3).combined_side_a_ng[5] > 0.1 and daily_report(line3).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_3 = (daily_report(line3).combined_side_a_ng[5] + daily_report(line3).combined_side_b_ng[5] + daily_report(line3).combined_side_a_re[5] + daily_report(line3).combined_side_b_re[5]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line3).combined_side_a_ng[6] < 0.1 or daily_report(line3).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_3 = daily_report(line3).combined_side_a_ng[6] + daily_report(line3).combined_side_b_ng[6] + daily_report(line3).combined_side_a_re[6] + daily_report(line3).combined_side_b_re[6]
+            elif daily_report(line3).combined_side_a_ng[6] > 0.1 and daily_report(line3).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_3 = (daily_report(line3).combined_side_a_ng[6] + daily_report(line3).combined_side_b_ng[6] + daily_report(line3).combined_side_a_re[6] + daily_report(line3).combined_side_b_re[6]) / 2
 
-            if line4 == 4:
-                line = 4
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_4 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_4 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_4 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_4 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
+            # statements for Line 4
+            if daily_report(line4).combined_side_a_ng[0] < 0.1 or daily_report(line4).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_4 = daily_report(line4).combined_side_a_ng[0] + daily_report(line4).combined_side_b_ng[0] + daily_report(line4).combined_side_a_re[0] + daily_report(line4).combined_side_b_re[0]
+            elif daily_report(line4).combined_side_a_ng[0] > 0.1 and daily_report(line4).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_4 = (daily_report(line4).combined_side_a_ng[0] + daily_report(line4).combined_side_b_ng[0] + daily_report(line4).combined_side_a_re[0] + daily_report(line4).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_4 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_4 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            if daily_report(line4).combined_side_a_ng[1] < 0.1 or daily_report(line4).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_4 = daily_report(line4).combined_side_a_ng[1] + daily_report(line4).combined_side_b_ng[1] + daily_report(line4).combined_side_a_re[1] + daily_report(line4).combined_side_b_re[1]
+            elif daily_report(line4).combined_side_a_ng[1] > 0.1 and daily_report(line4).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_4 = (daily_report(line4).combined_side_a_ng[1] + daily_report(line4).combined_side_b_ng[1] + daily_report(line4).combined_side_a_re[1] + daily_report(line4).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_4 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_4 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
+            if daily_report(line4).combined_side_a_ng[2] < 0.1 or daily_report(line4).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_4 = daily_report(line4).combined_side_a_ng[2] + daily_report(line4).combined_side_b_ng[2] + daily_report(line4).combined_side_a_re[2] + daily_report(line4).combined_side_b_re[2]
+            elif daily_report(line4).combined_side_a_ng[2] > 0.1 and daily_report(line4).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_4 = (daily_report(line4).combined_side_a_ng[2] + daily_report(line4).combined_side_b_ng[2] + daily_report(line4).combined_side_a_re[2] + daily_report(line4).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_4 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_4 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            if daily_report(line4).combined_side_a_ng[3] < 0.1 or daily_report(line4).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_4 = daily_report(line4).combined_side_a_ng[3] + daily_report(line4).combined_side_b_ng[3] + daily_report(line4).combined_side_a_re[3] + daily_report(line4).combined_side_b_re[3]
+            elif daily_report(line4).combined_side_a_ng[3] > 0.1 and daily_report(line4).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_4 = (daily_report(line4).combined_side_a_ng[3] + daily_report(line4).combined_side_b_ng[3] + daily_report(line4).combined_side_a_re[3] + daily_report(line4).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_4 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_4 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line4).combined_side_a_ng[4] < 0.1 or daily_report(line4).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_4 = daily_report(line4).combined_side_a_ng[4] + daily_report(line4).combined_side_b_ng[4] + daily_report(line4).combined_side_a_re[4] + daily_report(line4).combined_side_b_re[4]
+            elif daily_report(line4).combined_side_a_ng[4] > 0.1 and daily_report(line4).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_4 = (daily_report(line4).combined_side_a_ng[4] + daily_report(line4).combined_side_b_ng[4] + daily_report(line4).combined_side_a_re[4] + daily_report(line4).combined_side_b_re[4]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_4 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_4 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line4).combined_side_a_ng[5] < 0.1 or daily_report(line4).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_4 = daily_report(line4).combined_side_a_ng[5] + daily_report(line4).combined_side_b_ng[5] + daily_report(line4).combined_side_a_re[5] + daily_report(line4).combined_side_b_re[5]
+            elif daily_report(line4).combined_side_a_ng[5] > 0.1 and daily_report(line4).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_4 = (daily_report(line4).combined_side_a_ng[5] + daily_report(line4).combined_side_b_ng[5] + daily_report(line4).combined_side_a_re[5] + daily_report(line4).combined_side_b_re[5]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line4).combined_side_a_ng[6] < 0.1 or daily_report(line4).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_4 = daily_report(line4).combined_side_a_ng[6] + daily_report(line4).combined_side_b_ng[6] + daily_report(line4).combined_side_a_re[6] + daily_report(line4).combined_side_b_re[6]
+            elif daily_report(line4).combined_side_a_ng[6] > 0.1 and daily_report(line4).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_4 = (daily_report(line4).combined_side_a_ng[6] + daily_report(line4).combined_side_b_ng[6] + daily_report(line4).combined_side_a_re[6] + daily_report(line4).combined_side_b_re[6]) / 2
 
-            if line5 == 5:
-                line = 5
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_5 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_5 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_5 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_5 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
+            # statements for Line 5
+            if daily_report(line5).combined_side_a_ng[0] < 0.1 or daily_report(line5).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_5 = daily_report(line5).combined_side_a_ng[0] + daily_report(line5).combined_side_b_ng[0] + daily_report(line5).combined_side_a_re[0] + daily_report(line5).combined_side_b_re[0]
+            elif daily_report(line5).combined_side_a_ng[0] > 0.1 and daily_report(line5).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_5 = (daily_report(line5).combined_side_a_ng[0] + daily_report(line5).combined_side_b_ng[0] + daily_report(line5).combined_side_a_re[0] + daily_report(line5).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_5 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_5 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            if daily_report(line5).combined_side_a_ng[1] < 0.1 or daily_report(line5).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_5 = daily_report(line5).combined_side_a_ng[1] + daily_report(line5).combined_side_b_ng[1] + daily_report(line5).combined_side_a_re[1] + daily_report(line5).combined_side_b_re[1]
+            elif daily_report(line5).combined_side_a_ng[1] > 0.1 and daily_report(line5).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_5 = (daily_report(line5).combined_side_a_ng[1] + daily_report(line5).combined_side_b_ng[1] + daily_report(line5).combined_side_a_re[1] + daily_report(line5).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_5 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_5 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
+            if daily_report(line5).combined_side_a_ng[2] < 0.1 or daily_report(line5).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_5 = daily_report(line5).combined_side_a_ng[2] + daily_report(line5).combined_side_b_ng[2] + daily_report(line5).combined_side_a_re[2] + daily_report(line5).combined_side_b_re[2]
+            elif daily_report(line5).combined_side_a_ng[2] > 0.1 and daily_report(line5).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_5 = (daily_report(line5).combined_side_a_ng[2] + daily_report(line5).combined_side_b_ng[2] + daily_report(line5).combined_side_a_re[2] + daily_report(line5).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_5 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_5 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            if daily_report(line5).combined_side_a_ng[3] < 0.1 or daily_report(line5).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_5 = daily_report(line5).combined_side_a_ng[3] + daily_report(line5).combined_side_b_ng[3] + daily_report(line5).combined_side_a_re[3] + daily_report(line5).combined_side_b_re[3]
+            elif daily_report(line5).combined_side_a_ng[3] > 0.1 and daily_report(line5).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_5 = (daily_report(line5).combined_side_a_ng[3] + daily_report(line5).combined_side_b_ng[3] + daily_report(line5).combined_side_a_re[3] + daily_report(line5).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_5 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_5 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line5).combined_side_a_ng[4] < 0.1 or daily_report(line5).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_5 = daily_report(line5).combined_side_a_ng[4] + daily_report(line5).combined_side_b_ng[4] + daily_report(line5).combined_side_a_re[4] + daily_report(line5).combined_side_b_re[4]
+            elif daily_report(line5).combined_side_a_ng[4] > 0.1 and daily_report(line5).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_5 = (daily_report(line5).combined_side_a_ng[4] + daily_report(line5).combined_side_b_ng[4] + daily_report(line5).combined_side_a_re[4] + daily_report(line5).combined_side_b_re[4]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_5 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_5 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line5).combined_side_a_ng[5] < 0.1 or daily_report(line5).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_5 = daily_report(line5).combined_side_a_ng[5] + daily_report(line5).combined_side_b_ng[5] + daily_report(line5).combined_side_a_re[5] + daily_report(line5).combined_side_b_re[5]
+            elif daily_report(line5).combined_side_a_ng[5] > 0.1 and daily_report(line5).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_5 = (daily_report(line5).combined_side_a_ng[5] + daily_report(line5).combined_side_b_ng[5] + daily_report(line5).combined_side_a_re[5] + daily_report(line5).combined_side_b_re[5]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line5).combined_side_a_ng[6] < 0.1 or daily_report(line5).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_5 = daily_report(line5).combined_side_a_ng[6] + daily_report(line5).combined_side_b_ng[6] + daily_report(line5).combined_side_a_re[6] + daily_report(line5).combined_side_b_re[6]
+            elif daily_report(line5).combined_side_a_ng[6] > 0.1 and daily_report(line5).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_5 = (daily_report(line5).combined_side_a_ng[6] + daily_report(line5).combined_side_b_ng[6] + daily_report(line5).combined_side_a_re[6] + daily_report(line5).combined_side_b_re[6]) / 2
 
-            if line7 == 7:
-                line = 7
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_7 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_7 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_7 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_7 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_7 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_7 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            # statements for Line 7
+            if daily_report(line7).combined_side_a_ng[0] < 0.1 or daily_report(line7).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_7 = daily_report(line7).combined_side_a_ng[0] + daily_report(line7).combined_side_b_ng[0] + daily_report(line7).combined_side_a_re[0] + daily_report(line7).combined_side_b_re[0]
+            elif daily_report(line7).combined_side_a_ng[0] > 0.1 and daily_report(line7).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_7 = (daily_report(line7).combined_side_a_ng[0] + daily_report(line7).combined_side_b_ng[0] + daily_report(line7).combined_side_a_re[0] + daily_report(line7).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_7 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_7 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
+            if daily_report(line7).combined_side_a_ng[1] < 0.1 or daily_report(line7).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_7 = daily_report(line7).combined_side_a_ng[1] + daily_report(line7).combined_side_b_ng[1] + daily_report(line7).combined_side_a_re[1] + daily_report(line7).combined_side_b_re[1]
+            elif daily_report(line7).combined_side_a_ng[1] > 0.1 and daily_report(line7).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_7 = (daily_report(line7).combined_side_a_ng[1] + daily_report(line7).combined_side_b_ng[1] + daily_report(line7).combined_side_a_re[1] + daily_report(line7).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_7 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_7 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            if daily_report(line7).combined_side_a_ng[2] < 0.1 or daily_report(line7).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_7 = daily_report(line7).combined_side_a_ng[2] + daily_report(line7).combined_side_b_ng[2] + daily_report(line7).combined_side_a_re[2] + daily_report(line7).combined_side_b_re[2]
+            elif daily_report(line7).combined_side_a_ng[2] > 0.1 and daily_report(line7).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_7 = (daily_report(line7).combined_side_a_ng[2] + daily_report(line7).combined_side_b_ng[2] + daily_report(line7).combined_side_a_re[2] + daily_report(line7).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_7 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_7 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line7).combined_side_a_ng[3] < 0.1 or daily_report(line7).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_7 = daily_report(line7).combined_side_a_ng[3] + daily_report(line7).combined_side_b_ng[3] + daily_report(line7).combined_side_a_re[3] + daily_report(line7).combined_side_b_re[3]
+            elif daily_report(line7).combined_side_a_ng[3] > 0.1 and daily_report(line7).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_7 = (daily_report(line7).combined_side_a_ng[3] + daily_report(line7).combined_side_b_ng[3] + daily_report(line7).combined_side_a_re[3] + daily_report(line7).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_7 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_7 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line7).combined_side_a_ng[4] < 0.1 or daily_report(line7).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_7 = daily_report(line7).combined_side_a_ng[4] + daily_report(line7).combined_side_b_ng[4] + daily_report(line7).combined_side_a_re[4] + daily_report(line7).combined_side_b_re[4]
+            elif daily_report(line7).combined_side_a_ng[4] > 0.1 and daily_report(line7).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_7 = (daily_report(line7).combined_side_a_ng[4] + daily_report(line7).combined_side_b_ng[4] + daily_report(line7).combined_side_a_re[4] + daily_report(line7).combined_side_b_re[4]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line7).combined_side_a_ng[5] < 0.1 or daily_report(line7).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_7 = daily_report(line7).combined_side_a_ng[5] + daily_report(line7).combined_side_b_ng[5] + daily_report(line7).combined_side_a_re[5] + daily_report(line7).combined_side_b_re[5]
+            elif daily_report(line7).combined_side_a_ng[5] > 0.1 and daily_report(line7).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_7 = (daily_report(line7).combined_side_a_ng[5] + daily_report(line7).combined_side_b_ng[5] + daily_report(line7).combined_side_a_re[5] + daily_report(line7).combined_side_b_re[5]) / 2
 
-            if line8 == 8:
-                line = 8
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_8 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_8 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
+            if daily_report(line7).combined_side_a_ng[6] < 0.1 or daily_report(line7).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_7 = daily_report(line7).combined_side_a_ng[6] + daily_report(line7).combined_side_b_ng[6] + daily_report(line7).combined_side_a_re[6] + daily_report(line7).combined_side_b_re[6]
+            elif daily_report(line7).combined_side_a_ng[6] > 0.1 and daily_report(line7).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_7 = (daily_report(line7).combined_side_a_ng[6] + daily_report(line7).combined_side_b_ng[6] + daily_report(line7).combined_side_a_re[6] + daily_report(line7).combined_side_b_re[6]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_8 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_8 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_8 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_8 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            # statements for Line 8
+            if daily_report(line8).combined_side_a_ng[0] < 0.1 or daily_report(line8).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_8 = daily_report(line8).combined_side_a_ng[0] + daily_report(line8).combined_side_b_ng[0] + daily_report(line8).combined_side_a_re[0] + daily_report(line8).combined_side_b_re[0]
+            elif daily_report(line8).combined_side_a_ng[0] > 0.1 and daily_report(line8).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_8 = (daily_report(line8).combined_side_a_ng[0] + daily_report(line8).combined_side_b_ng[0] + daily_report(line8).combined_side_a_re[0] + daily_report(line8).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_8 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_8 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
+            if daily_report(line8).combined_side_a_ng[1] < 0.1 or daily_report(line8).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_8 = daily_report(line8).combined_side_a_ng[1] + daily_report(line8).combined_side_b_ng[1] + daily_report(line8).combined_side_a_re[1] + daily_report(line8).combined_side_b_re[1]
+            elif daily_report(line8).combined_side_a_ng[1] > 0.1 and daily_report(line8).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_8 = (daily_report(line8).combined_side_a_ng[1] + daily_report(line8).combined_side_b_ng[1] + daily_report(line8).combined_side_a_re[1] + daily_report(line8).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_8 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_8 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            if daily_report(line8).combined_side_a_ng[2] < 0.1 or daily_report(line8).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_8 = daily_report(line8).combined_side_a_ng[2] + daily_report(line8).combined_side_b_ng[2] + daily_report(line8).combined_side_a_re[2] + daily_report(line8).combined_side_b_re[2]
+            elif daily_report(line8).combined_side_a_ng[2] > 0.1 and daily_report(line8).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_8 = (daily_report(line8).combined_side_a_ng[2] + daily_report(line8).combined_side_b_ng[2] + daily_report(line8).combined_side_a_re[2] + daily_report(line8).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_8 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_8 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line8).combined_side_a_ng[3] < 0.1 or daily_report(line8).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_8 = daily_report(line8).combined_side_a_ng[3] + daily_report(line8).combined_side_b_ng[3] + daily_report(line8).combined_side_a_re[3] + daily_report(line8).combined_side_b_re[3]
+            elif daily_report(line8).combined_side_a_ng[3] > 0.1 and daily_report(line8).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_8 = (daily_report(line8).combined_side_a_ng[3] + daily_report(line8).combined_side_b_ng[3] + daily_report(line8).combined_side_a_re[3] + daily_report(line8).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_8 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_8 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
-            else:
-                print("Machine Not Running")
+            if daily_report(line8).combined_side_a_ng[4] < 0.1 or daily_report(line8).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_8 = daily_report(line8).combined_side_a_ng[4] + daily_report(line8).combined_side_b_ng[4] + daily_report(line8).combined_side_a_re[4] + daily_report(line8).combined_side_b_re[4]
+            elif daily_report(line8).combined_side_a_ng[4] > 0.1 and daily_report(line8).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_8 = (daily_report(line8).combined_side_a_ng[4] + daily_report(line8).combined_side_b_ng[4] + daily_report(line8).combined_side_a_re[4] + daily_report(line8).combined_side_b_re[4]) / 2
 
-            if line9 == 9:
-                line = 9
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_9 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_9 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
+            if daily_report(line8).combined_side_a_ng[5] < 0.1 or daily_report(line8).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_8 = daily_report(line8).combined_side_a_ng[5] + daily_report(line8).combined_side_b_ng[5] + daily_report(line8).combined_side_a_re[5] + daily_report(line8).combined_side_b_re[5]
+            elif daily_report(line8).combined_side_a_ng[5] > 0.1 and daily_report(line8).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_8 = (daily_report(line8).combined_side_a_ng[5] + daily_report(line8).combined_side_b_ng[5] + daily_report(line8).combined_side_a_re[5] + daily_report(line8).combined_side_b_re[5]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_9 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_9 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
+            if daily_report(line8).combined_side_a_ng[6] < 0.1 or daily_report(line8).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_8 = daily_report(line8).combined_side_a_ng[6] + daily_report(line8).combined_side_b_ng[6] + daily_report(line8).combined_side_a_re[6] + daily_report(line8).combined_side_b_re[6]
+            elif daily_report(line8).combined_side_a_ng[6] > 0.1 and daily_report(line8).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_8 = (daily_report(line8).combined_side_a_ng[6] + daily_report(line8).combined_side_b_ng[6] + daily_report(line8).combined_side_a_re[6] + daily_report(line8).combined_side_b_re[6]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_9 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_9 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_9 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_9 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_9 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_9 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
+            # statements for Line 9
+            if daily_report(line9).combined_side_a_ng[0] < 0.1 or daily_report(line9).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_9 = daily_report(line9).combined_side_a_ng[0] + daily_report(line9).combined_side_b_ng[0] + daily_report(line9).combined_side_a_re[0] + daily_report(line9).combined_side_b_re[0]
+            elif daily_report(line9).combined_side_a_ng[0] > 0.1 and daily_report(line9).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_9 = (daily_report(line9).combined_side_a_ng[0] + daily_report(line9).combined_side_b_ng[0] + daily_report(line9).combined_side_a_re[0] + daily_report(line9).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_9 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_9 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            if daily_report(line9).combined_side_a_ng[1] < 0.1 or daily_report(line9).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_9 = daily_report(line9).combined_side_a_ng[1] + daily_report(line9).combined_side_b_ng[1] + daily_report(line9).combined_side_a_re[1] + daily_report(line9).combined_side_b_re[1]
+            elif daily_report(line9).combined_side_a_ng[1] > 0.1 and daily_report(line9).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_9 = (daily_report(line9).combined_side_a_ng[1] + daily_report(line9).combined_side_b_ng[1] + daily_report(line9).combined_side_a_re[1] + daily_report(line9).combined_side_b_re[1]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_9 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_9 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line9).combined_side_a_ng[2] < 0.1 or daily_report(line9).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_9 = daily_report(line9).combined_side_a_ng[2] + daily_report(line9).combined_side_b_ng[2] + daily_report(line9).combined_side_a_re[2] + daily_report(line9).combined_side_b_re[2]
+            elif daily_report(line9).combined_side_a_ng[2] > 0.1 and daily_report(line9).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_9 = (daily_report(line9).combined_side_a_ng[2] + daily_report(line9).combined_side_b_ng[2] + daily_report(line9).combined_side_a_re[2] + daily_report(line9).combined_side_b_re[2]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line9).combined_side_a_ng[3] < 0.1 or daily_report(line9).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_9 = daily_report(line9).combined_side_a_ng[3] + daily_report(line9).combined_side_b_ng[3] + daily_report(line9).combined_side_a_re[3] + daily_report(line9).combined_side_b_re[3]
+            elif daily_report(line9).combined_side_a_ng[3] > 0.1 and daily_report(line9).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_9 = (daily_report(line9).combined_side_a_ng[3] + daily_report(line9).combined_side_b_ng[3] + daily_report(line9).combined_side_a_re[3] + daily_report(line9).combined_side_b_re[3]) / 2
 
-            if line10 == 10:
-                line = 10
-                if daily_report(line).combined_side_a_ng[0] < 0.1 or daily_report(line).combined_side_b_ng[0] < 0.1:
-                    combined_scrap_0_line_10 = daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]
-                elif daily_report(line).combined_side_a_ng[0] > 0.1 and daily_report(line).combined_side_b_ng[0] > 0.1:
-                    combined_scrap_0_line_10 = (daily_report(line).combined_side_a_ng[0] + daily_report(line).combined_side_b_ng[0] + daily_report(line).combined_side_a_re[0] + daily_report(line).combined_side_b_re[0]) / 2
+            if daily_report(line9).combined_side_a_ng[4] < 0.1 or daily_report(line9).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_9 = daily_report(line9).combined_side_a_ng[4] + daily_report(line9).combined_side_b_ng[4] + daily_report(line9).combined_side_a_re[4] + daily_report(line9).combined_side_b_re[4]
+            elif daily_report(line9).combined_side_a_ng[4] > 0.1 and daily_report(line9).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_9 = (daily_report(line9).combined_side_a_ng[4] + daily_report(line9).combined_side_b_ng[4] + daily_report(line9).combined_side_a_re[4] + daily_report(line9).combined_side_b_re[4]) / 2
 
-                if daily_report(line).combined_side_a_ng[1] < 0.1 or daily_report(line).combined_side_b_ng[1] < 0.1:
-                    combined_scrap_1_line_10 = daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]
-                elif daily_report(line).combined_side_a_ng[1] > 0.1 and daily_report(line).combined_side_b_ng[1] > 0.1:
-                    combined_scrap_1_line_10 = (daily_report(line).combined_side_a_ng[1] + daily_report(line).combined_side_b_ng[1] + daily_report(line).combined_side_a_re[1] + daily_report(line).combined_side_b_re[1]) / 2
+            if daily_report(line9).combined_side_a_ng[5] < 0.1 or daily_report(line9).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_9 = daily_report(line9).combined_side_a_ng[5] + daily_report(line9).combined_side_b_ng[5] + daily_report(line9).combined_side_a_re[5] + daily_report(line9).combined_side_b_re[5]
+            elif daily_report(line9).combined_side_a_ng[5] > 0.1 and daily_report(line9).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_9 = (daily_report(line9).combined_side_a_ng[5] + daily_report(line9).combined_side_b_ng[5] + daily_report(line9).combined_side_a_re[5] + daily_report(line9).combined_side_b_re[5]) / 2
 
-                if daily_report(line).combined_side_a_ng[2] < 0.1 or daily_report(line).combined_side_b_ng[2] < 0.1:
-                    combined_scrap_2_line_10 = daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]
-                elif daily_report(line).combined_side_a_ng[2] > 0.1 and daily_report(line).combined_side_b_ng[2] > 0.1:
-                    combined_scrap_2_line_10 = (daily_report(line).combined_side_a_ng[2] + daily_report(line).combined_side_b_ng[2] + daily_report(line).combined_side_a_re[2] + daily_report(line).combined_side_b_re[2]) / 2
+            if daily_report(line9).combined_side_a_ng[6] < 0.1 or daily_report(line9).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_9 = daily_report(line9).combined_side_a_ng[6] + daily_report(line9).combined_side_b_ng[6] + daily_report(line9).combined_side_a_re[6] + daily_report(line9).combined_side_b_re[6]
+            elif daily_report(line9).combined_side_a_ng[6] > 0.1 and daily_report(line9).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_9 = (daily_report(line9).combined_side_a_ng[6] + daily_report(line9).combined_side_b_ng[6] + daily_report(line9).combined_side_a_re[6] + daily_report(line9).combined_side_b_re[6]) / 2
 
-                if daily_report(line).combined_side_a_ng[3] < 0.1 or daily_report(line).combined_side_b_ng[3] < 0.1:
-                    combined_scrap_3_line_10 = daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]
-                elif daily_report(line).combined_side_a_ng[3] > 0.1 and daily_report(line).combined_side_b_ng[3] > 0.1:
-                    combined_scrap_3_line_10 = (daily_report(line).combined_side_a_ng[3] + daily_report(line).combined_side_b_ng[3] + daily_report(line).combined_side_a_re[3] + daily_report(line).combined_side_b_re[3]) / 2
 
-                if daily_report(line).combined_side_a_ng[4] < 0.1 or daily_report(line).combined_side_b_ng[4] < 0.1:
-                    combined_scrap_4_line_10 = daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]
-                elif daily_report(line).combined_side_a_ng[4] > 0.1 and daily_report(line).combined_side_b_ng[4] > 0.1:
-                    combined_scrap_4_line_10 = (daily_report(line).combined_side_a_ng[4] + daily_report(line).combined_side_b_ng[4] + daily_report(line).combined_side_a_re[4] + daily_report(line).combined_side_b_re[4]) / 2
 
-                if daily_report(line).combined_side_a_ng[5] < 0.1 or daily_report(line).combined_side_b_ng[5] < 0.1:
-                    combined_scrap_5_line_10 = daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]
-                elif daily_report(line).combined_side_a_ng[5] > 0.1 and daily_report(line).combined_side_b_ng[5] > 0.1:
-                    combined_scrap_5_line_10 = (daily_report(line).combined_side_a_ng[5] + daily_report(line).combined_side_b_ng[5] + daily_report(line).combined_side_a_re[5] + daily_report(line).combined_side_b_re[5]) / 2
+            # statements for Line 10
+            if daily_report(line10).combined_side_a_ng[0] < 0.1 or daily_report(line10).combined_side_b_ng[0] < 0.1:
+                combined_scrap_0_line_10 = daily_report(line10).combined_side_a_ng[0] + daily_report(line10).combined_side_b_ng[0] + daily_report(line10).combined_side_a_re[0] + daily_report(line10).combined_side_b_re[0]
+            elif daily_report(line10).combined_side_a_ng[0] > 0.1 and daily_report(line10).combined_side_b_ng[0] > 0.1:
+                combined_scrap_0_line_10 = (daily_report(line10).combined_side_a_ng[0] + daily_report(line10).combined_side_b_ng[0] + daily_report(line10).combined_side_a_re[0] + daily_report(line10).combined_side_b_re[0]) / 2
 
-                if daily_report(line).combined_side_a_ng[6] < 0.1 or daily_report(line).combined_side_b_ng[6] < 0.1:
-                    combined_scrap_6_line_10 = daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]
-                elif daily_report(line).combined_side_a_ng[6] > 0.1 and daily_report(line).combined_side_b_ng[6] > 0.1:
-                    combined_scrap_6_line_10 = (daily_report(line).combined_side_a_ng[6] + daily_report(line).combined_side_b_ng[6] + daily_report(line).combined_side_a_re[6] + daily_report(line).combined_side_b_re[6]) / 2
+            if daily_report(line10).combined_side_a_ng[1] < 0.1 or daily_report(line10).combined_side_b_ng[1] < 0.1:
+                combined_scrap_1_line_10 = daily_report(line10).combined_side_a_ng[1] + daily_report(line10).combined_side_b_ng[1] + daily_report(line10).combined_side_a_re[1] + daily_report(line10).combined_side_b_re[1]
+            elif daily_report(line10).combined_side_a_ng[1] > 0.1 and daily_report(line10).combined_side_b_ng[1] > 0.1:
+                combined_scrap_1_line_10 = (daily_report(line10).combined_side_a_ng[1] + daily_report(line10).combined_side_b_ng[1] + daily_report(line10).combined_side_a_re[1] + daily_report(line10).combined_side_b_re[1]) / 2
 
-            else:
-                print("Machine Not Running")
+            if daily_report(line10).combined_side_a_ng[2] < 0.1 or daily_report(line10).combined_side_b_ng[2] < 0.1:
+                combined_scrap_2_line_10 = daily_report(line10).combined_side_a_ng[2] + daily_report(line10).combined_side_b_ng[2] + daily_report(line10).combined_side_a_re[2] + daily_report(line10).combined_side_b_re[2]
+            elif daily_report(line10).combined_side_a_ng[2] > 0.1 and daily_report(line10).combined_side_b_ng[2] > 0.1:
+                combined_scrap_2_line_10 = (daily_report(line10).combined_side_a_ng[2] + daily_report(line10).combined_side_b_ng[2] + daily_report(line10).combined_side_a_re[2] + daily_report(line10).combined_side_b_re[2]) / 2
 
+            if daily_report(line10).combined_side_a_ng[3] < 0.1 or daily_report(line10).combined_side_b_ng[3] < 0.1:
+                combined_scrap_3_line_10 = daily_report(line10).combined_side_a_ng[3] + daily_report(line10).combined_side_b_ng[3] + daily_report(line10).combined_side_a_re[3] + daily_report(line10).combined_side_b_re[3]
+            elif daily_report(line10).combined_side_a_ng[3] > 0.1 and daily_report(line10).combined_side_b_ng[3] > 0.1:
+                combined_scrap_3_line_10 = (daily_report(line10).combined_side_a_ng[3] + daily_report(line10).combined_side_b_ng[3] + daily_report(line10).combined_side_a_re[3] + daily_report(line10).combined_side_b_re[3]) / 2
+
+            if daily_report(line10).combined_side_a_ng[4] < 0.1 or daily_report(line10).combined_side_b_ng[4] < 0.1:
+                combined_scrap_4_line_10 = daily_report(line10).combined_side_a_ng[4] + daily_report(line10).combined_side_b_ng[4] + daily_report(line10).combined_side_a_re[4] + daily_report(line10).combined_side_b_re[4]
+            elif daily_report(line10).combined_side_a_ng[4] > 0.1 and daily_report(line10).combined_side_b_ng[4] > 0.1:
+                combined_scrap_4_line_10 = (daily_report(line10).combined_side_a_ng[4] + daily_report(line10).combined_side_b_ng[4] + daily_report(line10).combined_side_a_re[4] + daily_report(line10).combined_side_b_re[4]) / 2
+
+            if daily_report(line10).combined_side_a_ng[5] < 0.1 or daily_report(line10).combined_side_b_ng[5] < 0.1:
+                combined_scrap_5_line_10 = daily_report(line10).combined_side_a_ng[5] + daily_report(line10).combined_side_b_ng[5] + daily_report(line10).combined_side_a_re[5] + daily_report(line10).combined_side_b_re[5]
+            elif daily_report(line10).combined_side_a_ng[5] > 0.1 and daily_report(line10).combined_side_b_ng[5] > 0.1:
+                combined_scrap_5_line_10 = (daily_report(line10).combined_side_a_ng[5] + daily_report(line10).combined_side_b_ng[5] + daily_report(line10).combined_side_a_re[5] + daily_report(line10).combined_side_b_re[5]) / 2
+
+            if daily_report(line10).combined_side_a_ng[6] < 0.1 or daily_report(line10).combined_side_b_ng[6] < 0.1:
+                combined_scrap_6_line_10 = daily_report(line10).combined_side_a_ng[6] + daily_report(line10).combined_side_b_ng[6] + daily_report(line10).combined_side_a_re[6] + daily_report(line10).combined_side_b_re[6]
+            elif daily_report(line10).combined_side_a_ng[6] > 0.1 and daily_report(line10).combined_side_b_ng[6] > 0.1:
+                combined_scrap_6_line_10 = (daily_report(line10).combined_side_a_ng[6] + daily_report(line10).combined_side_b_ng[6] + daily_report(line10).combined_side_a_re[6] + daily_report(line10).combined_side_b_re[6]) / 2
 
             return {
             "line_3": daily_report(3).line[0],

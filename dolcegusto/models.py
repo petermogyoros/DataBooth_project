@@ -25,6 +25,8 @@ class DolceGusto_table(models.Model):
     b_bottom_re = models.IntegerField()
     a_side_re = models.IntegerField()
     b_side_re = models.IntegerField()
+    product = models.CharField(max_length=30, default="Dolce Gusto")
+    production_site = models.CharField(max_length=30, default="Eaton Socon")
 
 # bypassing django model and querying SQL views directely
 def daily_report(self):
