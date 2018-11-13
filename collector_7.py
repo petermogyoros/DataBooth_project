@@ -112,11 +112,25 @@ class Collector():
 
             list_of_results = []
 
+
         working_directory = '/home/peter/DataBooth_project'
 
-        if line == 5:
+        # set working directory based on line number
+        if line == 3:
+            csv_working_directory = '/home/peter/csv/line3'
+            new_location = '/home/peter/csv/line3/2018/%s'
+
+        elif line == 4:
+            csv_working_directory = '/home/peter/csv/line4'
+            new_location = '/home/peter/csv/line4/2018/%s'
+
+        elif line == 5:
             csv_working_directory = '/home/peter/csv/line5'
             new_location = '/home/peter/csv/line5/2018/%s'
+
+        elif line == 7:
+            csv_working_directory = '/home/peter/csv/line7'
+            new_location = '/home/peter/csv/line7/2018/%s'
 
         elif line == 8:
             csv_working_directory = '/home/peter/csv/line8'
@@ -125,6 +139,13 @@ class Collector():
         elif line == 9:
             csv_working_directory = '/home/peter/csv/line9'
             new_location = '/home/peter/csv/line9/2018/%s'
+
+        elif line == 10:
+            csv_working_directory = '/home/peter/csv/line10'
+            new_location = '/home/peter/csv/line10/2018/%s'
+
+
+
 
 
         # list through each file in the working_directory
@@ -173,7 +194,26 @@ class Collector():
         # add machine here to update database
         # also update loop_through_folders() function
         try:
+            loop_through_folders(3)
+        except:
+            time.sleep(10)
+            continue
+
+        try:
+            loop_through_folders(4)
+        except:
+            time.sleep(10)
+            continue
+
+
+        try:
             loop_through_folders(5)
+        except:
+            time.sleep(10)
+            continue
+
+        try:
+            loop_through_folders(7)
         except:
             time.sleep(10)
             continue
@@ -190,5 +230,12 @@ class Collector():
             time.sleep(10)
             continue
 
-        if while_counter == 3:
+        try:
+            loop_through_folders(10)
+        except:
+            time.sleep(10)
+            continue
+
+
+        if while_counter == 7:
             quit()
