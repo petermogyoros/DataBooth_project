@@ -314,7 +314,7 @@ class Table(View):
             "line_7": 7,
             "line_8": 8,
             "line_9": 9,
-            "line_10": 1,
+            "line_10": 10,
             "day0": day0,
             "combined_scrap_0_line_3": combined_scrap_0_line_3,
             "combined_scrap_0_line_4": combined_scrap_0_line_4,
