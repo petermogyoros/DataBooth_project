@@ -308,13 +308,13 @@ class Table(View):
                 combined_scrap_6_line_10 = (daily_report(line10).combined_side_a_ng[6] + daily_report(line10).combined_side_b_ng[6] + daily_report(line10).combined_side_a_re[6] + daily_report(line10).combined_side_b_re[6]) / 2
 
             return {
-            "line_3": daily_report(3).line[0],
-            "line_4": daily_report(4).line[0],
-            "line_5": daily_report(5).line[0],
-            "line_7": daily_report(7).line[0],
-            "line_8": daily_report(8).line[0],
-            "line_9": daily_report(9).line[0],
-            "line_10": daily_report(10).line[0],
+            "line_3": 3,
+            "line_4": 4,
+            "line_5": 5,
+            "line_7": 7,
+            "line_8": 8,
+            "line_9": 9,
+            "line_10": 1,
             "day0": day0,
             "combined_scrap_0_line_3": combined_scrap_0_line_3,
             "combined_scrap_0_line_4": combined_scrap_0_line_4,
@@ -377,3 +377,10 @@ class Table(View):
         lines = render_per_line(3, 4, 5, 7, 8, 9, 10)
 
         return render(request, "dolcegusto/scrap_rate.html", lines)
+
+class Charts_per_Line(View):
+    model = daily_report
+
+    def get(self, request):
+
+        return render(request, "dolcegusto/Charts_per_Line.html", {"chart":"chart"})
