@@ -40,11 +40,8 @@ class Table(View):
         day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
         day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
 
-
+        # assign variables from database columns
         def get_value_for_machine_per_period(line):
-
-            # get combined reject rate for the whole machine. Rejects for each side + recycles for each side
-            # if one side is not running, do not devide final vale by 2
 
             # reset variables
             line0_a_ng = 0
@@ -79,6 +76,7 @@ class Table(View):
             line5_b_re = 0
             line6_b_re = 0
 
+            # assign variables from specific columns from database
             for_count = 0
             for i in daily_report(line).combined_side_a_ng:
                 for_count += 1
@@ -216,14 +214,76 @@ class Table(View):
             "day6_a":combined_scrap_6_a,
             "day6_b":combined_scrap_6_b,
             }
+
         render_dictionary = {}
-        print(evaluate_per_side(get_value_for_machine_per_period(3)))
-        line4_scrap = get_value_for_machine_per_period(4)
-        line5_scrap = get_value_for_machine_per_period(5)
-        line7_scrap = get_value_for_machine_per_period(7)
-        line8_scrap = get_value_for_machine_per_period(8)
-        line9_scrap = get_value_for_machine_per_period(9)
-        line10_scrap = get_value_for_machine_per_period(10)
+        line3 = evaluate_per_side(get_value_for_machine_per_period(3))
+        combined_scrap_0_line_3 = (line3["day0_a"] + line3["day0_b"]) / 2
+        combined_scrap_1_line_3 = (line3["day1_a"] + line3["day1_b"]) / 2
+        combined_scrap_2_line_3 = (line3["day2_a"] + line3["day2_b"]) / 2
+        combined_scrap_3_line_3 = (line3["day3_a"] + line3["day3_b"]) / 2
+        combined_scrap_4_line_3 = (line3["day4_a"] + line3["day4_b"]) / 2
+        combined_scrap_5_line_3 = (line3["day5_a"] + line3["day5_b"]) / 2
+        combined_scrap_6_line_3 = (line3["day6_a"] + line3["day6_b"]) / 2
+
+
+        line4 = evaluate_per_side(get_value_for_machine_per_period(4))
+        combined_scrap_0_line_4 = (line4["day0_a"] + line4["day0_b"]) / 2
+        combined_scrap_1_line_4 = (line4["day1_a"] + line4["day1_b"]) / 2
+        combined_scrap_2_line_4 = (line4["day2_a"] + line4["day2_b"]) / 2
+        combined_scrap_3_line_4 = (line4["day3_a"] + line4["day3_b"]) / 2
+        combined_scrap_4_line_4 = (line4["day4_a"] + line4["day4_b"]) / 2
+        combined_scrap_5_line_4 = (line4["day5_a"] + line4["day5_b"]) / 2
+        combined_scrap_6_line_4 = (line4["day6_a"] + line4["day6_b"]) / 2
+
+
+        line5 = evaluate_per_side(get_value_for_machine_per_period(5))
+        combined_scrap_0_line_5 = (line5["day0_a"] + line5["day0_b"]) / 2
+        combined_scrap_1_line_5 = (line5["day1_a"] + line5["day1_b"]) / 2
+        combined_scrap_2_line_5 = (line5["day2_a"] + line5["day2_b"]) / 2
+        combined_scrap_3_line_5 = (line5["day3_a"] + line5["day3_b"]) / 2
+        combined_scrap_4_line_5 = (line5["day4_a"] + line5["day4_b"]) / 2
+        combined_scrap_5_line_5 = (line5["day5_a"] + line5["day5_b"]) / 2
+        combined_scrap_6_line_5 = (line5["day6_a"] + line5["day6_b"]) / 2
+
+
+        line7 = evaluate_per_side(get_value_for_machine_per_period(7))
+        combined_scrap_0_line_7 = (line7["day0_a"] + line7["day0_b"]) / 2
+        combined_scrap_1_line_7 = (line7["day1_a"] + line7["day1_b"]) / 2
+        combined_scrap_2_line_7 = (line7["day2_a"] + line7["day2_b"]) / 2
+        combined_scrap_3_line_7 = (line7["day3_a"] + line7["day3_b"]) / 2
+        combined_scrap_4_line_7 = (line7["day4_a"] + line7["day4_b"]) / 2
+        combined_scrap_5_line_7 = (line7["day5_a"] + line7["day5_b"]) / 2
+        combined_scrap_6_line_7 = (line7["day6_a"] + line7["day6_b"]) / 2
+
+
+        line8 = evaluate_per_side(get_value_for_machine_per_period(8))
+        combined_scrap_0_line_8 = (line8["day0_a"] + line8["day0_b"]) / 2
+        combined_scrap_1_line_8 = (line8["day1_a"] + line8["day1_b"]) / 2
+        combined_scrap_2_line_8 = (line8["day2_a"] + line8["day2_b"]) / 2
+        combined_scrap_3_line_8 = (line8["day3_a"] + line8["day3_b"]) / 2
+        combined_scrap_4_line_8 = (line8["day4_a"] + line8["day4_b"]) / 2
+        combined_scrap_5_line_8 = (line8["day5_a"] + line8["day5_b"]) / 2
+        combined_scrap_6_line_8 = (line8["day6_a"] + line8["day6_b"]) / 2
+
+
+        line9 = evaluate_per_side(get_value_for_machine_per_period(9))
+        combined_scrap_0_line_9 = (line9["day0_a"] + line9["day0_b"]) / 2
+        combined_scrap_1_line_9 = (line9["day1_a"] + line9["day1_b"]) / 2
+        combined_scrap_2_line_9 = (line9["day2_a"] + line9["day2_b"]) / 2
+        combined_scrap_3_line_9 = (line9["day3_a"] + line9["day3_b"]) / 2
+        combined_scrap_4_line_9 = (line9["day4_a"] + line9["day4_b"]) / 2
+        combined_scrap_5_line_9 = (line9["day5_a"] + line9["day5_b"]) / 2
+        combined_scrap_6_line_9 = (line9["day6_a"] + line9["day6_b"]) / 2
+
+
+        line10 = evaluate_per_side(get_value_for_machine_per_period(10))
+        combined_scrap_0_line_10 = (line10["day0_a"] + line10["day0_b"]) / 2
+        combined_scrap_1_line_10 = (line10["day1_a"] + line10["day1_b"]) / 2
+        combined_scrap_2_line_10 = (line10["day2_a"] + line10["day2_b"]) / 2
+        combined_scrap_3_line_10 = (line10["day3_a"] + line10["day3_b"]) / 2
+        combined_scrap_4_line_10 = (line10["day4_a"] + line10["day4_b"]) / 2
+        combined_scrap_5_line_10 = (line10["day5_a"] + line10["day5_b"]) / 2
+        combined_scrap_6_line_10 = (line10["day6_a"] + line10["day6_b"]) / 2
 
         return render(request, "dolcegusto/scrap_rate.html", {
         "line_3": 3,
@@ -233,62 +293,62 @@ class Table(View):
         "line_8": 8,
         "line_9": 9,
         "line_10": 10,
-        # "combined_scrap_0_line_3": combined_scrap_0_line_3,
-        # "combined_scrap_0_line_4": combined_scrap_0_line_4,
-        # "combined_scrap_0_line_5": combined_scrap_0_line_5,
-        # "combined_scrap_0_line_7": combined_scrap_0_line_7,
-        # "combined_scrap_0_line_8": combined_scrap_0_line_8,
-        # "combined_scrap_0_line_9": combined_scrap_0_line_9,
-        # "combined_scrap_0_line_10": combined_scrap_0_line_10,
-        # "day1": day1,
-        # "combined_scrap_1_line_3": combined_scrap_1_line_3,
-        # "combined_scrap_1_line_4": combined_scrap_1_line_4,
-        # "combined_scrap_1_line_5": combined_scrap_1_line_5,
-        # "combined_scrap_1_line_7": combined_scrap_1_line_7,
-        # "combined_scrap_1_line_8": combined_scrap_1_line_8,
-        # "combined_scrap_1_line_9": combined_scrap_1_line_9,
-        # "combined_scrap_1_line_10": combined_scrap_1_line_10,
-        # "day2": day2,
-        # "combined_scrap_2_line_3": combined_scrap_2_line_3,
-        # "combined_scrap_2_line_4": combined_scrap_2_line_4,
-        # "combined_scrap_2_line_5": combined_scrap_2_line_5,
-        # "combined_scrap_2_line_7": combined_scrap_2_line_7,
-        # "combined_scrap_2_line_8": combined_scrap_2_line_8,
-        # "combined_scrap_2_line_9": combined_scrap_2_line_9,
-        # "combined_scrap_2_line_10": combined_scrap_2_line_10,
-        # "day3": day3,
-        # "combined_scrap_3_line_3": combined_scrap_3_line_3,
-        # "combined_scrap_3_line_4": combined_scrap_3_line_4,
-        # "combined_scrap_3_line_5": combined_scrap_3_line_5,
-        # "combined_scrap_3_line_7": combined_scrap_3_line_7,
-        # "combined_scrap_3_line_8": combined_scrap_3_line_8,
-        # "combined_scrap_3_line_9": combined_scrap_3_line_9,
-        # "combined_scrap_3_line_10": combined_scrap_3_line_10,
-        # "day4": day4,
-        # "combined_scrap_4_line_3": combined_scrap_4_line_3,
-        # "combined_scrap_4_line_4": combined_scrap_4_line_4,
-        # "combined_scrap_4_line_5": combined_scrap_4_line_5,
-        # "combined_scrap_4_line_7": combined_scrap_4_line_7,
-        # "combined_scrap_4_line_8": combined_scrap_4_line_8,
-        # "combined_scrap_4_line_9": combined_scrap_4_line_9,
-        # "combined_scrap_4_line_10": combined_scrap_4_line_10,
-        # "day5": day5,
-        # "combined_scrap_5_line_3": combined_scrap_5_line_3,
-        # "combined_scrap_5_line_4": combined_scrap_5_line_4,
-        # "combined_scrap_5_line_5": combined_scrap_5_line_5,
-        # "combined_scrap_5_line_7": combined_scrap_5_line_7,
-        # "combined_scrap_5_line_8": combined_scrap_5_line_8,
-        # "combined_scrap_5_line_9": combined_scrap_5_line_9,
-        # "combined_scrap_5_line_10": combined_scrap_5_line_10,
-        # "day6": day6,
-        # "combined_scrap_6_line_3": combined_scrap_6_line_3,
-        # "combined_scrap_6_line_4": combined_scrap_6_line_4,
-        # "combined_scrap_6_line_5": combined_scrap_6_line_5,
-        # "combined_scrap_6_line_7": combined_scrap_6_line_7,
-        # "combined_scrap_6_line_8": combined_scrap_6_line_8,
-        # "combined_scrap_6_line_9": combined_scrap_6_line_9,
-        # "combined_scrap_6_line_10": combined_scrap_6_line_10
-        #
+        "combined_scrap_0_line_3": combined_scrap_0_line_3,
+        "combined_scrap_0_line_4": combined_scrap_0_line_4,
+        "combined_scrap_0_line_5": combined_scrap_0_line_5,
+        "combined_scrap_0_line_7": combined_scrap_0_line_7,
+        "combined_scrap_0_line_8": combined_scrap_0_line_8,
+        "combined_scrap_0_line_9": combined_scrap_0_line_9,
+        "combined_scrap_0_line_10": combined_scrap_0_line_10,
+        "day1": day1,
+        "combined_scrap_1_line_3": combined_scrap_1_line_3,
+        "combined_scrap_1_line_4": combined_scrap_1_line_4,
+        "combined_scrap_1_line_5": combined_scrap_1_line_5,
+        "combined_scrap_1_line_7": combined_scrap_1_line_7,
+        "combined_scrap_1_line_8": combined_scrap_1_line_8,
+        "combined_scrap_1_line_9": combined_scrap_1_line_9,
+        "combined_scrap_1_line_10": combined_scrap_1_line_10,
+        "day2": day2,
+        "combined_scrap_2_line_3": combined_scrap_2_line_3,
+        "combined_scrap_2_line_4": combined_scrap_2_line_4,
+        "combined_scrap_2_line_5": combined_scrap_2_line_5,
+        "combined_scrap_2_line_7": combined_scrap_2_line_7,
+        "combined_scrap_2_line_8": combined_scrap_2_line_8,
+        "combined_scrap_2_line_9": combined_scrap_2_line_9,
+        "combined_scrap_2_line_10": combined_scrap_2_line_10,
+        "day3": day3,
+        "combined_scrap_3_line_3": combined_scrap_3_line_3,
+        "combined_scrap_3_line_4": combined_scrap_3_line_4,
+        "combined_scrap_3_line_5": combined_scrap_3_line_5,
+        "combined_scrap_3_line_7": combined_scrap_3_line_7,
+        "combined_scrap_3_line_8": combined_scrap_3_line_8,
+        "combined_scrap_3_line_9": combined_scrap_3_line_9,
+        "combined_scrap_3_line_10": combined_scrap_3_line_10,
+        "day4": day4,
+        "combined_scrap_4_line_3": combined_scrap_4_line_3,
+        "combined_scrap_4_line_4": combined_scrap_4_line_4,
+        "combined_scrap_4_line_5": combined_scrap_4_line_5,
+        "combined_scrap_4_line_7": combined_scrap_4_line_7,
+        "combined_scrap_4_line_8": combined_scrap_4_line_8,
+        "combined_scrap_4_line_9": combined_scrap_4_line_9,
+        "combined_scrap_4_line_10": combined_scrap_4_line_10,
+        "day5": day5,
+        "combined_scrap_5_line_3": combined_scrap_5_line_3,
+        "combined_scrap_5_line_4": combined_scrap_5_line_4,
+        "combined_scrap_5_line_5": combined_scrap_5_line_5,
+        "combined_scrap_5_line_7": combined_scrap_5_line_7,
+        "combined_scrap_5_line_8": combined_scrap_5_line_8,
+        "combined_scrap_5_line_9": combined_scrap_5_line_9,
+        "combined_scrap_5_line_10": combined_scrap_5_line_10,
+        "day6": day6,
+        "combined_scrap_6_line_3": combined_scrap_6_line_3,
+        "combined_scrap_6_line_4": combined_scrap_6_line_4,
+        "combined_scrap_6_line_5": combined_scrap_6_line_5,
+        "combined_scrap_6_line_7": combined_scrap_6_line_7,
+        "combined_scrap_6_line_8": combined_scrap_6_line_8,
+        "combined_scrap_6_line_9": combined_scrap_6_line_9,
+        "combined_scrap_6_line_10": combined_scrap_6_line_10
+
         })
 
 
