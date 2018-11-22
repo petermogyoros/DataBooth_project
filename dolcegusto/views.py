@@ -434,3 +434,237 @@ class Line3(View):
         "combined_scrap_6_a": line3["day6_a"],
         "combined_scrap_6_b": line3["day6_b"]
         })
+
+class Line4(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line4 = assign_variables(get_value_for_machine_per_period(4))
+
+        return render(request, "dolcegusto/line4.html", {
+        "line": 4,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line4["day0_a"],
+        "combined_scrap_0_b": line4["day0_b"],
+        "combined_scrap_1_a": line4["day1_a"],
+        "combined_scrap_1_b": line4["day1_b"],
+        "combined_scrap_2_a": line4["day2_a"],
+        "combined_scrap_2_b": line4["day2_b"],
+        "combined_scrap_3_a": line4["day3_a"],
+        "combined_scrap_3_b": line4["day3_b"],
+        "combined_scrap_4_a": line4["day4_a"],
+        "combined_scrap_4_b": line4["day4_b"],
+        "combined_scrap_5_a": line4["day5_a"],
+        "combined_scrap_5_b": line4["day5_b"],
+        "combined_scrap_6_a": line4["day6_a"],
+        "combined_scrap_6_b": line4["day6_b"]
+        })
+
+class Line5(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line5 = assign_variables(get_value_for_machine_per_period(5))
+
+        return render(request, "dolcegusto/line5.html", {
+        "line": 5,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line5["day0_a"],
+        "combined_scrap_0_b": line5["day0_b"],
+        "combined_scrap_1_a": line5["day1_a"],
+        "combined_scrap_1_b": line5["day1_b"],
+        "combined_scrap_2_a": line5["day2_a"],
+        "combined_scrap_2_b": line5["day2_b"],
+        "combined_scrap_3_a": line5["day3_a"],
+        "combined_scrap_3_b": line5["day3_b"],
+        "combined_scrap_4_a": line5["day4_a"],
+        "combined_scrap_4_b": line5["day4_b"],
+        "combined_scrap_5_a": line5["day5_a"],
+        "combined_scrap_5_b": line5["day5_b"],
+        "combined_scrap_6_a": line5["day6_a"],
+        "combined_scrap_6_b": line5["day6_b"]
+        })
+
+class Line7(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line7 = assign_variables(get_value_for_machine_per_period(7))
+
+        return render(request, "dolcegusto/line7.html", {
+        "line": 7,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line7["day0_a"],
+        "combined_scrap_0_b": line7["day0_b"],
+        "combined_scrap_1_a": line7["day1_a"],
+        "combined_scrap_1_b": line7["day1_b"],
+        "combined_scrap_2_a": line7["day2_a"],
+        "combined_scrap_2_b": line7["day2_b"],
+        "combined_scrap_3_a": line7["day3_a"],
+        "combined_scrap_3_b": line7["day3_b"],
+        "combined_scrap_4_a": line7["day4_a"],
+        "combined_scrap_4_b": line7["day4_b"],
+        "combined_scrap_5_a": line7["day5_a"],
+        "combined_scrap_5_b": line7["day5_b"],
+        "combined_scrap_6_a": line7["day6_a"],
+        "combined_scrap_6_b": line7["day6_b"]
+        })
+
+class Line8(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line8 = assign_variables(get_value_for_machine_per_period(8))
+
+        return render(request, "dolcegusto/line8.html", {
+        "line": 8,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line8["day0_a"],
+        "combined_scrap_0_b": line8["day0_b"],
+        "combined_scrap_1_a": line8["day1_a"],
+        "combined_scrap_1_b": line8["day1_b"],
+        "combined_scrap_2_a": line8["day2_a"],
+        "combined_scrap_2_b": line8["day2_b"],
+        "combined_scrap_3_a": line8["day3_a"],
+        "combined_scrap_3_b": line8["day3_b"],
+        "combined_scrap_4_a": line8["day4_a"],
+        "combined_scrap_4_b": line8["day4_b"],
+        "combined_scrap_5_a": line8["day5_a"],
+        "combined_scrap_5_b": line8["day5_b"],
+        "combined_scrap_6_a": line8["day6_a"],
+        "combined_scrap_6_b": line8["day6_b"]
+        })
+
+class Line9(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line9 = assign_variables(get_value_for_machine_per_period(9))
+
+        return render(request, "dolcegusto/line9.html", {
+        "line": 9,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line9["day0_a"],
+        "combined_scrap_0_b": line9["day0_b"],
+        "combined_scrap_1_a": line9["day1_a"],
+        "combined_scrap_1_b": line9["day1_b"],
+        "combined_scrap_2_a": line9["day2_a"],
+        "combined_scrap_2_b": line9["day2_b"],
+        "combined_scrap_3_a": line9["day3_a"],
+        "combined_scrap_3_b": line9["day3_b"],
+        "combined_scrap_4_a": line9["day4_a"],
+        "combined_scrap_4_b": line9["day4_b"],
+        "combined_scrap_5_a": line9["day5_a"],
+        "combined_scrap_5_b": line9["day5_b"],
+        "combined_scrap_6_a": line9["day6_a"],
+        "combined_scrap_6_b": line9["day6_b"]
+        })
+
+class Line10(View):
+    model = daily_report
+    def get(self, request):
+
+        # This gives the function above an integer which translates to the weekday name
+        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
+        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
+        day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
+        day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
+        day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
+        day5 = get_weekday(datetime.strptime(str(daily_report(5).production_day[5])[0:10], '%Y-%m-%d').date().weekday)
+        day6 = get_weekday(datetime.strptime(str(daily_report(5).production_day[6])[0:10], '%Y-%m-%d').date().weekday)
+
+        line10 = assign_variables(get_value_for_machine_per_period(10))
+
+        return render(request, "dolcegusto/line10.html", {
+        "line": 10,
+        "day1": day1,
+        "day2": day2,
+        "day3": day3,
+        "day4": day4,
+        "day5": day5,
+        "day6": day6,
+        "combined_scrap_0_a": line10["day0_a"],
+        "combined_scrap_0_b": line10["day0_b"],
+        "combined_scrap_1_a": line10["day1_a"],
+        "combined_scrap_1_b": line10["day1_b"],
+        "combined_scrap_2_a": line10["day2_a"],
+        "combined_scrap_2_b": line10["day2_b"],
+        "combined_scrap_3_a": line10["day3_a"],
+        "combined_scrap_3_b": line10["day3_b"],
+        "combined_scrap_4_a": line10["day4_a"],
+        "combined_scrap_4_b": line10["day4_b"],
+        "combined_scrap_5_a": line10["day5_a"],
+        "combined_scrap_5_b": line10["day5_b"],
+        "combined_scrap_6_a": line10["day6_a"],
+        "combined_scrap_6_b": line10["day6_b"]
+        })
