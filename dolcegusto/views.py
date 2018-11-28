@@ -887,7 +887,7 @@ class Line3(View):
         line3 = assign_variables(get_value_for_machine_per_period(3))
 
         return render(request, "dolcegusto/line3.html", {
-        "line_3": 3,
+        "line": 3,
         "day2": day2,
         "day3": day3,
         "day4": day4,
