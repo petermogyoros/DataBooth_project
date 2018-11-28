@@ -914,8 +914,6 @@ class Line4(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -926,7 +924,6 @@ class Line4(View):
 
         return render(request, "dolcegusto/line4.html", {
         "line": 4,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -953,8 +950,6 @@ class Line5(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -965,7 +960,6 @@ class Line5(View):
 
         return render(request, "dolcegusto/line5.html", {
         "line": 5,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -992,8 +986,6 @@ class Line7(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -1004,7 +996,6 @@ class Line7(View):
 
         return render(request, "dolcegusto/line7.html", {
         "line": 7,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -1031,8 +1022,6 @@ class Line8(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -1043,7 +1032,6 @@ class Line8(View):
 
         return render(request, "dolcegusto/line8.html", {
         "line": 8,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -1070,8 +1058,6 @@ class Line9(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -1082,7 +1068,6 @@ class Line9(View):
 
         return render(request, "dolcegusto/line9.html", {
         "line": 9,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -1109,8 +1094,6 @@ class Line10(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -1121,7 +1104,6 @@ class Line10(View):
 
         return render(request, "dolcegusto/line10.html", {
         "line": 10,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
