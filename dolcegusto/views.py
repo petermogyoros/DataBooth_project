@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 import pandas as pd
 from pandas import DataFrame
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 from dolcegusto.models import daily_report
 
@@ -28,6 +28,8 @@ def get_weekday(weekday_number):
 
 # assign variables from database columns
 def get_value_for_machine_per_period(line):
+
+
 
     # reset variables
     line0_a_ng = 0
@@ -62,78 +64,553 @@ def get_value_for_machine_per_period(line):
     line5_b_re = 0
     line6_b_re = 0
 
-    # assign variables from specific columns from database
+    # latest date in the database query
+    prod_date0 = str(daily_report(line).production_day[0])
+    prod_date0 = prod_date0[0:10]
+    prod_date1 = str(daily_report(line).production_day[1])
+    prod_date1 = prod_date1[0:10]
+    prod_date2 = str(daily_report(line).production_day[2])
+    prod_date2 = prod_date2[0:10]
+    prod_date3 = str(daily_report(line).production_day[3])
+    prod_date3 = prod_date3[0:10]
+    prod_date4 = str(daily_report(line).production_day[4])
+    prod_date4 = prod_date4[0:10]
+    prod_date5 = str(daily_report(line).production_day[5])
+    prod_date5 = prod_date5[0:10]
+    prod_date6 = str(daily_report(line).production_day[6])
+    prod_date6 = prod_date6[0:10]
+
+    # today's date converted to the same format as in DB query
+    today = date.today().strftime('%Y-%m-%d')
+    yesterday = (date.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+    two_days_ago = (date.today() - timedelta(days=2)).strftime('%Y-%m-%d')
+    three_days_ago = (date.today() - timedelta(days=3)).strftime('%Y-%m-%d')
+    four_days_ago = (date.today() - timedelta(days=4)).strftime('%Y-%m-%d')
+    five_days_ago = (date.today() - timedelta(days=5)).strftime('%Y-%m-%d')
+    six_days_ago = (date.today() - timedelta(days=6)).strftime('%Y-%m-%d')
+
+
+
+    # assign variables from specific columns from database based on date
     for_count = 0
     for i in daily_report(line).combined_side_a_ng:
         for_count += 1
         if for_count == 1:
-            line0_a_ng = i
+            if prod_date0 == today:
+                line0_a_ng = i
+            elif prod_date0 == yesterday:
+                line0_a_ng = 0
+                line1_a_ng = i
+            elif prod_date0 == two_days_ago:
+                line0_a_ng = 0
+                line1_a_ng = 0
+                line2_a_ng = i
+            elif prod_date0 == three_days_ago:
+                line0_a_ng =0
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = i
+            elif prod_date0 == four_days_ago:
+                line0_a_ng =0
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = i
+            elif prod_date0 == five_days_ago:
+                line0_a_ng =0
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = i
+            elif prod_date0 == six_days_ago:
+                line0_a_ng =0
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = 0
+                line6_a_ng = i
+
+
         elif for_count == 2:
-            line1_a_ng = i
+            if prod_date1 == yesterday:
+                line1_a_ng = i
+            elif prod_date1 == two_days_ago:
+                line1_a_ng = 0
+                line2_a_ng = i
+            elif prod_date1 == three_days_ago:
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = i
+            elif prod_date1 == four_days_ago:
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = i
+            elif prod_date1 == five_days_ago:
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = i
+            elif prod_date1 == six_days_ago:
+                line1_a_ng = 0
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = 0
+                line6_a_ng = i
+
         elif for_count == 3:
-            line2_a_ng = i
+            if prod_date2 == two_days_ago:
+                line2_a_ng = i
+            elif prod_date2 == three_days_ago:
+                line2_a_ng = 0
+                line3_a_ng = i
+            elif prod_date2 == four_days_ago:
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = i
+            elif prod_date2 == five_days_ago:
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = i
+            elif prod_date2 == six_days_ago:
+                line2_a_ng = 0
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = 0
+                line6_a_ng = i
+
         elif for_count == 4:
-            line3_a_ng = i
+            if prod_date3 == three_days_ago:
+                line3_a_ng = i
+            elif prod_date3 == four_days_ago:
+                line3_a_ng = 0
+                line4_a_ng = i
+            elif prod_date3 == five_days_ago:
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = i
+            elif prod_date3 == six_days_ago:
+                line3_a_ng = 0
+                line4_a_ng = 0
+                line5_a_ng = 0
+                line6_a_ng = i
+
         elif for_count == 5:
-            line4_a_ng = i
+            if prod_date4 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date4 == five_days_ago:
+                line4_a_ng = 0
+                line5_a_ng = i
+            elif prod_date4 == six_days_ago:
+                line4_a_ng = 0
+                line5_a_ng = 0
+                line6_a_ng = i
+
         elif for_count == 6:
-            line5_a_ng = i
+            if prod_date5 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date5 == six_days_ago:
+                line5_a_ng = 0
+                line6_a_ng = i
+
         elif for_count == 7:
-            line6_a_ng = i
+            if prod_date6 == six_days_ago:
+                line6_a_ng = i
 
     for_count = 0
     for e in daily_report(line).combined_side_b_ng:
         for_count += 1
         if for_count == 1:
-            line0_b_ng = e
+            if prod_date0 == today:
+                line0_b_ng = e
+            elif prod_date0 == yesterday:
+                line0_b_ng = 0
+                line1_b_ng = e
+            elif prod_date0 == two_days_ago:
+                line0_b_ng = 0
+                line1_b_ng = 0
+                line2_b_ng = e
+            elif prod_date0 == three_days_ago:
+                line0_b_ng =0
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = e
+            elif prod_date0 == four_days_ago:
+                line0_b_ng =0
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = e
+            elif prod_date0 == five_days_ago:
+                line0_b_ng =0
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = e
+            elif prod_date0 == six_days_ago:
+                line0_b_ng =0
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = 0
+                line6_b_ng = e
+
+
         elif for_count == 2:
-            line1_b_ng = e
+            if prod_date1 == yesterday:
+                line1_b_ng = e
+            elif prod_date1 == two_days_ago:
+                line1_b_ng = 0
+                line2_b_ng = e
+            elif prod_date1 == three_days_ago:
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = e
+            elif prod_date1 == four_days_ago:
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = e
+            elif prod_date1 == five_days_ago:
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = e
+            elif prod_date1 == six_days_ago:
+                line1_b_ng = 0
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = 0
+                line6_b_ng = e
+
         elif for_count == 3:
-            line2_b_ng = e
+            if prod_date2 == two_days_ago:
+                line2_b_ng = e
+            elif prod_date2 == three_days_ago:
+                line2_b_ng = 0
+                line3_b_ng = e
+            elif prod_date2 == four_days_ago:
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = e
+            elif prod_date2 == five_days_ago:
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = e
+            elif prod_date2 == six_days_ago:
+                line2_b_ng = 0
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = 0
+                line6_b_ng = e
+
         elif for_count == 4:
-            line3_b_ng = e
+            if prod_date3 == three_days_ago:
+                line3_b_ng = e
+            elif prod_date3 == four_days_ago:
+                line3_b_ng = 0
+                line4_b_ng = e
+            elif prod_date3 == five_days_ago:
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = e
+            elif prod_date3 == six_days_ago:
+                line3_b_ng = 0
+                line4_b_ng = 0
+                line5_b_ng = 0
+                line6_b_ng = e
+
         elif for_count == 5:
-            line4_b_ng = e
+            if prod_date4 == four_days_ago:
+                line4_b_ng = e
+            elif prod_date4 == five_days_ago:
+                line4_b_ng = 0
+                line5_b_ng = e
+            elif prod_date4 == six_days_ago:
+                line4_b_ng = 0
+                line5_b_ng = 0
+                line6_b_ng = e
+
         elif for_count == 6:
-            line5_b_ng = e
+            if prod_date5 == five_days_ago:
+                line5_b_ng = e
+            elif prod_date5 == six_days_ago:
+                line5_b_ng = 0
+                line6_b_ng = e
+
         elif for_count == 7:
-            line6_b_ng = e
+            if prod_date6 == six_days_ago:
+                line6_b_ng = e
 
     for_count = 0
     for a in daily_report(line).combined_side_a_re:
         for_count += 1
         if for_count == 1:
-            line0_a_re = a
+            if prod_date0 == today:
+                line0_a_re = a
+            elif prod_date0 == yesterday:
+                line0_a_re = 0
+                line1_a_re = a
+            elif prod_date0 == two_days_ago:
+                line0_a_re = 0
+                line1_a_re = 0
+                line2_a_re = a
+            elif prod_date0 == three_days_ago:
+                line0_a_re =0
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = a
+            elif prod_date0 == four_days_ago:
+                line0_a_re =0
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = a
+            elif prod_date0 == five_days_ago:
+                line0_a_re =0
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = a
+            elif prod_date0 == six_days_ago:
+                line0_a_re =0
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = 0
+                line6_a_re = a
+
+
         elif for_count == 2:
-            line1_a_re = a
+            if prod_date1 == yesterday:
+                line1_a_re = a
+            elif prod_date1 == two_days_ago:
+                line1_a_re = 0
+                line2_a_re = a
+            elif prod_date1 == three_days_ago:
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = a
+            elif prod_date1 == four_days_ago:
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = a
+            elif prod_date1 == five_days_ago:
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = a
+            elif prod_date1 == six_days_ago:
+                line1_a_re = 0
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = 0
+                line6_a_re = a
+
         elif for_count == 3:
-            line2_a_re = a
+            if prod_date2 == two_days_ago:
+                line2_a_re = a
+            elif prod_date2 == three_days_ago:
+                line2_a_re = 0
+                line3_a_re = a
+            elif prod_date2 == four_days_ago:
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = a
+            elif prod_date2 == five_days_ago:
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = a
+            elif prod_date2 == six_days_ago:
+                line2_a_re = 0
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = 0
+                line6_a_re = a
+
         elif for_count == 4:
-            line3_a_re = a
+            if prod_date3 == three_days_ago:
+                line3_a_re = a
+            elif prod_date3 == four_days_ago:
+                line3_a_re = 0
+                line4_a_re = a
+            elif prod_date3 == five_days_ago:
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = a
+            elif prod_date3 == six_days_ago:
+                line3_a_re = 0
+                line4_a_re = 0
+                line5_a_re = 0
+                line6_a_re = a
+
         elif for_count == 5:
-            line4_a_re = a
+            if prod_date4 == four_days_ago:
+                line4_a_re = a
+            elif prod_date4 == five_days_ago:
+                line4_a_re = 0
+                line5_a_re = a
+            elif prod_date4 == six_days_ago:
+                line4_a_re = 0
+                line5_a_re = 0
+                line6_a_re = a
+
         elif for_count == 6:
-            line5_a_re = a
+            if prod_date5 == five_days_ago:
+                line5_a_re = a
+            elif prod_date5 == six_days_ago:
+                line5_a_re = 0
+                line6_a_re = a
+
         elif for_count == 7:
-            line6_a_re = a
+            if prod_date6 == six_days_ago:
+                line6_a_re = a
 
     for_count = 0
     for u in daily_report(line).combined_side_b_re:
         for_count += 1
         if for_count == 1:
-            line0_b_re = u
+            if prod_date0 == today:
+                line0_b_re = u
+            elif prod_date0 == yesterday:
+                line0_b_re = 0
+                line1_b_re = u
+            elif prod_date0 == two_days_ago:
+                line0_b_re = 0
+                line1_b_re = 0
+                line2_b_re = u
+            elif prod_date0 == three_days_ago:
+                line0_b_re =0
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = u
+            elif prod_date0 == four_days_ago:
+                line0_b_re =0
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = u
+            elif prod_date0 == five_days_ago:
+                line0_b_re =0
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = u
+            elif prod_date0 == six_days_ago:
+                line0_b_re =0
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = 0
+                line6_b_re = u
+
+
         elif for_count == 2:
-            line1_b_re = u
+            if prod_date1 == yesterday:
+                line1_b_re = u
+            elif prod_date1 == two_days_ago:
+                line1_b_re = 0
+                line2_b_re = u
+            elif prod_date1 == three_days_ago:
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = u
+            elif prod_date1 == four_days_ago:
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = u
+            elif prod_date1 == five_days_ago:
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = u
+            elif prod_date1 == six_days_ago:
+                line1_b_re = 0
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = 0
+                line6_b_re = u
+
         elif for_count == 3:
-            line2_b_re = u
+            if prod_date2 == two_days_ago:
+                line2_b_re = u
+            elif prod_date2 == three_days_ago:
+                line2_b_re = 0
+                line3_b_re = u
+            elif prod_date2 == four_days_ago:
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = u
+            elif prod_date2 == five_days_ago:
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = u
+            elif prod_date2 == six_days_ago:
+                line2_b_re = 0
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = 0
+                line6_b_re = u
+
+        elif for_count == 4:
+            if prod_date3 == three_days_ago:
+                line3_b_re = u
+            elif prod_date3 == four_days_ago:
+                line3_b_re = 0
+                line4_b_re = u
+            elif prod_date3 == five_days_ago:
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = u
+            elif prod_date3 == six_days_ago:
+                line3_b_re = 0
+                line4_b_re = 0
+                line5_b_re = 0
+                line6_b_re = u
+
         elif for_count == 5:
-            line3_b_re = u
+            if prod_date4 == four_days_ago:
+                line4_b_re = u
+            elif prod_date4 == five_days_ago:
+                line4_b_re = 0
+                line5_b_re = u
+            elif prod_date4 == six_days_ago:
+                line4_b_re = 0
+                line5_b_re = 0
+                line6_b_re = u
+
         elif for_count == 6:
-            line4_b_re = u
+            if prod_date5 == five_days_ago:
+                line5_b_re = u
+            elif prod_date5 == six_days_ago:
+                line5_b_re = 0
+                line6_b_re = u
+
         elif for_count == 7:
-            line5_b_re = u
-        elif for_count == 8:
-            line6_b_re = u
+            if prod_date6 == six_days_ago:
+                line6_b_re = u
 
 
     return {
@@ -401,8 +878,6 @@ class Line3(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -412,8 +887,7 @@ class Line3(View):
         line3 = assign_variables(get_value_for_machine_per_period(3))
 
         return render(request, "dolcegusto/line3.html", {
-        "line_3": 3,
-        "day1": day1,
+        "line": 3,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -440,8 +914,6 @@ class Line4(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -452,7 +924,6 @@ class Line4(View):
 
         return render(request, "dolcegusto/line4.html", {
         "line": 4,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -479,8 +950,6 @@ class Line5(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -491,7 +960,6 @@ class Line5(View):
 
         return render(request, "dolcegusto/line5.html", {
         "line": 5,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -518,8 +986,6 @@ class Line7(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -530,7 +996,6 @@ class Line7(View):
 
         return render(request, "dolcegusto/line7.html", {
         "line": 7,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -557,8 +1022,6 @@ class Line8(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -569,7 +1032,6 @@ class Line8(View):
 
         return render(request, "dolcegusto/line8.html", {
         "line": 8,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -596,8 +1058,6 @@ class Line9(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -608,7 +1068,6 @@ class Line9(View):
 
         return render(request, "dolcegusto/line9.html", {
         "line": 9,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
@@ -635,8 +1094,6 @@ class Line10(View):
     def get(self, request):
 
         # This gives the function above an integer which translates to the weekday name
-        day0 = get_weekday(datetime.strptime(str(daily_report(5).production_day[0])[0:10], '%Y-%m-%d').date().weekday)
-        day1 = get_weekday(datetime.strptime(str(daily_report(5).production_day[1])[0:10], '%Y-%m-%d').date().weekday)
         day2 = get_weekday(datetime.strptime(str(daily_report(5).production_day[2])[0:10], '%Y-%m-%d').date().weekday)
         day3 = get_weekday(datetime.strptime(str(daily_report(5).production_day[3])[0:10], '%Y-%m-%d').date().weekday)
         day4 = get_weekday(datetime.strptime(str(daily_report(5).production_day[4])[0:10], '%Y-%m-%d').date().weekday)
@@ -647,7 +1104,6 @@ class Line10(View):
 
         return render(request, "dolcegusto/line10.html", {
         "line": 10,
-        "day1": day1,
         "day2": day2,
         "day3": day3,
         "day4": day4,
