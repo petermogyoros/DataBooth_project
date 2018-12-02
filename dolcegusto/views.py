@@ -99,123 +99,139 @@ def get_value_for_machine_per_period(line):
             if prod_date0 == today:
                 line0_a_ng = i
             elif prod_date0 == yesterday:
-                line0_a_ng = 0
+                # line0_a_ng = 0
                 line1_a_ng = i
             elif prod_date0 == two_days_ago:
-                line0_a_ng = 0
-                line1_a_ng = 0
+                # line0_a_ng = 0
+                # line1_a_ng = 0
                 line2_a_ng = i
             elif prod_date0 == three_days_ago:
-                line0_a_ng =0
-                line1_a_ng = 0
-                line2_a_ng = 0
+                # line0_a_ng =0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
                 line3_a_ng = i
             elif prod_date0 == four_days_ago:
-                line0_a_ng =0
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
+                # line0_a_ng =0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
                 line4_a_ng = i
             elif prod_date0 == five_days_ago:
-                line0_a_ng =0
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
+                # line0_a_ng =0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
                 line5_a_ng = i
             elif prod_date0 == six_days_ago:
-                line0_a_ng =0
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
-                line5_a_ng = 0
+                # line0_a_ng =0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
+            # else:
+            #     line0_a_ng =0
+            #     line1_a_ng = 0
+            #     line2_a_ng = 0
+            #     line3_a_ng = 0
+            #     line4_a_ng = 0
+            #     line5_a_ng = 0
+            #     line6_a_ng = 0
 
 
         elif for_count == 2:
             if prod_date1 == yesterday:
                 line1_a_ng = i
             elif prod_date1 == two_days_ago:
-                line1_a_ng = 0
+                # line1_a_ng = 0
                 line2_a_ng = i
             elif prod_date1 == three_days_ago:
-                line1_a_ng = 0
-                line2_a_ng = 0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
                 line3_a_ng = i
             elif prod_date1 == four_days_ago:
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
                 line4_a_ng = i
             elif prod_date1 == five_days_ago:
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
                 line5_a_ng = i
             elif prod_date1 == six_days_ago:
-                line1_a_ng = 0
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
-                line5_a_ng = 0
+                # line1_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
+            # else:
+            #     line1_a_ng = 0
+            #     line2_a_ng = 0
+            #     line3_a_ng = 0
+            #     line4_a_ng = 0
+            #     line5_a_ng = 0
+            #     line6_a_ng = 0
+
 
         elif for_count == 3:
             if prod_date2 == two_days_ago:
                 line2_a_ng = i
             elif prod_date2 == three_days_ago:
-                line2_a_ng = 0
+                # line2_a_ng = 0
                 line3_a_ng = i
             elif prod_date2 == four_days_ago:
-                line2_a_ng = 0
-                line3_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
                 line4_a_ng = i
             elif prod_date2 == five_days_ago:
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
                 line5_a_ng = i
             elif prod_date2 == six_days_ago:
-                line2_a_ng = 0
-                line3_a_ng = 0
-                line4_a_ng = 0
-                line5_a_ng = 0
+                # line2_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
 
         elif for_count == 4:
             if prod_date3 == three_days_ago:
                 line3_a_ng = i
             elif prod_date3 == four_days_ago:
-                line3_a_ng = 0
+                # line3_a_ng = 0
                 line4_a_ng = i
             elif prod_date3 == five_days_ago:
-                line3_a_ng = 0
-                line4_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
                 line5_a_ng = i
             elif prod_date3 == six_days_ago:
-                line3_a_ng = 0
-                line4_a_ng = 0
-                line5_a_ng = 0
+                # line3_a_ng = 0
+                # line4_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
 
         elif for_count == 5:
             if prod_date4 == four_days_ago:
                 line4_a_ng = i
             elif prod_date4 == five_days_ago:
-                line4_a_ng = 0
+                # line4_a_ng = 0
                 line5_a_ng = i
             elif prod_date4 == six_days_ago:
-                line4_a_ng = 0
-                line5_a_ng = 0
+                # line4_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
 
         elif for_count == 6:
             if prod_date5 == five_days_ago:
                 line5_a_ng = i
             elif prod_date5 == six_days_ago:
-                line5_a_ng = 0
+                # line5_a_ng = 0
                 line6_a_ng = i
 
         elif for_count == 7:
@@ -227,125 +243,142 @@ def get_value_for_machine_per_period(line):
         for_count += 1
         if for_count == 1:
             if prod_date0 == today:
+                # print(e, for_count)
                 line0_b_ng = e
             elif prod_date0 == yesterday:
-                line0_b_ng = 0
+                # print(e, for_count)
+                # line0_b_ng = 0
                 line1_b_ng = e
             elif prod_date0 == two_days_ago:
-                line0_b_ng = 0
-                line1_b_ng = 0
+                # print(e, for_count, "Two days ago")
+                #
+                # line0_b_ng = 0
+                # line1_b_ng = 0
                 line2_b_ng = e
             elif prod_date0 == three_days_ago:
-                line0_b_ng =0
-                line1_b_ng = 0
-                line2_b_ng = 0
+                # print(e, for_count)
+                #
+                # line0_b_ng =0
+                # line1_b_ng = 0
+                # line2_b_ng = 0
                 line3_b_ng = e
             elif prod_date0 == four_days_ago:
-                line0_b_ng =0
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
+                # print(e, for_count)
+                #
+                # line0_b_ng =0
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
                 line4_b_ng = e
             elif prod_date0 == five_days_ago:
-                line0_b_ng =0
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
+                # print(e, for_count)
+                #
+                # line0_b_ng =0
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
                 line5_b_ng = e
             elif prod_date0 == six_days_ago:
-                line0_b_ng =0
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
-                line5_b_ng = 0
+                # print(e, for_count)
+                # line0_b_ng =0
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
 
         elif for_count == 2:
             if prod_date1 == yesterday:
+                # print(e)
                 line1_b_ng = e
             elif prod_date1 == two_days_ago:
-                line1_b_ng = 0
+                # print(e)
+                # line1_b_ng = 0
                 line2_b_ng = e
             elif prod_date1 == three_days_ago:
-                line1_b_ng = 0
-                line2_b_ng = 0
+                # print(e)
+                # line1_b_ng = 0
+                # line2_b_ng = 0
                 line3_b_ng = e
             elif prod_date1 == four_days_ago:
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
+                # print(e)
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
                 line4_b_ng = e
             elif prod_date1 == five_days_ago:
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
+                # print(e)
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
                 line5_b_ng = e
             elif prod_date1 == six_days_ago:
-                line1_b_ng = 0
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
-                line5_b_ng = 0
+                # print(e)
+                # line1_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
         elif for_count == 3:
             if prod_date2 == two_days_ago:
                 line2_b_ng = e
             elif prod_date2 == three_days_ago:
-                line2_b_ng = 0
+                # line2_b_ng = 0
                 line3_b_ng = e
             elif prod_date2 == four_days_ago:
-                line2_b_ng = 0
-                line3_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
                 line4_b_ng = e
             elif prod_date2 == five_days_ago:
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
                 line5_b_ng = e
             elif prod_date2 == six_days_ago:
-                line2_b_ng = 0
-                line3_b_ng = 0
-                line4_b_ng = 0
-                line5_b_ng = 0
+                # line2_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
         elif for_count == 4:
             if prod_date3 == three_days_ago:
                 line3_b_ng = e
             elif prod_date3 == four_days_ago:
-                line3_b_ng = 0
+                # line3_b_ng = 0
                 line4_b_ng = e
             elif prod_date3 == five_days_ago:
-                line3_b_ng = 0
-                line4_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
                 line5_b_ng = e
             elif prod_date3 == six_days_ago:
-                line3_b_ng = 0
-                line4_b_ng = 0
-                line5_b_ng = 0
+                # line3_b_ng = 0
+                # line4_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
         elif for_count == 5:
             if prod_date4 == four_days_ago:
                 line4_b_ng = e
             elif prod_date4 == five_days_ago:
-                line4_b_ng = 0
+                # line4_b_ng = 0
                 line5_b_ng = e
             elif prod_date4 == six_days_ago:
-                line4_b_ng = 0
-                line5_b_ng = 0
+                # line4_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
         elif for_count == 6:
             if prod_date5 == five_days_ago:
                 line5_b_ng = e
             elif prod_date5 == six_days_ago:
-                line5_b_ng = 0
+                # line5_b_ng = 0
                 line6_b_ng = e
 
         elif for_count == 7:
@@ -359,37 +392,37 @@ def get_value_for_machine_per_period(line):
             if prod_date0 == today:
                 line0_a_re = a
             elif prod_date0 == yesterday:
-                line0_a_re = 0
+                # line0_a_re = 0
                 line1_a_re = a
             elif prod_date0 == two_days_ago:
-                line0_a_re = 0
-                line1_a_re = 0
+                # line0_a_re = 0
+                # line1_a_re = 0
                 line2_a_re = a
             elif prod_date0 == three_days_ago:
-                line0_a_re =0
-                line1_a_re = 0
-                line2_a_re = 0
+                # line0_a_re =0
+                # line1_a_re = 0
+                # line2_a_re = 0
                 line3_a_re = a
             elif prod_date0 == four_days_ago:
-                line0_a_re =0
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
+                # line0_a_re =0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
                 line4_a_re = a
             elif prod_date0 == five_days_ago:
-                line0_a_re =0
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
+                # line0_a_re =0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
                 line5_a_re = a
             elif prod_date0 == six_days_ago:
-                line0_a_re =0
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
-                line5_a_re = 0
+                # line0_a_re =0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
 
@@ -397,85 +430,85 @@ def get_value_for_machine_per_period(line):
             if prod_date1 == yesterday:
                 line1_a_re = a
             elif prod_date1 == two_days_ago:
-                line1_a_re = 0
+                # line1_a_re = 0
                 line2_a_re = a
             elif prod_date1 == three_days_ago:
-                line1_a_re = 0
-                line2_a_re = 0
+                # line1_a_re = 0
+                # line2_a_re = 0
                 line3_a_re = a
             elif prod_date1 == four_days_ago:
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
                 line4_a_re = a
             elif prod_date1 == five_days_ago:
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
                 line5_a_re = a
             elif prod_date1 == six_days_ago:
-                line1_a_re = 0
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
-                line5_a_re = 0
+                # line1_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
         elif for_count == 3:
             if prod_date2 == two_days_ago:
                 line2_a_re = a
             elif prod_date2 == three_days_ago:
-                line2_a_re = 0
+                # line2_a_re = 0
                 line3_a_re = a
             elif prod_date2 == four_days_ago:
-                line2_a_re = 0
-                line3_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
                 line4_a_re = a
             elif prod_date2 == five_days_ago:
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
                 line5_a_re = a
             elif prod_date2 == six_days_ago:
-                line2_a_re = 0
-                line3_a_re = 0
-                line4_a_re = 0
-                line5_a_re = 0
+                # line2_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
         elif for_count == 4:
             if prod_date3 == three_days_ago:
                 line3_a_re = a
             elif prod_date3 == four_days_ago:
-                line3_a_re = 0
+                # line3_a_re = 0
                 line4_a_re = a
             elif prod_date3 == five_days_ago:
-                line3_a_re = 0
-                line4_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
                 line5_a_re = a
             elif prod_date3 == six_days_ago:
-                line3_a_re = 0
-                line4_a_re = 0
-                line5_a_re = 0
+                # line3_a_re = 0
+                # line4_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
         elif for_count == 5:
             if prod_date4 == four_days_ago:
                 line4_a_re = a
             elif prod_date4 == five_days_ago:
-                line4_a_re = 0
+                # line4_a_re = 0
                 line5_a_re = a
             elif prod_date4 == six_days_ago:
-                line4_a_re = 0
-                line5_a_re = 0
+                # line4_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
         elif for_count == 6:
             if prod_date5 == five_days_ago:
                 line5_a_re = a
             elif prod_date5 == six_days_ago:
-                line5_a_re = 0
+                # line5_a_re = 0
                 line6_a_re = a
 
         elif for_count == 7:
@@ -489,37 +522,37 @@ def get_value_for_machine_per_period(line):
             if prod_date0 == today:
                 line0_b_re = u
             elif prod_date0 == yesterday:
-                line0_b_re = 0
+                # line0_b_re = 0
                 line1_b_re = u
             elif prod_date0 == two_days_ago:
-                line0_b_re = 0
-                line1_b_re = 0
+                # line0_b_re = 0
+                # line1_b_re = 0
                 line2_b_re = u
             elif prod_date0 == three_days_ago:
-                line0_b_re =0
-                line1_b_re = 0
-                line2_b_re = 0
+                # line0_b_re =0
+                # line1_b_re = 0
+                # line2_b_re = 0
                 line3_b_re = u
             elif prod_date0 == four_days_ago:
-                line0_b_re =0
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
+                # line0_b_re =0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
                 line4_b_re = u
             elif prod_date0 == five_days_ago:
-                line0_b_re =0
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
+                # line0_b_re =0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
                 line5_b_re = u
             elif prod_date0 == six_days_ago:
-                line0_b_re =0
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
-                line5_b_re = 0
+                # line0_b_re =0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
 
@@ -527,85 +560,85 @@ def get_value_for_machine_per_period(line):
             if prod_date1 == yesterday:
                 line1_b_re = u
             elif prod_date1 == two_days_ago:
-                line1_b_re = 0
+                # line1_b_re = 0
                 line2_b_re = u
             elif prod_date1 == three_days_ago:
-                line1_b_re = 0
-                line2_b_re = 0
+                # line1_b_re = 0
+                # line2_b_re = 0
                 line3_b_re = u
             elif prod_date1 == four_days_ago:
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
                 line4_b_re = u
             elif prod_date1 == five_days_ago:
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
                 line5_b_re = u
             elif prod_date1 == six_days_ago:
-                line1_b_re = 0
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
-                line5_b_re = 0
+                # line1_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
         elif for_count == 3:
             if prod_date2 == two_days_ago:
                 line2_b_re = u
             elif prod_date2 == three_days_ago:
-                line2_b_re = 0
+                # line2_b_re = 0
                 line3_b_re = u
             elif prod_date2 == four_days_ago:
-                line2_b_re = 0
-                line3_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
                 line4_b_re = u
             elif prod_date2 == five_days_ago:
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
                 line5_b_re = u
             elif prod_date2 == six_days_ago:
-                line2_b_re = 0
-                line3_b_re = 0
-                line4_b_re = 0
-                line5_b_re = 0
+                # line2_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
         elif for_count == 4:
             if prod_date3 == three_days_ago:
                 line3_b_re = u
             elif prod_date3 == four_days_ago:
-                line3_b_re = 0
+                # line3_b_re = 0
                 line4_b_re = u
             elif prod_date3 == five_days_ago:
-                line3_b_re = 0
-                line4_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
                 line5_b_re = u
             elif prod_date3 == six_days_ago:
-                line3_b_re = 0
-                line4_b_re = 0
-                line5_b_re = 0
+                # line3_b_re = 0
+                # line4_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
         elif for_count == 5:
             if prod_date4 == four_days_ago:
                 line4_b_re = u
             elif prod_date4 == five_days_ago:
-                line4_b_re = 0
+                # line4_b_re = 0
                 line5_b_re = u
             elif prod_date4 == six_days_ago:
-                line4_b_re = 0
-                line5_b_re = 0
+                # line4_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
         elif for_count == 6:
             if prod_date5 == five_days_ago:
                 line5_b_re = u
             elif prod_date5 == six_days_ago:
-                line5_b_re = 0
+                # line5_b_re = 0
                 line6_b_re = u
 
         elif for_count == 7:
