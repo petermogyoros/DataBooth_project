@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DataBooth</title>
+    <title>Reject Analysis</title>
 
     <!-- Bootstrap core CSS-->
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -46,13 +46,13 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Dolce Gusto:</h6>
             <a class="dropdown-item" href="table">Overview</a>
-            <a class="dropdown-item" href="line3">Line 3</a>
+            <!-- <a class="dropdown-item" href="line3">Line 3</a>
             <a class="dropdown-item" href="line4">Line 4</a>
             <a class="dropdown-item" href="line5">Line 5</a>
             <a class="dropdown-item" href="line7">Line 7</a>
             <a class="dropdown-item" href="line8">Line 8</a>
             <a class="dropdown-item" href="line9">Line 9</a>
-            <a class="dropdown-item" href="line10">Line 10</a>
+            <a class="dropdown-item" href="line10">Line 10</a> -->
           </div>
         </li>
       </ul>
@@ -63,154 +63,325 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Dolce Gusto Reject Rate</div>
+              Reject Rate</div>
             <div class="card-body">
+              <h4 style="text-align:left;">Line {% block line_3 %}
+            {% endblock %}</h4>
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
+                  <thead class="thead-light">
                     <tr>
-                      <th>#</th>
-                      <th>Today</th>
-                      <th>Yesterday</th>
-                      <th>{% block day2 %}
+                      <th class="text-center"></th>
+                      <th class="text-center">Today</th>
+                      <th class="text-center">Yest</th>
+                      <th class="text-center">{% block day2 %}
                       {% endblock %}</th>
-                      <th>{% block day3 %}
+                      <th class="text-center">{% block day3 %}
                       {% endblock %}</th>
-                      <th>{% block day4 %}
+                      <th class="text-center">{% block day4 %}
                       {% endblock %}</th>
-                      <th>{% block day5 %}
+                      <th class="text-center">{% block day5 %}
                       {% endblock %}</th>
-                      <th>{% block day6 %}
+                      <th class="text-center">{% block day6 %}
                       {% endblock %}</th>
                     </tr>
 
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">{% block line_3 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_3 %}
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_3 %}
+                      <td class="text-center">{% block combined_scrap_1_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_3 %}
+                      <td class="text-center">{% block combined_scrap_2_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_3 %}
+                      <td class="text-center">{% block combined_scrap_3_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_3 %}
+                      <td class="text-center">{% block combined_scrap_4_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_3 %}
+                      <td class="text-center">{% block combined_scrap_5_3_a %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_3 %}
-                      {% endblock %}</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">{% block line_4 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_4 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_4 %}
+                      <td class="text-center">{% block combined_scrap_6_3_a %}
                       {% endblock %}</td>
                     </tr>
                     <tr>
-                      <th scope="row">{% block line_5 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_5 %}
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_5 %}
+                      <td class="text-center">{% block combined_scrap_1_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_5 %}
+                      <td class="text-center">{% block combined_scrap_2_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_5 %}
+                      <td class="text-center">{% block combined_scrap_3_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_5 %}
+                      <td class="text-center">{% block combined_scrap_4_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_5 %}
+                      <td class="text-center">{% block combined_scrap_5_3_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_5 %}
+                      <td class="text-center">{% block combined_scrap_6_3_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <p> </p>
+                  <h4 style="text-align:left;">Line {% block line_4 %}
+                    {% endblock %}</h4>
+                  <tr class="table-light">
+
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_4_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_4_a %}
+                      {% endblock %}</td>
+                    </tr>
+                    <tr class="table-light">
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_4_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_4_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <p> </p>
+                  <h4 style="text-align:left;">Line {% block line_5 %}
+                    {% endblock %}</h4>
+                    <tr>
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_5_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_5_a %}
                       {% endblock %}</td>
                     </tr>
                     <tr>
-                      <th scope="row">{% block line_7 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_7 %}
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_7 %}
+                      <td class="text-center">{% block combined_scrap_1_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_7 %}
+                      <td class="text-center">{% block combined_scrap_2_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_7 %}
+                      <td class="text-center">{% block combined_scrap_3_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_7 %}
+                      <td class="text-center">{% block combined_scrap_4_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_7 %}
+                      <td class="text-center">{% block combined_scrap_5_5_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_7 %}
+                      <td class="text-center">{% block combined_scrap_6_5_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <p> </p>
+                  <h4 style="text-align:left;">Line {% block line_7 %}
+                    {% endblock %}</h4>
+                  <tr class="table-light">
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_7_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_7_a %}
+                      {% endblock %}</td>
+                    </tr>
+                    <tr class="table-light">
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_7_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_7_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <p> </p>
+                  <h4 style="text-align:left;">Line {% block line_8 %}
+                    {% endblock %}</h4>
+                    <tr>
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_8_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_8_a %}
                       {% endblock %}</td>
                     </tr>
                     <tr>
-                      <th scope="row">{% block line_8 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_8 %}
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_8 %}
+                      <td class="text-center">{% block combined_scrap_1_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_8 %}
+                      <td class="text-center">{% block combined_scrap_2_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_8 %}
+                      <td class="text-center">{% block combined_scrap_3_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_8 %}
+                      <td class="text-center">{% block combined_scrap_4_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_8 %}
+                      <td class="text-center">{% block combined_scrap_5_8_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_8 %}
+                      <td class="text-center">{% block combined_scrap_6_8_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <p> </p>
+                  <h4 style="text-align:left;">Line {% block line_9 %}
+                    {% endblock %}</h4>
+                  <tr class="table-light">
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_9_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_9_a %}
+                      {% endblock %}</td>
+                    </tr>
+                    <tr class="table-light">
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_9_b %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_9_b %}
+                      {% endblock %}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <p> </p>
+                    <h4 style="text-align:left;">Line {% block line_10 %}
+                      {% endblock %}</h4>
+                    <tr>
+                      <th class="text-center">A</th>
+                      <td class="text-center">{% block combined_scrap_0_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_1_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_2_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_3_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_4_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_5_10_a %}
+                      {% endblock %}</td>
+                      <td class="text-center">{% block combined_scrap_6_10_a %}
                       {% endblock %}</td>
                     </tr>
                     <tr>
-                      <th scope="row">{% block line_9 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_9 %}
+                      <th class="text-center">B</th>
+                      <td class="text-center">{% block combined_scrap_0_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_9 %}
+                      <td class="text-center">{% block combined_scrap_1_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_9 %}
+                      <td class="text-center">{% block combined_scrap_2_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_9 %}
+                      <td class="text-center">{% block combined_scrap_3_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_9 %}
+                      <td class="text-center">{% block combined_scrap_4_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_9 %}
+                      <td class="text-center">{% block combined_scrap_5_10_b %}
                       {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_9 %}
+                      <td class="text-center">{% block combined_scrap_6_10_b %}
                       {% endblock %}</td>
-                    <tr>
-                      <th scope="row">{% block line_10 %}
-                      {% endblock %}</th>
-                      <td>{% block combined_scrap_0_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_1_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_2_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_3_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_4_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_5_line_10 %}
-                      {% endblock %}</td>
-                      <td>{% block combined_scrap_6_line_10 %}
-                      {% endblock %}</td>
-                    </tr>
                     </tr>
                   </tbody>
                 </table>

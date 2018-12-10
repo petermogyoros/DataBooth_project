@@ -43,3 +43,21 @@ def daily_report(self):
     'production_day'])
 
     return daily_report_df
+
+def hourly_report(self):
+
+    with connection.cursor() as cursor:
+        cursor.execute(
+        "SELECT * FROM public.hourly_scrap WHERE line = %s LIMIT 12", [self]
+        )
+        hourly_report = cursor.fetchall()
+    hourly_report_df = DataFrame(hourly_report, columns = [
+    'line',
+    'combined_side_a_ng', 'combined_side_b_ng',
+    'combined_side_a_re', 'combined_side_b_re',
+    'a_top_ng', 'b_top_ng',
+    'a_bottom_ng', 'b_bottom_ng',
+    'a_side_ng', 'b_side_ng',
+    'hour'])
+
+    return hourly_report_df
