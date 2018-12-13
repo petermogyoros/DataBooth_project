@@ -2,6 +2,102 @@ from dolcegusto.models import daily_report, hourly_report
 from datetime import datetime, date, timedelta
 
 
+def past_twelve_hours(line):
+
+    # set all values to zero
+    top = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
+    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
+
+    bottom = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
+    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
+
+    side = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
+    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
+
+
+    now = time.asctime(time.localtime(time.time())).strftime('%Y-%m-%d')
+
+    prod_time1 = str(hourly_report(line).hour[1])
+    prod_time1 = prod_time1[0:10]
+
+    # assign variables from specific columns from database based on date
+    for_count = 0
+    for i in hourly_report(line).a_top_ng:
+        for_count += 1
+        if for_count == 1:
+            if prod_date0 == today:
+                line0_a_ng = i
+            elif prod_date0 == yesterday:
+                line1_a_ng = i
+            elif prod_date0 == two_days_ago:
+                line2_a_ng = i
+            elif prod_date0 == three_days_ago:
+                line3_a_ng = i
+            elif prod_date0 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date0 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date0 == six_days_ago:
+                line6_a_ng = i
+
+        elif for_count == 2:
+            if prod_date1 == yesterday:
+                line1_a_ng = i
+            elif prod_date1 == two_days_ago:
+                line2_a_ng = i
+            elif prod_date1 == three_days_ago:
+                line3_a_ng = i
+            elif prod_date1 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date1 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date1 == six_days_ago:
+                line6_a_ng = i
+
+
+        elif for_count == 3:
+            if prod_date2 == two_days_ago:
+                line2_a_ng = i
+            elif prod_date2 == three_days_ago:
+                line3_a_ng = i
+            elif prod_date2 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date2 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date2 == six_days_ago:
+                line6_a_ng = i
+
+        elif for_count == 4:
+            if prod_date3 == three_days_ago:
+                line3_a_ng = i
+            elif prod_date3 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date3 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date3 == six_days_ago:
+                line6_a_ng = i
+
+        elif for_count == 5:
+            if prod_date4 == four_days_ago:
+                line4_a_ng = i
+            elif prod_date4 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date4 == six_days_ago:
+                line6_a_ng = i
+
+        elif for_count == 6:
+            if prod_date5 == five_days_ago:
+                line5_a_ng = i
+            elif prod_date5 == six_days_ago:
+                line6_a_ng = i
+
+        elif for_count == 7:
+            if prod_date6 == six_days_ago:
+                line6_a_ng = i
+
+
+
+
 def past_seven_days(line):
 
     # reset variables
