@@ -70,81 +70,96 @@ License: You must have a valid license purchased only from https://themes.getboo
 
 		<!--begin::Global Theme Styles -->
 		<link href="{% static "assets/demo/demo5/base/style.bundle.css" %}" rel="stylesheet" type="text/css" />
-
 		<!--end::Global Theme Styles -->
 
 		<!--begin::Layout Skins -->
 		<link href="{% static "assets/demo/demo5/skins/header/navy.css" %}" rel="stylesheet" type="text/css" />
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="{% static "assets/media/logos/favicon.ico" %}" />
 
+	</head>
+
+	<!-- end::Head -->
 
 	<!-- begin::Body -->
-	<body>
-
+	<bodyclass="k-header--fixed k-header-mobile--fixed k-aside--enabled k-aside--fixed k-aside--offcanvas-default">
 		<!-- begin:: Page -->
+		<!-- begin:: Header Mobile -->
+		<div id="k_header_mobile" class="k-header-mobile  k-header-mobile--fixed ">
+			<div class="k-header-mobile__toolbar">
+				<button class="k-header-mobile__toolbar-toggler" id="k_header_mobile_toggler"><span></span></button>
+				<button class="k-header-mobile__toolbar-topbar-toggler" id="k_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+			</div>
+		</div>
+
+		<!-- end:: Header Mobile -->
+		<!-- begin:: Header -->
+		<div id="k_header" class="k-header k-grid__item k-grid k-grid--ver">
+
+
+			<!-- begin: Header Menu -->
+			<div class="k-header-menu-wrapper k-grid__item" id="k_header_menu_wrapper">
+				<div id="k_header_menu" class="k-header-menu k-header-menu-mobile ">
+					<ul class="k-menu__nav ">
+						<li class="k-menu__item  k-menu__item--open k-menu__item--here k-menu__item--submenu k-menu__item--rel k-menu__item--open k-menu__item--here" data-kmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Dolce Gusto</span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+							<div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+								<ul class="k-menu__subnav">
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="table" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Dashboard</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line3" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 3</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line4" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 4</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line5" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 5</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line7" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 7</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line8" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 8</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line9" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 9</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line10" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 10</span></a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- end: Header Menu -->
+
+		</div>
+
+		<!-- end:: Header -->
 
 		<div class="k-grid k-grid--hor k-grid--root">
 			<div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-page">
 				<div class="k-grid__item k-grid__item--fluid k-grid k-grid--hor k-wrapper" id="k_wrapper">
-
-
 					<div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-grid--stretch">
 						<div class="k-content-wrapper k-content-wrapper--fixed  k-grid__item k-grid__item--fluid k-grid k-grid--ver">
-
 							<!-- begin:: Content -->
 							<div class="k-content k-grid__item k-grid__item--fluid" id="k_content">
+
+								<h1><b>Vision Data Analysis - Rejects in %</b></h1>
 
 								<!--begin::Dashboard 1-->
 
 								<!--begin::Row-->
 								<div class="row">
-									<div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
-
-									</div>
-								</div>
-
-								<!--end::Row-->
-
-								<!--begin::Row-->
-								<div class="row">
-									<div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
-
-									</div>
 									<div class="col-lg-12 col-xl-8 order-lg-2 order-xl-1">
-
 										<!--begin::Portlet-->
 										<div class="k-portlet k-portlet--height-fluid">
 											<div class="k-portlet__head">
-												<div class="k-portlet__head-label">
-													<h3 class="k-portlet__head-title">Rejects in %</h3>
-												</div>
-
 												<!-- pass on variable to the dashboard.js file -->
 												<script type="text/javascript">
-													var aa = {% block combined_scrap_0_3_a %}{% endblock %}
-													var ab = {% block combined_scrap_0_3_b %}{% endblock %}
-													var ba = {% block combined_scrap_0_4_a %}{% endblock %}
-													var bb = {% block combined_scrap_0_4_b %}{% endblock %}
-													var ca = {% block combined_scrap_0_5_a %}{% endblock %}
-													var cb = {% block combined_scrap_0_5_b %}{% endblock %}
-													var da = {% block combined_scrap_0_7_a %}{% endblock %}
-													var db = {% block combined_scrap_0_7_b %}{% endblock %}
-													var ea = {% block combined_scrap_0_8_a %}{% endblock %}
-													var eb = {% block combined_scrap_0_8_b %}{% endblock %}
-													var fa = {% block combined_scrap_0_9_a %}{% endblock %}
-													var fb = {% block combined_scrap_0_9_b %}{% endblock %}
-													var ga = {% block combined_scrap_0_10_a %}{% endblock %}
-													var gb = {% block combined_scrap_0_10_b %}{% endblock %}
+													var a3 = {% block combined_scrap_0_3_a %}{% endblock %};
+													var b3 = {% block combined_scrap_0_3_b %}{% endblock %};
+													var a4 = {% block combined_scrap_0_4_a %}{% endblock %};
+													var b4 = {% block combined_scrap_0_4_b %}{% endblock %};
+													var a5 = {% block combined_scrap_0_5_a %}{% endblock %};
+													var b5 = {% block combined_scrap_0_5_b %}{% endblock %};
+													var a7 = {% block combined_scrap_0_7_a %}{% endblock %};
+													var b7 = {% block combined_scrap_0_7_b %}{% endblock %};
+													var a8 = {% block combined_scrap_0_8_a %}{% endblock %};
+													var b8 = {% block combined_scrap_0_8_b %}{% endblock %};
+													var a9 = {% block combined_scrap_0_9_a %}{% endblock %};
+													var b9 = {% block combined_scrap_0_9_b %}{% endblock %};
+													var a10 = {% block combined_scrap_0_10_a %}{% endblock %};
+													var b10 = {% block combined_scrap_0_10_b %}{% endblock %}
 												</script>
-
-												<div class="k-portlet__head-toolbar">
-													<div class="k-portlet__head-toolbar-wrapper">
-														<div class="dropdown dropdown-inline">
-															<button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-																<i class="flaticon-more-1"></i>
-															</button>
-														</div>
-													</div>
-												</div>
 											</div>
 											<div class="k-portlet__body">
 												<div class="k-widget-9">
@@ -163,35 +178,26 @@ License: You must have a valid license purchased only from https://themes.getboo
 													<div class="k-widget-9__chart">
 
 														<!--Doc: For the chart initialization refer to "widgetSalesStatisticsChart" function in "src\theme\app\scripts\custom\dashboard.js" -->
-														<canvas id="k_chart_sales_statistics" height=300%></canvas>
+														<canvas id="k_chart_sales_statistics" style="height:300px;"></canvas>
 													</div>
 												</div>
 											</div>
 										</div>
-
 										<!--end::Portlet-->
 								</div>
-
 								<!--end::Row-->
-
 								<!--end::Dashboard 1-->
 							</div>
-
 							<!-- end:: Content -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<!-- end:: Page -->
-
 			</div>
 		</div>
-
 		<!-- end:: Aside -->
-
-
 
 		<!-- begin::Global Config -->
 		<script>
