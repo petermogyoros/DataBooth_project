@@ -145,7 +145,7 @@ License: You must have a valid license purchased only from https://themes.getboo
 												<!-- This id is for the day# variables to work -->
 
                         <!-- pass on variable to the dashboard.js file -->
-                        <script type="text/javascript" id="demo">
+                        <script type="text/javascript" id="days_of_week">
 													var d = new Date();
 													var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                           var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
@@ -162,11 +162,11 @@ License: You must have a valid license purchased only from https://themes.getboo
                           var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
                           var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
                           var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
-													var day2 = document.getElementById("demo").innerHTML =  days[d.getDay() - 2];
-													var day3 = document.getElementById("demo").innerHTML =  days[d.getDay() - 3];
-													var day4 = document.getElementById("demo").innerHTML =  days[d.getDay() - 4];
-													var day5 = document.getElementById("demo").innerHTML =  days[d.getDay() - 5];
-													var day6 = document.getElementById("demo").innerHTML =  days[d.getDay() - 6];
+													var day2 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 2];
+													var day3 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 3];
+													var day4 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 4];
+													var day5 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 5];
+													var day6 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 6];
 
                         </script>
 
