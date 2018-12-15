@@ -136,6 +136,8 @@ License: You must have a valid license purchased only from https://themes.getboo
 								<h1><b>Line {% block line %}
                 {% endblock %}</b></h1>
 
+								<h1>{% block day0 %}
+								{% endblock %}</h1>
 								<!--begin::Dashboard 1-->
                 <div class="row">
   								<div class="col-sm-12">
@@ -143,8 +145,11 @@ License: You must have a valid license purchased only from https://themes.getboo
   									<!--begin::Portlet-->
   									<div class="k-portlet">
   										<div class="k-portlet__head">
+												<!-- This id is for the day# variables to work -->
+												<p id="demo"></p>
                         <!-- pass on variable to the dashboard.js file -->
                         <script type="text/javascript">
+													var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                           var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
                           var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
                           var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
@@ -158,7 +163,13 @@ License: You must have a valid license purchased only from https://themes.getboo
                           var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
                           var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
                           var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
-                          var scrap6b = {% block combined_scrap_6_b %}{% endblock %}
+                          var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
+													var d = new Date();
+													var day2 = document.getElementById("demo").innerHTML =  days[d.getDay() - 2];
+													var day3 = document.getElementById("demo").innerHTML =  days[d.getDay() - 3];
+													var day4 = document.getElementById("demo").innerHTML =  days[d.getDay() - 4];
+													var day5 = document.getElementById("demo").innerHTML =  days[d.getDay() - 5];
+													var day6 = document.getElementById("demo").innerHTML =  days[d.getDay() - 6];
 
                         </script>
 

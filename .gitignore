@@ -8,5 +8,6 @@
 __pycache__/
 local_settings.py
 /media
-/static
+/backups
+/static/app
 /keen*
