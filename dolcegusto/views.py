@@ -29,42 +29,6 @@ def assign_variables(data_dict):
     combined_scrap_6_a = data_dict["line6_a_ng"] + data_dict["line6_a_re"]
     combined_scrap_6_b = data_dict["line6_b_ng"] + data_dict["line6_a_re"]
 
-    # # determin if both side are running. If not, don't devide the result
-    # if data_dict["line0_a_ng"] < 0.1 or data_dict["line0_b_ng"] < 0.1:
-    #     combined_scrap_0 = data_dict["line0_a_ng"] + data_dict["line0_a_re"] + data_dict["line0_b_ng"] + data_dict["line0_a_re"]
-    # elif data_dict["line0_a_ng"] > 0.1 and data_dict["line0_b_ng"] > 0.1:
-    #     combined_scrap_0 = (data_dict["line0_a_ng"] + data_dict["line0_a_re"] + data_dict["line0_b_ng"] + data_dict["line0_a_re"]) / 2
-    #
-    # if data_dict["line1_a_ng"] < 0.1 or data_dict["line1_b_ng"] < 0.1:
-    #     combined_scrap_1 = data_dict["line1_a_ng"] + data_dict["line1_a_re"] + data_dict["line1_b_ng"] + data_dict["line1_a_re"]
-    # elif data_dict["line1_a_ng"] > 0.1 and data_dict["line1_b_ng"] > 0.1:
-    #     combined_scrap_1 = (data_dict["line1_a_ng"] + data_dict["line1_a_re"] + data_dict["line1_b_ng"] + data_dict["line1_a_re"]) / 2
-    #
-    # if data_dict["line2_a_ng"] < 0.1 or data_dict["line2_b_ng"] < 0.1:
-    #     combined_scrap_2 = data_dict["line2_a_ng"] + data_dict["line2_a_re"] + data_dict["line2_b_ng"] + data_dict["line2_a_re"]
-    # elif data_dict["line2_a_ng"] > 0.1 and data_dict["line2_b_ng"] > 0.1:
-    #     combined_scrap_2 = (data_dict["line2_a_ng"] + data_dict["line2_a_re"] + data_dict["line2_b_ng"] + data_dict["line2_a_re"]) / 2
-    #
-    # if data_dict["line3_a_ng"] < 0.1 or data_dict["line3_b_ng"] < 0.1:
-    #     combined_scrap_3 = data_dict["line3_a_ng"] + data_dict["line3_a_re"] + data_dict["line3_b_ng"] + data_dict["line3_a_re"]
-    # elif data_dict["line3_a_ng"] > 0.1 and data_dict["line3_b_ng"] > 0.1:
-    #     combined_scrap_3 = (data_dict["line3_a_ng"] + data_dict["line3_a_re"] + data_dict["line3_b_ng"] + data_dict["line3_a_re"]) / 2
-    #
-    # if data_dict["line4_a_ng"] < 0.1 or data_dict["line4_b_ng"] < 0.1:
-    #     combined_scrap_4 = data_dict["line4_a_ng"] + data_dict["line4_a_re"] + data_dict["line4_b_ng"] + data_dict["line4_a_re"]
-    # elif data_dict["line4_a_ng"] > 0.1 and data_dict["line4_b_ng"] > 0.1:
-    #     combined_scrap_4 = (data_dict["line4_a_ng"] + data_dict["line4_a_re"] + data_dict["line4_b_ng"] + data_dict["line4_a_re"]) / 2
-    #
-    # if data_dict["line5_a_ng"] < 0.1 or data_dict["line5_b_ng"] < 0.1:
-    #     combined_scrap_5 = data_dict["line5_a_ng"] + data_dict["line5_a_re"] + data_dict["line5_b_ng"] + data_dict["line5_a_re"]
-    # elif data_dict["line5_a_ng"] > 0.1 and data_dict["line5_b_ng"] > 0.1:
-    #     combined_scrap_5 = (data_dict["line5_a_ng"] + data_dict["line5_a_re"] + data_dict["line5_b_ng"] + data_dict["line5_a_re"]) / 2
-    #
-    # if data_dict["line6_a_ng"] < 0.1 or data_dict["line6_b_ng"] < 0.1:
-    #     combined_scrap_6 = data_dict["line6_a_ng"] + data_dict["line6_a_re"] + data_dict["line6_b_ng"] + data_dict["line6_a_re"]
-    # elif data_dict["line6_a_ng"] > 0.1 and data_dict["line6_b_ng"] > 0.1:
-    #     combined_scrap_6 = (data_dict["line6_a_ng"] + data_dict["line6_a_re"] + data_dict["line6_b_ng"] + data_dict["line6_a_re"]) / 2
-
     return {
     "day0_a":combined_scrap_0_a,
     "day0_b":combined_scrap_0_b,
@@ -79,14 +43,7 @@ def assign_variables(data_dict):
     "day5_a":combined_scrap_5_a,
     "day5_b":combined_scrap_5_b,
     "day6_a":combined_scrap_6_a,
-    "day6_b":combined_scrap_6_b,
-    # "combined_scrap_0":combined_scrap_0,
-    # "combined_scrap_1":combined_scrap_1,
-    # "combined_scrap_2":combined_scrap_2,
-    # "combined_scrap_3":combined_scrap_3,
-    # "combined_scrap_4":combined_scrap_4,
-    # "combined_scrap_5":combined_scrap_5,
-    # "combined_scrap_6":combined_scrap_6
+    "day6_b":combined_scrap_6_b
     }
 
 
