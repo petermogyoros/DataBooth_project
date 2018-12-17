@@ -147,28 +147,72 @@ License: You must have a valid license purchased only from https://themes.getboo
 
                         <!-- pass on variable to the charts-js.js file -->
 												<!-- the file is at /static/assets/demo/default/costume/components/charts -->
-                        <script type="text/javascript" id="days_of_week">
-													var d = new Date();
-													var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-                          var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
-                          var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
-                          var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
-                          var scrap3a = {% block combined_scrap_3_a %}{% endblock %};
-                          var scrap4a = {% block combined_scrap_4_a %}{% endblock %};
-                          var scrap5a = {% block combined_scrap_5_a %}{% endblock %};
-                          var scrap6a = {% block combined_scrap_6_a %}{% endblock %};
-                          var scrap0b = {% block combined_scrap_0_b %}{% endblock %};
-                          var scrap1b = {% block combined_scrap_1_b %}{% endblock %};
-                          var scrap2b = {% block combined_scrap_2_b %}{% endblock %};
-                          var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
-                          var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
-                          var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
-                          var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
-													var day2 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 2];
-													var day3 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 3];
-													var day4 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 4];
-													var day5 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 5];
-													var day6 = document.getElementById("days_of_week").innerHTML =  days[d.getDay() - 6];
+                        <script type="text/javascript" id="demo">
+												// get day name to be displayed on the graph
+													function myFunction() {
+														var d = new Date();
+														var n = d.getDay();
+														return(n)
+													};
+													if (myFunction() == 0) {
+														var day2 = "Friday";
+														var day3 = "Thursday";
+														var day4 = "Wednesday";
+														var day5 = "Tuesday";
+														var day6 = "Monday";
+													} else if (myFunction() == 1) {
+														var day2 = "Saturday";
+														var day3 = "Friday";
+														var day4 = "Thursday";
+														var day5 = "Wednesday";
+														var day6 = "Tuesday";
+													} else if (myFunction() == 2) {
+														var day2 = "Sunday";
+														var day3 = "Saturday";
+														var day4 = "Friday";
+														var day5 = "Thursday";
+														var day6 = "Wednesday";
+													} else if (myFunction() == 3) {
+														var day2 = "Monday";
+														var day3 = "Sunday";
+														var day4 = "Saturday";
+														var day5 = "Friday";
+														var day6 = "Thursday";
+													} else if (myFunction() == 4) {
+														var day2 = "Tuesday";
+														var day3 = "Monday";
+														var day4 = "Sunday";
+														var day5 = "Saturday";
+														var day6 = "Friday";
+													} else if (myFunction() == 5) {
+														var day2 = "Wednesday";
+														var day3 = "Tuesday";
+														var day4 = "Monday";
+														var day5 = "Sunday";
+														var day6 = "Saturday";
+													} else if (myFunction() == 6) {
+														var day2 = "Thursday";
+														var day3 = "Wednesday";
+														var day4 = "Tuesday";
+														var day5 = "Monday";
+														var day6 = "Sunday";
+													}
+													// graph values
+													var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
+													var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
+													var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
+													var scrap3a = {% block combined_scrap_3_a %}{% endblock %};
+													var scrap4a = {% block combined_scrap_4_a %}{% endblock %};
+													var scrap5a = {% block combined_scrap_5_a %}{% endblock %};
+													var scrap6a = {% block combined_scrap_6_a %}{% endblock %};
+													var scrap0b = {% block combined_scrap_0_b %}{% endblock %};
+													var scrap1b = {% block combined_scrap_1_b %}{% endblock %};
+													var scrap2b = {% block combined_scrap_2_b %}{% endblock %};
+													var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
+													var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
+													var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
+													var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
+
 
                         </script>
 
