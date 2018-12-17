@@ -11,4 +11,6 @@ urlpatterns =[
     path('line8_daily', views.Line8_daily.as_view(), name='line8_daily'),
     path('line9_daily', views.Line9_daily.as_view(), name='line9_daily'),
     path('line10_daily', views.Line10_daily.as_view(), name='line10_daily'),
+    path('weekly_dashboard', views.Weekly_dashboard.as_view(), name='weekly_dashboard'),
+
 ]

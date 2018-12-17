@@ -4,14 +4,14 @@ import pandas as pd
 from pandas import DataFrame
 from datetime import datetime, date, timedelta
 
-from dolcegusto.models import daily_report, hourly_report
+from dolcegusto.models import daily_report, hourly_report, weekly_report
 from dolcegusto.times import get_weekday
-from dolcegusto.get_values import past_seven_days
+from dolcegusto.get_values import past_seven_days, past_seven_weeks
 
 
 
 # assign the values to both sides (A and B) for the last 7 days
-def daily_a_b(data_dict):
+def assign_a_b_for_period(data_dict):
     combined_scrap_0_a = data_dict["line0_a_ng"] + data_dict["line0_a_re"]
     combined_scrap_0_b = data_dict["line0_b_ng"] + data_dict["line0_b_re"]
     combined_scrap_1_a = data_dict["line1_a_ng"] + data_dict["line1_a_re"]
@@ -43,18 +43,143 @@ def daily_a_b(data_dict):
     "period_6_a":combined_scrap_6_a,
     "period_6_b":combined_scrap_6_b
     }
+class Weekly_dashboard(View):
+    model = weekly_report
+    def get(self, request):
+
+        line3 = assign_a_b_for_period(past_seven_weeks(3))
+        line4 = assign_a_b_for_period(past_seven_weeks(4))
+        line5 = assign_a_b_for_period(past_seven_weeks(5))
+        line7 = assign_a_b_for_period(past_seven_weeks(7))
+        line8 = assign_a_b_for_period(past_seven_weeks(8))
+        line9 = assign_a_b_for_period(past_seven_weeks(9))
+        line10 = assign_a_b_for_period(past_seven_weeks(10))
+
+        return render(request, "dolcegusto/daily_dashboard.html", {
+        "line_3": 3,
+        "line_4": 4,
+        "line_5": 5,
+        "line_7": 7,
+        "line_8": 8,
+        "line_9": 9,
+        "line_10": 10,
+        "combined_scrap_0_3_a": line3["period_0_a"],
+        "combined_scrap_0_3_b": line3["period_0_b"],
+        "combined_scrap_1_3_a": line3["period_1_a"],
+        "combined_scrap_1_3_b": line3["period_1_b"],
+        "combined_scrap_2_3_a": line3["period_2_a"],
+        "combined_scrap_2_3_b": line3["period_2_b"],
+        "combined_scrap_3_3_a": line3["period_3_a"],
+        "combined_scrap_3_3_b": line3["period_3_b"],
+        "combined_scrap_4_3_a": line3["period_4_a"],
+        "combined_scrap_4_3_b": line3["period_4_b"],
+        "combined_scrap_5_3_a": line3["period_5_a"],
+        "combined_scrap_5_3_b": line3["period_5_b"],
+        "combined_scrap_6_3_a": line3["period_6_a"],
+        "combined_scrap_6_3_b": line3["period_6_b"],
+
+        "combined_scrap_0_4_a": line4["period_0_a"],
+        "combined_scrap_0_4_b": line4["period_0_b"],
+        "combined_scrap_1_4_a": line4["period_1_a"],
+        "combined_scrap_1_4_b": line4["period_1_b"],
+        "combined_scrap_2_4_a": line4["period_2_a"],
+        "combined_scrap_2_4_b": line4["period_2_b"],
+        "combined_scrap_3_4_a": line4["period_3_a"],
+        "combined_scrap_3_4_b": line4["period_3_b"],
+        "combined_scrap_4_4_a": line4["period_4_a"],
+        "combined_scrap_4_4_b": line4["period_4_b"],
+        "combined_scrap_5_4_a": line4["period_5_a"],
+        "combined_scrap_5_4_b": line4["period_5_b"],
+        "combined_scrap_6_4_a": line4["period_6_a"],
+        "combined_scrap_6_4_b": line4["period_6_b"],
+
+        "combined_scrap_0_5_a": line5["period_0_a"],
+        "combined_scrap_0_5_b": line5["period_0_b"],
+        "combined_scrap_1_5_a": line5["period_1_a"],
+        "combined_scrap_1_5_b": line5["period_1_b"],
+        "combined_scrap_2_5_a": line5["period_2_a"],
+        "combined_scrap_2_5_b": line5["period_2_b"],
+        "combined_scrap_3_5_a": line5["period_3_a"],
+        "combined_scrap_3_5_b": line5["period_3_b"],
+        "combined_scrap_4_5_a": line5["period_4_a"],
+        "combined_scrap_4_5_b": line5["period_4_b"],
+        "combined_scrap_5_5_a": line5["period_5_a"],
+        "combined_scrap_5_5_b": line5["period_5_b"],
+        "combined_scrap_6_5_a": line5["period_6_a"],
+        "combined_scrap_6_5_b": line5["period_6_b"],
+
+        "combined_scrap_0_7_a": line7["period_0_a"],
+        "combined_scrap_0_7_b": line7["period_0_b"],
+        "combined_scrap_1_7_a": line7["period_1_a"],
+        "combined_scrap_1_7_b": line7["period_1_b"],
+        "combined_scrap_2_7_a": line7["period_2_a"],
+        "combined_scrap_2_7_b": line7["period_2_b"],
+        "combined_scrap_3_7_a": line7["period_3_a"],
+        "combined_scrap_3_7_b": line7["period_3_b"],
+        "combined_scrap_4_7_a": line7["period_4_a"],
+        "combined_scrap_4_7_b": line7["period_4_b"],
+        "combined_scrap_5_7_a": line7["period_5_a"],
+        "combined_scrap_5_7_b": line7["period_5_b"],
+        "combined_scrap_6_7_a": line7["period_6_a"],
+        "combined_scrap_6_7_b": line7["period_6_b"],
+
+        "combined_scrap_0_8_a": line8["period_0_a"],
+        "combined_scrap_0_8_b": line8["period_0_b"],
+        "combined_scrap_1_8_a": line8["period_1_a"],
+        "combined_scrap_1_8_b": line8["period_1_b"],
+        "combined_scrap_2_8_a": line8["period_2_a"],
+        "combined_scrap_2_8_b": line8["period_2_b"],
+        "combined_scrap_3_8_a": line8["period_3_a"],
+        "combined_scrap_3_8_b": line8["period_3_b"],
+        "combined_scrap_4_8_a": line8["period_4_a"],
+        "combined_scrap_4_8_b": line8["period_4_b"],
+        "combined_scrap_5_8_a": line8["period_5_a"],
+        "combined_scrap_5_8_b": line8["period_5_b"],
+        "combined_scrap_6_8_a": line8["period_6_a"],
+        "combined_scrap_6_8_b": line8["period_6_b"],
+
+        "combined_scrap_0_9_a": line9["period_0_a"],
+        "combined_scrap_0_9_b": line9["period_0_b"],
+        "combined_scrap_1_9_a": line9["period_1_a"],
+        "combined_scrap_1_9_b": line9["period_1_b"],
+        "combined_scrap_2_9_a": line9["period_2_a"],
+        "combined_scrap_2_9_b": line9["period_2_b"],
+        "combined_scrap_3_9_a": line9["period_3_a"],
+        "combined_scrap_3_9_b": line9["period_3_b"],
+        "combined_scrap_4_9_a": line9["period_4_a"],
+        "combined_scrap_4_9_b": line9["period_4_b"],
+        "combined_scrap_5_9_a": line9["period_5_a"],
+        "combined_scrap_5_9_b": line9["period_5_b"],
+        "combined_scrap_6_9_a": line9["period_6_a"],
+        "combined_scrap_6_9_b": line9["period_6_b"],
+
+        "combined_scrap_0_10_a": line10["period_0_a"],
+        "combined_scrap_0_10_b": line10["period_0_b"],
+        "combined_scrap_1_10_a": line10["period_1_a"],
+        "combined_scrap_1_10_b": line10["period_1_b"],
+        "combined_scrap_2_10_a": line10["period_2_a"],
+        "combined_scrap_2_10_b": line10["period_2_b"],
+        "combined_scrap_3_10_a": line10["period_3_a"],
+        "combined_scrap_3_10_b": line10["period_3_b"],
+        "combined_scrap_4_10_a": line10["period_4_a"],
+        "combined_scrap_4_10_b": line10["period_4_b"],
+        "combined_scrap_5_10_a": line10["period_5_a"],
+        "combined_scrap_5_10_b": line10["period_5_b"],
+        "combined_scrap_6_10_a": line10["period_6_a"],
+        "combined_scrap_6_10_b": line10["period_6_b"],
+        })
 
 class Daily_dashboard(View):
     model = daily_report
     def get(self, request):
 
-        line3 = daily_a_b(past_seven_days(3))
-        line4 = daily_a_b(past_seven_days(4))
-        line5 = daily_a_b(past_seven_days(5))
-        line7 = daily_a_b(past_seven_days(7))
-        line8 = daily_a_b(past_seven_days(8))
-        line9 = daily_a_b(past_seven_days(9))
-        line10 = daily_a_b(past_seven_days(10))
+        line3 = assign_a_b_for_period(past_seven_days(3))
+        line4 = assign_a_b_for_period(past_seven_days(4))
+        line5 = assign_a_b_for_period(past_seven_days(5))
+        line7 = assign_a_b_for_period(past_seven_days(7))
+        line8 = assign_a_b_for_period(past_seven_days(8))
+        line9 = assign_a_b_for_period(past_seven_days(9))
+        line10 = assign_a_b_for_period(past_seven_days(10))
 
         return render(request, "dolcegusto/daily_dashboard.html", {
         "line_3": 3,
@@ -174,7 +299,7 @@ class Line3_daily(View):
     model = daily_report
     def get(self, request):
 
-        line3 = daily_a_b(past_seven_days(3))
+        line3 = assign_a_b_for_period(past_seven_days(3))
 
         return render(request, "dolcegusto/line3_daily.html", {
         "line": 3,
@@ -198,7 +323,7 @@ class Line4_daily(View):
     model = daily_report
     def get(self, request):
 
-        line4 = daily_a_b(past_seven_days(4))
+        line4 = assign_a_b_for_period(past_seven_days(4))
 
         return render(request, "dolcegusto/line4_daily.html", {
         "line": 4,
@@ -222,7 +347,7 @@ class Line5_daily(View):
     model = daily_report
     def get(self, request):
 
-        line5 = daily_a_b(past_seven_days(5))
+        line5 = assign_a_b_for_period(past_seven_days(5))
 
         return render(request, "dolcegusto/line5_daily.html", {
         "line": 5,
@@ -246,7 +371,7 @@ class Line7_daily(View):
     model = daily_report
     def get(self, request):
 
-        line7 = daily_a_b(past_seven_days(7))
+        line7 = assign_a_b_for_period(past_seven_days(7))
 
         return render(request, "dolcegusto/line7_daily.html", {
         "line": 7,
@@ -270,7 +395,7 @@ class Line8_daily(View):
     model = daily_report
     def get(self, request):
 
-        line8 = daily_a_b(past_seven_days(8))
+        line8 = assign_a_b_for_period(past_seven_days(8))
 
         return render(request, "dolcegusto/line8_daily.html", {
         "line": 8,
@@ -294,7 +419,7 @@ class Line9_daily(View):
     model = daily_report
     def get(self, request):
 
-        line9 = daily_a_b(past_seven_days(9))
+        line9 = assign_a_b_for_period(past_seven_days(9))
 
         return render(request, "dolcegusto/line9_daily.html", {
         "line": 9,
@@ -318,7 +443,7 @@ class Line10_daily(View):
     model = daily_report
     def get(self, request):
 
-        line10 = daily_a_b(past_seven_days(10))
+        line10 = assign_a_b_for_period(past_seven_days(10))
 
         return render(request, "dolcegusto/line10_daily.html", {
         "line": 10,
