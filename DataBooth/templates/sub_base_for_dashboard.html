@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content_base_for_dashboard %}
+<div class="k-grid k-grid--hor k-grid--root">
+  <div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-page">
+    <div class="k-grid__item k-grid__item--fluid k-grid k-grid--hor k-wrapper" id="k_wrapper">
+      <div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-grid--stretch">
+        <div class="k-content-wrapper k-content-wrapper--fixed  k-grid__item k-grid__item--fluid k-grid k-grid--ver">
+          <!-- begin:: Content -->
+          <div class="k-content k-grid__item k-grid__item--fluid" id="k_content">
+
+            <h1><b>Vision Data Analysis</b></h1>
+
+            <!--begin::Dashboard 1-->
+
+            <div class="row">
+              <div class="col-lg-12 col-xl-8 order-lg-2 order-xl-1">
+                <!--begin::Portlet-->
+                <div class="k-portlet k-portlet--height-fluid">
+
+                  {% block content %}
+                  {% endblock %}
+
+                  <div class="k-portlet__body">
+                    <h2>Rejects in %</h2>
+                    <div class="k-widget-9">
+                      <div class="k-widget-9__panel">
+                        <div class="k-widget-9__legends">
+                          <div class="k-widget-9__legend">
+                            <div class="k-widget-9__legend-bullet k-bg-brand"></div>
+                            <div class="k-widget-9__legend-label">Side A</div>
+                          </div>
+                          <div class="k-widget-9__legend">
+                            <div class="k-widget-9__legend-bullet k-label-bg-color-1"></div>
+                            <div class="k-widget-9__legend-label">Side B</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="k_morris_3">
+
+                        <!--Doc: For the chart initialization refer to "widgetSalesStatisticsChart" function in "src\theme\app\scripts\custom\dashboard.js" -->
+                        <canvas id="k_chart_sales_statistics" style="height:300px;"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end::Portlet-->
+            </div>
+            <!--end::Row-->
+            <!--end::Dashboard 1-->
+          </div>
+          <!-- end:: Content -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end:: Page -->
+
+<!-- end:: Page -->
+{% endblock %}

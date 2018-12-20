@@ -126,78 +126,10 @@ License: You must have a valid license purchased only from https://themes.getboo
 
 		<!-- end:: Header -->
 
-		<div class="k-grid k-grid--hor k-grid--root">
-			<div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-page">
-				<div class="k-grid__item k-grid__item--fluid k-grid k-grid--hor k-wrapper" id="k_wrapper">
-					<div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-grid--stretch">
-						<div class="k-content-wrapper k-content-wrapper--fixed  k-grid__item k-grid__item--fluid k-grid k-grid--ver">
-							<!-- begin:: Content -->
-							<div class="k-content k-grid__item k-grid__item--fluid" id="k_content">
+		{% block content_base_for_dashboard %}
+		{% endblock %}
 
-								<h1><b>Vision Data Analysis</b></h1>
 
-								<!--begin::Dashboard 1-->
-
-								<!--begin::Row-->
-								<div class="row">
-									<div class="col-lg-12 col-xl-8 order-lg-2 order-xl-1">
-										<!--begin::Portlet-->
-										<div class="k-portlet k-portlet--height-fluid">
-
-												<!-- pass on variable to the dashboard.js file -->
-												<script type="text/javascript">
-													var a3 = {% block combined_scrap_0_3_a %}{% endblock %};
-													var b3 = {% block combined_scrap_0_3_b %}{% endblock %};
-													var a4 = {% block combined_scrap_0_4_a %}{% endblock %};
-													var b4 = {% block combined_scrap_0_4_b %}{% endblock %};
-													var a5 = {% block combined_scrap_0_5_a %}{% endblock %};
-													var b5 = {% block combined_scrap_0_5_b %}{% endblock %};
-													var a7 = {% block combined_scrap_0_7_a %}{% endblock %};
-													var b7 = {% block combined_scrap_0_7_b %}{% endblock %};
-													var a8 = {% block combined_scrap_0_8_a %}{% endblock %};
-													var b8 = {% block combined_scrap_0_8_b %}{% endblock %};
-													var a9 = {% block combined_scrap_0_9_a %}{% endblock %};
-													var b9 = {% block combined_scrap_0_9_b %}{% endblock %};
-													var a10 = {% block combined_scrap_0_10_a %}{% endblock %};
-													var b10 = {% block combined_scrap_0_10_b %}{% endblock %}
-												</script>
-											<div class="k-portlet__body">
-												<h2>Rejects in %</h2>
-												<div class="k-widget-9">
-													<div class="k-widget-9__panel">
-														<div class="k-widget-9__legends">
-															<div class="k-widget-9__legend">
-																<div class="k-widget-9__legend-bullet k-bg-brand"></div>
-																<div class="k-widget-9__legend-label">Side A</div>
-															</div>
-															<div class="k-widget-9__legend">
-																<div class="k-widget-9__legend-bullet k-label-bg-color-1"></div>
-																<div class="k-widget-9__legend-label">Side B</div>
-															</div>
-														</div>
-													</div>
-													<div class="k-widget-9__chart">
-
-														<!--Doc: For the chart initialization refer to "widgetSalesStatisticsChart" function in "src\theme\app\scripts\custom\dashboard.js" -->
-														<canvas id="k_chart_sales_statistics" style="height:300px;"></canvas>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!--end::Portlet-->
-								</div>
-								<!--end::Row-->
-								<!--end::Dashboard 1-->
-							</div>
-							<!-- end:: Content -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end:: Page -->
-			</div>
-		</div>
 		<!-- end:: Aside -->
 
 		<!-- begin::Global Config -->

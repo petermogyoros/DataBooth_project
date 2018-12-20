@@ -43,6 +43,7 @@ def assign_a_b_for_period(data_dict):
     "period_6_a":combined_scrap_6_a,
     "period_6_b":combined_scrap_6_b
     }
+
 class Weekly_dashboard(View):
     model = weekly_report
     def get(self, request):
@@ -168,6 +169,175 @@ class Weekly_dashboard(View):
         "combined_scrap_6_10_a": line10["period_6_a"],
         "combined_scrap_6_10_b": line10["period_6_b"],
         })
+
+class Line3_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line3 = assign_a_b_for_period(past_seven_weeks(3))
+
+        return render(request, "dolcegusto/line3_weekly.html", {
+        "line": 3,
+        "combined_scrap_0_a": line3["period_0_a"],
+        "combined_scrap_0_b": line3["period_0_b"],
+        "combined_scrap_1_a": line3["period_1_a"],
+        "combined_scrap_1_b": line3["period_1_b"],
+        "combined_scrap_2_a": line3["period_2_a"],
+        "combined_scrap_2_b": line3["period_2_b"],
+        "combined_scrap_3_a": line3["period_3_a"],
+        "combined_scrap_3_b": line3["period_3_b"],
+        "combined_scrap_4_a": line3["period_4_a"],
+        "combined_scrap_4_b": line3["period_4_b"],
+        "combined_scrap_5_a": line3["period_5_a"],
+        "combined_scrap_5_b": line3["period_5_b"],
+        "combined_scrap_6_a": line3["period_6_a"],
+        "combined_scrap_6_b": line3["period_6_b"]
+        })
+
+class Line4_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line4 = assign_a_b_for_period(past_seven_weeks(4))
+
+        return render(request, "dolcegusto/line4_weekly.html", {
+        "line": 4,
+        "combined_scrap_0_a": line4["period_0_a"],
+        "combined_scrap_0_b": line4["period_0_b"],
+        "combined_scrap_1_a": line4["period_1_a"],
+        "combined_scrap_1_b": line4["period_1_b"],
+        "combined_scrap_2_a": line4["period_2_a"],
+        "combined_scrap_2_b": line4["period_2_b"],
+        "combined_scrap_3_a": line4["period_3_a"],
+        "combined_scrap_3_b": line4["period_3_b"],
+        "combined_scrap_4_a": line4["period_4_a"],
+        "combined_scrap_4_b": line4["period_4_b"],
+        "combined_scrap_5_a": line4["period_5_a"],
+        "combined_scrap_5_b": line4["period_5_b"],
+        "combined_scrap_6_a": line4["period_6_a"],
+        "combined_scrap_6_b": line4["period_6_b"]
+        })
+
+class Line5_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line5 = assign_a_b_for_period(past_seven_weeks(5))
+
+        return render(request, "dolcegusto/line5_weekly.html", {
+        "line": 5,
+        "combined_scrap_0_a": line5["period_0_a"],
+        "combined_scrap_0_b": line5["period_0_b"],
+        "combined_scrap_1_a": line5["period_1_a"],
+        "combined_scrap_1_b": line5["period_1_b"],
+        "combined_scrap_2_a": line5["period_2_a"],
+        "combined_scrap_2_b": line5["period_2_b"],
+        "combined_scrap_3_a": line5["period_3_a"],
+        "combined_scrap_3_b": line5["period_3_b"],
+        "combined_scrap_4_a": line5["period_4_a"],
+        "combined_scrap_4_b": line5["period_4_b"],
+        "combined_scrap_5_a": line5["period_5_a"],
+        "combined_scrap_5_b": line5["period_5_b"],
+        "combined_scrap_6_a": line5["period_6_a"],
+        "combined_scrap_6_b": line5["period_6_b"]
+        })
+
+class Line7_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line7 = assign_a_b_for_period(past_seven_weeks(7))
+
+        return render(request, "dolcegusto/line7_weekly.html", {
+        "line": 7,
+        "combined_scrap_0_a": line7["period_0_a"],
+        "combined_scrap_0_b": line7["period_0_b"],
+        "combined_scrap_1_a": line7["period_1_a"],
+        "combined_scrap_1_b": line7["period_1_b"],
+        "combined_scrap_2_a": line7["period_2_a"],
+        "combined_scrap_2_b": line7["period_2_b"],
+        "combined_scrap_3_a": line7["period_3_a"],
+        "combined_scrap_3_b": line7["period_3_b"],
+        "combined_scrap_4_a": line7["period_4_a"],
+        "combined_scrap_4_b": line7["period_4_b"],
+        "combined_scrap_5_a": line7["period_5_a"],
+        "combined_scrap_5_b": line7["period_5_b"],
+        "combined_scrap_6_a": line7["period_6_a"],
+        "combined_scrap_6_b": line7["period_6_b"]
+        })
+
+class Line8_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line8 = assign_a_b_for_period(past_seven_weeks(8))
+
+        return render(request, "dolcegusto/line8_weekly.html", {
+        "line": 8,
+        "combined_scrap_0_a": line8["period_0_a"],
+        "combined_scrap_0_b": line8["period_0_b"],
+        "combined_scrap_1_a": line8["period_1_a"],
+        "combined_scrap_1_b": line8["period_1_b"],
+        "combined_scrap_2_a": line8["period_2_a"],
+        "combined_scrap_2_b": line8["period_2_b"],
+        "combined_scrap_3_a": line8["period_3_a"],
+        "combined_scrap_3_b": line8["period_3_b"],
+        "combined_scrap_4_a": line8["period_4_a"],
+        "combined_scrap_4_b": line8["period_4_b"],
+        "combined_scrap_5_a": line8["period_5_a"],
+        "combined_scrap_5_b": line8["period_5_b"],
+        "combined_scrap_6_a": line8["period_6_a"],
+        "combined_scrap_6_b": line8["period_6_b"]
+        })
+
+class Line9_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line9 = assign_a_b_for_period(past_seven_weeks(9))
+
+        return render(request, "dolcegusto/line9_weekly.html", {
+        "line": 9,
+        "combined_scrap_0_a": line9["period_0_a"],
+        "combined_scrap_0_b": line9["period_0_b"],
+        "combined_scrap_1_a": line9["period_1_a"],
+        "combined_scrap_1_b": line9["period_1_b"],
+        "combined_scrap_2_a": line9["period_2_a"],
+        "combined_scrap_2_b": line9["period_2_b"],
+        "combined_scrap_3_a": line9["period_3_a"],
+        "combined_scrap_3_b": line9["period_3_b"],
+        "combined_scrap_4_a": line9["period_4_a"],
+        "combined_scrap_4_b": line9["period_4_b"],
+        "combined_scrap_5_a": line9["period_5_a"],
+        "combined_scrap_5_b": line9["period_5_b"],
+        "combined_scrap_6_a": line9["period_6_a"],
+        "combined_scrap_6_b": line9["period_6_b"]
+        })
+
+class Line10_weekly(View):
+    model = weekly_report
+    def get(self, request):
+
+        line10 = assign_a_b_for_period(past_seven_weeks(10))
+
+        return render(request, "dolcegusto/line10_weekly.html", {
+        "line": 10,
+        "combined_scrap_0_a": line10["period_0_a"],
+        "combined_scrap_0_b": line10["period_0_b"],
+        "combined_scrap_1_a": line10["period_1_a"],
+        "combined_scrap_1_b": line10["period_1_b"],
+        "combined_scrap_2_a": line10["period_2_a"],
+        "combined_scrap_2_b": line10["period_2_b"],
+        "combined_scrap_3_a": line10["period_3_a"],
+        "combined_scrap_3_b": line10["period_3_b"],
+        "combined_scrap_4_a": line10["period_4_a"],
+        "combined_scrap_4_b": line10["period_4_b"],
+        "combined_scrap_5_a": line10["period_5_a"],
+        "combined_scrap_5_b": line10["period_5_b"],
+        "combined_scrap_6_a": line10["period_6_a"],
+        "combined_scrap_6_b": line10["period_6_b"]
+        })
+
 
 class Daily_dashboard(View):
     model = daily_report
