@@ -3,6 +3,8 @@ from . import views
 from django.contrib import admin
 
 urlpatterns =[
+    # the first entry is only to secure access to those who were given the access previously
+    path('table', views.Daily_dashboard.as_view(), name='daily_dashboard'), 
     path('daily_dashboard', views.Daily_dashboard.as_view(), name='daily_dashboard'),
     path('line3_daily', views.Line3_daily.as_view(), name='line3_daily'),
     path('line4_daily', views.Line4_daily.as_view(), name='line4_daily'),

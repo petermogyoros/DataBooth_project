@@ -31,17 +31,18 @@ def reset_dictionaries():
 
     return top_cam, bottom_cam, side_cam, side_a, side_b
 
-def past_twelve_hours(line):
+def past_seven_hours(line):
 
     # set all values to zero
-    top = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
-    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
+    side_a = {
+    "ng_0":0, "ng_1":0, "ng_2":0, "ng_3":0, "ng_4":0, "ng_5":0, "ng_6":0,
+    "re_0":0, "re_1":0, "re_2":0, "re_3":0, "re_4":0, "re_5":0, "re_6":0
+    }
 
-    bottom = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
-    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
-
-    side = {"a_0":0, "a_1":0, "a_2":0, "a_3":0, "a_4":0, "a_5":0, "a_6":0,
-    "b_0":0, "b_1":0, "b_2":0, "b_3":0, "b_4":0, "b_5":0, "b_6":0}
+    side_b = {
+    "ng_0":0, "ng_1":0, "ng_2":0, "ng_3":0, "ng_4":0, "ng_5":0, "ng_6":0,
+    "re_0":0, "re_1":0, "re_2":0, "re_3":0, "re_4":0, "re_5":0, "re_6":0
+    }
 
 
     now = time.asctime(time.localtime(time.time())).strftime('%Y-%m-%d')
@@ -162,8 +163,6 @@ def past_seven_weeks(line):
         for_count += 1
         if for_count == 1:
             if week_number_0 == this_week:
-                print("Helllooooooooooooooooooooooo", i)
-
                 side_a["ng_0"] = i
             elif week_number_0 == one_week_ago:
                 side_a["ng_1"] = i

@@ -66,4 +66,4 @@ SELECT dolcegusto_dolcegusto_table.line,
    date_trunc('day'::text, dolcegusto_dolcegusto_table.csv_datetime) AS day
   FROM dolcegusto_dolcegusto_table
  GROUP BY dolcegusto_dolcegusto_table.line, (date_trunc('day'::text, dolcegusto_dolcegusto_table.csv_datetime))
- ORDER BY (date_trunc('day'::text, dolcegusto_dolcegusto_table.csv_datetime)) DESC;
+ ORDER BY (date_trunc('day'::text, dolcegusto_dolcegusto_table.csv_datetime)) DESC LIMIT 7;
