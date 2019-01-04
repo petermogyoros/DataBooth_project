@@ -4,7 +4,8 @@ import datetime
 
 def reset_dictionary():
     # set all values to zero to avoid data contamination from previous requests
-    side_a_values = {
+
+    values = {
     "top_a_0":0, "top_a_1":0, "top_a_2":0, "top_a_3":0, "top_a_4":0, "top_a_5":0, "top_a_6":0,
     "side_a_0":0, "side_a_1":0, "side_a_2":0, "side_a_3":0, "side_a_4":0, "side_a_5":0, "side_a_6":0,
     "bottom_a_0":0, "bottom_a_1":0, "bottom_a_2":0, "bottom_a_3":0, "bottom_a_4":0, "bottom_a_5":0, "bottom_a_6":0,
@@ -18,11 +19,13 @@ def reset_dictionary():
     "combined_b_re_0":0, "combined_b_re_1":0, "combined_b_re_2":0, "combined_b_re_3":0, "combined_b_re_4":0, "combined_b_re_5":0, "combined_b_re_6":0,
     }
 
-    return side_a_values
+    return values
 
 def period(period, line):
 
+
     if period == "weekly":
+
         # Return a 3-tuple, (ISO year, ISO week number, ISO weekday)
         week_number_0 = (date.isocalendar(weekly_report(line).production_week[0]))[1]
         week_number_1 = (date.isocalendar(weekly_report(line).production_week[1]))[1]
@@ -156,80 +159,80 @@ def past_seven_hours(line):
 
 def assign_weekly_values(r, line, period_span):
 
-
     # assign variables from specific columns from database based on date
     for_count = 0
     for i in weekly_report(line).combined_side_a_ng:
         for_count += 1
+
         if for_count == 1:
-            if period("weekly", line)["week_number_0"] == period("weekly", line)["this_week"]:
+            if period_span["week_number_0"] == period_span["this_week"]:
                 r["combined_a_ng_0"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["one_week_ago"]:
-                r["combined_ng_1"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["two_weeks_ago"]:
-                r["combined_ng_2"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["three_weeks_ago"]:
-                r["combined_ng_3"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["four_weeks_ago"]:
-                r["combined_ng_4"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["five_weeks_ago"]:
-                r["combined_ng_5"] = i
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["six_weeks_ago"]:
-                r["combined_ng_6"] = i
+            elif period_span["week_number_0"]  == period_span["one_week_ago"]:
+                r["combined_a_ng_1"] = i
+            elif period_span["week_number_0"]  == period_span["two_weeks_ago"]:
+                r["combined_a_ng_2"] = i
+            elif period_span["week_number_0"]  == period_span["three_weeks_ago"]:
+                r["combined_a_ng_3"] = i
+            elif period_span["week_number_0"]  == period_span["four_weeks_ago"]:
+                r["combined_a_ng_4"] = i
+            elif period_span["week_number_0"]  == period_span["five_weeks_ago"]:
+                r["combined_a_ng_5"] = i
+            elif period_span["week_number_0"]  == period_span["six_weeks_ago"]:
+                r["combined_a_ng_6"] = i
 
 
         elif for_count == 2:
-            if period("weekly", line)["week_number_1"]  == period("weekly", line)["one_week_ago"]:
+            if period_span["week_number_1"]  == period_span["one_week_ago"]:
                 r["combined_a_ng_1"] = i
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["two_weeks_ago"]:
                 r["combined_a_ng_2"] = i
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["three_weeks_ago"]:
                 r["combined_a_ng_3"] = i
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["four_weeks_ago"]:
                 r["combined_a_ng_4"] = i
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["five_weeks_ago"]:
                 r["combined_a_ng_5"] = i
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
         elif for_count == 3:
-            if period("weekly", line)["week_number_2"]  == period("weekly", line)["two_weeks_ago"]:
+            if period_span["week_number_2"]  == period_span["two_weeks_ago"]:
                 r["combined_a_ng_2"] = i
-            elif period("weekly", line)["week_number_2"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_2"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_ng_3"] = i
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["four_weeks_ago"]:
                 r["combined_a_ng_4"] = i
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["five_weeks_ago"]:
                 r["combined_a_ng_5"] = i
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
         elif for_count == 4:
-            if period("weekly", line)["week_number_3"]  ==period("weekly", line)["three_weeks_ago"]:
+            if period_span["week_number_3"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_ng_3"] = i
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["four_weeks_ago"]:
                 r["combined_a_ng_4"] = i
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["five_weeks_ago"]:
                 r["combined_a_ng_5"] = i
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
         elif for_count == 5:
-            if period("weekly", line)["week_number_4"]  == period("weekly", line)["four_weeks_ago"]:
+            if period_span["week_number_4"]  == period_span["four_weeks_ago"]:
                 r["combined_a_ng_4"] = i
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["five_weeks_ago"]:
                 r["combined_a_ng_5"] = i
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
         elif for_count == 6:
-            if period("weekly", line)["week_number_5"]  == period("weekly", line)["five_weeks_ago"]:
+            if period_span["week_number_5"]  == period_span["five_weeks_ago"]:
                 r["combined_a_ng_5"] = i
-            elif period("weekly", line)["week_number_5"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_5"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
         elif for_count == 7:
-            if period("weekly", line)["week_number_6"]  == period("weekly", line)["six_weeks_ago"]:
+            if period_span["week_number_6"]  == period_span["six_weeks_ago"]:
                 r["combined_a_ng_6"] = i
 
     # assign variables from specific columns from database based on date
@@ -237,147 +240,147 @@ def assign_weekly_values(r, line, period_span):
     for e in weekly_report(line).combined_side_b_ng:
         for_count += 1
         if for_count == 1:
-            if period("weekly", line)["week_number_0"]  == period("weekly", line)["this_week"]:
+            if period_span["week_number_0"]  == period_span["this_week"]:
                 r["combined_b_ng_0"] = e
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["one_week_ago"]:
+            elif period_span["week_number_0"]  == period_span["one_week_ago"]:
                 r["combined_b_ng_1"] = e
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["two_weeks_ago"]:
                 r["combined_b_ng_2"] = e
-            elif period("weekly", line)["week_number_0"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_0"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_ng_3"] = e
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["four_weeks_ago"]:
                 r["combined_b_ng_4"] = e
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 2:
-            if period("weekly", line)["week_number_1"]  == period("weekly", line)["one_week_ago"]:
+            if period_span["week_number_1"]  == period_span["one_week_ago"]:
                 r["combined_b_ng_1"] = e
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["two_weeks_ago"]:
                 r["combined_b_ng_2"] = e
-            elif period("weekly", line)["week_number_1"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_1"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_ng_3"] = e
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["four_weeks_ago"]:
                 r["combined_b_ng_4"] = e
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 3:
-            if period("weekly", line)["week_number_2"]  == period("weekly", line)["two_weeks_ago"]:
+            if period_span["week_number_2"]  == period_span["two_weeks_ago"]:
                 r["combined_b_ng_2"] = e
-            elif period("weekly", line)["week_number_2"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_2"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_ng_3"] = e
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["four_weeks_ago"]:
                 r["combined_b_ng_4"] = e
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 4:
-            if period("weekly", line)["week_number_3"]  ==period("weekly", line)["three_weeks_ago"]:
+            if period_span["week_number_3"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_ng_3"] = e
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["four_weeks_ago"]:
                 r["combined_b_ng_4"] = e
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 5:
-            if period("weekly", line)["week_number_4"]  == period("weekly", line)["four_weeks_ago"]:
+            if period_span["week_number_4"]  == period_span["four_weeks_ago"]:
                 r["combined_b_ng_4"] = e
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 6:
-            if period("weekly", line)["week_number_5"]  == period("weekly", line)["five_weeks_ago"]:
+            if period_span["week_number_5"]  == period_span["five_weeks_ago"]:
                 r["combined_b_ng_5"] = e
-            elif period("weekly", line)["week_number_5"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_5"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
         elif for_count == 7:
-            if period("weekly", line)["week_number_6"]  == period("weekly", line)["six_weeks_ago"]:
+            if period_span["week_number_6"]  == period_span["six_weeks_ago"]:
                 r["combined_b_ng_6"] = e
 
     for_count = 0
     for a in weekly_report(line).combined_side_a_re:
         for_count += 1
         if for_count == 1:
-            if period("weekly", line)["week_number_0"]  == period("weekly", line)["this_week"]:
+            if period_span["week_number_0"]  == period_span["this_week"]:
                 r["combined_a_re_0"] = a
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["one_week_ago"]:
+            elif period_span["week_number_0"]  == period_span["one_week_ago"]:
                 r["combined_a_re_1"] = a
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["two_weeks_ago"]:
                 r["combined_a_re_2"] = a
-            elif period("weekly", line)["week_number_0"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_0"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_re_3"] = a
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["four_weeks_ago"]:
                 r["combined_a_re_4"] = a
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
 
         elif for_count == 2:
-            if period("weekly", line)["week_number_1"]  == period("weekly", line)["one_week_ago"]:
+            if period_span["week_number_1"]  == period_span["one_week_ago"]:
                 r["combined_a_re_1"] = a
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["two_weeks_ago"]:
                 r["combined_a_re_2"] = a
-            elif period("weekly", line)["week_number_1"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_1"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_re_3"] = a
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["four_weeks_ago"]:
                 r["combined_a_re_4"] = a
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
         elif for_count == 3:
-            if period("weekly", line)["week_number_2"]  == period("weekly", line)["two_weeks_ago"]:
+            if period_span["week_number_2"]  == period_span["two_weeks_ago"]:
                 r["combined_a_re_2"] = a
-            elif period("weekly", line)["week_number_2"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_2"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_re_3"] = a
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["four_weeks_ago"]:
                 sr["combined_a_re_4"] = a
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
         elif for_count == 4:
-            if period("weekly", line)["week_number_3"]  ==period("weekly", line)["three_weeks_ago"]:
+            if period_span["week_number_3"]  ==period_span["three_weeks_ago"]:
                 r["combined_a_re_3"] = a
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["four_weeks_ago"]:
                 r["combined_a_re_4"] = a
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
         elif for_count == 5:
-            if period("weekly", line)["week_number_4"]  == period("weekly", line)["four_weeks_ago"]:
+            if period_span["week_number_4"]  == period_span["four_weeks_ago"]:
                 r["combined_a_re_4"] = a
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
         elif for_count == 6:
-            if period("weekly", line)["week_number_5"]  == period("weekly", line)["five_weeks_ago"]:
+            if period_span["week_number_5"]  == period_span["five_weeks_ago"]:
                 r["combined_a_re_5"] = a
-            elif period("weekly", line)["week_number_5"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_5"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
         elif for_count == 7:
-            if period("weekly", line)["week_number_6"]  == period("weekly", line)["six_weeks_ago"]:
+            if period_span["week_number_6"]  == period_span["six_weeks_ago"]:
                 r["combined_a_re_6"] = a
 
     # assign variables from specific columns from database based on date
@@ -385,86 +388,87 @@ def assign_weekly_values(r, line, period_span):
     for u in weekly_report(line).combined_side_b_re:
         for_count += 1
         if for_count == 1:
-            if period("weekly", line)["week_number_0"]  == period("weekly", line)["this_week"]:
+            if period_span["week_number_0"]  == period_span["this_week"]:
                 r["combined_b_re_0"] = u
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["one_week_ago"]:
+            elif period_span["week_number_0"]  == period_span["one_week_ago"]:
                 r["combined_b_re_1"] = u
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["two_weeks_ago"]:
                 r["combined_b_re_2"] = u
-            elif period("weekly", line)["week_number_0"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_0"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_re_3"] = u
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["four_weeks_ago"]:
                 r["combined_b_re_4"] = u
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_0"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_0"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 2:
-            if period("weekly", line)["week_number_1"]  == period("weekly", line)["one_week_ago"]:
+            if period_span["week_number_1"]  == period_span["one_week_ago"]:
                 r["combined_b_re_1"] = u
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["two_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["two_weeks_ago"]:
                 r["combined_b_re_2"] = u
-            elif period("weekly", line)["week_number_1"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_1"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_re_3"] = u
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["four_weeks_ago"]:
                 r["combined_b_re_4"] = u
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_1"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_1"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 3:
-            if period("weekly", line)["week_number_2"]  == period("weekly", line)["two_weeks_ago"]:
+            if period_span["week_number_2"]  == period_span["two_weeks_ago"]:
                 r["combined_b_re_2"] = u
-            elif period("weekly", line)["week_number_2"]  ==period("weekly", line)["three_weeks_ago"]:
+            elif period_span["week_number_2"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_re_3"] = u
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["four_weeks_ago"]:
                 r["combined_b_re_4"] = u
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_2"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_2"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 4:
-            if period("weekly", line)["week_number_3"]  ==period("weekly", line)["three_weeks_ago"]:
+            if period_span["week_number_3"]  ==period_span["three_weeks_ago"]:
                 r["combined_b_re_3"] = u
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["four_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["four_weeks_ago"]:
                 r["combined_b_re_4"] = u
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_3"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_3"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 5:
-            if period("weekly", line)["week_number_4"]  == period("weekly", line)["four_weeks_ago"]:
+            if period_span["week_number_4"]  == period_span["four_weeks_ago"]:
                 r["combined_b_re_4"] = u
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["five_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_4"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_4"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 6:
-            if period("weekly", line)["week_number_5"]  == period("weekly", line)["five_weeks_ago"]:
+            if period_span["week_number_5"]  == period_span["five_weeks_ago"]:
                 r["combined_b_re_5"] = u
-            elif period("weekly", line)["week_number_5"]  == period("weekly", line)["six_weeks_ago"]:
+            elif period_span["week_number_5"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
         elif for_count == 7:
-            if period("weekly", line)["week_number_6"]  == period("weekly", line)["six_weeks_ago"]:
+            if period_span["week_number_6"]  == period_span["six_weeks_ago"]:
                 r["combined_b_re_6"] = u
 
     return r
 
 def past_seven_weeks(line):
 
-
     # set all valeus of the dictionary to 0
     r = reset_dictionary()
 
     period_span = period("weekly", line)
+
     # assign values to the dictionary keys
     set_values_for_a_dictionary = assign_weekly_values(r, line, period_span)
+
 
 
     return {

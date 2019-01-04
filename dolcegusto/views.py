@@ -56,7 +56,7 @@ class Weekly_dashboard(View):
         line9 = assign_a_b_for_period(past_seven_weeks(9))
         line10 = assign_a_b_for_period(past_seven_weeks(10))
 
-        return render(request, "dolcegusto/daily_dashboard.html", {
+        return render(request, "dolcegusto/weekly_dashboard.html", {
         "line_3": 3,
         "line_4": 4,
         "line_5": 5,

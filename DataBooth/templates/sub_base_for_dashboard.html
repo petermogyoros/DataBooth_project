@@ -2,7 +2,6 @@
 {% load staticfiles %}
 
 {% block content_base %}
-<link href="{% static "additional/period_menu.css" %}" rel="stylesheet" type="text/css" />
 
 <div class="k-grid k-grid--hor k-grid--root">
   <div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-page">
@@ -14,17 +13,6 @@
 
             <h1><b>Vision Data Analysis</b></h1>
 
-            <!--begin::Dashboard 1-->
-            <div align="right">
-              <ul>
-                <li class="one"><a href="#">Hourly</a></li>
-                 <li class="one"><a href="daily_dashboard">Daily</a></li>
-                 <li class="one"><a href="weekly_dashboard">Weekly</a></li>
-                 <li class="one"><a href="#">Monthly</a></li>
-
-              </ul>
-            </div>
-
             <div class="row">
               <div class="col-lg-12 col-xl-8 order-lg-2 order-xl-1">
                 <!--begin::Portlet-->
@@ -34,7 +22,8 @@
                   {% endblock %}
 
                   <div class="k-portlet__body">
-                    <h2>Rejects in %</h2>
+                    <h2>{% block period %}{% endblock %}</h2>
+
                     <div class="k-widget-9">
                       <div class="k-widget-9__panel">
                         <div class="k-widget-9__legends">
