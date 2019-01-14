@@ -184,7 +184,7 @@ var KChartJSDemo = function() {
 	var demo4 = function() {
 		// console.log(day0)
 		var barChartData = {
-			labels: [day6, day5, day4, day3, day2, "Yesterday", "Today"],
+			labels: [period6, period5, period4, period3, period2, period1, period0],
 			datasets: [{
 				label: 'Side A',
 				backgroundColor: '#6e4ff5',
@@ -242,7 +242,7 @@ var KChartJSDemo = function() {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Day'
+							// labelString: 'Period'
 						}
 					}],
 					yAxes: [{

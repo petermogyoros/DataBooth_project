@@ -1,61 +1,51 @@
-{% extends "per_machine.html" %}
+{% extends "sub_base_for_per_machine.html" %}
+
+{% block period %}
+<!-- period menu -->
+<ul class="nav nav-pills nav-tabs-btn nav-pills-btn-brand" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" href="#" role="tab">
+      <span class="nav-link-title">Hourly</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="line3_daily" role="tab">
+      <span class="nav-link-title">Daily</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="line3_weekly" role="tab">
+      <span class="nav-link-title">Weekly</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#" role="tab">
+      <span class="nav-link-title">Monthly</span>
+    </a>
+  </li>
+</ul>
+<!-- period menu ends -->
+
+{% endblock %}
 
 {% block content %}
   <!-- This id is for the day# variables to work -->
 
   <!-- pass on variable to the charts-js.js file -->
-  <!-- the file is at /static/assets/demo/default/costume/components/charts -->
+  <!-- the file is at /static/assets/demo/default/costume/components/charts/chart-js.js -->
   <script type="text/javascript" id="demo">
-  // get day name to be displayed on the graph
-  // this function will return 0-6. 0=Sunday and 6=Saturday
-    function myFunction() {
-      var d = new Date();
-      var n = d.getDay();
-      return(n)
-    };
-    if (myFunction() == 0) {
-      var day2 = "Friday";
-      var day3 = "Thursday";
-      var day4 = "Wednesday";
-      var day5 = "Tuesday";
-      var day6 = "Monday";
-    } else if (myFunction() == 1) {
-      var day2 = "Saturday";
-      var day3 = "Friday";
-      var day4 = "Thursday";
-      var day5 = "Wednesday";
-      var day6 = "Tuesday";
-    } else if (myFunction() == 2) {
-      var day2 = "Sunday";
-      var day3 = "Saturday";
-      var day4 = "Friday";
-      var day5 = "Thursday";
-      var day6 = "Wednesday";
-    } else if (myFunction() == 3) {
-      var day2 = "Monday";
-      var day3 = "Sunday";
-      var day4 = "Saturday";
-      var day5 = "Friday";
-      var day6 = "Thursday";
-    } else if (myFunction() == 4) {
-      var day2 = "Tuesday";
-      var day3 = "Monday";
-      var day4 = "Sunday";
-      var day5 = "Saturday";
-      var day6 = "Friday";
-    } else if (myFunction() == 5) {
-      var day2 = "Wednesday";
-      var day3 = "Tuesday";
-      var day4 = "Monday";
-      var day5 = "Sunday";
-      var day6 = "Saturday";
-    } else if (myFunction() == 6) {
-      var day2 = "Thursday";
-      var day3 = "Wednesday";
-      var day4 = "Tuesday";
-      var day5 = "Monday";
-      var day6 = "Sunday";
-    }
+
+    var period0 = "This Week";
+    var period1 = "Last Week";
+    var period2 = "Two Weeks Ago";
+    var period3 = "Three Weeks Ago";
+    var period4 = "Four Weeks Ago";
+    var period5 = "Five Weeks Ago";
+    var period6 = "Six Weeks Ago";
+
     // graph values
     var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
     var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
@@ -72,6 +62,6 @@
     var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
     var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
 
-
   </script>
+
 {% endblock %}
