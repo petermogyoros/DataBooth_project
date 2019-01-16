@@ -16,9 +16,6 @@
           <!-- begin:: Content -->
           <div class="k-content k-grid__item k-grid__item--fluid" id="k_content">
 
-            <h1><b>Line {% block line %}
-            {% endblock %}</b></h1>
-
 
             <!--begin::Dashboard 1-->
             <div class="row">
@@ -38,35 +35,35 @@
 
 
                     <canvas id="k_chartjs_4" style="height: 300px;"></canvas>
-                    <!-- period menu -->
-                                  <ul class="nav nav-pills nav-tabs-btn nav-pills-btn-brand" role="tablist">
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#" role="tab">
-                                        <span class="nav-link-title">Hourly</span>
-                                      </a>
-                                    </li>
+                      <!-- period menu -->
+                      <ul class="nav nav-pills nav-tabs-btn nav-pills-btn-brand" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#" role="tab">
+                            <span class="nav-link-title">Hourly</span>
+                          </a>
+                        </li>
 
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="line3_daily" role="tab">
-                                        <span class="nav-link-title">Daily</span>
-                                      </a>
-                                    </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="line{% block line %}{% endblock %}_daily" role="tab">
+                            <span class="nav-link-title">Daily</span>
+                          </a>
+                        </li>
 
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="line3_weekly" role="tab">
-                                        <span class="nav-link-title">Weekly</span>
-                                      </a>
-                                    </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="line3_weekly" role="tab">
+                            <span class="nav-link-title">Weekly</span>
+                          </a>
+                        </li>
 
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#" role="tab">
-                                        <span class="nav-link-title">Monthly</span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                  <!-- period menu ends -->
+                        <li class="nav-item">
+                          <a class="nav-link" href="#" role="tab">
+                            <span class="nav-link-title">Monthly</span>
+                          </a>
+                        </li>
+                      </ul>
                   </div>
                 </div>
+              </div>
 
                 <!--end::Portlet-->
               </div>
