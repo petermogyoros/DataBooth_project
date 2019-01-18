@@ -3,6 +3,16 @@ from . import views
 from django.contrib import admin
 
 urlpatterns =[
+
+    # path('hourly_dashboard', views.Hourly_dashboard.as_view(), name='hourly_dashboard'),
+    # path('line3_hourly', views.Line3_hourly.as_view(), name='line3_hourly'),
+    # path('line4_hourly', views.Line4_hourly.as_view(), name='line4_hourly'),
+    # path('line5_hourly', views.Line5_hourly.as_view(), name='line5_hourly'),
+    # path('line7_hourly', views.Line7_hourly.as_view(), name='line7_hourly'),
+    # path('line8_hourly', views.Line8_hourly.as_view(), name='line8_hourly'),
+    # path('line9_hourly', views.Line9_hourly.as_view(), name='line9_hourly'),
+    # path('line10_hourly', views.Line10_hourly.as_view(), name='line10_hourly'),
+
     # the first entry is only to secure access to those who were given the access previously
     path('table', views.Daily_dashboard.as_view(), name='daily_dashboard'),
     path('daily_dashboard', views.Daily_dashboard.as_view(), name='daily_dashboard'),
@@ -23,5 +33,13 @@ urlpatterns =[
     path('line9_weekly', views.Line9_weekly.as_view(), name='line9_weekly'),
     path('line10_weekly', views.Line10_weekly.as_view(), name='line10_weekly'),
 
+    # path('monthly_dashboard', views.Monthly_dashboard.as_view(), name='monthly_dashboard'),
+    # path('line3_monthly', views.Line3_monthly.as_view(), name='line3_monthly'),
+    # path('line4_monthly', views.Line4_monthly.as_view(), name='line4_monthly'),
+    # path('line5_monthly', views.Line5_monthly.as_view(), name='line5_monthly'),
+    # path('line7_monthly', views.Line7_monthly.as_view(), name='line7_monthly'),
+    # path('line8_monthly', views.Line8_monthly.as_view(), name='line8_monthly'),
+    # path('line9_monthly', views.Line9_monthly.as_view(), name='line9_monthly'),
+    # path('line10_monthly', views.Line10_monthly.as_view(), name='line10_monthly'),
 
 ]
