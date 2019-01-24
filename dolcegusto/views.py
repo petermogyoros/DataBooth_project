@@ -169,11 +169,11 @@ class Hourly_dashboard(View):
         # "combined_scrap_6_10_b": line10["period_6_b"],
         })
 
-class Line3_weekly(View):
-    model = weekly_report
+class Line3_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line3 = assign_a_b_for_period(past_seven_weeks(3))
+        line3 = assign_a_b_for_period(past_seven_hours(3))
 
         return render(request, "dolcegusto/line3_weekly.html", {
         "line": 3,
@@ -193,13 +193,13 @@ class Line3_weekly(View):
         "combined_scrap_6_b": line3["period_6_b"]
         })
 
-class Line4_weekly(View):
-    model = weekly_report
+class Line4_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line4 = assign_a_b_for_period(past_seven_weeks(4))
+        line4 = assign_a_b_for_period(past_seven_hours(4))
 
-        return render(request, "dolcegusto/line4_weekly.html", {
+        return render(request, "dolcegusto/line4_hourly.html", {
         "line": 4,
         "combined_scrap_0_a": line4["period_0_a"],
         "combined_scrap_0_b": line4["period_0_b"],
@@ -217,13 +217,13 @@ class Line4_weekly(View):
         "combined_scrap_6_b": line4["period_6_b"]
         })
 
-class Line5_weekly(View):
-    model = weekly_report
+class Line5_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line5 = assign_a_b_for_period(past_seven_weeks(5))
+        line5 = assign_a_b_for_period(past_seven_hours(5))
 
-        return render(request, "dolcegusto/line5_weekly.html", {
+        return render(request, "dolcegusto/line5_hourly.html", {
         "line": 5,
         "combined_scrap_0_a": line5["period_0_a"],
         "combined_scrap_0_b": line5["period_0_b"],
@@ -241,13 +241,13 @@ class Line5_weekly(View):
         "combined_scrap_6_b": line5["period_6_b"]
         })
 
-class Line7_weekly(View):
-    model = weekly_report
+class Line7_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line7 = assign_a_b_for_period(past_seven_weeks(7))
+        line7 = assign_a_b_for_period(past_seven_hours(7))
 
-        return render(request, "dolcegusto/line7_weekly.html", {
+        return render(request, "dolcegusto/line7_hourly.html", {
         "line": 7,
         "combined_scrap_0_a": line7["period_0_a"],
         "combined_scrap_0_b": line7["period_0_b"],
@@ -265,13 +265,13 @@ class Line7_weekly(View):
         "combined_scrap_6_b": line7["period_6_b"]
         })
 
-class Line8_weekly(View):
-    model = weekly_report
+class Line8_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line8 = assign_a_b_for_period(past_seven_weeks(8))
+        line8 = assign_a_b_for_period(past_seven_hours(8))
 
-        return render(request, "dolcegusto/line8_weekly.html", {
+        return render(request, "dolcegusto/line8_hourly.html", {
         "line": 8,
         "combined_scrap_0_a": line8["period_0_a"],
         "combined_scrap_0_b": line8["period_0_b"],
@@ -289,13 +289,13 @@ class Line8_weekly(View):
         "combined_scrap_6_b": line8["period_6_b"]
         })
 
-class Line9_weekly(View):
-    model = weekly_report
+class Line9_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line9 = assign_a_b_for_period(past_seven_weeks(9))
+        line9 = assign_a_b_for_period(past_seven_hours(9))
 
-        return render(request, "dolcegusto/line9_weekly.html", {
+        return render(request, "dolcegusto/line9_hourly.html", {
         "line": 9,
         "combined_scrap_0_a": line9["period_0_a"],
         "combined_scrap_0_b": line9["period_0_b"],
@@ -313,13 +313,13 @@ class Line9_weekly(View):
         "combined_scrap_6_b": line9["period_6_b"]
         })
 
-class Line10_weekly(View):
-    model = weekly_report
+class Line10_hourly(View):
+    model = hourly_report
     def get(self, request):
 
-        line10 = assign_a_b_for_period(past_seven_weeks(10))
+        line10 = assign_a_b_for_period(past_seven_hours(10))
 
-        return render(request, "dolcegusto/line10_weekly.html", {
+        return render(request, "dolcegusto/line10_hourly.html", {
         "line": 10,
         "combined_scrap_0_a": line10["period_0_a"],
         "combined_scrap_0_b": line10["period_0_b"],
