@@ -114,4 +114,4 @@ def monthly_report(self):
     'a_side_re', 'b_side_re',
     'production_month'])
 
-    return weekly_report_df
+    return monthly_report_df
