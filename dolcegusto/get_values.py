@@ -75,13 +75,13 @@ def period(period, line):
             six_hours_ago = 23
 
         # Assign times from database entry
-        prod_time0 = str(hourly_report(line).hour[0])[11:13]
-        prod_time1 = str(hourly_report(line).hour[1])[11:13]
-        prod_time2 = str(hourly_report(line).hour[2])[11:13]
-        prod_time3 = str(hourly_report(line).hour[3])[11:13]
-        prod_time4 = str(hourly_report(line).hour[4])[11:13]
-        prod_time5 = str(hourly_report(line).hour[5])[11:13]
-        prod_time6 = str(hourly_report(line).hour[6])[11:13]
+        prod_time0 = int(str(hourly_report(line).hour[0])[11:13])
+        prod_time1 = int(str(hourly_report(line).hour[1])[11:13])
+        prod_time2 = int(str(hourly_report(line).hour[2])[11:13])
+        prod_time3 = int(str(hourly_report(line).hour[3])[11:13])
+        prod_time4 = int(str(hourly_report(line).hour[4])[11:13])
+        prod_time5 = int(str(hourly_report(line).hour[5])[11:13])
+        prod_time6 = int(str(hourly_report(line).hour[6])[11:13])
 
 
         periods = {
@@ -239,21 +239,21 @@ def period(period, line):
             six_months_ago = 12
 
         periods = {
-        "prod_period_0":week_number_0,
-        "prod_period_1":week_number_1,
-        "prod_period_2":week_number_2,
-        "prod_period_3":week_number_3,
-        "prod_period_4":week_number_4,
-        "prod_period_5":week_number_5,
-        "prod_period_6":week_number_6,
+        "prod_period_0":month_number_0,
+        "prod_period_1":month_number_1,
+        "prod_period_2":month_number_2,
+        "prod_period_3":month_number_3,
+        "prod_period_4":month_number_4,
+        "prod_period_5":month_number_5,
+        "prod_period_6":month_number_6,
 
-        "cur_period_0":this_week,
-        "cur_period_1":one_week_ago,
-        "cur_period_2":two_weeks_ago,
-        "cur_period_3":three_weeks_ago,
-        "cur_period_4":four_weeks_ago,
-        "cur_period_5":five_weeks_ago,
-        "cur_period_6":six_weeks_ago
+        "cur_period_0":this_month,
+        "cur_period_1":last_month,
+        "cur_period_2":two_months_ago,
+        "cur_period_3":three_months_ago,
+        "cur_period_4":four_months_ago,
+        "cur_period_5":five_months_ago,
+        "cur_period_6":six_months_ago
         }
 
         return periods
@@ -450,7 +450,7 @@ def assign_period_values(r, line, period_span, requested_period):
             elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
                 r["combined_a_re_3"] = a
             elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                sr["combined_a_re_4"] = a
+                r["combined_a_re_4"] = a
             elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
                 r["combined_a_re_5"] = a
             elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
