@@ -1,0 +1,36 @@
+{% extends "sub_base_for_per_machine.html" %}
+
+{% block content %}
+  <!-- This id is for the day# variables to work -->
+
+  <!-- pass on variable to the charts-js.js file -->
+  <!-- the file is at /static/assets/demo/default/costume/components/charts/chart-js.js -->
+  <script type="text/javascript" id="demo">
+
+    var period0 = "This Week";
+    var period1 = "Last Week";
+    var period2 = "Two Weeks Ago";
+    var period3 = "Three Weeks Ago";
+    var period4 = "Four Weeks Ago";
+    var period5 = "Five Weeks Ago";
+    var period6 = "Six Weeks Ago";
+
+    // graph values
+    var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
+    var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
+    var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
+    var scrap3a = {% block combined_scrap_3_a %}{% endblock %};
+    var scrap4a = {% block combined_scrap_4_a %}{% endblock %};
+    var scrap5a = {% block combined_scrap_5_a %}{% endblock %};
+    var scrap6a = {% block combined_scrap_6_a %}{% endblock %};
+    var scrap0b = {% block combined_scrap_0_b %}{% endblock %};
+    var scrap1b = {% block combined_scrap_1_b %}{% endblock %};
+    var scrap2b = {% block combined_scrap_2_b %}{% endblock %};
+    var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
+    var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
+    var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
+    var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
+
+  </script>
+
+{% endblock %}

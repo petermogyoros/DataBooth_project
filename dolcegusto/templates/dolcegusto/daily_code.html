@@ -1,0 +1,79 @@
+{% extends "sub_base_for_per_machine.html" %}
+
+{% block content %}
+  <!-- This id is for the day# variables to work -->
+
+  <!-- pass on variable to the charts-js.js file -->
+  <!-- the file is at /static/assets/demo/default/costume/components/charts -->
+  <script type="text/javascript" id="demo">
+  // get day name to be displayed on the graph
+  // this function will return 0-6. 0=Sunday and 6=Saturday
+    function myFunction() {
+      var d = new Date();
+      var n = d.getDay();
+      return(n)
+    };
+    var period0 = "Today";
+    var period1 = "Yesterday";
+    if (myFunction() == 0) {
+      var period2 = "Friday";
+      var period3 = "Thursday";
+      var period4 = "Wednesday";
+      var period5 = "Tuesday";
+      var period6 = "Monday";
+    } else if (myFunction() == 1) {
+      var period2 = "Saturday";
+      var period3 = "Friday";
+      var period4 = "Thursday";
+      var period5 = "Wednesday";
+      var period6 = "Tuesday";
+    } else if (myFunction() == 2) {
+      var period2 = "Sunday";
+      var period3 = "Saturday";
+      var period4 = "Friday";
+      var period5 = "Thursday";
+      var period6 = "Wednesday";
+    } else if (myFunction() == 3) {
+      var period2 = "Monday";
+      var period3 = "Sunday";
+      var period4 = "Saturday";
+      var period5 = "Friday";
+      var period6 = "Thursday";
+    } else if (myFunction() == 4) {
+      var period2 = "Tuesday";
+      var period3 = "Monday";
+      var period4 = "Sunday";
+      var period5 = "Saturday";
+      var period6 = "Friday";
+    } else if (myFunction() == 5) {
+      var period2 = "Wednesday";
+      var period3 = "Tuesday";
+      var period4 = "Monday";
+      var period5 = "Sunday";
+      var period6 = "Saturday";
+    } else if (myFunction() == 6) {
+      var period2 = "Thursday";
+      var period3 = "Wednesday";
+      var period4 = "Tuesday";
+      var period5 = "Monday";
+      var period6 = "Sunday";
+    }
+    // graph values
+    var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
+    var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
+    var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
+    var scrap3a = {% block combined_scrap_3_a %}{% endblock %};
+    var scrap4a = {% block combined_scrap_4_a %}{% endblock %};
+    var scrap5a = {% block combined_scrap_5_a %}{% endblock %};
+    var scrap6a = {% block combined_scrap_6_a %}{% endblock %};
+    var scrap0b = {% block combined_scrap_0_b %}{% endblock %};
+    var scrap1b = {% block combined_scrap_1_b %}{% endblock %};
+    var scrap2b = {% block combined_scrap_2_b %}{% endblock %};
+    var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
+    var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
+    var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
+    var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
+
+
+  </script>
+{% endblock %}

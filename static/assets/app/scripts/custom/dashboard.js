@@ -749,6 +749,7 @@ var KDashboard = function() {
         });
     }
 
+    // daterange picker script for my date selector in both index.html and per_machine.html
     var daterangepickerInit = function() {
         if ($('#k_dashboard_daterangepicker').length == 0) {
             return;
@@ -780,12 +781,11 @@ var KDashboard = function() {
             direction: KUtil.isRTL(),
             startDate: start,
             endDate: end,
-            opens: 'left',
+            opens: 'center',
             applyClass: "btn btn-sm btn-primary",
             cancelClass: "btn btn-sm btn-secondary",
             ranges: {
                 'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
                 'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                 'Last 30 Days': [moment().subtract(29, 'days'), moment()],
                 'This Month': [moment().startOf('month'), moment().endOf('month')],

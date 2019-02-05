@@ -105,14 +105,14 @@ License: You must have a valid license purchased only from https://themes.getboo
 						<li class="k-menu__item  k-menu__item--open k-menu__item--here k-menu__item--submenu k-menu__item--rel k-menu__item--open k-menu__item--here" data-kmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Dolce Gusto</span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i></a>
 							<div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
 								<ul class="k-menu__subnav">
-                  <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="table" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Dashboard</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line3" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 3</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line4" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 4</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line5" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 5</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line7" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 7</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line8" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 8</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line9" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 9</span></a></li>
-									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line10" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 10</span></a></li>
+                  <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="daily_dashboard" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Dashboard</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line3_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 3</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line4_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 4</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line5_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 5</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line7_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 7</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line8_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 8</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line9_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 9</span></a></li>
+									<li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line10_daily" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Line 10</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -143,78 +143,8 @@ License: You must have a valid license purchased only from https://themes.getboo
   									<!--begin::Portlet-->
   									<div class="k-portlet">
   										<div class="k-portlet__head">
-												<!-- This id is for the day# variables to work -->
 
-                        <!-- pass on variable to the charts-js.js file -->
-												<!-- the file is at /static/assets/demo/default/costume/components/charts -->
-                        <script type="text/javascript" id="demo">
-												// get day name to be displayed on the graph
-													function myFunction() {
-														var d = new Date();
-														var n = d.getDay();
-														return(n)
-													};
-													if (myFunction() == 0) {
-														var day2 = "Friday";
-														var day3 = "Thursday";
-														var day4 = "Wednesday";
-														var day5 = "Tuesday";
-														var day6 = "Monday";
-													} else if (myFunction() == 1) {
-														var day2 = "Saturday";
-														var day3 = "Friday";
-														var day4 = "Thursday";
-														var day5 = "Wednesday";
-														var day6 = "Tuesday";
-													} else if (myFunction() == 2) {
-														var day2 = "Sunday";
-														var day3 = "Saturday";
-														var day4 = "Friday";
-														var day5 = "Thursday";
-														var day6 = "Wednesday";
-													} else if (myFunction() == 3) {
-														var day2 = "Monday";
-														var day3 = "Sunday";
-														var day4 = "Saturday";
-														var day5 = "Friday";
-														var day6 = "Thursday";
-													} else if (myFunction() == 4) {
-														var day2 = "Tuesday";
-														var day3 = "Monday";
-														var day4 = "Sunday";
-														var day5 = "Saturday";
-														var day6 = "Friday";
-													} else if (myFunction() == 5) {
-														var day2 = "Wednesday";
-														var day3 = "Tuesday";
-														var day4 = "Monday";
-														var day5 = "Sunday";
-														var day6 = "Saturday";
-													} else if (myFunction() == 6) {
-														var day2 = "Thursday";
-														var day3 = "Wednesday";
-														var day4 = "Tuesday";
-														var day5 = "Monday";
-														var day6 = "Sunday";
-													}
-													// graph values
-													var scrap0a = {% block combined_scrap_0_a %}{% endblock %};
-													var scrap1a = {% block combined_scrap_1_a %}{% endblock %};
-													var scrap2a = {% block combined_scrap_2_a %}{% endblock %};
-													var scrap3a = {% block combined_scrap_3_a %}{% endblock %};
-													var scrap4a = {% block combined_scrap_4_a %}{% endblock %};
-													var scrap5a = {% block combined_scrap_5_a %}{% endblock %};
-													var scrap6a = {% block combined_scrap_6_a %}{% endblock %};
-													var scrap0b = {% block combined_scrap_0_b %}{% endblock %};
-													var scrap1b = {% block combined_scrap_1_b %}{% endblock %};
-													var scrap2b = {% block combined_scrap_2_b %}{% endblock %};
-													var scrap3b = {% block combined_scrap_3_b %}{% endblock %};
-													var scrap4b = {% block combined_scrap_4_b %}{% endblock %};
-													var scrap5b = {% block combined_scrap_5_b %}{% endblock %};
-													var scrap6b = {% block combined_scrap_6_b %}{% endblock %};
-
-
-                        </script>
+												{% block content %} {% endblock %}
 
 
   											<div class="k-portlet__head-label">
