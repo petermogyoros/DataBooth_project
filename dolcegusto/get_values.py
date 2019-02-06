@@ -200,9 +200,18 @@ def period(period, line):
         month_number_1 = int(str(monthly_report(line).production_month[1])[5:7])
         month_number_2 = int(str(monthly_report(line).production_month[2])[5:7])
         month_number_3 = int(str(monthly_report(line).production_month[3])[5:7])
-        month_number_4 = int(str(monthly_report(line).production_month[4])[5:7])
-        month_number_5 = int(str(monthly_report(line).production_month[5])[5:7])
-        month_number_6 = int(str(monthly_report(line).production_month[6])[5:7])
+        try:
+            month_number_4 = int(str(monthly_report(line).production_month[4])[5:7])
+        except:
+            month_number_4 = 0
+        try:
+            month_number_5 = int(str(monthly_report(line).production_month[5])[5:7])
+        except:
+            month_number_5 = 0
+        try:
+            month_number_6 = int(str(monthly_report(line).production_month[6])[5:7])
+        except:
+            month_number_6 = 0
 
         # accounts for current date corerction due to 12 month cycle
         if this_month == 1:
@@ -707,8 +716,10 @@ def past_seven_months(line):
     # set all valeus of the dictionary to 0
     r = reset_dictionary()
 
+
     period_span = period("monthly", line)
     requested_period = monthly_report
+
     # assign values to the dictionary keys
     set_values_for_a_dictionary = assign_period_values(r, line, period_span, requested_period)
 

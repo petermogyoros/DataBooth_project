@@ -5,7 +5,6 @@ from pandas import DataFrame
 from datetime import datetime, date, timedelta
 
 from dolcegusto.models import hourly_report, daily_report, weekly_report, monthly_report
-from dolcegusto.times import get_weekday
 from dolcegusto.get_values import past_seven_hours, past_seven_days, past_seven_weeks, past_seven_months
 
 
