@@ -3,6 +3,7 @@ from . import views
 from django.contrib import admin
 
 urlpatterns =[
+    path('', views.Daily_dashboard.as_view(), name='daily_dashboard'),
 
     path('hourly_dashboard', views.Hourly_dashboard.as_view(), name='hourly_dashboard'),
     path('line3_hourly', views.Line3_hourly.as_view(), name='line3_hourly'),
