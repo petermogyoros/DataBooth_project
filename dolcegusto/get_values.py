@@ -196,10 +196,23 @@ def period(period, line):
         six_months_ago = int(date.today().strftime('%m')) - 6
 
         # Production month numbers
-        month_number_0 = int(str(monthly_report(line).production_month[0])[5:7])
-        month_number_1 = int(str(monthly_report(line).production_month[1])[5:7])
-        month_number_2 = int(str(monthly_report(line).production_month[2])[5:7])
-        month_number_3 = int(str(monthly_report(line).production_month[3])[5:7])
+        # In case there are no (or not enough) entries in the DB the try/except will set missing values to zero
+        try:
+            month_number_0 = int(str(monthly_report(line).production_month[0])[5:7])
+        except:
+            month_number_0 = 0
+        try:
+            month_number_1 = int(str(monthly_report(line).production_month[1])[5:7])
+        except:
+            month_number_1 = 0
+        try:
+            month_number_2 = int(str(monthly_report(line).production_month[2])[5:7])
+        except:
+            month_number_2 = 0
+        try:
+            month_number_3 = int(str(monthly_report(line).production_month[3])[5:7])
+        except:
+            month_number_3 = 0
         try:
             month_number_4 = int(str(monthly_report(line).production_month[4])[5:7])
         except:
