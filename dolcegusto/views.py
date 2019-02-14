@@ -93,7 +93,7 @@ class Line3_hourly(View):
 
         print(line3)
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 3,
         "combined_scrap_0_a": line3["period_0_a"],
         "combined_scrap_0_b": line3["period_0_b"],
@@ -117,7 +117,7 @@ class Line4_hourly(View):
 
         line4 = assign_a_b_for_period(past_seven_hours(4))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 4,
         "combined_scrap_0_a": line4["period_0_a"],
         "combined_scrap_0_b": line4["period_0_b"],
@@ -141,7 +141,7 @@ class Line5_hourly(View):
 
         line5 = assign_a_b_for_period(past_seven_hours(5))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 5,
         "combined_scrap_0_a": line5["period_0_a"],
         "combined_scrap_0_b": line5["period_0_b"],
@@ -165,7 +165,7 @@ class Line7_hourly(View):
 
         line7 = assign_a_b_for_period(past_seven_hours(7))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 7,
         "combined_scrap_0_a": line7["period_0_a"],
         "combined_scrap_0_b": line7["period_0_b"],
@@ -189,7 +189,7 @@ class Line8_hourly(View):
 
         line8 = assign_a_b_for_period(past_seven_hours(8))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 8,
         "combined_scrap_0_a": line8["period_0_a"],
         "combined_scrap_0_b": line8["period_0_b"],
@@ -213,7 +213,7 @@ class Line9_hourly(View):
 
         line9 = assign_a_b_for_period(past_seven_hours(9))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 9,
         "combined_scrap_0_a": line9["period_0_a"],
         "combined_scrap_0_b": line9["period_0_b"],
@@ -237,7 +237,7 @@ class Line10_hourly(View):
 
         line10 = assign_a_b_for_period(past_seven_hours(10))
 
-        return render(request, "dolcegusto/line_hourly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 10,
         "combined_scrap_0_a": line10["period_0_a"],
         "combined_scrap_0_b": line10["period_0_b"],
@@ -304,7 +304,7 @@ class Line3_daily(View):
 
         line3 = assign_a_b_for_period(past_seven_days(3))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 3,
         "combined_scrap_0_a": line3["period_0_a"],
         "combined_scrap_0_b": line3["period_0_b"],
@@ -328,7 +328,7 @@ class Line4_daily(View):
 
         line4 = assign_a_b_for_period(past_seven_days(4))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 4,
         "combined_scrap_0_a": line4["period_0_a"],
         "combined_scrap_0_b": line4["period_0_b"],
@@ -352,7 +352,7 @@ class Line5_daily(View):
 
         line5 = assign_a_b_for_period(past_seven_days(5))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 5,
         "combined_scrap_0_a": line5["period_0_a"],
         "combined_scrap_0_b": line5["period_0_b"],
@@ -376,7 +376,7 @@ class Line7_daily(View):
 
         line7 = assign_a_b_for_period(past_seven_days(7))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 7,
         "combined_scrap_0_a": line7["period_0_a"],
         "combined_scrap_0_b": line7["period_0_b"],
@@ -400,7 +400,7 @@ class Line8_daily(View):
 
         line8 = assign_a_b_for_period(past_seven_days(8))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 8,
         "combined_scrap_0_a": line8["period_0_a"],
         "combined_scrap_0_b": line8["period_0_b"],
@@ -424,7 +424,7 @@ class Line9_daily(View):
 
         line9 = assign_a_b_for_period(past_seven_days(9))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 9,
         "combined_scrap_0_a": line9["period_0_a"],
         "combined_scrap_0_b": line9["period_0_b"],
@@ -448,7 +448,7 @@ class Line10_daily(View):
 
         line10 = assign_a_b_for_period(past_seven_days(10))
 
-        return render(request, "dolcegusto/line_daily.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 10,
         "combined_scrap_0_a": line10["period_0_a"],
         "combined_scrap_0_b": line10["period_0_b"],
@@ -515,7 +515,7 @@ class Line3_weekly(View):
 
         line3 = assign_a_b_for_period(past_seven_weeks(3))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 3,
         "combined_scrap_0_a": line3["period_0_a"],
         "combined_scrap_0_b": line3["period_0_b"],
@@ -539,7 +539,7 @@ class Line4_weekly(View):
 
         line4 = assign_a_b_for_period(past_seven_weeks(4))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 4,
         "combined_scrap_0_a": line4["period_0_a"],
         "combined_scrap_0_b": line4["period_0_b"],
@@ -563,7 +563,7 @@ class Line5_weekly(View):
 
         line5 = assign_a_b_for_period(past_seven_weeks(5))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 5,
         "combined_scrap_0_a": line5["period_0_a"],
         "combined_scrap_0_b": line5["period_0_b"],
@@ -587,7 +587,7 @@ class Line7_weekly(View):
 
         line7 = assign_a_b_for_period(past_seven_weeks(7))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 7,
         "combined_scrap_0_a": line7["period_0_a"],
         "combined_scrap_0_b": line7["period_0_b"],
@@ -611,7 +611,7 @@ class Line8_weekly(View):
 
         line8 = assign_a_b_for_period(past_seven_weeks(8))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 8,
         "combined_scrap_0_a": line8["period_0_a"],
         "combined_scrap_0_b": line8["period_0_b"],
@@ -635,7 +635,7 @@ class Line9_weekly(View):
 
         line9 = assign_a_b_for_period(past_seven_weeks(9))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 9,
         "combined_scrap_0_a": line9["period_0_a"],
         "combined_scrap_0_b": line9["period_0_b"],
@@ -659,7 +659,7 @@ class Line10_weekly(View):
 
         line10 = assign_a_b_for_period(past_seven_weeks(10))
 
-        return render(request, "dolcegusto/line_weekly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 10,
         "combined_scrap_0_a": line10["period_0_a"],
         "combined_scrap_0_b": line10["period_0_b"],
@@ -726,7 +726,7 @@ class Line3_monthly(View):
 
         line3 = assign_a_b_for_period(past_seven_months(3))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 3,
         "combined_scrap_0_a": line3["period_0_a"],
         "combined_scrap_0_b": line3["period_0_b"],
@@ -750,7 +750,7 @@ class Line4_monthly(View):
 
         line4 = assign_a_b_for_period(past_seven_months(4))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 4,
         "combined_scrap_0_a": line4["period_0_a"],
         "combined_scrap_0_b": line4["period_0_b"],
@@ -774,7 +774,7 @@ class Line5_monthly(View):
 
         line5 = assign_a_b_for_period(past_seven_months(5))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 5,
         "combined_scrap_0_a": line5["period_0_a"],
         "combined_scrap_0_b": line5["period_0_b"],
@@ -798,7 +798,7 @@ class Line7_monthly(View):
 
         line7 = assign_a_b_for_period(past_seven_months(7))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 7,
         "combined_scrap_0_a": line7["period_0_a"],
         "combined_scrap_0_b": line7["period_0_b"],
@@ -822,7 +822,7 @@ class Line8_monthly(View):
 
         line8 = assign_a_b_for_period(past_seven_months(8))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 8,
         "combined_scrap_0_a": line8["period_0_a"],
         "combined_scrap_0_b": line8["period_0_b"],
@@ -846,7 +846,7 @@ class Line9_monthly(View):
 
         line9 = assign_a_b_for_period(past_seven_months(9))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 9,
         "combined_scrap_0_a": line9["period_0_a"],
         "combined_scrap_0_b": line9["period_0_b"],
@@ -870,7 +870,7 @@ class Line10_monthly(View):
 
         line10 = assign_a_b_for_period(past_seven_months(10))
 
-        return render(request, "dolcegusto/line_monthly.html", {
+        return render(request, "dolcegusto/data.html", {
         "line": 10,
         "combined_scrap_0_a": line10["period_0_a"],
         "combined_scrap_0_b": line10["period_0_b"],
