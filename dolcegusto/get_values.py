@@ -6,15 +6,27 @@ def reset_dictionary():
     # set all values to zero to avoid data contamination from previous requests
 
     values = {
-    "top_a_0":0, "top_a_1":0, "top_a_2":0, "top_a_3":0, "top_a_4":0, "top_a_5":0, "top_a_6":0,
-    "side_a_0":0, "side_a_1":0, "side_a_2":0, "side_a_3":0, "side_a_4":0, "side_a_5":0, "side_a_6":0,
-    "bottom_a_0":0, "bottom_a_1":0, "bottom_a_2":0, "bottom_a_3":0, "bottom_a_4":0, "bottom_a_5":0, "bottom_a_6":0,
+    "top_a_0_ng":0, "top_a_1_ng":0, "top_a_2_ng":0, "top_a_3_ng":0, "top_a_4_ng":0, "top_a_5_ng":0, "top_a_6_ng":0,
+    "top_a_0_re":0, "top_a_1_re":0, "top_a_2_re":0, "top_a_3_re":0, "top_a_4_re":0, "top_a_5_re":0, "top_a_6_re":0,
+
+    "side_a_0_ng":0, "side_a_1_ng":0, "side_a_2_ng":0, "side_a_3_ng":0, "side_a_4_ng":0, "side_a_5_ng":0, "side_a_6_ng":0,
+    "side_a_0_re":0, "side_a_1_re":0, "side_a_2_re":0, "side_a_3_re":0, "side_a_4_re":0, "side_a_5_re":0, "side_a_6_re":0,
+
+    "bottom_a_0_ng":0, "bottom_a_1_ng":0, "bottom_a_2_ng":0, "bottom_a_3_ng":0, "bottom_a_4_ng":0, "bottom_a_5_ng":0, "bottom_a_6_ng":0,
+    "bottom_a_0_re":0, "bottom_a_1_re":0, "bottom_a_2_re":0, "bottom_a_3_re":0, "bottom_a_4_re":0, "bottom_a_5_re":0, "bottom_a_6_re":0,
+
     "combined_a_ng_0":0, "combined_a_ng_1":0, "combined_a_ng_2":0, "combined_a_ng_3":0, "combined_a_ng_4":0, "combined_a_ng_5":0, "combined_a_ng_6":0,
     "combined_a_re_0":0, "combined_a_re_1":0, "combined_a_re_2":0,  "combined_a_re_3":0, "combined_a_re_4":0, "combined_a_re_5":0, "combined_a_re_6":0,
 
-    "top_b_0":0, "top_b_1":0, "top_b_2":0, "top_b_3":0, "top_b_4":0, "top_b_5":0, "top_b_6":0,
-    "side_b_0":0, "side_b_1":0, "side_b_2":0, "side_b_3":0, "side_b_4":0, "side_b_5":0, "side_b_6":0,
-    "bottom_b_0":0, "bottom_b_1":0, "bottom_b_2":0, "bottom_b_3":0, "bottom_b_4":0, "bottom_b_5":0, "bottom_b_6":0,
+    "top_b_0_ng":0, "top_b_1_ng":0, "top_b_2_ng":0, "top_b_3_ng":0, "top_b_4_ng":0, "top_b_5_ng":0, "top_b_6_ng":0,
+    "top_b_0_re":0, "top_b_1_re":0, "top_b_2_re":0, "top_b_3_re":0, "top_b_4_re":0, "top_b_5_re":0, "top_b_6_re":0,
+
+    "side_b_0_ng":0, "side_b_1_ng":0, "side_b_2_ng":0, "side_b_3_ng":0, "side_b_4_ng":0, "side_b_5_ng":0, "side_b_6_ng":0,
+    "side_b_0_re":0, "side_b_1_re":0, "side_b_2_re":0, "side_b_3_re":0, "side_b_4_re":0, "side_b_5_re":0, "side_b_6_re":0,
+
+    "bottom_b_0_ng":0, "bottom_b_1_ng":0, "bottom_b_2_ng":0, "bottom_b_3_ng":0, "bottom_b_4_ng":0, "bottom_b_5_ng":0, "bottom_b_6_ng":0,
+    "bottom_b_0_re":0, "bottom_b_1_re":0, "bottom_b_2_re":0, "bottom_b_3_re":0, "bottom_b_4_re":0, "bottom_b_5_re":0, "bottom_b_6_re":0,
+
     "combined_b_ng_0":0, "combined_b_ng_1":0, "combined_b_ng_2":0, "combined_b_ng_3":0, "combined_b_ng_4":0, "combined_b_ng_5":0, "combined_b_ng_6":0,
     "combined_b_re_0":0, "combined_b_re_1":0, "combined_b_re_2":0, "combined_b_re_3":0, "combined_b_re_4":0, "combined_b_re_5":0, "combined_b_re_6":0,
     }
@@ -287,301 +299,827 @@ def assign_period_values(r, line, period_span, requested_period):
     for i in requested_period(line).combined_side_a_ng:
         for_count += 1
 
+        combined_side_a_ng_0 = requested_period(line).combined_side_a_ng[0]
+        combined_side_b_ng_0 = requested_period(line).combined_side_b_ng[0]
+        combined_side_a_re_0 = requested_period(line).combined_side_a_re[0]
+        combined_side_b_re_0 = requested_period(line).combined_side_b_re[0]
+
+        a_top_ng_0 = requested_period(line).a_top_ng[0]
+        b_top_ng_0 = requested_period(line).b_top_ng[0]
+        a_top_re_0 = requested_period(line).a_top_re[0]
+        b_top_re_0 = requested_period(line).b_top_re[0]
+
+        a_bottom_ng_0 = requested_period(line).a_bottom_ng[0]
+        b_bottom_ng_0 = requested_period(line).b_bottom_ng[0]
+        a_bottom_re_0 = requested_period(line).a_bottom_re[0]
+        b_bottom_re_0 = requested_period(line).b_bottom_re[0]
+
+        a_side_ng_0 = requested_period(line).a_side_ng[0]
+        b_side_ng_0 = requested_period(line).b_side_ng[0]
+        a_side_re_0 = requested_period(line).a_side_re[0]
+        b_side_re_0 = requested_period(line).b_side_re[0]
+
+        combined_side_a_ng_1 = requested_period(line).combined_side_a_ng[1]
+        combined_side_b_ng_1 = requested_period(line).combined_side_b_ng[1]
+        combined_side_a_re_1 = requested_period(line).combined_side_a_re[1]
+        combined_side_b_re_1 = requested_period(line).combined_side_b_re[1]
+
+        a_top_ng_1 = requested_period(line).a_top_ng[1]
+        b_top_ng_1 = requested_period(line).b_top_ng[1]
+        a_top_re_1 = requested_period(line).a_top_re[1]
+        b_top_re_1 = requested_period(line).b_top_re[1]
+
+        a_bottom_ng_1 = requested_period(line).a_bottom_ng[1]
+        b_bottom_ng_1 = requested_period(line).b_bottom_ng[1]
+        a_bottom_re_1 = requested_period(line).a_bottom_re[1]
+        b_bottom_re_1 = requested_period(line).b_bottom_re[1]
+
+        a_side_ng_1 = requested_period(line).a_side_ng[1]
+        b_side_ng_1 = requested_period(line).b_side_ng[1]
+        a_side_re_1 = requested_period(line).a_side_re[1]
+        b_side_re_1 = requested_period(line).b_side_re[1]
+
+        combined_side_a_ng_2 = requested_period(line).combined_side_a_ng[2]
+        combined_side_b_ng_2 = requested_period(line).combined_side_b_ng[2]
+        combined_side_a_re_2 = requested_period(line).combined_side_a_re[2]
+        combined_side_b_re_2 = requested_period(line).combined_side_b_re[2]
+
+        a_top_ng_2 = requested_period(line).a_top_ng[2]
+        b_top_ng_2 = requested_period(line).b_top_ng[2]
+        a_top_re_2 = requested_period(line).a_top_re[2]
+        b_top_re_2 = requested_period(line).b_top_re[2]
+
+        a_bottom_ng_2 = requested_period(line).a_bottom_ng[2]
+        b_bottom_ng_2 = requested_period(line).b_bottom_ng[2]
+        a_bottom_re_2 = requested_period(line).a_bottom_re[2]
+        b_bottom_re_2 = requested_period(line).b_bottom_re[2]
+
+        a_side_ng_2 = requested_period(line).a_side_ng[2]
+        b_side_ng_2 = requested_period(line).b_side_ng[2]
+        a_side_re_2 = requested_period(line).a_side_re[2]
+        b_side_re_2 = requested_period(line).b_side_re[2]
+
+        combined_side_a_ng_3 = requested_period(line).combined_side_a_ng[3]
+        combined_side_b_ng_3 = requested_period(line).combined_side_b_ng[3]
+        combined_side_a_re_3 = requested_period(line).combined_side_a_re[3]
+        combined_side_b_re_3 = requested_period(line).combined_side_b_re[3]
+
+        a_top_ng_3 = requested_period(line).a_top_ng[3]
+        b_top_ng_3 = requested_period(line).b_top_ng[3]
+        a_top_re_3 = requested_period(line).a_top_re[3]
+        b_top_re_3 = requested_period(line).b_top_re[3]
+
+        a_bottom_ng_3 = requested_period(line).a_bottom_ng[3]
+        b_bottom_ng_3 = requested_period(line).b_bottom_ng[3]
+        a_bottom_re_3 = requested_period(line).a_bottom_re[3]
+        b_bottom_re_3 = requested_period(line).b_bottom_re[3]
+
+        a_side_ng_3 = requested_period(line).a_side_ng[3]
+        b_side_ng_3 = requested_period(line).b_side_ng[3]
+        a_side_re_3 = requested_period(line).a_side_re[3]
+        b_side_re_3 = requested_period(line).b_side_re[3]
+
+        combined_side_a_ng_4 = requested_period(line).combined_side_a_ng[4]
+        combined_side_b_ng_4 = requested_period(line).combined_side_b_ng[4]
+        combined_side_a_re_4 = requested_period(line).combined_side_a_re[4]
+        combined_side_b_re_4 = requested_period(line).combined_side_b_re[4]
+
+        a_top_ng_4 = requested_period(line).a_top_ng[4]
+        b_top_ng_4 = requested_period(line).b_top_ng[4]
+        a_top_re_4 = requested_period(line).a_top_re[4]
+        b_top_re_4 = requested_period(line).b_top_re[4]
+
+        a_bottom_ng_4 = requested_period(line).a_bottom_ng[4]
+        b_bottom_ng_4 = requested_period(line).b_bottom_ng[4]
+        a_bottom_re_4 = requested_period(line).a_bottom_re[4]
+        b_bottom_re_4 = requested_period(line).b_bottom_re[4]
+
+        a_side_ng_4 = requested_period(line).a_side_ng[4]
+        b_side_ng_4 = requested_period(line).b_side_ng[4]
+        a_side_re_4 = requested_period(line).a_side_re[4]
+        b_side_re_4 = requested_period(line).b_side_re[4]
+
+        combined_side_a_ng_5 = requested_period(line).combined_side_a_ng[5]
+        combined_side_b_ng_5 = requested_period(line).combined_side_b_ng[5]
+        combined_side_a_re_5 = requested_period(line).combined_side_a_re[5]
+        combined_side_b_re_5 = requested_period(line).combined_side_b_re[5]
+
+        a_top_ng_5 = requested_period(line).a_top_ng[5]
+        b_top_ng_5 = requested_period(line).b_top_ng[5]
+        a_top_re_5 = requested_period(line).a_top_re[5]
+        b_top_re_5 = requested_period(line).b_top_re[5]
+
+        a_bottom_ng_5 = requested_period(line).a_bottom_ng[5]
+        b_bottom_ng_5 = requested_period(line).b_bottom_ng[5]
+        a_bottom_re_5 = requested_period(line).a_bottom_re[5]
+        b_bottom_re_5 = requested_period(line).b_bottom_re[5]
+
+        a_side_ng_5 = requested_period(line).a_side_ng[5]
+        b_side_ng_5 = requested_period(line).b_side_ng[5]
+        a_side_re_5 = requested_period(line).a_side_re[5]
+        b_side_re_5 = requested_period(line).b_side_re[5]
+
+        combined_side_a_ng_6 = requested_period(line).combined_side_a_ng[6]
+        combined_side_b_ng_6 = requested_period(line).combined_side_b_ng[6]
+        combined_side_a_re_6 = requested_period(line).combined_side_a_re[6]
+        combined_side_b_re_6 = requested_period(line).combined_side_b_re[6]
+
+        a_top_ng_6 = requested_period(line).a_top_ng[6]
+        b_top_ng_6 = requested_period(line).b_top_ng[6]
+        a_top_re_6 = requested_period(line).a_top_re[6]
+        b_top_re_6 = requested_period(line).b_top_re[6]
+
+        a_bottom_ng_6 = requested_period(line).a_bottom_ng[6]
+        b_bottom_ng_6 = requested_period(line).b_bottom_ng[6]
+        a_bottom_re_6 = requested_period(line).a_bottom_re[6]
+        b_bottom_re_6 = requested_period(line).b_bottom_re[6]
+
+        a_side_ng_6 = requested_period(line).a_side_ng[6]
+        b_side_ng_6 = requested_period(line).b_side_ng[6]
+        a_side_re_6 = requested_period(line).a_side_re[6]
+        b_side_re_6 = requested_period(line).b_side_re[6]
+
+
         if for_count == 1:
             if period_span["prod_period_0"] == period_span["cur_period_0"]:
-                r["combined_a_ng_0"] = i
+                r["combined_a_ng_0"] = combined_side_a_ng_0
+                r["combined_a_re_0"] = combined_side_a_re_0
+                r["top_a_0_ng"] = a_top_ng_0
+                r["top_a_0_re"] = a_top_re_0
+                r["bottom_a_0_ng"] = a_bottom_ng_0
+                r["bottom_a_0_re"] = a_bottom_re_0
+                r["side_a_0_ng"] = a_side_ng_0
+                r["side_a_0_re"] = a_side_re_0
+
+                r["combined_b_ng_0"] = combined_side_b_ng_0
+                r["combined_b_re_0"] = combined_side_b_re_0
+                r["top_b_0_ng"] = b_top_ng_0
+                r["top_b_0_re"] = b_top_re_0
+                r["bottom_b_0_ng"] = b_bottom_ng_0
+                r["bottom_b_0_re"] = b_bottom_re_0
+                r["side_b_0_ng"] = b_side_ng_0
+                r["side_b_0_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
-                r["combined_a_ng_1"] = i
+                r["combined_a_ng_1"] = combined_side_a_ng_0
+                r["combined_a_re_1"] = combined_side_a_re_0
+                r["top_a_1_ng"] = a_top_ng_0
+                r["top_a_1_re"] = a_top_re_0
+                r["bottom_a_1_ng"] = a_bottom_ng_0
+                r["bottom_a_1_re"] = a_bottom_re_0
+                r["side_a_1_ng"] = a_side_ng_0
+                r["side_a_1_re"] = a_side_re_0
+
+                r["combined_b_ng_1"] = combined_side_b_ng_0
+                r["combined_b_re_1"] = combined_side_b_re_0
+                r["top_b_1_ng"] = b_top_ng_0
+                r["top_b_1_re"] = b_top_re_0
+                r["bottom_b_1_ng"] = b_bottom_ng_0
+                r["bottom_b_1_re"] = b_bottom_re_0
+                r["side_b_1_ng"] = b_side_ng_0
+                r["side_b_1_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = i
+                r["combined_a_ng_2"] = combined_side_a_ng_0
+                r["combined_a_re_2"] = combined_side_a_re_0
+                r["top_a_2_ng"] = a_top_ng_0
+                r["top_a_2_re"] = a_top_re_0
+                r["bottom_a_2_ng"] = a_bottom_ng_0
+                r["bottom_a_2_re"] = a_bottom_re_0
+                r["side_a_2_ng"] = a_side_ng_0
+                r["side_a_2_re"] = a_side_re_0
+
+                r["combined_b_ng_2"] = combined_side_b_ng_0
+                r["combined_b_re_2"] = combined_side_b_re_0
+                r["top_b_2_ng"] = b_top_ng_0
+                r["top_b_2_re"] = b_top_re_0
+                r["bottom_b_2_ng"] = b_bottom_ng_0
+                r["bottom_b_0_re"] = b_bottom_re_0
+                r["side_b_2_ng"] = b_side_ng_0
+                r["side_b_2_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = i
+                r["combined_a_ng_3"] = combined_side_a_ng_0
+                r["combined_a_re_3"] = combined_side_a_re_0
+                r["top_a_3_ng"] = a_top_ng_0
+                r["top_a_3_re"] = a_top_re_0
+                r["bottom_a_3_ng"] = a_bottom_ng_0
+                r["bottom_a_3_re"] = a_bottom_re_0
+                r["side_a_3_ng"] = a_side_ng_0
+                r["side_a_3_re"] = a_side_re_0
+
+                r["combined_b_ng_3"] = combined_side_b_ng_0
+                r["combined_b_re_3"] = combined_side_b_re_0
+                r["top_b_3_ng"] = b_top_ng_0
+                r["top_b_3_re"] = b_top_re_0
+                r["bottom_b_3_ng"] = b_bottom_ng_0
+                r["bottom_b_3_re"] = b_bottom_re_0
+                r["side_b_3_ng"] = b_side_ng_0
+                r["side_b_3_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = i
+                r["combined_a_ng_4"] = combined_side_a_ng_0
+                r["combined_a_re_4"] = combined_side_a_re_0
+                r["top_a_4_ng"] = a_top_ng_0
+                r["top_a_4_re"] = a_top_re_0
+                r["bottom_a_4_ng"] = a_bottom_ng_0
+                r["bottom_a_4_re"] = a_bottom_re_0
+                r["side_a_4_ng"] = a_side_ng_0
+                r["side_a_4_re"] = a_side_re_0
+
+                r["combined_b_ng_4"] = combined_side_b_ng_0
+                r["combined_b_re_4"] = combined_side_b_re_0
+                r["top_b_4_ng"] = b_top_ng_0
+                r["top_b_4_re"] = b_top_re_0
+                r["bottom_b_4_ng"] = b_bottom_ng_0
+                r["bottom_b_4_re"] = b_bottom_re_0
+                r["side_b_4_ng"] = b_side_ng_0
+                r["side_b_4_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_0
+                r["combined_a_re_5"] = combined_side_a_re_0
+                r["top_a_5_ng"] = a_top_ng_0
+                r["top_a_5_re"] = a_top_re_0
+                r["bottom_a_5_ng"] = a_bottom_ng_0
+                r["bottom_a_5_re"] = a_bottom_re_0
+                r["side_a_5_ng"] = a_side_ng_0
+                r["side_a_5_re"] = a_side_re_0
+
+                r["combined_b_ng_5"] = combined_side_b_ng_0
+                r["combined_b_re_5"] = combined_side_b_re_0
+                r["top_b_5_ng"] = b_top_ng_0
+                r["top_b_5_re"] = b_top_re_0
+                r["bottom_b_5_ng"] = b_bottom_ng_0
+                r["bottom_b_5_re"] = b_bottom_re_0
+                r["side_b_5_ng"] = b_side_ng_0
+                r["side_b_5_re"] = b_side_re_0
+
             elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_0
+                r["combined_a_re_6"] = combined_side_a_re_0
+                r["top_a_6_ng"] = a_top_ng_0
+                r["top_a_6_re"] = a_top_re_0
+                r["bottom_a_6_ng"] = a_bottom_ng_0
+                r["bottom_a_6_re"] = a_bottom_re_0
+                r["side_a_6_ng"] = a_side_ng_0
+                r["side_a_6_re"] = a_side_re_0
+
+                r["combined_b_ng_6"] = combined_side_b_ng_0
+                r["combined_b_re_6"] = combined_side_b_re_0
+                r["top_b_6_ng"] = b_top_ng_0
+                r["top_b_6_re"] = b_top_re_0
+                r["bottom_b_6_ng"] = b_bottom_ng_0
+                r["bottom_b_6_re"] = b_bottom_re_0
+                r["side_b_6_ng"] = b_side_ng_0
+                r["side_b_6_re"] = b_side_re_0
 
 
         elif for_count == 2:
             if period_span["prod_period_1"]  == period_span["cur_period_1"]:
-                r["combined_a_ng_1"] = i
+                r["combined_a_ng_1"] = combined_side_a_ng_1
+                r["combined_a_re_1"] = combined_side_a_re_1
+                r["top_a_1_ng"] = a_top_ng_1
+                r["top_a_1_re"] = a_top_re_1
+                r["bottom_a_1_ng"] = a_bottom_ng_1
+                r["bottom_a_1_re"] = a_bottom_re_1
+                r["side_a_1_ng"] = a_side_ng_1
+                r["side_a_1_re"] = a_side_re_1
+
+                r["combined_b_ng_1"] = combined_side_b_ng_1
+                r["combined_b_re_1"] = combined_side_b_re_1
+                r["top_b_1_ng"] = b_top_ng_1
+                r["top_b_1_re"] = b_top_re_1
+                r["bottom_b_1_ng"] = b_bottom_ng_1
+                r["bottom_b_1_re"] = b_bottom_re_1
+                r["side_b_1_ng"] = b_side_ng_1
+                r["side_b_1_re"] = b_side_re_1
+
             elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = i
+                r["combined_a_ng_2"] = combined_side_a_ng_1
+                r["combined_a_re_2"] = combined_side_a_re_1
+                r["top_a_2_ng"] = a_top_ng_1
+                r["top_a_2_re"] = a_top_re_1
+                r["bottom_a_2_ng"] = a_bottom_ng_1
+                r["bottom_a_2_re"] = a_bottom_re_1
+                r["side_a_2_ng"] = a_side_ng_1
+                r["side_a_2_re"] = a_side_re_1
+
+                r["combined_b_ng_2"] = combined_side_b_ng_1
+                r["combined_b_re_2"] = combined_side_b_re_1
+                r["top_b_2_ng"] = b_top_ng_1
+                r["top_b_2_re"] = b_top_re_1
+                r["bottom_b_2_ng"] = b_bottom_ng_1
+                r["bottom_b_2_re"] = b_bottom_re_1
+                r["side_b_2_ng"] = b_side_ng_1
+                r["side_b_2_re"] = b_side_re_1
+
             elif period_span["prod_period_1"]  == period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = i
+                r["combined_a_ng_3"] = combined_side_a_ng_1
+                r["combined_a_re_3"] = combined_side_a_re_1
+                r["top_a_3_ng"] = a_top_ng_1
+                r["top_a_3_re"] = a_top_re_1
+                r["bottom_a_3_ng"] = a_bottom_ng_1
+                r["bottom_a_3_re"] = a_bottom_re_1
+                r["side_a_3_ng"] = a_side_ng_1
+                r["side_a_3_re"] = a_side_re_1
+
+                r["combined_b_ng_3"] = combined_side_b_ng_1
+                r["combined_b_re_3"] = combined_side_b_re_1
+                r["top_b_3_ng"] = b_top_ng_1
+                r["top_b_3_re"] = b_top_re_1
+                r["bottom_b_3_ng"] = b_bottom_ng_1
+                r["bottom_b_3_re"] = b_bottom_re_1
+                r["side_b_3_ng"] = b_side_ng_1
+                r["side_b_3_re"] = b_side_re_1
+
             elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = i
+                r["combined_a_ng_4"] = combined_side_a_ng_1
+                r["combined_a_re_4"] = combined_side_a_re_1
+                r["top_a_4_ng"] = a_top_ng_1
+                r["top_a_4_re"] = a_top_re_1
+                r["bottom_a_4_ng"] = a_bottom_ng_1
+                r["bottom_a_4_re"] = a_bottom_re_1
+                r["side_a_4_ng"] = a_side_ng_1
+                r["side_a_4_re"] = a_side_re_1
+
+                r["combined_b_ng_4"] = combined_side_b_ng_1
+                r["combined_b_re_4"] = combined_side_b_re_1
+                r["top_b_4_ng"] = b_top_ng_1
+                r["top_b_4_re"] = b_top_re_1
+                r["bottom_b_4_ng"] = b_bottom_ng_1
+                r["bottom_b_4_re"] = b_bottom_re_1
+                r["side_b_4_ng"] = b_side_ng_1
+                r["side_b_4_re"] = b_side_re_1
+
             elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_1
+                r["combined_a_re_5"] = combined_side_a_re_1
+                r["top_a_5_ng"] = a_top_ng_1
+                r["top_a_5_re"] = a_top_re_1
+                r["bottom_a_5_ng"] = a_bottom_ng_1
+                r["bottom_a_5_re"] = a_bottom_re_1
+                r["side_a_5_ng"] = a_side_ng_1
+                r["side_a_5_re"] = a_side_re_1
+
+                r["combined_b_ng_5"] = combined_side_b_ng_1
+                r["combined_b_re_5"] = combined_side_b_re_1
+                r["top_b_5_ng"] = b_top_ng_1
+                r["top_b_5_re"] = b_top_re_1
+                r["bottom_b_5_ng"] = b_bottom_ng_1
+                r["bottom_b_5_re"] = b_bottom_re_1
+                r["side_b_5_ng"] = b_side_ng_1
+                r["side_b_5_re"] = b_side_re_1
+
             elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_1
+                r["combined_a_re_6"] = combined_side_a_re_1
+                r["top_a_6_ng"] = a_top_ng_1
+                r["top_a_6_re"] = a_top_re_1
+                r["bottom_a_6_ng"] = a_bottom_ng_1
+                r["bottom_a_6_re"] = a_bottom_re_1
+                r["side_a_6_ng"] = a_side_ng_1
+                r["side_a_6_re"] = a_side_re_1
+
+                r["combined_b_ng_6"] = combined_side_b_ng_1
+                r["combined_b_re_6"] = combined_side_b_re_1
+                r["top_b_6_ng"] = b_top_ng_1
+                r["top_b_6_re"] = b_top_re_1
+                r["bottom_b_6_ng"] = b_bottom_ng_1
+                r["bottom_b_6_re"] = b_bottom_re_1
+                r["side_b_6_ng"] = b_side_ng_1
+                r["side_b_6_re"] = b_side_re_1
+
 
         elif for_count == 3:
             if period_span["prod_period_2"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = i
+                r["combined_a_ng_2"] = combined_side_a_ng_2
+                r["combined_a_re_2"] = combined_side_a_re_2
+                r["top_a_2_ng"] = a_top_ng_2
+                r["top_a_2_re"] = a_top_re_2
+                r["bottom_a_2_ng"] = a_bottom_ng_2
+                r["bottom_a_2_re"] = a_bottom_re_2
+                r["side_a_2_ng"] = a_side_ng_2
+                r["side_a_2_re"] = a_side_re_2
+
+                r["combined_b_ng_2"] = combined_side_b_ng_2
+                r["combined_b_re_2"] = combined_side_b_re_2
+                r["top_b_2_ng"] = b_top_ng_2
+                r["top_b_2_re"] = b_top_re_2
+                r["bottom_b_2_ng"] = b_bottom_ng_2
+                r["bottom_b_2_re"] = b_bottom_re_2
+                r["side_b_2_ng"] = b_side_ng_2
+                r["side_b_2_re"] = b_side_re_2
+
             elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = i
+                r["combined_a_ng_3"] = combined_side_a_ng_2
+                r["combined_a_re_3"] = combined_side_a_re_2
+                r["top_a_3_ng"] = a_top_ng_2
+                r["top_a_3_re"] = a_top_re_2
+                r["bottom_a_3_ng"] = a_bottom_ng_2
+                r["bottom_a_3_re"] = a_bottom_re_2
+                r["side_a_3_ng"] = a_side_ng_2
+                r["side_a_3_re"] = a_side_re_2
+
+                r["combined_b_ng_3"] = combined_side_b_ng_2
+                r["combined_b_re_3"] = combined_side_b_re_2
+                r["top_b_3_ng"] = b_top_ng_2
+                r["top_b_3_re"] = b_top_re_2
+                r["bottom_b_3_ng"] = b_bottom_ng_2
+                r["bottom_b_3_re"] = b_bottom_re_2
+                r["side_b_3_ng"] = b_side_ng_2
+                r["side_b_3_re"] = b_side_re_2
+
             elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = i
+                r["combined_a_ng_4"] = combined_side_a_ng_2
+                r["combined_a_re_4"] = combined_side_a_re_2
+                r["top_a_4_ng"] = a_top_ng_2
+                r["top_a_4_re"] = a_top_re_2
+                r["bottom_a_4_ng"] = a_bottom_ng_2
+                r["bottom_a_4_re"] = a_bottom_re_2
+                r["side_a_4_ng"] = a_side_ng_2
+                r["side_a_4_re"] = a_side_re_2
+
+                r["combined_b_ng_4"] = combined_side_b_ng_2
+                r["combined_b_re_4"] = combined_side_b_re_2
+                r["top_b_4_ng"] = b_top_ng_2
+                r["top_b_4_re"] = b_top_re_2
+                r["bottom_b_4_ng"] = b_bottom_ng_2
+                r["bottom_b_4_re"] = b_bottom_re_2
+                r["side_b_4_ng"] = b_side_ng_2
+                r["side_b_4_re"] = b_side_re_2
+
             elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_2
+                r["combined_a_re_5"] = combined_side_a_re_2
+                r["top_a_5_ng"] = a_top_ng_2
+                r["top_a_5_re"] = a_top_re_2
+                r["bottom_a_5_ng"] = a_bottom_ng_2
+                r["bottom_a_5_re"] = a_bottom_re_2
+                r["side_a_5_ng"] = a_side_ng_2
+                r["side_a_5_re"] = a_side_re_2
+
+                r["combined_b_ng_5"] = combined_side_b_ng_2
+                r["combined_b_re_5"] = combined_side_b_re_2
+                r["top_b_5_ng"] = b_top_ng_2
+                r["top_b_5_re"] = b_top_re_2
+                r["bottom_b_5_ng"] = b_bottom_ng_2
+                r["bottom_b_5_re"] = b_bottom_re_2
+                r["side_b_5_ng"] = b_side_ng_2
+                r["side_b_5_re"] = b_side_re_2
+
             elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_2
+                r["combined_a_re_6"] = combined_side_a_re_2
+                r["top_a_6_ng"] = a_top_ng_2
+                r["top_a_6_re"] = a_top_re_2
+                r["bottom_a_6_ng"] = a_bottom_ng_2
+                r["bottom_a_6_re"] = a_bottom_re_2
+                r["side_a_6_ng"] = a_side_ng_2
+                r["side_a_6_re"] = a_side_re_2
+
+                r["combined_b_ng_6"] = combined_side_b_ng_2
+                r["combined_b_re_6"] = combined_side_b_re_2
+                r["top_b_6_ng"] = b_top_ng_2
+                r["top_b_6_re"] = b_top_re_2
+                r["bottom_b_6_ng"] = b_bottom_ng_2
+                r["bottom_b_6_re"] = b_bottom_re_2
+                r["side_b_6_ng"] = b_side_ng_2
+                r["side_b_6_re"] = b_side_re_2
+
 
         elif for_count == 4:
-            if period_span["prod_period_3"]  ==period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = i
+            if period_span["prod_period_3"]  == period_span["cur_period_3"]:
+                r["combined_a_ng_3"] = combined_side_a_ng_3
+                r["combined_a_re_3"] = combined_side_a_re_3
+                r["top_a_3_ng"] = a_top_ng_3
+                r["top_a_3_re"] = a_top_re_3
+                r["bottom_a_3_ng"] = a_bottom_ng_3
+                r["bottom_a_3_re"] = a_bottom_re_3
+                r["side_a_3_ng"] = a_side_ng_3
+                r["side_a_3_re"] = a_side_re_3
+
+                r["combined_b_ng_3"] = combined_side_b_ng_3
+                r["combined_b_re_3"] = combined_side_b_re_3
+                r["top_b_3_ng"] = b_top_ng_3
+                r["top_b_3_re"] = b_top_re_3
+                r["bottom_b_3_ng"] = b_bottom_ng_3
+                r["bottom_b_3_re"] = b_bottom_re_3
+                r["side_b_3_ng"] = b_side_ng_3
+                r["side_b_3_re"] = b_side_re_3
+
             elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = i
+                r["combined_a_ng_4"] = combined_side_a_ng_3
+                r["combined_a_re_4"] = combined_side_a_re_3
+                r["top_a_4_ng"] = a_top_ng_3
+                r["top_a_4_re"] = a_top_re_3
+                r["bottom_a_4_ng"] = a_bottom_ng_3
+                r["bottom_a_4_re"] = a_bottom_re_3
+                r["side_a_4_ng"] = a_side_ng_3
+                r["side_a_4_re"] = a_side_re_3
+
+                r["combined_b_ng_4"] = combined_side_b_ng_3
+                r["combined_b_re_4"] = combined_side_b_re_3
+                r["top_b_4_ng"] = b_top_ng_3
+                r["top_b_4_re"] = b_top_re_3
+                r["bottom_b_4_ng"] = b_bottom_ng_3
+                r["bottom_b_4_re"] = b_bottom_re_3
+                r["side_b_4_ng"] = b_side_ng_3
+                r["side_b_4_re"] = b_side_re_3
+
             elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_3
+                r["combined_a_re_5"] = combined_side_a_re_3
+                r["top_a_5_ng"] = a_top_ng_3
+                r["top_a_5_re"] = a_top_re_3
+                r["bottom_a_5_ng"] = a_bottom_ng_3
+                r["bottom_a_5_re"] = a_bottom_re_3
+                r["side_a_5_ng"] = a_side_ng_3
+                r["side_a_5_re"] = a_side_re_3
+
+                r["combined_b_ng_5"] = combined_side_b_ng_3
+                r["combined_b_re_5"] = combined_side_b_re_3
+                r["top_b_5_ng"] = b_top_ng_3
+                r["top_b_5_re"] = b_top_re_3
+                r["bottom_b_5_ng"] = b_bottom_ng_3
+                r["bottom_b_5_re"] = b_bottom_re_3
+                r["side_b_5_ng"] = b_side_ng_3
+                r["side_b_5_re"] = b_side_re_3
+
             elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_3
+                r["combined_a_re_6"] = combined_side_a_re_3
+                r["top_a_6_ng"] = a_top_ng_3
+                r["top_a_6_re"] = a_top_re_3
+                r["bottom_a_6_ng"] = a_bottom_ng_3
+                r["bottom_a_6_re"] = a_bottom_re_3
+                r["side_a_6_ng"] = a_side_ng_3
+                r["side_a_6_re"] = a_side_re_3
+
+                r["combined_b_ng_6"] = combined_side_b_ng_3
+                r["combined_b_re_6"] = combined_side_b_re_3
+                r["top_b_6_ng"] = b_top_ng_3
+                r["top_b_6_re"] = b_top_re_3
+                r["bottom_b_6_ng"] = b_bottom_ng_3
+                r["bottom_b_6_re"] = b_bottom_re_3
+                r["side_b_6_ng"] = b_side_ng_3
+                r["side_b_6_re"] = b_side_re_3
+
 
         elif for_count == 5:
             if period_span["prod_period_4"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = i
+                r["combined_a_ng_4"] = combined_side_a_ng_4
+                r["combined_a_re_4"] = combined_side_a_re_4
+                r["top_a_4_ng"] = a_top_ng_4
+                r["top_a_4_re"] = a_top_re_4
+                r["bottom_a_4_ng"] = a_bottom_ng_4
+                r["bottom_a_4_re"] = a_bottom_re_4
+                r["side_a_4_ng"] = a_side_ng_4
+                r["side_a_4_re"] = a_side_re_4
+
+                r["combined_b_ng_4"] = combined_side_b_ng_4
+                r["combined_b_re_4"] = combined_side_b_re_4
+                r["top_b_4_ng"] = b_top_ng_4
+                r["top_b_4_re"] = b_top_re_4
+                r["bottom_b_4_ng"] = b_bottom_ng_4
+                r["bottom_b_4_re"] = b_bottom_re_4
+                r["side_b_4_ng"] = b_side_ng_4
+                r["side_b_4_re"] = b_side_re_4
+
             elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_4
+                r["combined_a_re_5"] = combined_side_a_re_4
+                r["top_a_5_ng"] = a_top_ng_4
+                r["top_a_5_re"] = a_top_re_4
+                r["bottom_a_5_ng"] = a_bottom_ng_4
+                r["bottom_a_5_re"] = a_bottom_re_4
+                r["side_a_5_ng"] = a_side_ng_4
+                r["side_a_5_re"] = a_side_re_4
+
+                r["combined_b_ng_5"] = combined_side_b_ng_4
+                r["combined_b_re_5"] = combined_side_b_re_4
+                r["top_b_5_ng"] = b_top_ng_4
+                r["top_b_5_re"] = b_top_re_4
+                r["bottom_b_5_ng"] = b_bottom_ng_4
+                r["bottom_b_5_re"] = b_bottom_re_4
+                r["side_b_5_ng"] = b_side_ng_4
+                r["side_b_5_re"] = b_side_re_4
+
             elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_4
+                r["combined_a_re_6"] = combined_side_a_re_4
+                r["top_a_6_ng"] = a_top_ng_4
+                r["top_a_6_re"] = a_top_re_4
+                r["bottom_a_6_ng"] = a_bottom_ng_4
+                r["bottom_a_6_re"] = a_bottom_re_4
+                r["side_a_6_ng"] = a_side_ng_4
+                r["side_a_6_re"] = a_side_re_4
+
+                r["combined_b_ng_6"] = combined_side_b_ng_4
+                r["combined_b_re_6"] = combined_side_b_re_4
+                r["top_b_6_ng"] = b_top_ng_4
+                r["top_b_6_re"] = b_top_re_4
+                r["bottom_b_6_ng"] = b_bottom_ng_4
+                r["bottom_b_6_re"] = b_bottom_re_4
+                r["side_b_6_ng"] = b_side_ng_4
+                r["side_b_6_re"] = b_side_re_4
+
 
         elif for_count == 6:
             if period_span["prod_period_5"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = i
+                r["combined_a_ng_5"] = combined_side_a_ng_5
+                r["combined_a_re_5"] = combined_side_a_re_5
+                r["top_a_5_ng"] = a_top_ng_5
+                r["top_a_5_re"] = a_top_re_5
+                r["bottom_a_5_ng"] = a_bottom_ng_5
+                r["bottom_a_5_re"] = a_bottom_re_5
+                r["side_a_5_ng"] = a_side_ng_5
+                r["side_a_5_re"] = a_side_re_5
+
+                r["combined_b_ng_5"] = combined_side_b_ng_5
+                r["combined_b_re_5"] = combined_side_b_re_5
+                r["top_b_5_ng"] = b_top_ng_5
+                r["top_b_5_re"] = b_top_re_5
+                r["bottom_b_5_ng"] = b_bottom_ng_5
+                r["bottom_b_5_re"] = b_bottom_re_5
+                r["side_b_5_ng"] = b_side_ng_5
+                r["side_b_5_re"] = b_side_re_5
+
             elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_5
+                r["combined_a_re_6"] = combined_side_a_re_5
+                r["top_a_6_ng"] = a_top_ng_5
+                r["top_a_6_re"] = a_top_re_5
+                r["bottom_a_6_ng"] = a_bottom_ng_5
+                r["bottom_a_6_re"] = a_bottom_re_5
+                r["side_a_6_ng"] = a_side_ng_5
+                r["side_a_6_re"] = a_side_re_5
+
+                r["combined_b_ng_6"] = combined_side_b_ng_5
+                r["combined_b_re_6"] = combined_side_b_re_5
+                r["top_b_6_ng"] = b_top_ng_5
+                r["top_b_6_re"] = b_top_re_5
+                r["bottom_b_6_ng"] = b_bottom_ng_5
+                r["bottom_b_6_re"] = b_bottom_re_5
+                r["side_b_6_ng"] = b_side_ng_5
+                r["side_b_6_re"] = b_side_re_5
+
 
         elif for_count == 7:
             if period_span["prod_period_6"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = i
+                r["combined_a_ng_6"] = combined_side_a_ng_6
+                r["combined_a_re_6"] = combined_side_a_re_6
+                r["top_a_6_ng"] = a_top_ng_6
+                r["top_a_6_re"] = a_top_re_6
+                r["bottom_a_6_ng"] = a_bottom_ng_6
+                r["bottom_a_6_re"] = a_bottom_re_6
+                r["side_a_6_ng"] = a_side_ng_6
+                r["side_a_6_re"] = a_side_re_6
 
-    # assign variables from specific columns from database based on date
-    for_count = 0
-    for e in requested_period(line).combined_side_b_ng:
-        for_count += 1
-        if for_count == 1:
-            if period_span["prod_period_0"]  == period_span["cur_period_0"]:
-                r["combined_b_ng_0"] = e
-            elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
-                r["combined_b_ng_1"] = e
-            elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
-                r["combined_b_ng_2"] = e
-            elif period_span["prod_period_0"]  ==period_span["cur_period_3"]:
-                r["combined_b_ng_3"] = e
-            elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
-                r["combined_b_ng_4"] = e
-            elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
+                r["combined_b_ng_6"] = combined_side_b_ng_6
+                r["combined_b_re_6"] = combined_side_b_re_6
+                r["top_b_6_ng"] = b_top_ng_6
+                r["top_b_6_re"] = b_top_re_6
+                r["bottom_b_6_ng"] = b_bottom_ng_6
+                r["bottom_b_6_re"] = b_bottom_re_6
+                r["side_b_6_ng"] = b_side_ng_6
+                r["side_b_6_re"] = b_side_re_6
 
-        elif for_count == 2:
-            if period_span["prod_period_1"]  == period_span["cur_period_1"]:
-                r["combined_b_ng_1"] = e
-            elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
-                r["combined_b_ng_2"] = e
-            elif period_span["prod_period_1"]  ==period_span["cur_period_3"]:
-                r["combined_b_ng_3"] = e
-            elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
-                r["combined_b_ng_4"] = e
-            elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-        elif for_count == 3:
-            if period_span["prod_period_2"]  == period_span["cur_period_2"]:
-                r["combined_b_ng_2"] = e
-            elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
-                r["combined_b_ng_3"] = e
-            elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                r["combined_b_ng_4"] = e
-            elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-        elif for_count == 4:
-            if period_span["prod_period_3"]  ==period_span["cur_period_3"]:
-                r["combined_b_ng_3"] = e
-            elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
-                r["combined_b_ng_4"] = e
-            elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-        elif for_count == 5:
-            if period_span["prod_period_4"]  == period_span["cur_period_4"]:
-                r["combined_b_ng_4"] = e
-            elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-        elif for_count == 6:
-            if period_span["prod_period_5"]  == period_span["cur_period_5"]:
-                r["combined_b_ng_5"] = e
-            elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-        elif for_count == 7:
-            if period_span["prod_period_6"]  == period_span["cur_period_6"]:
-                r["combined_b_ng_6"] = e
-
-    for_count = 0
-    for a in requested_period(line).combined_side_a_re:
-        for_count += 1
-        if for_count == 1:
-            if period_span["prod_period_0"]  == period_span["cur_period_0"]:
-                r["combined_a_re_0"] = a
-            elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
-                r["combined_a_re_1"] = a
-            elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
-                r["combined_a_re_2"] = a
-            elif period_span["prod_period_0"]  ==period_span["cur_period_3"]:
-                r["combined_a_re_3"] = a
-            elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
-                r["combined_a_re_4"] = a
-            elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-
-        elif for_count == 2:
-            if period_span["prod_period_1"]  == period_span["cur_period_1"]:
-                r["combined_a_re_1"] = a
-            elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
-                r["combined_a_re_2"] = a
-            elif period_span["prod_period_1"]  ==period_span["cur_period_3"]:
-                r["combined_a_re_3"] = a
-            elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
-                r["combined_a_re_4"] = a
-            elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-        elif for_count == 3:
-            if period_span["prod_period_2"]  == period_span["cur_period_2"]:
-                r["combined_a_re_2"] = a
-            elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
-                r["combined_a_re_3"] = a
-            elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                r["combined_a_re_4"] = a
-            elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-        elif for_count == 4:
-            if period_span["prod_period_3"]  ==period_span["cur_period_3"]:
-                r["combined_a_re_3"] = a
-            elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
-                r["combined_a_re_4"] = a
-            elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-        elif for_count == 5:
-            if period_span["prod_period_4"]  == period_span["cur_period_4"]:
-                r["combined_a_re_4"] = a
-            elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-        elif for_count == 6:
-            if period_span["prod_period_5"]  == period_span["cur_period_5"]:
-                r["combined_a_re_5"] = a
-            elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-        elif for_count == 7:
-            if period_span["prod_period_6"]  == period_span["cur_period_6"]:
-                r["combined_a_re_6"] = a
-
-    # assign variables from specific columns from database based on date
-    for_count = 0
-    for u in requested_period(line).combined_side_b_re:
-        for_count += 1
-        if for_count == 1:
-            if period_span["prod_period_0"]  == period_span["cur_period_0"]:
-                r["combined_b_re_0"] = u
-            elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
-                r["combined_b_re_1"] = u
-            elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
-                r["combined_b_re_2"] = u
-            elif period_span["prod_period_0"]  ==period_span["cur_period_3"]:
-                r["combined_b_re_3"] = u
-            elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
-                r["combined_b_re_4"] = u
-            elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 2:
-            if period_span["prod_period_1"]  == period_span["cur_period_1"]:
-                r["combined_b_re_1"] = u
-            elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
-                r["combined_b_re_2"] = u
-            elif period_span["prod_period_1"]  ==period_span["cur_period_3"]:
-                r["combined_b_re_3"] = u
-            elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
-                r["combined_b_re_4"] = u
-            elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 3:
-            if period_span["prod_period_2"]  == period_span["cur_period_2"]:
-                r["combined_b_re_2"] = u
-            elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
-                r["combined_b_re_3"] = u
-            elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                r["combined_b_re_4"] = u
-            elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 4:
-            if period_span["prod_period_3"]  ==period_span["cur_period_3"]:
-                r["combined_b_re_3"] = u
-            elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
-                r["combined_b_re_4"] = u
-            elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 5:
-            if period_span["prod_period_4"]  == period_span["cur_period_4"]:
-                r["combined_b_re_4"] = u
-            elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 6:
-            if period_span["prod_period_5"]  == period_span["cur_period_5"]:
-                r["combined_b_re_5"] = u
-            elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
-
-        elif for_count == 7:
-            if period_span["prod_period_6"]  == period_span["cur_period_6"]:
-                r["combined_b_re_6"] = u
 
     return r
 
+def assign_production_values_to_dictionary(values, line, r):
+
+    return {
+        "line":line,
+        "combined_a_ng_0":r["combined_a_ng_0"],
+        "combined_a_ng_1":r["combined_a_ng_1"],
+        "combined_a_ng_2":r["combined_a_ng_2"],
+        "combined_a_ng_3":r["combined_a_ng_3"],
+        "combined_a_ng_4":r["combined_a_ng_4"],
+        "combined_a_ng_5":r["combined_a_ng_5"],
+        "combined_a_ng_6":r["combined_a_ng_6"],
+
+        "combined_b_ng_0":r["combined_b_ng_0"],
+        "combined_b_ng_1":r["combined_b_ng_1"],
+        "combined_b_ng_2":r["combined_b_ng_2"],
+        "combined_b_ng_3":r["combined_b_ng_3"],
+        "combined_b_ng_4":r["combined_b_ng_4"],
+        "combined_b_ng_5":r["combined_b_ng_5"],
+        "combined_b_ng_6":r["combined_b_ng_6"],
+
+        "combined_a_re_0":r["combined_a_re_0"],
+        "combined_a_re_1":r["combined_a_re_1"],
+        "combined_a_re_2":r["combined_a_re_2"],
+        "combined_a_re_3":r["combined_a_re_3"],
+        "combined_a_re_4":r["combined_a_re_4"],
+        "combined_a_re_5":r["combined_a_re_5"],
+        "combined_a_re_6":r["combined_a_re_6"],
+
+        "combined_b_re_0":r["combined_b_re_0"],
+        "combined_b_re_1":r["combined_b_re_1"],
+        "combined_b_re_2":r["combined_b_re_2"],
+        "combined_b_re_3":r["combined_b_re_3"],
+        "combined_b_re_4":r["combined_b_re_4"],
+        "combined_b_re_5":r["combined_b_re_5"],
+        "combined_b_re_6":r["combined_b_re_6"],
+
+        "top_a_ng_0":r["top_a_0_ng"],
+        "top_a_ng_1":r["top_a_1_ng"],
+        "top_a_ng_2":r["top_a_2_ng"],
+        "top_a_ng_3":r["top_a_3_ng"],
+        "top_a_ng_4":r["top_a_4_ng"],
+        "top_a_ng_5":r["top_a_5_ng"],
+        "top_a_ng_6":r["top_a_6_ng"],
+
+        "top_b_ng_0":r["top_b_0_ng"],
+        "top_b_ng_1":r["top_b_1_ng"],
+        "top_b_ng_2":r["top_b_2_ng"],
+        "top_b_ng_3":r["top_b_3_ng"],
+        "top_b_ng_4":r["top_b_4_ng"],
+        "top_b_ng_5":r["top_b_5_ng"],
+        "top_b_ng_6":r["top_b_6_ng"],
+
+        "top_a_re_0":r["top_a_0_re"],
+        "top_a_re_1":r["top_a_1_re"],
+        "top_a_re_2":r["top_a_2_re"],
+        "top_a_re_3":r["top_a_3_re"],
+        "top_a_re_4":r["top_a_4_re"],
+        "top_a_re_5":r["top_a_5_re"],
+        "top_a_re_6":r["top_a_6_re"],
+
+        "top_b_re_0":r["top_b_0_re"],
+        "top_b_re_1":r["top_b_1_re"],
+        "top_b_re_2":r["top_b_2_re"],
+        "top_b_re_3":r["top_b_3_re"],
+        "top_b_re_4":r["top_b_4_re"],
+        "top_b_re_5":r["top_b_5_re"],
+        "top_b_re_6":r["top_b_6_re"],
+
+        "bottom_a_ng_0":r["bottom_a_0_ng"],
+        "bottom_a_ng_1":r["bottom_a_1_ng"],
+        "bottom_a_ng_2":r["bottom_a_2_ng"],
+        "bottom_a_ng_3":r["bottom_a_3_ng"],
+        "bottom_a_ng_4":r["bottom_a_4_ng"],
+        "bottom_a_ng_5":r["bottom_a_5_ng"],
+        "bottom_a_ng_6":r["bottom_a_6_ng"],
+
+        "bottom_b_ng_0":r["bottom_b_0_ng"],
+        "bottom_b_ng_1":r["bottom_b_1_ng"],
+        "bottom_b_ng_2":r["bottom_b_2_ng"],
+        "bottom_b_ng_3":r["bottom_b_3_ng"],
+        "bottom_b_ng_4":r["bottom_b_4_ng"],
+        "bottom_b_ng_5":r["bottom_b_5_ng"],
+        "bottom_b_ng_6":r["bottom_b_6_ng"],
+
+        "bottom_a_re_0":r["bottom_a_0_re"],
+        "bottom_a_re_1":r["bottom_a_1_re"],
+        "bottom_a_re_2":r["bottom_a_2_re"],
+        "bottom_a_re_3":r["bottom_a_3_re"],
+        "bottom_a_re_4":r["bottom_a_4_re"],
+        "bottom_a_re_5":r["bottom_a_5_re"],
+        "bottom_a_re_6":r["bottom_a_6_re"],
+
+        "bottom_b_re_0":r["bottom_b_0_re"],
+        "bottom_b_re_1":r["bottom_b_1_re"],
+        "bottom_b_re_2":r["bottom_b_2_re"],
+        "bottom_b_re_3":r["bottom_b_3_re"],
+        "bottom_b_re_4":r["bottom_b_4_re"],
+        "bottom_b_re_5":r["bottom_b_5_re"],
+        "bottom_b_re_6":r["bottom_b_6_re"],
+
+        "side_a_ng_0":r["side_a_0_ng"],
+        "side_a_ng_1":r["side_a_1_ng"],
+        "side_a_ng_2":r["side_a_2_ng"],
+        "side_a_ng_3":r["side_a_3_ng"],
+        "side_a_ng_4":r["side_a_4_ng"],
+        "side_a_ng_5":r["side_a_5_ng"],
+        "side_a_ng_6":r["side_a_6_ng"],
+
+        "side_b_ng_0":r["side_b_0_ng"],
+        "side_b_ng_1":r["side_b_1_ng"],
+        "side_b_ng_2":r["side_b_2_ng"],
+        "side_b_ng_3":r["side_b_3_ng"],
+        "side_b_ng_4":r["side_b_4_ng"],
+        "side_b_ng_5":r["side_b_5_ng"],
+        "side_b_ng_6":r["side_b_6_ng"],
+
+        "side_a_re_0":r["side_a_0_re"],
+        "side_a_re_1":r["side_a_1_re"],
+        "side_a_re_2":r["side_a_2_re"],
+        "side_a_re_3":r["side_a_3_re"],
+        "side_a_re_4":r["side_a_4_re"],
+        "side_a_re_5":r["side_a_5_re"],
+        "side_a_re_6":r["side_a_6_re"],
+
+        "side_b_re_0":r["side_b_0_re"],
+        "side_b_re_1":r["side_b_1_re"],
+        "side_b_re_2":r["side_b_2_re"],
+        "side_b_re_3":r["side_b_3_re"],
+        "side_b_re_4":r["side_b_4_re"],
+        "side_b_re_5":r["side_b_5_re"],
+        "side_b_re_6":r["side_b_6_re"]
+        }
 
 def past_seven_hours(line):
 
@@ -591,44 +1129,9 @@ def past_seven_hours(line):
     period_span = period("hourly", line)
     requested_period = hourly_report
     # assign values to the dictionary keys
-    set_values_for_a_dictionary = assign_period_values(r, line, period_span, requested_period)
+    set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
 
-
-
-    return {
-    "line":line,
-    "line0_a_ng":r["combined_a_ng_0"],
-    "line1_a_ng":r["combined_a_ng_1"],
-    "line2_a_ng":r["combined_a_ng_2"],
-    "line3_a_ng":r["combined_a_ng_3"],
-    "line4_a_ng":r["combined_a_ng_4"],
-    "line5_a_ng":r["combined_a_ng_5"],
-    "line6_a_ng":r["combined_a_ng_6"],
-
-    "line0_b_ng":r["combined_b_ng_0"],
-    "line1_b_ng":r["combined_b_ng_1"],
-    "line2_b_ng":r["combined_b_ng_2"],
-    "line3_b_ng":r["combined_b_ng_3"],
-    "line4_b_ng":r["combined_b_ng_4"],
-    "line5_b_ng":r["combined_b_ng_5"],
-    "line6_b_ng":r["combined_b_ng_6"],
-
-    "line0_a_re":r["combined_a_re_0"],
-    "line1_a_re":r["combined_a_re_1"],
-    "line2_a_re":r["combined_a_re_2"],
-    "line3_a_re":r["combined_a_re_3"],
-    "line4_a_re":r["combined_a_re_4"],
-    "line5_a_re":r["combined_a_re_5"],
-    "line6_a_re":r["combined_a_re_6"],
-
-    "line0_b_re":r["combined_b_re_0"],
-    "line1_b_re":r["combined_b_re_1"],
-    "line2_b_re":r["combined_b_re_2"],
-    "line3_b_re":r["combined_b_re_3"],
-    "line4_b_re":r["combined_b_re_4"],
-    "line5_b_re":r["combined_b_re_5"],
-    "line6_b_re":r["combined_b_re_6"],
-    }
+    return assign_production_values_to_dictionary(set_values_for_dictionary, line, r)
 
 def past_seven_days(line):
 
@@ -638,44 +1141,9 @@ def past_seven_days(line):
     period_span = period("daily", line)
     requested_period = daily_report
     # assign values to the dictionary keys
-    set_values_for_a_dictionary = assign_period_values(r, line, period_span, requested_period)
+    set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
 
-
-
-    return {
-    "line":line,
-    "line0_a_ng":r["combined_a_ng_0"],
-    "line1_a_ng":r["combined_a_ng_1"],
-    "line2_a_ng":r["combined_a_ng_2"],
-    "line3_a_ng":r["combined_a_ng_3"],
-    "line4_a_ng":r["combined_a_ng_4"],
-    "line5_a_ng":r["combined_a_ng_5"],
-    "line6_a_ng":r["combined_a_ng_6"],
-
-    "line0_b_ng":r["combined_b_ng_0"],
-    "line1_b_ng":r["combined_b_ng_1"],
-    "line2_b_ng":r["combined_b_ng_2"],
-    "line3_b_ng":r["combined_b_ng_3"],
-    "line4_b_ng":r["combined_b_ng_4"],
-    "line5_b_ng":r["combined_b_ng_5"],
-    "line6_b_ng":r["combined_b_ng_6"],
-
-    "line0_a_re":r["combined_a_re_0"],
-    "line1_a_re":r["combined_a_re_1"],
-    "line2_a_re":r["combined_a_re_2"],
-    "line3_a_re":r["combined_a_re_3"],
-    "line4_a_re":r["combined_a_re_4"],
-    "line5_a_re":r["combined_a_re_5"],
-    "line6_a_re":r["combined_a_re_6"],
-
-    "line0_b_re":r["combined_b_re_0"],
-    "line1_b_re":r["combined_b_re_1"],
-    "line2_b_re":r["combined_b_re_2"],
-    "line3_b_re":r["combined_b_re_3"],
-    "line4_b_re":r["combined_b_re_4"],
-    "line5_b_re":r["combined_b_re_5"],
-    "line6_b_re":r["combined_b_re_6"],
-    }
+    return assign_production_values_to_dictionary(set_values_for_dictionary, line, r)
 
 def past_seven_weeks(line):
 
@@ -685,44 +1153,9 @@ def past_seven_weeks(line):
     period_span = period("weekly", line)
     requested_period = weekly_report
     # assign values to the dictionary keys
-    set_values_for_a_dictionary = assign_period_values(r, line, period_span, requested_period)
+    set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
 
-
-
-    return {
-    "line":line,
-    "line0_a_ng":r["combined_a_ng_0"],
-    "line1_a_ng":r["combined_a_ng_1"],
-    "line2_a_ng":r["combined_a_ng_2"],
-    "line3_a_ng":r["combined_a_ng_3"],
-    "line4_a_ng":r["combined_a_ng_4"],
-    "line5_a_ng":r["combined_a_ng_5"],
-    "line6_a_ng":r["combined_a_ng_6"],
-
-    "line0_b_ng":r["combined_b_ng_0"],
-    "line1_b_ng":r["combined_b_ng_1"],
-    "line2_b_ng":r["combined_b_ng_2"],
-    "line3_b_ng":r["combined_b_ng_3"],
-    "line4_b_ng":r["combined_b_ng_4"],
-    "line5_b_ng":r["combined_b_ng_5"],
-    "line6_b_ng":r["combined_b_ng_6"],
-
-    "line0_a_re":r["combined_a_re_0"],
-    "line1_a_re":r["combined_a_re_1"],
-    "line2_a_re":r["combined_a_re_2"],
-    "line3_a_re":r["combined_a_re_3"],
-    "line4_a_re":r["combined_a_re_4"],
-    "line5_a_re":r["combined_a_re_5"],
-    "line6_a_re":r["combined_a_re_6"],
-
-    "line0_b_re":r["combined_b_re_0"],
-    "line1_b_re":r["combined_b_re_1"],
-    "line2_b_re":r["combined_b_re_2"],
-    "line3_b_re":r["combined_b_re_3"],
-    "line4_b_re":r["combined_b_re_4"],
-    "line5_b_re":r["combined_b_re_5"],
-    "line6_b_re":r["combined_b_re_6"],
-    }
+    return assign_production_values_to_dictionary(set_values_for_dictionary, line, r)
 
 def past_seven_months(line):
 
@@ -734,41 +1167,6 @@ def past_seven_months(line):
     requested_period = monthly_report
 
     # assign values to the dictionary keys
-    set_values_for_a_dictionary = assign_period_values(r, line, period_span, requested_period)
+    set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
 
-
-
-    return {
-    "line":line,
-    "line0_a_ng":r["combined_a_ng_0"],
-    "line1_a_ng":r["combined_a_ng_1"],
-    "line2_a_ng":r["combined_a_ng_2"],
-    "line3_a_ng":r["combined_a_ng_3"],
-    "line4_a_ng":r["combined_a_ng_4"],
-    "line5_a_ng":r["combined_a_ng_5"],
-    "line6_a_ng":r["combined_a_ng_6"],
-
-    "line0_b_ng":r["combined_b_ng_0"],
-    "line1_b_ng":r["combined_b_ng_1"],
-    "line2_b_ng":r["combined_b_ng_2"],
-    "line3_b_ng":r["combined_b_ng_3"],
-    "line4_b_ng":r["combined_b_ng_4"],
-    "line5_b_ng":r["combined_b_ng_5"],
-    "line6_b_ng":r["combined_b_ng_6"],
-
-    "line0_a_re":r["combined_a_re_0"],
-    "line1_a_re":r["combined_a_re_1"],
-    "line2_a_re":r["combined_a_re_2"],
-    "line3_a_re":r["combined_a_re_3"],
-    "line4_a_re":r["combined_a_re_4"],
-    "line5_a_re":r["combined_a_re_5"],
-    "line6_a_re":r["combined_a_re_6"],
-
-    "line0_b_re":r["combined_b_re_0"],
-    "line1_b_re":r["combined_b_re_1"],
-    "line2_b_re":r["combined_b_re_2"],
-    "line3_b_re":r["combined_b_re_3"],
-    "line4_b_re":r["combined_b_re_4"],
-    "line5_b_re":r["combined_b_re_5"],
-    "line6_b_re":r["combined_b_re_6"],
-    }
+    return assign_production_values_to_dictionary(set_values_for_dictionary, line, r)
