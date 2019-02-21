@@ -357,11 +357,11 @@ var KChartJSDemo = function() {
 		var chartData = {
 			datasets: [{
 				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
+					ng_0_a,
+					ng_1_a,
+					ng_1_a,
+					ng_1_a,
+					ng_1_a,
 				],
 				backgroundColor: [
 					'#fe3995',
@@ -382,6 +382,7 @@ var KChartJSDemo = function() {
 
 		};
 
+		// This is where the Donut Chart is starting from
 		var ctx = $('#k_chartjs_6');
 		var myBarChart = new Chart(ctx, {
 			type: 'doughnut',
@@ -389,7 +390,7 @@ var KChartJSDemo = function() {
 			options: {
 				responsive: true,
 				legend: {
-					position: 'top',
+					position: 'bottom',
 				},
 				title: {
 					display: true,
@@ -408,11 +409,11 @@ var KChartJSDemo = function() {
 		var chartData = {
 			datasets: [{
 				data: [
-					ng_0_a,
-					ng_1_a,
-					ng_2_a,
-					ng_3_a,
-					ng_4_a,
+					combined_scrap_0_a,
+					combined_scrap_0_a,
+					combined_scrap_0_a,
+					combined_scrap_0_a,
+					combined_scrap_0_a,
 				],
 				backgroundColor: [
 					'#fe3995',
