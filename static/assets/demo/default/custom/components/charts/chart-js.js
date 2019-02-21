@@ -393,7 +393,7 @@ var KChartJSDemo = function() {
 				},
 				title: {
 					display: true,
-					text: 'Donut Chart'
+					text: 'Rejects by Camera'
 				},
 				animation: {
 					animateScale: true,
@@ -405,18 +405,14 @@ var KChartJSDemo = function() {
 
 	var demo7 = function() {
 
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
-
 		var chartData = {
 			datasets: [{
 				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
+					ng_0_a,
+					ng_1_a,
+					ng_2_a,
+					ng_3_a,
+					ng_4_a,
 				],
 				backgroundColor: [
 					'#fe3995',
@@ -428,11 +424,11 @@ var KChartJSDemo = function() {
 				label: 'Dataset 1'
 			}],
 			labels: [
-				'Data 1',
-				'Data 2',
-				'Data 3',
-				'Data 4',
-				'Data 5'
+				'0',
+				'1',
+				'2',
+				'3',
+				4
 			]
 
 		};

@@ -1,6 +1,7 @@
 from dolcegusto.models import daily_report, hourly_report, weekly_report, monthly_report
 from datetime import datetime, date, timedelta, time
 import datetime
+import time
 
 def reset_dictionary():
     # set all values to zero to avoid data contamination from previous requests
@@ -296,695 +297,565 @@ def assign_period_values(r, line, period_span, requested_period):
 
     # assign variables from specific columns from database based on date
     for_count = 0
-    for i in requested_period(line).combined_side_a_ng:
+
+    # this loops through the database row and stores values in each if these variables
+    for a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p  in zip(
+    requested_period(line).combined_side_a_ng, requested_period(line).combined_side_b_ng,
+    requested_period(line).combined_side_a_re, requested_period(line).combined_side_b_re,
+    requested_period(line).a_top_ng, requested_period(line).b_top_ng,
+    requested_period(line).a_top_re, requested_period(line).b_top_re,
+    requested_period(line).a_bottom_ng, requested_period(line).b_bottom_ng,
+    requested_period(line).a_bottom_re, requested_period(line).b_bottom_re,
+    requested_period(line).a_side_ng, requested_period(line).b_side_ng,
+    requested_period(line).a_side_re, requested_period(line).b_side_re,
+    ):
+
         for_count += 1
-
-        combined_side_a_ng_0 = requested_period(line).combined_side_a_ng[0]
-        combined_side_b_ng_0 = requested_period(line).combined_side_b_ng[0]
-        combined_side_a_re_0 = requested_period(line).combined_side_a_re[0]
-        combined_side_b_re_0 = requested_period(line).combined_side_b_re[0]
-
-        a_top_ng_0 = requested_period(line).a_top_ng[0]
-        b_top_ng_0 = requested_period(line).b_top_ng[0]
-        a_top_re_0 = requested_period(line).a_top_re[0]
-        b_top_re_0 = requested_period(line).b_top_re[0]
-
-        a_bottom_ng_0 = requested_period(line).a_bottom_ng[0]
-        b_bottom_ng_0 = requested_period(line).b_bottom_ng[0]
-        a_bottom_re_0 = requested_period(line).a_bottom_re[0]
-        b_bottom_re_0 = requested_period(line).b_bottom_re[0]
-
-        a_side_ng_0 = requested_period(line).a_side_ng[0]
-        b_side_ng_0 = requested_period(line).b_side_ng[0]
-        a_side_re_0 = requested_period(line).a_side_re[0]
-        b_side_re_0 = requested_period(line).b_side_re[0]
-
-        combined_side_a_ng_1 = requested_period(line).combined_side_a_ng[1]
-        combined_side_b_ng_1 = requested_period(line).combined_side_b_ng[1]
-        combined_side_a_re_1 = requested_period(line).combined_side_a_re[1]
-        combined_side_b_re_1 = requested_period(line).combined_side_b_re[1]
-
-        a_top_ng_1 = requested_period(line).a_top_ng[1]
-        b_top_ng_1 = requested_period(line).b_top_ng[1]
-        a_top_re_1 = requested_period(line).a_top_re[1]
-        b_top_re_1 = requested_period(line).b_top_re[1]
-
-        a_bottom_ng_1 = requested_period(line).a_bottom_ng[1]
-        b_bottom_ng_1 = requested_period(line).b_bottom_ng[1]
-        a_bottom_re_1 = requested_period(line).a_bottom_re[1]
-        b_bottom_re_1 = requested_period(line).b_bottom_re[1]
-
-        a_side_ng_1 = requested_period(line).a_side_ng[1]
-        b_side_ng_1 = requested_period(line).b_side_ng[1]
-        a_side_re_1 = requested_period(line).a_side_re[1]
-        b_side_re_1 = requested_period(line).b_side_re[1]
-
-        combined_side_a_ng_2 = requested_period(line).combined_side_a_ng[2]
-        combined_side_b_ng_2 = requested_period(line).combined_side_b_ng[2]
-        combined_side_a_re_2 = requested_period(line).combined_side_a_re[2]
-        combined_side_b_re_2 = requested_period(line).combined_side_b_re[2]
-
-        a_top_ng_2 = requested_period(line).a_top_ng[2]
-        b_top_ng_2 = requested_period(line).b_top_ng[2]
-        a_top_re_2 = requested_period(line).a_top_re[2]
-        b_top_re_2 = requested_period(line).b_top_re[2]
-
-        a_bottom_ng_2 = requested_period(line).a_bottom_ng[2]
-        b_bottom_ng_2 = requested_period(line).b_bottom_ng[2]
-        a_bottom_re_2 = requested_period(line).a_bottom_re[2]
-        b_bottom_re_2 = requested_period(line).b_bottom_re[2]
-
-        a_side_ng_2 = requested_period(line).a_side_ng[2]
-        b_side_ng_2 = requested_period(line).b_side_ng[2]
-        a_side_re_2 = requested_period(line).a_side_re[2]
-        b_side_re_2 = requested_period(line).b_side_re[2]
-
-        combined_side_a_ng_3 = requested_period(line).combined_side_a_ng[3]
-        combined_side_b_ng_3 = requested_period(line).combined_side_b_ng[3]
-        combined_side_a_re_3 = requested_period(line).combined_side_a_re[3]
-        combined_side_b_re_3 = requested_period(line).combined_side_b_re[3]
-
-        a_top_ng_3 = requested_period(line).a_top_ng[3]
-        b_top_ng_3 = requested_period(line).b_top_ng[3]
-        a_top_re_3 = requested_period(line).a_top_re[3]
-        b_top_re_3 = requested_period(line).b_top_re[3]
-
-        a_bottom_ng_3 = requested_period(line).a_bottom_ng[3]
-        b_bottom_ng_3 = requested_period(line).b_bottom_ng[3]
-        a_bottom_re_3 = requested_period(line).a_bottom_re[3]
-        b_bottom_re_3 = requested_period(line).b_bottom_re[3]
-
-        a_side_ng_3 = requested_period(line).a_side_ng[3]
-        b_side_ng_3 = requested_period(line).b_side_ng[3]
-        a_side_re_3 = requested_period(line).a_side_re[3]
-        b_side_re_3 = requested_period(line).b_side_re[3]
-
-        combined_side_a_ng_4 = requested_period(line).combined_side_a_ng[4]
-        combined_side_b_ng_4 = requested_period(line).combined_side_b_ng[4]
-        combined_side_a_re_4 = requested_period(line).combined_side_a_re[4]
-        combined_side_b_re_4 = requested_period(line).combined_side_b_re[4]
-
-        a_top_ng_4 = requested_period(line).a_top_ng[4]
-        b_top_ng_4 = requested_period(line).b_top_ng[4]
-        a_top_re_4 = requested_period(line).a_top_re[4]
-        b_top_re_4 = requested_period(line).b_top_re[4]
-
-        a_bottom_ng_4 = requested_period(line).a_bottom_ng[4]
-        b_bottom_ng_4 = requested_period(line).b_bottom_ng[4]
-        a_bottom_re_4 = requested_period(line).a_bottom_re[4]
-        b_bottom_re_4 = requested_period(line).b_bottom_re[4]
-
-        a_side_ng_4 = requested_period(line).a_side_ng[4]
-        b_side_ng_4 = requested_period(line).b_side_ng[4]
-        a_side_re_4 = requested_period(line).a_side_re[4]
-        b_side_re_4 = requested_period(line).b_side_re[4]
-
-        combined_side_a_ng_5 = requested_period(line).combined_side_a_ng[5]
-        combined_side_b_ng_5 = requested_period(line).combined_side_b_ng[5]
-        combined_side_a_re_5 = requested_period(line).combined_side_a_re[5]
-        combined_side_b_re_5 = requested_period(line).combined_side_b_re[5]
-
-        a_top_ng_5 = requested_period(line).a_top_ng[5]
-        b_top_ng_5 = requested_period(line).b_top_ng[5]
-        a_top_re_5 = requested_period(line).a_top_re[5]
-        b_top_re_5 = requested_period(line).b_top_re[5]
-
-        a_bottom_ng_5 = requested_period(line).a_bottom_ng[5]
-        b_bottom_ng_5 = requested_period(line).b_bottom_ng[5]
-        a_bottom_re_5 = requested_period(line).a_bottom_re[5]
-        b_bottom_re_5 = requested_period(line).b_bottom_re[5]
-
-        a_side_ng_5 = requested_period(line).a_side_ng[5]
-        b_side_ng_5 = requested_period(line).b_side_ng[5]
-        a_side_re_5 = requested_period(line).a_side_re[5]
-        b_side_re_5 = requested_period(line).b_side_re[5]
-
-        combined_side_a_ng_6 = requested_period(line).combined_side_a_ng[6]
-        combined_side_b_ng_6 = requested_period(line).combined_side_b_ng[6]
-        combined_side_a_re_6 = requested_period(line).combined_side_a_re[6]
-        combined_side_b_re_6 = requested_period(line).combined_side_b_re[6]
-
-        a_top_ng_6 = requested_period(line).a_top_ng[6]
-        b_top_ng_6 = requested_period(line).b_top_ng[6]
-        a_top_re_6 = requested_period(line).a_top_re[6]
-        b_top_re_6 = requested_period(line).b_top_re[6]
-
-        a_bottom_ng_6 = requested_period(line).a_bottom_ng[6]
-        b_bottom_ng_6 = requested_period(line).b_bottom_ng[6]
-        a_bottom_re_6 = requested_period(line).a_bottom_re[6]
-        b_bottom_re_6 = requested_period(line).b_bottom_re[6]
-
-        a_side_ng_6 = requested_period(line).a_side_ng[6]
-        b_side_ng_6 = requested_period(line).b_side_ng[6]
-        a_side_re_6 = requested_period(line).a_side_re[6]
-        b_side_re_6 = requested_period(line).b_side_re[6]
-
 
         if for_count == 1:
             if period_span["prod_period_0"] == period_span["cur_period_0"]:
-                r["combined_a_ng_0"] = combined_side_a_ng_0
-                r["combined_a_re_0"] = combined_side_a_re_0
-                r["top_a_0_ng"] = a_top_ng_0
-                r["top_a_0_re"] = a_top_re_0
-                r["bottom_a_0_ng"] = a_bottom_ng_0
-                r["bottom_a_0_re"] = a_bottom_re_0
-                r["side_a_0_ng"] = a_side_ng_0
-                r["side_a_0_re"] = a_side_re_0
+                r["combined_a_ng_0"] = a
+                r["combined_a_re_0"] = c
+                r["top_a_0_ng"] = e
+                r["top_a_0_re"] = g
+                r["bottom_a_0_ng"] = i
+                r["bottom_a_0_re"] = k
+                r["side_a_0_ng"] = m
+                r["side_a_0_re"] = o
 
-                r["combined_b_ng_0"] = combined_side_b_ng_0
-                r["combined_b_re_0"] = combined_side_b_re_0
-                r["top_b_0_ng"] = b_top_ng_0
-                r["top_b_0_re"] = b_top_re_0
-                r["bottom_b_0_ng"] = b_bottom_ng_0
-                r["bottom_b_0_re"] = b_bottom_re_0
-                r["side_b_0_ng"] = b_side_ng_0
-                r["side_b_0_re"] = b_side_re_0
+                r["combined_b_ng_0"] = b
+                r["combined_b_re_0"] = d
+                r["top_b_0_ng"] = f
+                r["top_b_0_re"] = h
+                r["bottom_b_0_ng"] = j
+                r["bottom_b_0_re"] = l
+                r["side_b_0_ng"] = n
+                r["side_b_0_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
-                r["combined_a_ng_1"] = combined_side_a_ng_0
-                r["combined_a_re_1"] = combined_side_a_re_0
-                r["top_a_1_ng"] = a_top_ng_0
-                r["top_a_1_re"] = a_top_re_0
-                r["bottom_a_1_ng"] = a_bottom_ng_0
-                r["bottom_a_1_re"] = a_bottom_re_0
-                r["side_a_1_ng"] = a_side_ng_0
-                r["side_a_1_re"] = a_side_re_0
+                r["combined_a_ng_1"] = a
+                r["combined_a_re_1"] = c
+                r["top_a_1_ng"] = e
+                r["top_a_1_re"] = g
+                r["bottom_a_1_ng"] = i
+                r["bottom_a_1_re"] = k
+                r["side_a_1_ng"] = m
+                r["side_a_1_re"] = o
 
-                r["combined_b_ng_1"] = combined_side_b_ng_0
-                r["combined_b_re_1"] = combined_side_b_re_0
-                r["top_b_1_ng"] = b_top_ng_0
-                r["top_b_1_re"] = b_top_re_0
-                r["bottom_b_1_ng"] = b_bottom_ng_0
-                r["bottom_b_1_re"] = b_bottom_re_0
-                r["side_b_1_ng"] = b_side_ng_0
-                r["side_b_1_re"] = b_side_re_0
+                r["combined_b_ng_1"] = b
+                r["combined_b_re_1"] = d
+                r["top_b_1_ng"] = f
+                r["top_b_1_re"] = h
+                r["bottom_b_1_ng"] = j
+                r["bottom_b_1_re"] = l
+                r["side_b_1_ng"] = n
+                r["side_b_1_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = combined_side_a_ng_0
-                r["combined_a_re_2"] = combined_side_a_re_0
-                r["top_a_2_ng"] = a_top_ng_0
-                r["top_a_2_re"] = a_top_re_0
-                r["bottom_a_2_ng"] = a_bottom_ng_0
-                r["bottom_a_2_re"] = a_bottom_re_0
-                r["side_a_2_ng"] = a_side_ng_0
-                r["side_a_2_re"] = a_side_re_0
+                r["combined_a_ng_2"] = a
+                r["combined_a_re_2"] = c
+                r["top_a_2_ng"] = e
+                r["top_a_2_re"] = g
+                r["bottom_a_2_ng"] = i
+                r["bottom_a_2_re"] = k
+                r["side_a_2_ng"] = m
+                r["side_a_2_re"] = o
 
-                r["combined_b_ng_2"] = combined_side_b_ng_0
-                r["combined_b_re_2"] = combined_side_b_re_0
-                r["top_b_2_ng"] = b_top_ng_0
-                r["top_b_2_re"] = b_top_re_0
-                r["bottom_b_2_ng"] = b_bottom_ng_0
-                r["bottom_b_0_re"] = b_bottom_re_0
-                r["side_b_2_ng"] = b_side_ng_0
-                r["side_b_2_re"] = b_side_re_0
+                r["combined_b_ng_2"] = b
+                r["combined_b_re_2"] = d
+                r["top_b_2_ng"] = f
+                r["top_b_2_re"] = h
+                r["bottom_b_2_ng"] = j
+                r["bottom_b_0_re"] = l
+                r["side_b_2_ng"] = n
+                r["side_b_2_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = combined_side_a_ng_0
-                r["combined_a_re_3"] = combined_side_a_re_0
-                r["top_a_3_ng"] = a_top_ng_0
-                r["top_a_3_re"] = a_top_re_0
-                r["bottom_a_3_ng"] = a_bottom_ng_0
-                r["bottom_a_3_re"] = a_bottom_re_0
-                r["side_a_3_ng"] = a_side_ng_0
-                r["side_a_3_re"] = a_side_re_0
+                r["combined_a_ng_3"] = a
+                r["combined_a_re_3"] = c
+                r["top_a_3_ng"] = e
+                r["top_a_3_re"] = g
+                r["bottom_a_3_ng"] = i
+                r["bottom_a_3_re"] = k
+                r["side_a_3_ng"] = m
+                r["side_a_3_re"] = o
 
-                r["combined_b_ng_3"] = combined_side_b_ng_0
-                r["combined_b_re_3"] = combined_side_b_re_0
-                r["top_b_3_ng"] = b_top_ng_0
-                r["top_b_3_re"] = b_top_re_0
-                r["bottom_b_3_ng"] = b_bottom_ng_0
-                r["bottom_b_3_re"] = b_bottom_re_0
-                r["side_b_3_ng"] = b_side_ng_0
-                r["side_b_3_re"] = b_side_re_0
+                r["combined_b_ng_3"] = b
+                r["combined_b_re_3"] = d
+                r["top_b_3_ng"] = f
+                r["top_b_3_re"] = h
+                r["bottom_b_3_ng"] = j
+                r["bottom_b_3_re"] = l
+                r["side_b_3_ng"] = n
+                r["side_b_3_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = combined_side_a_ng_0
-                r["combined_a_re_4"] = combined_side_a_re_0
-                r["top_a_4_ng"] = a_top_ng_0
-                r["top_a_4_re"] = a_top_re_0
-                r["bottom_a_4_ng"] = a_bottom_ng_0
-                r["bottom_a_4_re"] = a_bottom_re_0
-                r["side_a_4_ng"] = a_side_ng_0
-                r["side_a_4_re"] = a_side_re_0
+                r["combined_a_ng_4"] = a
+                r["combined_a_re_4"] = c
+                r["top_a_4_ng"] = e
+                r["top_a_4_re"] = g
+                r["bottom_a_4_ng"] = i
+                r["bottom_a_4_re"] = k
+                r["side_a_4_ng"] = m
+                r["side_a_4_re"] = o
 
-                r["combined_b_ng_4"] = combined_side_b_ng_0
-                r["combined_b_re_4"] = combined_side_b_re_0
-                r["top_b_4_ng"] = b_top_ng_0
-                r["top_b_4_re"] = b_top_re_0
-                r["bottom_b_4_ng"] = b_bottom_ng_0
-                r["bottom_b_4_re"] = b_bottom_re_0
-                r["side_b_4_ng"] = b_side_ng_0
-                r["side_b_4_re"] = b_side_re_0
+                r["combined_b_ng_4"] = b
+                r["combined_b_re_4"] = d
+                r["top_b_4_ng"] = f
+                r["top_b_4_re"] = h
+                r["bottom_b_4_ng"] = j
+                r["bottom_b_4_re"] = l
+                r["side_b_4_ng"] = n
+                r["side_b_4_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_0
-                r["combined_a_re_5"] = combined_side_a_re_0
-                r["top_a_5_ng"] = a_top_ng_0
-                r["top_a_5_re"] = a_top_re_0
-                r["bottom_a_5_ng"] = a_bottom_ng_0
-                r["bottom_a_5_re"] = a_bottom_re_0
-                r["side_a_5_ng"] = a_side_ng_0
-                r["side_a_5_re"] = a_side_re_0
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_0
-                r["combined_b_re_5"] = combined_side_b_re_0
-                r["top_b_5_ng"] = b_top_ng_0
-                r["top_b_5_re"] = b_top_re_0
-                r["bottom_b_5_ng"] = b_bottom_ng_0
-                r["bottom_b_5_re"] = b_bottom_re_0
-                r["side_b_5_ng"] = b_side_ng_0
-                r["side_b_5_re"] = b_side_re_0
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_0
-                r["combined_a_re_6"] = combined_side_a_re_0
-                r["top_a_6_ng"] = a_top_ng_0
-                r["top_a_6_re"] = a_top_re_0
-                r["bottom_a_6_ng"] = a_bottom_ng_0
-                r["bottom_a_6_re"] = a_bottom_re_0
-                r["side_a_6_ng"] = a_side_ng_0
-                r["side_a_6_re"] = a_side_re_0
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_0
-                r["combined_b_re_6"] = combined_side_b_re_0
-                r["top_b_6_ng"] = b_top_ng_0
-                r["top_b_6_re"] = b_top_re_0
-                r["bottom_b_6_ng"] = b_bottom_ng_0
-                r["bottom_b_6_re"] = b_bottom_re_0
-                r["side_b_6_ng"] = b_side_ng_0
-                r["side_b_6_re"] = b_side_re_0
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 2:
             if period_span["prod_period_1"]  == period_span["cur_period_1"]:
-                r["combined_a_ng_1"] = combined_side_a_ng_1
-                r["combined_a_re_1"] = combined_side_a_re_1
-                r["top_a_1_ng"] = a_top_ng_1
-                r["top_a_1_re"] = a_top_re_1
-                r["bottom_a_1_ng"] = a_bottom_ng_1
-                r["bottom_a_1_re"] = a_bottom_re_1
-                r["side_a_1_ng"] = a_side_ng_1
-                r["side_a_1_re"] = a_side_re_1
+                r["combined_a_ng_1"] = a
+                r["combined_a_re_1"] = c
+                r["top_a_1_ng"] = e
+                r["top_a_1_re"] = g
+                r["bottom_a_1_ng"] = i
+                r["bottom_a_1_re"] = k
+                r["side_a_1_ng"] = m
+                r["side_a_1_re"] = o
 
-                r["combined_b_ng_1"] = combined_side_b_ng_1
-                r["combined_b_re_1"] = combined_side_b_re_1
-                r["top_b_1_ng"] = b_top_ng_1
-                r["top_b_1_re"] = b_top_re_1
-                r["bottom_b_1_ng"] = b_bottom_ng_1
-                r["bottom_b_1_re"] = b_bottom_re_1
-                r["side_b_1_ng"] = b_side_ng_1
-                r["side_b_1_re"] = b_side_re_1
+                r["combined_b_ng_1"] = b
+                r["combined_b_re_1"] = d
+                r["top_b_1_ng"] = f
+                r["top_b_1_re"] = h
+                r["bottom_b_1_ng"] = j
+                r["bottom_b_1_re"] = l
+                r["side_b_1_ng"] = n
+                r["side_b_1_re"] = p
 
             elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = combined_side_a_ng_1
-                r["combined_a_re_2"] = combined_side_a_re_1
-                r["top_a_2_ng"] = a_top_ng_1
-                r["top_a_2_re"] = a_top_re_1
-                r["bottom_a_2_ng"] = a_bottom_ng_1
-                r["bottom_a_2_re"] = a_bottom_re_1
-                r["side_a_2_ng"] = a_side_ng_1
-                r["side_a_2_re"] = a_side_re_1
+                r["combined_a_ng_2"] = a
+                r["combined_a_re_2"] = c
+                r["top_a_2_ng"] = e
+                r["top_a_2_re"] = g
+                r["bottom_a_2_ng"] = i
+                r["bottom_a_2_re"] = k
+                r["side_a_2_ng"] = m
+                r["side_a_2_re"] = o
 
-                r["combined_b_ng_2"] = combined_side_b_ng_1
-                r["combined_b_re_2"] = combined_side_b_re_1
-                r["top_b_2_ng"] = b_top_ng_1
-                r["top_b_2_re"] = b_top_re_1
-                r["bottom_b_2_ng"] = b_bottom_ng_1
-                r["bottom_b_2_re"] = b_bottom_re_1
-                r["side_b_2_ng"] = b_side_ng_1
-                r["side_b_2_re"] = b_side_re_1
+                r["combined_b_ng_2"] = b
+                r["combined_b_re_2"] = d
+                r["top_b_2_ng"] = f
+                r["top_b_2_re"] = h
+                r["bottom_b_2_ng"] = j
+                r["bottom_b_2_re"] = l
+                r["side_b_2_ng"] = n
+                r["side_b_2_re"] = p
 
             elif period_span["prod_period_1"]  == period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = combined_side_a_ng_1
-                r["combined_a_re_3"] = combined_side_a_re_1
-                r["top_a_3_ng"] = a_top_ng_1
-                r["top_a_3_re"] = a_top_re_1
-                r["bottom_a_3_ng"] = a_bottom_ng_1
-                r["bottom_a_3_re"] = a_bottom_re_1
-                r["side_a_3_ng"] = a_side_ng_1
-                r["side_a_3_re"] = a_side_re_1
+                r["combined_a_ng_3"] = a
+                r["combined_a_re_3"] = c
+                r["top_a_3_ng"] = e
+                r["top_a_3_re"] = g
+                r["bottom_a_3_ng"] = i
+                r["bottom_a_3_re"] = k
+                r["side_a_3_ng"] = m
+                r["side_a_3_re"] = o
 
-                r["combined_b_ng_3"] = combined_side_b_ng_1
-                r["combined_b_re_3"] = combined_side_b_re_1
-                r["top_b_3_ng"] = b_top_ng_1
-                r["top_b_3_re"] = b_top_re_1
-                r["bottom_b_3_ng"] = b_bottom_ng_1
-                r["bottom_b_3_re"] = b_bottom_re_1
-                r["side_b_3_ng"] = b_side_ng_1
-                r["side_b_3_re"] = b_side_re_1
+                r["combined_b_ng_3"] = b
+                r["combined_b_re_3"] = d
+                r["top_b_3_ng"] = f
+                r["top_b_3_re"] = h
+                r["bottom_b_3_ng"] = j
+                r["bottom_b_3_re"] = l
+                r["side_b_3_ng"] = n
+                r["side_b_3_re"] = p
 
             elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = combined_side_a_ng_1
-                r["combined_a_re_4"] = combined_side_a_re_1
-                r["top_a_4_ng"] = a_top_ng_1
-                r["top_a_4_re"] = a_top_re_1
-                r["bottom_a_4_ng"] = a_bottom_ng_1
-                r["bottom_a_4_re"] = a_bottom_re_1
-                r["side_a_4_ng"] = a_side_ng_1
-                r["side_a_4_re"] = a_side_re_1
+                r["combined_a_ng_4"] = a
+                r["combined_a_re_4"] = c
+                r["top_a_4_ng"] = e
+                r["top_a_4_re"] = g
+                r["bottom_a_4_ng"] = i
+                r["bottom_a_4_re"] = k
+                r["side_a_4_ng"] = m
+                r["side_a_4_re"] = o
 
-                r["combined_b_ng_4"] = combined_side_b_ng_1
-                r["combined_b_re_4"] = combined_side_b_re_1
-                r["top_b_4_ng"] = b_top_ng_1
-                r["top_b_4_re"] = b_top_re_1
-                r["bottom_b_4_ng"] = b_bottom_ng_1
-                r["bottom_b_4_re"] = b_bottom_re_1
-                r["side_b_4_ng"] = b_side_ng_1
-                r["side_b_4_re"] = b_side_re_1
+                r["combined_b_ng_4"] = b
+                r["combined_b_re_4"] = d
+                r["top_b_4_ng"] = f
+                r["top_b_4_re"] = h
+                r["bottom_b_4_ng"] = j
+                r["bottom_b_4_re"] = l
+                r["side_b_4_ng"] = n
+                r["side_b_4_re"] = p
 
             elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_1
-                r["combined_a_re_5"] = combined_side_a_re_1
-                r["top_a_5_ng"] = a_top_ng_1
-                r["top_a_5_re"] = a_top_re_1
-                r["bottom_a_5_ng"] = a_bottom_ng_1
-                r["bottom_a_5_re"] = a_bottom_re_1
-                r["side_a_5_ng"] = a_side_ng_1
-                r["side_a_5_re"] = a_side_re_1
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_1
-                r["combined_b_re_5"] = combined_side_b_re_1
-                r["top_b_5_ng"] = b_top_ng_1
-                r["top_b_5_re"] = b_top_re_1
-                r["bottom_b_5_ng"] = b_bottom_ng_1
-                r["bottom_b_5_re"] = b_bottom_re_1
-                r["side_b_5_ng"] = b_side_ng_1
-                r["side_b_5_re"] = b_side_re_1
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_1
-                r["combined_a_re_6"] = combined_side_a_re_1
-                r["top_a_6_ng"] = a_top_ng_1
-                r["top_a_6_re"] = a_top_re_1
-                r["bottom_a_6_ng"] = a_bottom_ng_1
-                r["bottom_a_6_re"] = a_bottom_re_1
-                r["side_a_6_ng"] = a_side_ng_1
-                r["side_a_6_re"] = a_side_re_1
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_1
-                r["combined_b_re_6"] = combined_side_b_re_1
-                r["top_b_6_ng"] = b_top_ng_1
-                r["top_b_6_re"] = b_top_re_1
-                r["bottom_b_6_ng"] = b_bottom_ng_1
-                r["bottom_b_6_re"] = b_bottom_re_1
-                r["side_b_6_ng"] = b_side_ng_1
-                r["side_b_6_re"] = b_side_re_1
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 3:
             if period_span["prod_period_2"]  == period_span["cur_period_2"]:
-                r["combined_a_ng_2"] = combined_side_a_ng_2
-                r["combined_a_re_2"] = combined_side_a_re_2
-                r["top_a_2_ng"] = a_top_ng_2
-                r["top_a_2_re"] = a_top_re_2
-                r["bottom_a_2_ng"] = a_bottom_ng_2
-                r["bottom_a_2_re"] = a_bottom_re_2
-                r["side_a_2_ng"] = a_side_ng_2
-                r["side_a_2_re"] = a_side_re_2
+                r["combined_a_ng_2"] = a
+                r["combined_a_re_2"] = c
+                r["top_a_2_ng"] = e
+                r["top_a_2_re"] = g
+                r["bottom_a_2_ng"] = i
+                r["bottom_a_2_re"] = k
+                r["side_a_2_ng"] = m
+                r["side_a_2_re"] = o
 
-                r["combined_b_ng_2"] = combined_side_b_ng_2
-                r["combined_b_re_2"] = combined_side_b_re_2
-                r["top_b_2_ng"] = b_top_ng_2
-                r["top_b_2_re"] = b_top_re_2
-                r["bottom_b_2_ng"] = b_bottom_ng_2
-                r["bottom_b_2_re"] = b_bottom_re_2
-                r["side_b_2_ng"] = b_side_ng_2
-                r["side_b_2_re"] = b_side_re_2
+                r["combined_b_ng_2"] = b
+                r["combined_b_re_2"] = d
+                r["top_b_2_ng"] = f
+                r["top_b_2_re"] = h
+                r["bottom_b_2_ng"] = j
+                r["bottom_b_2_re"] = l
+                r["side_b_2_ng"] = n
+                r["side_b_2_re"] = p
 
             elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = combined_side_a_ng_2
-                r["combined_a_re_3"] = combined_side_a_re_2
-                r["top_a_3_ng"] = a_top_ng_2
-                r["top_a_3_re"] = a_top_re_2
-                r["bottom_a_3_ng"] = a_bottom_ng_2
-                r["bottom_a_3_re"] = a_bottom_re_2
-                r["side_a_3_ng"] = a_side_ng_2
-                r["side_a_3_re"] = a_side_re_2
+                r["combined_a_ng_3"] = a
+                r["combined_a_re_3"] = c
+                r["top_a_3_ng"] = e
+                r["top_a_3_re"] = g
+                r["bottom_a_3_ng"] = i
+                r["bottom_a_3_re"] = k
+                r["side_a_3_ng"] = m
+                r["side_a_3_re"] = o
 
-                r["combined_b_ng_3"] = combined_side_b_ng_2
-                r["combined_b_re_3"] = combined_side_b_re_2
-                r["top_b_3_ng"] = b_top_ng_2
-                r["top_b_3_re"] = b_top_re_2
-                r["bottom_b_3_ng"] = b_bottom_ng_2
-                r["bottom_b_3_re"] = b_bottom_re_2
-                r["side_b_3_ng"] = b_side_ng_2
-                r["side_b_3_re"] = b_side_re_2
+                r["combined_b_ng_3"] = b
+                r["combined_b_re_3"] = d
+                r["top_b_3_ng"] = f
+                r["top_b_3_re"] = h
+                r["bottom_b_3_ng"] = j
+                r["bottom_b_3_re"] = l
+                r["side_b_3_ng"] = n
+                r["side_b_3_re"] = p
 
             elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = combined_side_a_ng_2
-                r["combined_a_re_4"] = combined_side_a_re_2
-                r["top_a_4_ng"] = a_top_ng_2
-                r["top_a_4_re"] = a_top_re_2
-                r["bottom_a_4_ng"] = a_bottom_ng_2
-                r["bottom_a_4_re"] = a_bottom_re_2
-                r["side_a_4_ng"] = a_side_ng_2
-                r["side_a_4_re"] = a_side_re_2
+                r["combined_a_ng_4"] = a
+                r["combined_a_re_4"] = c
+                r["top_a_4_ng"] = e
+                r["top_a_4_re"] = g
+                r["bottom_a_4_ng"] = i
+                r["bottom_a_4_re"] = k
+                r["side_a_4_ng"] = m
+                r["side_a_4_re"] = o
 
-                r["combined_b_ng_4"] = combined_side_b_ng_2
-                r["combined_b_re_4"] = combined_side_b_re_2
-                r["top_b_4_ng"] = b_top_ng_2
-                r["top_b_4_re"] = b_top_re_2
-                r["bottom_b_4_ng"] = b_bottom_ng_2
-                r["bottom_b_4_re"] = b_bottom_re_2
-                r["side_b_4_ng"] = b_side_ng_2
-                r["side_b_4_re"] = b_side_re_2
+                r["combined_b_ng_4"] = b
+                r["combined_b_re_4"] = d
+                r["top_b_4_ng"] = f
+                r["top_b_4_re"] = h
+                r["bottom_b_4_ng"] = j
+                r["bottom_b_4_re"] = l
+                r["side_b_4_ng"] = n
+                r["side_b_4_re"] = p
 
             elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_2
-                r["combined_a_re_5"] = combined_side_a_re_2
-                r["top_a_5_ng"] = a_top_ng_2
-                r["top_a_5_re"] = a_top_re_2
-                r["bottom_a_5_ng"] = a_bottom_ng_2
-                r["bottom_a_5_re"] = a_bottom_re_2
-                r["side_a_5_ng"] = a_side_ng_2
-                r["side_a_5_re"] = a_side_re_2
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_2
-                r["combined_b_re_5"] = combined_side_b_re_2
-                r["top_b_5_ng"] = b_top_ng_2
-                r["top_b_5_re"] = b_top_re_2
-                r["bottom_b_5_ng"] = b_bottom_ng_2
-                r["bottom_b_5_re"] = b_bottom_re_2
-                r["side_b_5_ng"] = b_side_ng_2
-                r["side_b_5_re"] = b_side_re_2
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_2
-                r["combined_a_re_6"] = combined_side_a_re_2
-                r["top_a_6_ng"] = a_top_ng_2
-                r["top_a_6_re"] = a_top_re_2
-                r["bottom_a_6_ng"] = a_bottom_ng_2
-                r["bottom_a_6_re"] = a_bottom_re_2
-                r["side_a_6_ng"] = a_side_ng_2
-                r["side_a_6_re"] = a_side_re_2
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_2
-                r["combined_b_re_6"] = combined_side_b_re_2
-                r["top_b_6_ng"] = b_top_ng_2
-                r["top_b_6_re"] = b_top_re_2
-                r["bottom_b_6_ng"] = b_bottom_ng_2
-                r["bottom_b_6_re"] = b_bottom_re_2
-                r["side_b_6_ng"] = b_side_ng_2
-                r["side_b_6_re"] = b_side_re_2
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 4:
             if period_span["prod_period_3"]  == period_span["cur_period_3"]:
-                r["combined_a_ng_3"] = combined_side_a_ng_3
-                r["combined_a_re_3"] = combined_side_a_re_3
-                r["top_a_3_ng"] = a_top_ng_3
-                r["top_a_3_re"] = a_top_re_3
-                r["bottom_a_3_ng"] = a_bottom_ng_3
-                r["bottom_a_3_re"] = a_bottom_re_3
-                r["side_a_3_ng"] = a_side_ng_3
-                r["side_a_3_re"] = a_side_re_3
+                r["combined_a_ng_3"] = a
+                r["combined_a_re_3"] = c
+                r["top_a_3_ng"] = e
+                r["top_a_3_re"] = g
+                r["bottom_a_3_ng"] = i
+                r["bottom_a_3_re"] = k
+                r["side_a_3_ng"] = m
+                r["side_a_3_re"] = o
 
-                r["combined_b_ng_3"] = combined_side_b_ng_3
-                r["combined_b_re_3"] = combined_side_b_re_3
-                r["top_b_3_ng"] = b_top_ng_3
-                r["top_b_3_re"] = b_top_re_3
-                r["bottom_b_3_ng"] = b_bottom_ng_3
-                r["bottom_b_3_re"] = b_bottom_re_3
-                r["side_b_3_ng"] = b_side_ng_3
-                r["side_b_3_re"] = b_side_re_3
+                r["combined_b_ng_3"] = b
+                r["combined_b_re_3"] = d
+                r["top_b_3_ng"] = f
+                r["top_b_3_re"] = h
+                r["bottom_b_3_ng"] = j
+                r["bottom_b_3_re"] = l
+                r["side_b_3_ng"] = n
+                r["side_b_3_re"] = p
 
             elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = combined_side_a_ng_3
-                r["combined_a_re_4"] = combined_side_a_re_3
-                r["top_a_4_ng"] = a_top_ng_3
-                r["top_a_4_re"] = a_top_re_3
-                r["bottom_a_4_ng"] = a_bottom_ng_3
-                r["bottom_a_4_re"] = a_bottom_re_3
-                r["side_a_4_ng"] = a_side_ng_3
-                r["side_a_4_re"] = a_side_re_3
+                r["combined_a_ng_4"] = a
+                r["combined_a_re_4"] = c
+                r["top_a_4_ng"] = e
+                r["top_a_4_re"] = g
+                r["bottom_a_4_ng"] = i
+                r["bottom_a_4_re"] = k
+                r["side_a_4_ng"] = m
+                r["side_a_4_re"] = o
 
-                r["combined_b_ng_4"] = combined_side_b_ng_3
-                r["combined_b_re_4"] = combined_side_b_re_3
-                r["top_b_4_ng"] = b_top_ng_3
-                r["top_b_4_re"] = b_top_re_3
-                r["bottom_b_4_ng"] = b_bottom_ng_3
-                r["bottom_b_4_re"] = b_bottom_re_3
-                r["side_b_4_ng"] = b_side_ng_3
-                r["side_b_4_re"] = b_side_re_3
+                r["combined_b_ng_4"] = b
+                r["combined_b_re_4"] = d
+                r["top_b_4_ng"] = f
+                r["top_b_4_re"] = h
+                r["bottom_b_4_ng"] = j
+                r["bottom_b_4_re"] = l
+                r["side_b_4_ng"] = n
+                r["side_b_4_re"] = p
 
             elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_3
-                r["combined_a_re_5"] = combined_side_a_re_3
-                r["top_a_5_ng"] = a_top_ng_3
-                r["top_a_5_re"] = a_top_re_3
-                r["bottom_a_5_ng"] = a_bottom_ng_3
-                r["bottom_a_5_re"] = a_bottom_re_3
-                r["side_a_5_ng"] = a_side_ng_3
-                r["side_a_5_re"] = a_side_re_3
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_3
-                r["combined_b_re_5"] = combined_side_b_re_3
-                r["top_b_5_ng"] = b_top_ng_3
-                r["top_b_5_re"] = b_top_re_3
-                r["bottom_b_5_ng"] = b_bottom_ng_3
-                r["bottom_b_5_re"] = b_bottom_re_3
-                r["side_b_5_ng"] = b_side_ng_3
-                r["side_b_5_re"] = b_side_re_3
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_3
-                r["combined_a_re_6"] = combined_side_a_re_3
-                r["top_a_6_ng"] = a_top_ng_3
-                r["top_a_6_re"] = a_top_re_3
-                r["bottom_a_6_ng"] = a_bottom_ng_3
-                r["bottom_a_6_re"] = a_bottom_re_3
-                r["side_a_6_ng"] = a_side_ng_3
-                r["side_a_6_re"] = a_side_re_3
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_3
-                r["combined_b_re_6"] = combined_side_b_re_3
-                r["top_b_6_ng"] = b_top_ng_3
-                r["top_b_6_re"] = b_top_re_3
-                r["bottom_b_6_ng"] = b_bottom_ng_3
-                r["bottom_b_6_re"] = b_bottom_re_3
-                r["side_b_6_ng"] = b_side_ng_3
-                r["side_b_6_re"] = b_side_re_3
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 5:
             if period_span["prod_period_4"]  == period_span["cur_period_4"]:
-                r["combined_a_ng_4"] = combined_side_a_ng_4
-                r["combined_a_re_4"] = combined_side_a_re_4
-                r["top_a_4_ng"] = a_top_ng_4
-                r["top_a_4_re"] = a_top_re_4
-                r["bottom_a_4_ng"] = a_bottom_ng_4
-                r["bottom_a_4_re"] = a_bottom_re_4
-                r["side_a_4_ng"] = a_side_ng_4
-                r["side_a_4_re"] = a_side_re_4
+                r["combined_a_ng_4"] = a
+                r["combined_a_re_4"] = c
+                r["top_a_4_ng"] = e
+                r["top_a_4_re"] = g
+                r["bottom_a_4_ng"] = i
+                r["bottom_a_4_re"] = k
+                r["side_a_4_ng"] = m
+                r["side_a_4_re"] = o
 
-                r["combined_b_ng_4"] = combined_side_b_ng_4
-                r["combined_b_re_4"] = combined_side_b_re_4
-                r["top_b_4_ng"] = b_top_ng_4
-                r["top_b_4_re"] = b_top_re_4
-                r["bottom_b_4_ng"] = b_bottom_ng_4
-                r["bottom_b_4_re"] = b_bottom_re_4
-                r["side_b_4_ng"] = b_side_ng_4
-                r["side_b_4_re"] = b_side_re_4
+                r["combined_b_ng_4"] = b
+                r["combined_b_re_4"] = d
+                r["top_b_4_ng"] = f
+                r["top_b_4_re"] = h
+                r["bottom_b_4_ng"] = j
+                r["bottom_b_4_re"] = l
+                r["side_b_4_ng"] = n
+                r["side_b_4_re"] = p
 
             elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_4
-                r["combined_a_re_5"] = combined_side_a_re_4
-                r["top_a_5_ng"] = a_top_ng_4
-                r["top_a_5_re"] = a_top_re_4
-                r["bottom_a_5_ng"] = a_bottom_ng_4
-                r["bottom_a_5_re"] = a_bottom_re_4
-                r["side_a_5_ng"] = a_side_ng_4
-                r["side_a_5_re"] = a_side_re_4
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_4
-                r["combined_b_re_5"] = combined_side_b_re_4
-                r["top_b_5_ng"] = b_top_ng_4
-                r["top_b_5_re"] = b_top_re_4
-                r["bottom_b_5_ng"] = b_bottom_ng_4
-                r["bottom_b_5_re"] = b_bottom_re_4
-                r["side_b_5_ng"] = b_side_ng_4
-                r["side_b_5_re"] = b_side_re_4
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_4
-                r["combined_a_re_6"] = combined_side_a_re_4
-                r["top_a_6_ng"] = a_top_ng_4
-                r["top_a_6_re"] = a_top_re_4
-                r["bottom_a_6_ng"] = a_bottom_ng_4
-                r["bottom_a_6_re"] = a_bottom_re_4
-                r["side_a_6_ng"] = a_side_ng_4
-                r["side_a_6_re"] = a_side_re_4
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_4
-                r["combined_b_re_6"] = combined_side_b_re_4
-                r["top_b_6_ng"] = b_top_ng_4
-                r["top_b_6_re"] = b_top_re_4
-                r["bottom_b_6_ng"] = b_bottom_ng_4
-                r["bottom_b_6_re"] = b_bottom_re_4
-                r["side_b_6_ng"] = b_side_ng_4
-                r["side_b_6_re"] = b_side_re_4
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 6:
             if period_span["prod_period_5"]  == period_span["cur_period_5"]:
-                r["combined_a_ng_5"] = combined_side_a_ng_5
-                r["combined_a_re_5"] = combined_side_a_re_5
-                r["top_a_5_ng"] = a_top_ng_5
-                r["top_a_5_re"] = a_top_re_5
-                r["bottom_a_5_ng"] = a_bottom_ng_5
-                r["bottom_a_5_re"] = a_bottom_re_5
-                r["side_a_5_ng"] = a_side_ng_5
-                r["side_a_5_re"] = a_side_re_5
+                r["combined_a_ng_5"] = a
+                r["combined_a_re_5"] = c
+                r["top_a_5_ng"] = e
+                r["top_a_5_re"] = g
+                r["bottom_a_5_ng"] = i
+                r["bottom_a_5_re"] = k
+                r["side_a_5_ng"] = m
+                r["side_a_5_re"] = o
 
-                r["combined_b_ng_5"] = combined_side_b_ng_5
-                r["combined_b_re_5"] = combined_side_b_re_5
-                r["top_b_5_ng"] = b_top_ng_5
-                r["top_b_5_re"] = b_top_re_5
-                r["bottom_b_5_ng"] = b_bottom_ng_5
-                r["bottom_b_5_re"] = b_bottom_re_5
-                r["side_b_5_ng"] = b_side_ng_5
-                r["side_b_5_re"] = b_side_re_5
+                r["combined_b_ng_5"] = b
+                r["combined_b_re_5"] = d
+                r["top_b_5_ng"] = f
+                r["top_b_5_re"] = h
+                r["bottom_b_5_ng"] = j
+                r["bottom_b_5_re"] = l
+                r["side_b_5_ng"] = n
+                r["side_b_5_re"] = p
 
             elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_5
-                r["combined_a_re_6"] = combined_side_a_re_5
-                r["top_a_6_ng"] = a_top_ng_5
-                r["top_a_6_re"] = a_top_re_5
-                r["bottom_a_6_ng"] = a_bottom_ng_5
-                r["bottom_a_6_re"] = a_bottom_re_5
-                r["side_a_6_ng"] = a_side_ng_5
-                r["side_a_6_re"] = a_side_re_5
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_5
-                r["combined_b_re_6"] = combined_side_b_re_5
-                r["top_b_6_ng"] = b_top_ng_5
-                r["top_b_6_re"] = b_top_re_5
-                r["bottom_b_6_ng"] = b_bottom_ng_5
-                r["bottom_b_6_re"] = b_bottom_re_5
-                r["side_b_6_ng"] = b_side_ng_5
-                r["side_b_6_re"] = b_side_re_5
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
 
         elif for_count == 7:
             if period_span["prod_period_6"]  == period_span["cur_period_6"]:
-                r["combined_a_ng_6"] = combined_side_a_ng_6
-                r["combined_a_re_6"] = combined_side_a_re_6
-                r["top_a_6_ng"] = a_top_ng_6
-                r["top_a_6_re"] = a_top_re_6
-                r["bottom_a_6_ng"] = a_bottom_ng_6
-                r["bottom_a_6_re"] = a_bottom_re_6
-                r["side_a_6_ng"] = a_side_ng_6
-                r["side_a_6_re"] = a_side_re_6
+                r["combined_a_ng_6"] = a
+                r["combined_a_re_6"] = c
+                r["top_a_6_ng"] = e
+                r["top_a_6_re"] = g
+                r["bottom_a_6_ng"] = i
+                r["bottom_a_6_re"] = k
+                r["side_a_6_ng"] = m
+                r["side_a_6_re"] = o
 
-                r["combined_b_ng_6"] = combined_side_b_ng_6
-                r["combined_b_re_6"] = combined_side_b_re_6
-                r["top_b_6_ng"] = b_top_ng_6
-                r["top_b_6_re"] = b_top_re_6
-                r["bottom_b_6_ng"] = b_bottom_ng_6
-                r["bottom_b_6_re"] = b_bottom_re_6
-                r["side_b_6_ng"] = b_side_ng_6
-                r["side_b_6_re"] = b_side_re_6
-
+                r["combined_b_ng_6"] = b
+                r["combined_b_re_6"] = d
+                r["top_b_6_ng"] = f
+                r["top_b_6_re"] = h
+                r["bottom_b_6_ng"] = j
+                r["bottom_b_6_re"] = l
+                r["side_b_6_ng"] = n
+                r["side_b_6_re"] = p
 
     return r
 
@@ -1024,101 +895,101 @@ def assign_production_values_to_dictionary(values, line, r):
         "combined_b_re_5":r["combined_b_re_5"],
         "combined_b_re_6":r["combined_b_re_6"],
 
-        "top_a_ng_0":r["top_a_0_ng"],
-        "top_a_ng_1":r["top_a_1_ng"],
-        "top_a_ng_2":r["top_a_2_ng"],
-        "top_a_ng_3":r["top_a_3_ng"],
-        "top_a_ng_4":r["top_a_4_ng"],
-        "top_a_ng_5":r["top_a_5_ng"],
-        "top_a_ng_6":r["top_a_6_ng"],
+        "top_a_0_ng":r["top_a_0_ng"],
+        "top_a_1_ng":r["top_a_1_ng"],
+        "top_a_2_ng":r["top_a_2_ng"],
+        "top_a_3_ng":r["top_a_3_ng"],
+        "top_a_4_ng":r["top_a_4_ng"],
+        "top_a_5_ng":r["top_a_5_ng"],
+        "top_a_6_ng":r["top_a_6_ng"],
 
-        "top_b_ng_0":r["top_b_0_ng"],
-        "top_b_ng_1":r["top_b_1_ng"],
-        "top_b_ng_2":r["top_b_2_ng"],
-        "top_b_ng_3":r["top_b_3_ng"],
-        "top_b_ng_4":r["top_b_4_ng"],
-        "top_b_ng_5":r["top_b_5_ng"],
-        "top_b_ng_6":r["top_b_6_ng"],
+        "top_b_0_ng":r["top_b_0_ng"],
+        "top_b_1_ng":r["top_b_1_ng"],
+        "top_b_2_ng":r["top_b_2_ng"],
+        "top_b_3_ng":r["top_b_3_ng"],
+        "top_b_4_ng":r["top_b_4_ng"],
+        "top_b_5_ng":r["top_b_5_ng"],
+        "top_b_6_ng":r["top_b_6_ng"],
 
-        "top_a_re_0":r["top_a_0_re"],
-        "top_a_re_1":r["top_a_1_re"],
-        "top_a_re_2":r["top_a_2_re"],
-        "top_a_re_3":r["top_a_3_re"],
-        "top_a_re_4":r["top_a_4_re"],
-        "top_a_re_5":r["top_a_5_re"],
-        "top_a_re_6":r["top_a_6_re"],
+        "top_a_0_re":r["top_a_0_re"],
+        "top_a_1_re":r["top_a_1_re"],
+        "top_a_2_re":r["top_a_2_re"],
+        "top_a_3_re":r["top_a_3_re"],
+        "top_a_4_re":r["top_a_4_re"],
+        "top_a_5_re":r["top_a_5_re"],
+        "top_a_6_re":r["top_a_6_re"],
 
-        "top_b_re_0":r["top_b_0_re"],
-        "top_b_re_1":r["top_b_1_re"],
-        "top_b_re_2":r["top_b_2_re"],
-        "top_b_re_3":r["top_b_3_re"],
-        "top_b_re_4":r["top_b_4_re"],
-        "top_b_re_5":r["top_b_5_re"],
-        "top_b_re_6":r["top_b_6_re"],
+        "top_b_0_re":r["top_b_0_re"],
+        "top_b_1_re":r["top_b_1_re"],
+        "top_b_2_re":r["top_b_2_re"],
+        "top_b_3_re":r["top_b_3_re"],
+        "top_b_4_re":r["top_b_4_re"],
+        "top_b_5_re":r["top_b_5_re"],
+        "top_b_6_re":r["top_b_6_re"],
 
-        "bottom_a_ng_0":r["bottom_a_0_ng"],
-        "bottom_a_ng_1":r["bottom_a_1_ng"],
-        "bottom_a_ng_2":r["bottom_a_2_ng"],
-        "bottom_a_ng_3":r["bottom_a_3_ng"],
-        "bottom_a_ng_4":r["bottom_a_4_ng"],
-        "bottom_a_ng_5":r["bottom_a_5_ng"],
-        "bottom_a_ng_6":r["bottom_a_6_ng"],
+        "bottom_a_0_ng":r["bottom_a_0_ng"],
+        "bottom_a_1_ng":r["bottom_a_1_ng"],
+        "bottom_a_2_ng":r["bottom_a_2_ng"],
+        "bottom_a_3_ng":r["bottom_a_3_ng"],
+        "bottom_a_4_ng":r["bottom_a_4_ng"],
+        "bottom_a_5_ng":r["bottom_a_5_ng"],
+        "bottom_a_6_ng":r["bottom_a_6_ng"],
 
-        "bottom_b_ng_0":r["bottom_b_0_ng"],
-        "bottom_b_ng_1":r["bottom_b_1_ng"],
-        "bottom_b_ng_2":r["bottom_b_2_ng"],
-        "bottom_b_ng_3":r["bottom_b_3_ng"],
-        "bottom_b_ng_4":r["bottom_b_4_ng"],
-        "bottom_b_ng_5":r["bottom_b_5_ng"],
-        "bottom_b_ng_6":r["bottom_b_6_ng"],
+        "bottom_b_0_ng":r["bottom_b_0_ng"],
+        "bottom_b_1_ng":r["bottom_b_1_ng"],
+        "bottom_b_2_ng":r["bottom_b_2_ng"],
+        "bottom_b_3_ng":r["bottom_b_3_ng"],
+        "bottom_b_4_ng":r["bottom_b_4_ng"],
+        "bottom_b_5_ng":r["bottom_b_5_ng"],
+        "bottom_b_6_ng":r["bottom_b_6_ng"],
 
-        "bottom_a_re_0":r["bottom_a_0_re"],
-        "bottom_a_re_1":r["bottom_a_1_re"],
-        "bottom_a_re_2":r["bottom_a_2_re"],
-        "bottom_a_re_3":r["bottom_a_3_re"],
-        "bottom_a_re_4":r["bottom_a_4_re"],
-        "bottom_a_re_5":r["bottom_a_5_re"],
-        "bottom_a_re_6":r["bottom_a_6_re"],
+        "bottom_a_0_re":r["bottom_a_0_re"],
+        "bottom_a_1_re":r["bottom_a_1_re"],
+        "bottom_a_2_re":r["bottom_a_2_re"],
+        "bottom_a_3_re":r["bottom_a_3_re"],
+        "bottom_a_4_re":r["bottom_a_4_re"],
+        "bottom_a_5_re":r["bottom_a_5_re"],
+        "bottom_a_6_re":r["bottom_a_6_re"],
 
-        "bottom_b_re_0":r["bottom_b_0_re"],
-        "bottom_b_re_1":r["bottom_b_1_re"],
-        "bottom_b_re_2":r["bottom_b_2_re"],
-        "bottom_b_re_3":r["bottom_b_3_re"],
-        "bottom_b_re_4":r["bottom_b_4_re"],
-        "bottom_b_re_5":r["bottom_b_5_re"],
-        "bottom_b_re_6":r["bottom_b_6_re"],
+        "bottom_b_0_re":r["bottom_b_0_re"],
+        "bottom_b_1_re":r["bottom_b_1_re"],
+        "bottom_b_2_re":r["bottom_b_2_re"],
+        "bottom_b_3_re":r["bottom_b_3_re"],
+        "bottom_b_4_re":r["bottom_b_4_re"],
+        "bottom_b_5_re":r["bottom_b_5_re"],
+        "bottom_b_6_re":r["bottom_b_6_re"],
 
-        "side_a_ng_0":r["side_a_0_ng"],
-        "side_a_ng_1":r["side_a_1_ng"],
-        "side_a_ng_2":r["side_a_2_ng"],
-        "side_a_ng_3":r["side_a_3_ng"],
-        "side_a_ng_4":r["side_a_4_ng"],
-        "side_a_ng_5":r["side_a_5_ng"],
-        "side_a_ng_6":r["side_a_6_ng"],
+        "side_a_0_ng":r["side_a_0_ng"],
+        "side_a_1_ng":r["side_a_1_ng"],
+        "side_a_2_ng":r["side_a_2_ng"],
+        "side_a_3_ng":r["side_a_3_ng"],
+        "side_a_4_ng":r["side_a_4_ng"],
+        "side_a_5_ng":r["side_a_5_ng"],
+        "side_a_6_ng":r["side_a_6_ng"],
 
-        "side_b_ng_0":r["side_b_0_ng"],
-        "side_b_ng_1":r["side_b_1_ng"],
-        "side_b_ng_2":r["side_b_2_ng"],
-        "side_b_ng_3":r["side_b_3_ng"],
-        "side_b_ng_4":r["side_b_4_ng"],
-        "side_b_ng_5":r["side_b_5_ng"],
-        "side_b_ng_6":r["side_b_6_ng"],
+        "side_b_0_ng":r["side_b_0_ng"],
+        "side_b_1_ng":r["side_b_1_ng"],
+        "side_b_2_ng":r["side_b_2_ng"],
+        "side_b_3_ng":r["side_b_3_ng"],
+        "side_b_4_ng":r["side_b_4_ng"],
+        "side_b_5_ng":r["side_b_5_ng"],
+        "side_b_6_ng":r["side_b_6_ng"],
 
-        "side_a_re_0":r["side_a_0_re"],
-        "side_a_re_1":r["side_a_1_re"],
-        "side_a_re_2":r["side_a_2_re"],
-        "side_a_re_3":r["side_a_3_re"],
-        "side_a_re_4":r["side_a_4_re"],
-        "side_a_re_5":r["side_a_5_re"],
-        "side_a_re_6":r["side_a_6_re"],
+        "side_a_0_re":r["side_a_0_re"],
+        "side_a_1_re":r["side_a_1_re"],
+        "side_a_2_re":r["side_a_2_re"],
+        "side_a_3_re":r["side_a_3_re"],
+        "side_a_4_re":r["side_a_4_re"],
+        "side_a_5_re":r["side_a_5_re"],
+        "side_a_6_re":r["side_a_6_re"],
 
-        "side_b_re_0":r["side_b_0_re"],
-        "side_b_re_1":r["side_b_1_re"],
-        "side_b_re_2":r["side_b_2_re"],
-        "side_b_re_3":r["side_b_3_re"],
-        "side_b_re_4":r["side_b_4_re"],
-        "side_b_re_5":r["side_b_5_re"],
-        "side_b_re_6":r["side_b_6_re"]
+        "side_b_0_re":r["side_b_0_re"],
+        "side_b_1_re":r["side_b_1_re"],
+        "side_b_2_re":r["side_b_2_re"],
+        "side_b_3_re":r["side_b_3_re"],
+        "side_b_4_re":r["side_b_4_re"],
+        "side_b_5_re":r["side_b_5_re"],
+        "side_b_6_re":r["side_b_6_re"]
         }
 
 def past_seven_hours(line):
