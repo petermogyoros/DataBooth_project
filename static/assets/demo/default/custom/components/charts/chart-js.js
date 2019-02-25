@@ -347,42 +347,43 @@ var KChartJSDemo = function() {
 			}
 		});
 	}
-
+		//
+		// This is where the Donut Chart is starting from
+		//
 	var demo6 = function() {
-
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
-
 		var chartData = {
 			datasets: [{
 				data: [
-					ng_0_a,
-					ng_1_a,
-					ng_1_a,
-					ng_1_a,
-					ng_1_a,
+					// round results to 2 decimal places
+					((ng_top_0_a + ng_top_1_a + ng_top_2_a + ng_top_3_a + ng_top_4_a + ng_top_5_a + ng_top_6_a)/7).toFixed(2),
+					((ng_top_0_b + ng_top_1_b + ng_top_2_b + ng_top_3_b + ng_top_4_b + ng_top_5_b + ng_top_6_b)/7).toFixed(2),
+					((ng_bottom_0_a + ng_bottom_1_a + ng_bottom_2_a + ng_bottom_3_a + ng_bottom_4_a + ng_bottom_5_a + ng_bottom_6_a)/7).toFixed(2),
+					((ng_bottom_0_b + ng_bottom_1_b + ng_bottom_2_b + ng_bottom_3_b + ng_bottom_4_b + ng_bottom_5_b + ng_bottom_6_b)/7).toFixed(2),
+					((ng_side_0_a + ng_side_1_a + ng_side_2_a + ng_side_3_a + ng_side_4_a + ng_side_5_a + ng_side_6_a)/7).toFixed(2),
+					((ng_side_0_b + ng_side_1_b + ng_side_2_b + ng_side_3_b + ng_side_4_b + ng_side_5_b + ng_side_6_b)/7).toFixed(2),
 				],
 				backgroundColor: [
+					'#000033',
+					'#8ea41e',
 					'#fe3995',
-					'#f6aa33',
-					'#6e4ff5',
-					'#2abe81',
-					'#c7d2e7',
+					'#333300',
+					'#9933cc',
+					'#993300',
 				],
 				label: 'Dataset 1'
 			}],
 			labels: [
-				'Data 1',
-				'Data 2',
-				'Data 3',
-				'Data 4',
-				'Data 5'
-			]
+				'Side A Top',
+				'Side B Top',
+				'Side A Bottom',
+				'Side B Bottom',
+				'Side A Side',
+				'Side B Side',
+					]
 
 		};
 
-		// This is where the Donut Chart is starting from
+
 		var ctx = $('#k_chartjs_6');
 		var myBarChart = new Chart(ctx, {
 			type: 'doughnut',
@@ -394,7 +395,7 @@ var KChartJSDemo = function() {
 				},
 				title: {
 					display: true,
-					text: 'Rejects by Camera'
+					text: 'Per Camera'
 				},
 				animation: {
 					animateScale: true,
@@ -409,11 +410,11 @@ var KChartJSDemo = function() {
 		var chartData = {
 			datasets: [{
 				data: [
-					combined_scrap_0_a,
-					combined_scrap_0_a,
-					combined_scrap_0_a,
-					combined_scrap_0_a,
-					combined_scrap_0_a,
+					// combined_scrap_0_a,
+					// combined_scrap_0_a,
+					// combined_scrap_0_a,
+					// combined_scrap_0_a,
+					// combined_scrap_0_a,
 				],
 				backgroundColor: [
 					'#fe3995',

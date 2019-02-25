@@ -64,13 +64,13 @@ def final_values_to_render(line, values):
         "top_ng_2_a":values["top_a_2_ng"],
         "top_ng_2_b":values["top_b_2_ng"],
         "top_ng_3_a":values["top_a_3_ng"],
-        "top_ng_3_a":values["top_a_3_ng"],
-        "top_ng_4_b":values["top_b_4_ng"],
+        "top_ng_3_b":values["top_b_3_ng"],
         "top_ng_4_a":values["top_a_4_ng"],
-        "top_ng_5_b":values["top_b_5_ng"],
+        "top_ng_4_b":values["top_b_4_ng"],
         "top_ng_5_a":values["top_a_5_ng"],
-        "top_ng_6_b":values["top_b_6_ng"],
+        "top_ng_5_b":values["top_b_5_ng"],
         "top_ng_6_a":values["top_a_6_ng"],
+        "top_ng_6_b":values["top_b_6_ng"],
 
         "top_re_0_a":values["top_a_0_re"],
         "top_re_0_b":values["top_b_0_re"],
@@ -79,13 +79,13 @@ def final_values_to_render(line, values):
         "top_re_2_a":values["top_a_2_re"],
         "top_re_2_b":values["top_b_2_re"],
         "top_re_3_a":values["top_a_3_re"],
-        "top_re_3_a":values["top_a_3_re"],
-        "top_re_4_b":values["top_b_4_re"],
+        "top_re_3_b":values["top_b_3_re"],
         "top_re_4_a":values["top_a_4_re"],
-        "top_re_5_b":values["top_b_5_re"],
+        "top_re_4_b":values["top_b_4_re"],
         "top_re_5_a":values["top_a_5_re"],
-        "top_re_6_b":values["top_b_6_re"],
+        "top_re_5_b":values["top_b_5_re"],
         "top_re_6_a":values["top_a_6_re"],
+        "top_re_6_b":values["top_b_6_re"],
 
         "bottom_ng_0_a":values["bottom_a_0_ng"],
         "bottom_ng_0_b":values["bottom_b_0_ng"],
@@ -94,13 +94,13 @@ def final_values_to_render(line, values):
         "bottom_ng_2_a":values["bottom_a_2_ng"],
         "bottom_ng_2_b":values["bottom_b_2_ng"],
         "bottom_ng_3_a":values["bottom_a_3_ng"],
-        "bottom_ng_3_a":values["bottom_a_3_ng"],
-        "bottom_ng_4_b":values["bottom_b_4_ng"],
+        "bottom_ng_3_b":values["bottom_b_3_ng"],
         "bottom_ng_4_a":values["bottom_a_4_ng"],
-        "bottom_ng_5_b":values["bottom_b_5_ng"],
+        "bottom_ng_4_b":values["bottom_b_4_ng"],
         "bottom_ng_5_a":values["bottom_a_5_ng"],
-        "bottom_ng_6_b":values["bottom_b_6_ng"],
+        "bottom_ng_5_b":values["bottom_b_5_ng"],
         "bottom_ng_6_a":values["bottom_a_6_ng"],
+        "bottom_ng_6_b":values["bottom_b_6_ng"],
 
         "bottom_re_0_a":values["bottom_a_0_re"],
         "bottom_re_0_b":values["bottom_b_0_re"],
@@ -109,13 +109,13 @@ def final_values_to_render(line, values):
         "bottom_re_2_a":values["bottom_a_2_re"],
         "bottom_re_2_b":values["bottom_b_2_re"],
         "bottom_re_3_a":values["bottom_a_3_re"],
-        "bottom_re_3_a":values["bottom_a_3_re"],
-        "bottom_re_4_b":values["bottom_b_4_re"],
+        "bottom_re_3_b":values["bottom_b_3_re"],
         "bottom_re_4_a":values["bottom_a_4_re"],
-        "bottom_re_5_b":values["bottom_b_5_re"],
+        "bottom_re_4_b":values["bottom_b_4_re"],
         "bottom_re_5_a":values["bottom_a_5_re"],
-        "bottom_re_6_b":values["bottom_b_6_re"],
+        "bottom_re_5_b":values["bottom_b_5_re"],
         "bottom_re_6_a":values["bottom_a_6_re"],
+        "bottom_re_6_b":values["bottom_b_6_re"],
 
         "side_ng_0_a":values["side_a_0_ng"],
         "side_ng_0_b":values["side_b_0_ng"],
@@ -124,13 +124,13 @@ def final_values_to_render(line, values):
         "side_ng_2_a":values["side_a_2_ng"],
         "side_ng_2_b":values["side_b_2_ng"],
         "side_ng_3_a":values["side_a_3_ng"],
-        "side_ng_3_a":values["side_a_3_ng"],
-        "side_ng_4_b":values["side_b_4_ng"],
+        "side_ng_3_b":values["side_b_3_ng"],
         "side_ng_4_a":values["side_a_4_ng"],
-        "side_ng_5_b":values["side_b_5_ng"],
+        "side_ng_4_b":values["side_b_4_ng"],
         "side_ng_5_a":values["side_a_5_ng"],
-        "side_ng_6_b":values["side_b_6_ng"],
+        "side_ng_5_b":values["side_b_5_ng"],
         "side_ng_6_a":values["side_a_6_ng"],
+        "side_ng_6_b":values["side_b_6_ng"],
 
         "side_re_0_a":values["side_a_0_re"],
         "side_re_0_b":values["side_b_0_re"],
@@ -139,13 +139,13 @@ def final_values_to_render(line, values):
         "side_re_2_a":values["side_a_2_re"],
         "side_re_2_b":values["side_b_2_re"],
         "side_re_3_a":values["side_a_3_re"],
-        "side_re_3_a":values["side_a_3_re"],
-        "side_re_4_b":values["side_b_4_re"],
+        "side_re_3_b":values["side_b_3_re"],
         "side_re_4_a":values["side_a_4_re"],
-        "side_re_5_b":values["side_b_5_re"],
+        "side_re_4_b":values["side_b_4_re"],
         "side_re_5_a":values["side_a_5_re"],
-        "side_re_6_b":values["side_b_6_re"],
+        "side_re_5_b":values["side_b_5_re"],
         "side_re_6_a":values["side_a_6_re"],
+        "side_re_6_b":values["side_b_6_re"],
         }
 
 class Hourly_dashboard(View):
@@ -212,7 +212,7 @@ class Line5_hourly(View):
     def get(self, request):
 
         line5 = past_seven_hours(5)
-
+        print(final_values_to_render(5, line5))
         return render(request, "dolcegusto/hourly_data.html", final_values_to_render(5, line5))
 
 class Line7_hourly(View):
