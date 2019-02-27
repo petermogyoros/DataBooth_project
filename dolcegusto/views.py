@@ -4,7 +4,7 @@ import pandas as pd
 from pandas import DataFrame
 from datetime import datetime, date, timedelta
 
-from dolcegusto.models import hourly_report, daily_report, weekly_report, monthly_report
+from dolcegusto.models import hourly_report, daily_report, weekly_report, monthly_report, dashboard
 from dolcegusto.get_values import past_seven_hours, past_seven_days, past_seven_weeks, past_seven_months
 
 
@@ -235,7 +235,7 @@ class Line9_hourly(View):
     model = hourly_report
     def get(self, request):
 
-        line9 = apast_seven_hours(9)
+        line9 = past_seven_hours(9)
 
         return render(request, "dolcegusto/hourly_data.html", final_values_to_render(9, line9))
 
@@ -249,7 +249,7 @@ class Line10_hourly(View):
 
 
 class Daily_dashboard(View):
-    model = daily_report
+    model = dashboard
     def get(self, request):
 
         line3 = past_seven_days(3)
@@ -268,26 +268,26 @@ class Daily_dashboard(View):
         "line_8": 8,
         "line_9": 9,
         "line_10": 10,
-        "combined_scrap_0_3_a": final_values_to_render(3, line3)["combined_a_ng_0"],
-        "combined_scrap_0_3_b": final_values_to_render(3, line3)["combined_b_ng_0"],
+        "combined_scrap_0_3_a": final_values_to_render(3, line3)['combined_scrap_0_a'],
+        "combined_scrap_0_3_b": final_values_to_render(3, line3)['combined_scrap_0_b'],
 
-        "combined_scrap_0_4_a": final_values_to_render(4, line4).combined_a_ng_0,
-        "combined_scrap_0_4_b": final_values_to_render(4, line4).combined_b_ng_0,
+        "combined_scrap_0_4_a": final_values_to_render(4, line4)['combined_scrap_0_a'],
+        "combined_scrap_0_4_b": final_values_to_render(4, line4)['combined_scrap_0_b'],
 
-        "combined_scrap_0_5_a": final_values_to_render(5, line5).combined_a_ng_0,
-        "combined_scrap_0_5_b": final_values_to_render(5, line5).combined_b_ng_0,
+        "combined_scrap_0_5_a": final_values_to_render(5, line5)['combined_scrap_0_a'],
+        "combined_scrap_0_5_b": final_values_to_render(5, line5)['combined_scrap_0_b'],
 
-        "combined_scrap_0_7_a": final_values_to_render(7, line7).combined_a_ng_0,
-        "combined_scrap_0_7_b": final_values_to_render(7, line7).combined_b_ng_0,
+        "combined_scrap_0_7_a": final_values_to_render(7, line7)['combined_scrap_0_a'],
+        "combined_scrap_0_7_b": final_values_to_render(7, line7)['combined_scrap_0_b'],
 
-        "combined_scrap_0_8_a": final_values_to_render(8, line8).combined_a_ng_0,
-        "combined_scrap_0_8_b": final_values_to_render(8, line8).combined_b_ng_0,
+        "combined_scrap_0_8_a": final_values_to_render(8, line8)['combined_scrap_0_a'],
+        "combined_scrap_0_8_b": final_values_to_render(8, line8)['combined_scrap_0_b'],
 
-        "combined_scrap_0_9_a": final_values_to_render(9, line9).combined_a_ng_0,
-        "combined_scrap_0_9_b": final_values_to_render(9, line9).combined_b_ng_0,
+        "combined_scrap_0_9_a": final_values_to_render(9, line9)['combined_scrap_0_a'],
+        "combined_scrap_0_9_b": final_values_to_render(9, line9)['combined_scrap_0_b'],
 
-        "combined_scrap_0_10_a": final_values_to_render(10, line10).combined_a_ng_0,
-        "combined_scrap_0_10_b": final_values_to_render(10, line10).combined_b_ng_0,
+        "combined_scrap_0_10_a": final_values_to_render(10, line10)['combined_scrap_0_a'],
+        "combined_scrap_0_10_b": final_values_to_render(10, line10)['combined_scrap_0_b'],
         })
 
 class Line3_daily(View):

@@ -992,6 +992,18 @@ def assign_production_values_to_dictionary(values, line, r):
         "side_b_6_re":r["side_b_6_re"]
         }
 
+def dashboard_daily(line):
+
+    # set all valeus of the dictionary to 0
+    r = reset_dictionary()
+
+    period_span = period("daily", line)
+    requested_period = daily_report
+    # assign values to the dictionary keys
+    set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
+
+    return assign_production_values_to_dictionary(set_values_for_dictionary, line, r)
+
 def past_seven_hours(line):
 
     # set all valeus of the dictionary to 0
