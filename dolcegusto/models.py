@@ -60,7 +60,8 @@ def hourly_report(self):
         )
         hourly_report = cursor.fetchall()
     hourly_report_df = DataFrame(hourly_report, columns = [
-    'line',
+    'line', 'batch',
+    'a_ok', 'b_ok',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'a_top_ng', 'b_top_ng',
@@ -81,7 +82,8 @@ def daily_report(self):
         )
         daily_report = cursor.fetchall()
     daily_report_df = DataFrame(daily_report, columns = [
-    'line',
+    'line', 'batch',
+    'a_ok', 'b_ok',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'a_top_ng', 'b_top_ng',
@@ -125,7 +127,8 @@ def monthly_report(self):
         )
         monthly_report = cursor.fetchall()
     monthly_report_df = DataFrame(monthly_report, columns = [
-    'line',
+    'line', 'batch',
+    'a_ok', 'b_ok',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'a_top_ng', 'b_top_ng',
