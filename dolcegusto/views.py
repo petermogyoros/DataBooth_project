@@ -12,6 +12,31 @@ def final_values_to_render(line, values):
 
     return {
         "line": line,
+
+        "batch_0": values["batch_0"],
+        "batch_1": values["batch_1"],
+        "batch_2": values["batch_2"],
+        "batch_3": values["batch_3"],
+        "batch_4": values["batch_4"],
+        "batch_5": values["batch_5"],
+        "batch_6": values["batch_6"],
+
+        "a_ok_0": values["a_ok_0"],
+        "a_ok_1": values["a_ok_1"],
+        "a_ok_2": values["a_ok_2"],
+        "a_ok_3": values["a_ok_3"],
+        "a_ok_4": values["a_ok_4"],
+        "a_ok_5": values["a_ok_5"],
+        "a_ok_6": values["a_ok_6"],
+
+        "b_ok_0": values["b_ok_0"],
+        "b_ok_1": values["b_ok_1"],
+        "b_ok_2": values["b_ok_2"],
+        "b_ok_3": values["b_ok_3"],
+        "b_ok_4": values["b_ok_4"],
+        "b_ok_5": values["b_ok_5"],
+        "b_ok_6": values["b_ok_6"],
+
         "combined_scrap_0_a": values["combined_a_ng_0"] + values["combined_a_re_0"],
         "combined_scrap_0_b": values["combined_b_ng_0"] + values["combined_b_re_0"],
         "combined_scrap_1_a": values["combined_a_ng_1"] + values["combined_a_re_1"],

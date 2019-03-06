@@ -103,7 +103,8 @@ def weekly_report(self):
         )
         weekly_report = cursor.fetchall()
     weekly_report_df = DataFrame(weekly_report, columns = [
-    'line',
+    'line', 'batch',
+    'a_ok', 'b_ok',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'a_top_ng', 'b_top_ng',

@@ -7,6 +7,11 @@ def reset_dictionary():
     # set all values to zero to avoid data contamination from previous requests
 
     values = {
+    "batch_0":0, "batch_1":0, "batch_2":0, "batch_3":0, "batch_4":0, "batch_5":0, "batch_6":0,
+
+    "a_ok_0":0, "a_ok_1":0, "a_ok_2":0, "a_ok_3":0, "a_ok_4":0, "a_ok_5":0, "a_ok_6":0,
+    "b_ok_0":0, "b_ok_1":0, "b_ok_2":0, "b_ok_3":0, "b_ok_4":0, "b_ok_5":0, "b_ok_6":0,
+
     "top_a_0_ng":0, "top_a_1_ng":0, "top_a_2_ng":0, "top_a_3_ng":0, "top_a_4_ng":0, "top_a_5_ng":0, "top_a_6_ng":0,
     "top_a_0_re":0, "top_a_1_re":0, "top_a_2_re":0, "top_a_3_re":0, "top_a_4_re":0, "top_a_5_re":0, "top_a_6_re":0,
 
@@ -299,7 +304,7 @@ def assign_period_values(r, line, period_span, requested_period):
     for_count = 0
 
     # this loops through the database row and stores values in each if these variables
-    for a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p  in zip(
+    for a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, s, t  in zip(
     requested_period(line).combined_side_a_ng, requested_period(line).combined_side_b_ng,
     requested_period(line).combined_side_a_re, requested_period(line).combined_side_b_re,
     requested_period(line).a_top_ng, requested_period(line).b_top_ng,
@@ -308,12 +313,16 @@ def assign_period_values(r, line, period_span, requested_period):
     requested_period(line).a_bottom_re, requested_period(line).b_bottom_re,
     requested_period(line).a_side_ng, requested_period(line).b_side_ng,
     requested_period(line).a_side_re, requested_period(line).b_side_re,
+    requested_period(line).a_ok, requested_period(line).b_ok,
+    requested_period(line).batch,
     ):
 
+        print(r)
         for_count += 1
 
         if for_count == 1:
             if period_span["prod_period_0"] == period_span["cur_period_0"]:
+                r["batch_0"] = t
                 r["combined_a_ng_0"] = a
                 r["combined_a_re_0"] = c
                 r["top_a_0_ng"] = e
@@ -322,6 +331,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_0_re"] = k
                 r["side_a_0_ng"] = m
                 r["side_a_0_re"] = o
+                r["a_ok_0"] = q
 
                 r["combined_b_ng_0"] = b
                 r["combined_b_re_0"] = d
@@ -331,8 +341,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_0_re"] = l
                 r["side_b_0_ng"] = n
                 r["side_b_0_re"] = p
+                r["b_ok_0"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_1"]:
+                r["batch_1"] = t
                 r["combined_a_ng_1"] = a
                 r["combined_a_re_1"] = c
                 r["top_a_1_ng"] = e
@@ -341,6 +353,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_1_re"] = k
                 r["side_a_1_ng"] = m
                 r["side_a_1_re"] = o
+                r["a_ok_1"] = q
 
                 r["combined_b_ng_1"] = b
                 r["combined_b_re_1"] = d
@@ -350,8 +363,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_1_re"] = l
                 r["side_b_1_ng"] = n
                 r["side_b_1_re"] = p
+                r["b_ok_1"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_2"]:
+                r["batch_2"] = t
                 r["combined_a_ng_2"] = a
                 r["combined_a_re_2"] = c
                 r["top_a_2_ng"] = e
@@ -360,6 +375,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_2_re"] = k
                 r["side_a_2_ng"] = m
                 r["side_a_2_re"] = o
+                r["a_ok_2"] = q
 
                 r["combined_b_ng_2"] = b
                 r["combined_b_re_2"] = d
@@ -369,8 +385,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_0_re"] = l
                 r["side_b_2_ng"] = n
                 r["side_b_2_re"] = p
+                r["b_ok_2"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_3"]:
+                r["batch_3"] = t
                 r["combined_a_ng_3"] = a
                 r["combined_a_re_3"] = c
                 r["top_a_3_ng"] = e
@@ -379,6 +397,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_3_re"] = k
                 r["side_a_3_ng"] = m
                 r["side_a_3_re"] = o
+                r["a_ok_3"] = q
 
                 r["combined_b_ng_3"] = b
                 r["combined_b_re_3"] = d
@@ -388,8 +407,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_3_re"] = l
                 r["side_b_3_ng"] = n
                 r["side_b_3_re"] = p
+                r["b_ok_3"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_4"]:
+                r["batch_4"] = t
                 r["combined_a_ng_4"] = a
                 r["combined_a_re_4"] = c
                 r["top_a_4_ng"] = e
@@ -398,6 +419,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_4_re"] = k
                 r["side_a_4_ng"] = m
                 r["side_a_4_re"] = o
+                r["a_ok_4"] = q
 
                 r["combined_b_ng_4"] = b
                 r["combined_b_re_4"] = d
@@ -407,8 +429,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_4_re"] = l
                 r["side_b_4_ng"] = n
                 r["side_b_4_re"] = p
+                r["b_ok_4"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -417,6 +441,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -426,8 +451,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_0"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -436,6 +463,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -445,10 +473,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 2:
             if period_span["prod_period_1"]  == period_span["cur_period_1"]:
+                r["batch_1"] = t
                 r["combined_a_ng_1"] = a
                 r["combined_a_re_1"] = c
                 r["top_a_1_ng"] = e
@@ -457,6 +487,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_1_re"] = k
                 r["side_a_1_ng"] = m
                 r["side_a_1_re"] = o
+                r["a_ok_1"] = q
 
                 r["combined_b_ng_1"] = b
                 r["combined_b_re_1"] = d
@@ -466,8 +497,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_1_re"] = l
                 r["side_b_1_ng"] = n
                 r["side_b_1_re"] = p
+                r["b_ok_1"] = s
 
             elif period_span["prod_period_1"]  == period_span["cur_period_2"]:
+                r["batch_2"] = t
                 r["combined_a_ng_2"] = a
                 r["combined_a_re_2"] = c
                 r["top_a_2_ng"] = e
@@ -476,6 +509,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_2_re"] = k
                 r["side_a_2_ng"] = m
                 r["side_a_2_re"] = o
+                r["a_ok_2"] = q
 
                 r["combined_b_ng_2"] = b
                 r["combined_b_re_2"] = d
@@ -485,8 +519,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_2_re"] = l
                 r["side_b_2_ng"] = n
                 r["side_b_2_re"] = p
+                r["b_ok_2"] = s
 
             elif period_span["prod_period_1"]  == period_span["cur_period_3"]:
+                r["batch_3"] = t
                 r["combined_a_ng_3"] = a
                 r["combined_a_re_3"] = c
                 r["top_a_3_ng"] = e
@@ -495,6 +531,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_3_re"] = k
                 r["side_a_3_ng"] = m
                 r["side_a_3_re"] = o
+                r["a_ok_3"] = q
 
                 r["combined_b_ng_3"] = b
                 r["combined_b_re_3"] = d
@@ -504,8 +541,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_3_re"] = l
                 r["side_b_3_ng"] = n
                 r["side_b_3_re"] = p
+                r["b_ok_3"] = s
 
             elif period_span["prod_period_1"]  == period_span["cur_period_4"]:
+                r["batch_4"] = t
                 r["combined_a_ng_4"] = a
                 r["combined_a_re_4"] = c
                 r["top_a_4_ng"] = e
@@ -514,6 +553,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_4_re"] = k
                 r["side_a_4_ng"] = m
                 r["side_a_4_re"] = o
+                r["a_ok_4"] = q
 
                 r["combined_b_ng_4"] = b
                 r["combined_b_re_4"] = d
@@ -523,8 +563,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_4_re"] = l
                 r["side_b_4_ng"] = n
                 r["side_b_4_re"] = p
+                r["b_ok_4"] = s
 
             elif period_span["prod_period_1"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -533,6 +575,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -542,8 +585,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_1"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -552,6 +597,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -561,10 +607,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 3:
             if period_span["prod_period_2"]  == period_span["cur_period_2"]:
+                r["batch_2"] = t
                 r["combined_a_ng_2"] = a
                 r["combined_a_re_2"] = c
                 r["top_a_2_ng"] = e
@@ -573,6 +621,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_2_re"] = k
                 r["side_a_2_ng"] = m
                 r["side_a_2_re"] = o
+                r["a_ok_2"] = q
 
                 r["combined_b_ng_2"] = b
                 r["combined_b_re_2"] = d
@@ -582,8 +631,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_2_re"] = l
                 r["side_b_2_ng"] = n
                 r["side_b_2_re"] = p
+                r["b_ok_2"] = s
 
             elif period_span["prod_period_2"]  ==period_span["cur_period_3"]:
+                r["batch_3"] = t
                 r["combined_a_ng_3"] = a
                 r["combined_a_re_3"] = c
                 r["top_a_3_ng"] = e
@@ -592,6 +643,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_3_re"] = k
                 r["side_a_3_ng"] = m
                 r["side_a_3_re"] = o
+                r["a_ok_3"] = q
 
                 r["combined_b_ng_3"] = b
                 r["combined_b_re_3"] = d
@@ -601,8 +653,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_3_re"] = l
                 r["side_b_3_ng"] = n
                 r["side_b_3_re"] = p
+                r["b_ok_3"] = s
 
             elif period_span["prod_period_2"]  == period_span["cur_period_4"]:
+                r["batch_4"] = t
                 r["combined_a_ng_4"] = a
                 r["combined_a_re_4"] = c
                 r["top_a_4_ng"] = e
@@ -611,6 +665,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_4_re"] = k
                 r["side_a_4_ng"] = m
                 r["side_a_4_re"] = o
+                r["a_ok_4"] = q
 
                 r["combined_b_ng_4"] = b
                 r["combined_b_re_4"] = d
@@ -620,8 +675,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_4_re"] = l
                 r["side_b_4_ng"] = n
                 r["side_b_4_re"] = p
+                r["b_ok_4"] = s
 
             elif period_span["prod_period_2"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -630,6 +687,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -639,8 +697,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_2"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -649,6 +709,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -658,10 +719,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 4:
             if period_span["prod_period_3"]  == period_span["cur_period_3"]:
+                r["batch_3"] = t
                 r["combined_a_ng_3"] = a
                 r["combined_a_re_3"] = c
                 r["top_a_3_ng"] = e
@@ -670,6 +733,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_3_re"] = k
                 r["side_a_3_ng"] = m
                 r["side_a_3_re"] = o
+                r["a_ok_3"] = q
 
                 r["combined_b_ng_3"] = b
                 r["combined_b_re_3"] = d
@@ -679,8 +743,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_3_re"] = l
                 r["side_b_3_ng"] = n
                 r["side_b_3_re"] = p
+                r["b_ok_3"] = s
 
             elif period_span["prod_period_3"]  == period_span["cur_period_4"]:
+                r["batch_4"] = t
                 r["combined_a_ng_4"] = a
                 r["combined_a_re_4"] = c
                 r["top_a_4_ng"] = e
@@ -689,6 +755,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_4_re"] = k
                 r["side_a_4_ng"] = m
                 r["side_a_4_re"] = o
+                r["a_ok_4"] = q
 
                 r["combined_b_ng_4"] = b
                 r["combined_b_re_4"] = d
@@ -698,8 +765,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_4_re"] = l
                 r["side_b_4_ng"] = n
                 r["side_b_4_re"] = p
+                r["b_ok_4"] = s
 
             elif period_span["prod_period_3"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -708,6 +777,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -717,8 +787,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_3"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -727,6 +799,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -736,10 +809,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 5:
             if period_span["prod_period_4"]  == period_span["cur_period_4"]:
+                r["batch_4"] = t
                 r["combined_a_ng_4"] = a
                 r["combined_a_re_4"] = c
                 r["top_a_4_ng"] = e
@@ -748,6 +823,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_4_re"] = k
                 r["side_a_4_ng"] = m
                 r["side_a_4_re"] = o
+                r["a_ok_4"] = q
 
                 r["combined_b_ng_4"] = b
                 r["combined_b_re_4"] = d
@@ -757,8 +833,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_4_re"] = l
                 r["side_b_4_ng"] = n
                 r["side_b_4_re"] = p
+                r["b_ok_4"] = s
 
             elif period_span["prod_period_4"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -767,6 +845,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -776,8 +855,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_4"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -786,6 +867,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -795,10 +877,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 6:
             if period_span["prod_period_5"]  == period_span["cur_period_5"]:
+                r["batch_5"] = t
                 r["combined_a_ng_5"] = a
                 r["combined_a_re_5"] = c
                 r["top_a_5_ng"] = e
@@ -807,6 +891,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_5_re"] = k
                 r["side_a_5_ng"] = m
                 r["side_a_5_re"] = o
+                r["a_ok_5"] = q
 
                 r["combined_b_ng_5"] = b
                 r["combined_b_re_5"] = d
@@ -816,8 +901,10 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_5_re"] = l
                 r["side_b_5_ng"] = n
                 r["side_b_5_re"] = p
+                r["b_ok_5"] = s
 
             elif period_span["prod_period_5"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -826,6 +913,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -835,10 +923,12 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
 
         elif for_count == 7:
             if period_span["prod_period_6"]  == period_span["cur_period_6"]:
+                r["batch_6"] = t
                 r["combined_a_ng_6"] = a
                 r["combined_a_re_6"] = c
                 r["top_a_6_ng"] = e
@@ -847,6 +937,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_a_6_re"] = k
                 r["side_a_6_ng"] = m
                 r["side_a_6_re"] = o
+                r["a_ok_6"] = q
 
                 r["combined_b_ng_6"] = b
                 r["combined_b_re_6"] = d
@@ -856,6 +947,7 @@ def assign_period_values(r, line, period_span, requested_period):
                 r["bottom_b_6_re"] = l
                 r["side_b_6_ng"] = n
                 r["side_b_6_re"] = p
+                r["b_ok_6"] = s
 
     return r
 
@@ -863,6 +955,31 @@ def assign_production_values_to_dictionary(values, line, r):
 
     return {
         "line":line,
+
+        "batch_0":r["batch_0"],
+        "batch_1":r["batch_1"],
+        "batch_2":r["batch_2"],
+        "batch_3":r["batch_3"],
+        "batch_4":r["batch_4"],
+        "batch_5":r["batch_5"],
+        "batch_6":r["batch_6"],
+
+        "a_ok_0":r["a_ok_0"],
+        "a_ok_1":r["a_ok_1"],
+        "a_ok_2":r["a_ok_2"],
+        "a_ok_3":r["a_ok_3"],
+        "a_ok_4":r["a_ok_4"],
+        "a_ok_5":r["a_ok_5"],
+        "a_ok_6":r["a_ok_6"],
+
+        "b_ok_0":r["b_ok_0"],
+        "b_ok_1":r["b_ok_1"],
+        "b_ok_2":r["b_ok_2"],
+        "b_ok_3":r["b_ok_3"],
+        "b_ok_4":r["b_ok_4"],
+        "b_ok_5":r["b_ok_5"],
+        "b_ok_6":r["b_ok_6"],
+
         "combined_a_ng_0":r["combined_a_ng_0"],
         "combined_a_ng_1":r["combined_a_ng_1"],
         "combined_a_ng_2":r["combined_a_ng_2"],
