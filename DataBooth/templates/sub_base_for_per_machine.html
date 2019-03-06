@@ -2,6 +2,28 @@
 {% load staticfiles %}
 
 
+{% block date_menu %}
+<!-- begin: Header Menu -->
+<div class="k-header-menu-wrapper k-grid__item" id="k_header_menu_wrapper">
+  <div id="k_header_menu" class="k-header-menu k-header-menu-mobile ">
+    <ul class="k-menu__nav ">
+      <li class="k-menu__item  k-menu__item--open k-menu__item--here k-menu__item--submenu k-menu__item--rel k-menu__item--open k-menu__item--here" data-kmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Time Span</span><i class="k-menu__hor-arrow la la-angle-down"></i><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+        <div class="k-menu__submenu k-menu__submenu--classic k-menu__submenu--left">
+          <ul class="k-menu__subnav">
+            <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line{{ line }}_hourly" class="k-menu__link "><span class="k-menu__link-text">Hourly</span></a></li>
+            <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line{{ line }}_daily" class="k-menu__link "><span class="k-menu__link-text">Daily</span></a></li>
+            <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line{{ line }}_weekly" class="k-menu__link "><span class="k-menu__link-text">Weekly</span></a></li>
+            <li class="k-menu__item  k-menu__item--active " aria-haspopup="true"><a href="line{{ line }}_monthly" class="k-menu__link "><span class="k-menu__link-text">Monthly</span></a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- end: Header Menu -->
+{% endblock %}
+
 {% block content_base %}
 
 
@@ -34,35 +56,6 @@
 
                     <canvas id="k_chartjs_4" style="height: 300px;"></canvas>
 
-                      <!-- time period menu -->
-                      <div style="right">
-                      <ul class="nav nav-pills nav-tabs-btn nav-pills-btn-brand" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link" href="line{{ line }}_hourly" role="tab">
-                            <span class="nav-link-title">Hourly</span>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="line{{ line }}_daily" role="tab">
-                            <span class="nav-link-title">Daily</span>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="line{{ line }}_weekly" role="tab">
-                            <span class="nav-link-title">Weekly</span>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" href="line{{ line }}_monthly" role="tab">
-                            <span class="nav-link-title">Monthly</span>
-                          </a>
-                        </li>
-                      </ul>
-                      </div>
-                      <!-- time period menu ends -->
                   </div>
                 </div>
               </div>

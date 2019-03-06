@@ -317,7 +317,6 @@ def assign_period_values(r, line, period_span, requested_period):
     requested_period(line).batch,
     ):
 
-        print(r)
         for_count += 1
 
         if for_count == 1:
