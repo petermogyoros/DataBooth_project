@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>CSS Relationships</title>
+
+    <style>
+    section:nth-child(4n+3) > h1 {
+        color: red;
+    }
+
+    article a {
+        color: green;
+    }
+
+    article p + a {
+        color: yellow;
+    }
+
+    article p + a:hover {
+        color: orange;
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="main-content">
+    <section class="articles">
+        <h1>Latest posts</h1>
+
+        <article>
+            <h1>Today's rants</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+
+
+        <article>
+            <h1>Yesterday's rants</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+    </section>
+
+
+    <section class="articles">
+        <h1>Archived posts</h1>
+
+        <article>
+            <h1>Old rant</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+
+    </section>
+
+    <section class="articles">
+        <h1>posts 3</h1>
+
+        <article>
+            <h1>Today's rants</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+
+
+        <article>
+            <h1>Yesterday's rants</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+    </section>
+
+
+    <section class="articles">
+        <h1>posts 4</h1>
+
+        <article>
+            <h1>Old rant</h1>
+            <p>
+            Lorem ipsum dolor sit amet, cum alienum sententiae et, eam etiam petentium ut. Nec te veri facer aliquando, at agam primis alienum nec. Regione legendos vim...
+            <a href="#">More</a>
+            </p>
+            <a href="#">Rate</a>
+        </article>
+
+    </section>
+
+    <aside>
+        <section class="glossary">
+            <dl>
+                <dt>Term1</dt>
+                <dd>definition for term1</dd>
+            </dl>
+        </section>
+    </aside>
+</div>
+
+<footer>
+    <small>&copy; 2014. All rights reserved</small>
+    <p>See our <a href="#">Terms &amp; Conditions</a></p>
+</footer>
+
+</body>
+</html>
