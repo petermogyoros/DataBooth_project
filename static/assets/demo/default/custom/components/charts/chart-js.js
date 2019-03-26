@@ -69,7 +69,7 @@ var KChartJSDemo = function() {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Scrap in %'
+							labelString: 'Number of Caps Produced'
 						}
 					}]
 				}
