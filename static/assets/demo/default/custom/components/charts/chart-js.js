@@ -165,21 +165,29 @@ var KChartJSDemo = function() {
 			datasets: [{
 				data: [
 					// round results to 2 decimal places
-					((ng_top_0_a + ng_top_1_a + ng_top_2_a + ng_top_3_a + ng_top_4_a + ng_top_5_a + ng_top_6_a)/7).toFixed(2),
-					((ng_top_0_b + ng_top_1_b + ng_top_2_b + ng_top_3_b + ng_top_4_b + ng_top_5_b + ng_top_6_b)/7).toFixed(2),
-					// ((ng_bottom_0_a + ng_bottom_1_a + ng_bottom_2_a + ng_bottom_3_a + ng_bottom_4_a + ng_bottom_5_a + ng_bottom_6_a)/7).toFixed(2),
-					// ((ng_bottom_0_b + ng_bottom_1_b + ng_bottom_2_b + ng_bottom_3_b + ng_bottom_4_b + ng_bottom_5_b + ng_bottom_6_b)/7).toFixed(2),
-					// ((ng_side_0_a + ng_side_1_a + ng_side_2_a + ng_side_3_a + ng_side_4_a + ng_side_5_a + ng_side_6_a)/7).toFixed(2),
-					// ((ng_side_0_b + ng_side_1_b + ng_side_2_b + ng_side_3_b + ng_side_4_b + ng_side_5_b + ng_side_6_b)/7).toFixed(2),
+					(ng_top_0_a).toFixed(2),
+					(ng_top_0_b).toFixed(2),
+					(ng_bottom_0_a).toFixed(2),
+					(ng_bottom_0_b).toFixed(2),
+					(ng_side_0_a).toFixed(2),
+					(ng_side_0_b).toFixed(2),
 				],
 				backgroundColor: [
-					'#b12525',
-					'#ea6b6b',
+					'#00FF40',
+					'#8CFF70',
+					'#0040FF',
+					'#68BCFF',
+					'#FFBF00',
+					'#FFF82A'
 				],
 			}],
 			labels: [
+				'Top A',
+				'Top B',
+				'Bottom A',
+				'Bottom B',
 				'Side A',
-				'Side B',
+				'Side B'
 					]
 
 		};
