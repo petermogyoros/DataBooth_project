@@ -30,7 +30,7 @@ var KDashboard = function() {
             data: barChartData,
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 legend: false,
                 scales: {
                     xAxes: [{

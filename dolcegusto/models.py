@@ -94,6 +94,7 @@ def daily_report(self):
     'a_side_re', 'b_side_re',
     'production_day'])
 
+    print(daily_report_df)
     return daily_report_df
 
 
