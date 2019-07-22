@@ -1,4 +1,4 @@
-from dolcegusto.models import daily_report, hourly_report, weekly_report, monthly_report
+from dolcegusto.models import daily_report, hourly_report, weekly_report, monthly_report, dashboard
 from datetime import datetime, date, timedelta, time
 import datetime
 import time
@@ -37,14 +37,54 @@ def reset_dictionary():
     "combined_b_re_0":0, "combined_b_re_1":0, "combined_b_re_2":0, "combined_b_re_3":0, "combined_b_re_4":0, "combined_b_re_5":0, "combined_b_re_6":0,
     }
 
+    print(values["combined_b_ng_0"])
     return values
-
 
 # categorise outputs based on time period
 def period(period, line):
 
+    if period == "dashboard":
+        print("   I AM IN THE PERIOD FUNCTION   ")
+        # get production dates from database
+        day_number_0 = str(dashboard(line).production_day[0])[0:10]
+        # day_number_1 = str(daily_report(line).production_day[1])[0:10]
+        # day_number_2 = str(daily_report(line).production_day[2])[0:10]
+        # day_number_3 = str(daily_report(line).production_day[3])[0:10]
+        # day_number_4 = str(daily_report(line).production_day[4])[0:10]
+        # day_number_5 = str(daily_report(line).production_day[5])[0:10]
+        # day_number_6 = str(daily_report(line).production_day[6])[0:10]
 
-    if period == "hourly":
+        # get current dates for the past 7 intervals
+        # today = date.today().strftime('%Y-%m-%d')
+        # yesterday = (date.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+        # two_days_ago = (date.today() - timedelta(days=2)).strftime('%Y-%m-%d')
+        # three_days_ago = (date.today() - timedelta(days=3)).strftime('%Y-%m-%d')
+        # four_days_ago = (date.today() - timedelta(days=4)).strftime('%Y-%m-%d')
+        # five_days_ago = (date.today() - timedelta(days=5)).strftime('%Y-%m-%d')
+        # six_days_ago = (date.today() - timedelta(days=6)).strftime('%Y-%m-%d')
+
+        # periods = {
+        # "prod_period_0":day_number_0,
+        # "prod_period_1":day_number_1,
+        # "prod_period_2":day_number_2,
+        # "prod_period_3":day_number_3,
+        # "prod_period_4":day_number_4,
+        # "prod_period_5":day_number_5,
+        # "prod_period_6":day_number_6,
+
+        # "cur_period_0":today,
+        # "cur_period_1":yesterday,
+        # "cur_period_2":two_days_ago,
+        # "cur_period_3":three_days_ago,
+        # "cur_period_4":four_days_ago,
+        # "cur_period_5":five_days_ago,
+        # "cur_period_6":six_days_ago
+        # }
+
+        return periods
+
+
+    elif period == "hourly":
 
         # current time (hour)
         now = int(str(datetime.datetime.now().time())[0:2])
@@ -300,6 +340,7 @@ def period(period, line):
 
 def assign_period_values(r, line, period_span, requested_period):
 
+    print('assign_period_values in GET VALUES')
     # assign variables from specific columns from database based on date
     for_count = 0
 
@@ -1112,9 +1153,9 @@ def dashboard_daily(line):
 
     # set all valeus of the dictionary to 0
     r = reset_dictionary()
-
-    period_span = period("daily", line)
-    requested_period = daily_report
+    print("DASHBOARD")
+    period_span = period("dashboard", line)
+    requested_period = dashboard
     # assign values to the dictionary keys
     set_values_for_dictionary = assign_period_values(r, line, period_span, requested_period)
 
@@ -1136,7 +1177,7 @@ def past_seven_days(line):
 
     # set all valeus of the dictionary to 0
     r = reset_dictionary()
-
+    print("PAST 7 DAYS")
     period_span = period("daily", line)
     requested_period = daily_report
     # assign values to the dictionary keys

@@ -5,8 +5,109 @@ from pandas import DataFrame
 from datetime import datetime, date, timedelta
 
 from dolcegusto.models import hourly_report, daily_report, weekly_report, monthly_report, dashboard
-from dolcegusto.get_values import past_seven_hours, past_seven_days, past_seven_weeks, past_seven_months
+from dolcegusto.get_values import past_seven_hours, past_seven_days, past_seven_weeks, past_seven_months, dashboard_daily
 
+# get today's date and convert it to string for comparison with the date from the database
+def get_date_for_today():
+    today = date.today()
+    date_string = today.strftime('%y%m%d')
+    return date_string
+
+def render_dashbaord(values):
+
+
+    # compare today's date with the date from the database
+    if get_date_for_today() == values["production_day"][0].strftime('%y%m%d'):
+
+        return {
+            "line": values["line"][0],
+
+            "production_day": values["production_day"][0],
+
+            # "batch_0": values["batch"],
+
+            "a_ok_0": values["a_ok"][0],
+
+            "b_ok_0": values["b_ok"][0],
+
+            "combined_scrap_0_a": values["combined_side_a_ng"][0] + values["combined_side_a_re"][0],
+            "combined_scrap_0_b": values["combined_side_b_ng"][0] + values["combined_side_b_re"][0],
+
+
+            "combined_ng_0_a":values["combined_side_a_ng"][0],
+            "combined_ng_0_b":values["combined_side_b_ng"][0],
+
+
+            "combined_re_0_a":values["combined_side_a_re"][0],
+            "combined_re_0_b":values["combined_side_b_re"][0],
+
+
+            "top_ng_0_a":values["a_top_ng"][0],
+            "top_ng_0_b":values["b_top_ng"][0],
+
+
+            "top_re_0_a":values["a_top_re"][0],
+            "top_re_0_b":values["b_top_re"][0],
+
+
+            "bottom_ng_0_a":values["a_bottom_ng"][0],
+            "bottom_ng_0_b":values["b_bottom_ng"][0],
+
+            "bottom_re_0_a":values["a_bottom_re"][0],
+            "bottom_re_0_b":values["b_bottom_re"][0],
+
+            "side_ng_0_a":values["a_side_ng"][0],
+            "side_ng_0_b":values["b_side_ng"][0],
+
+            "side_re_0_a":values["a_side_re"][0],
+            "side_re_0_b":values["b_side_re"][0]
+            }
+
+    else:
+
+        return {
+            "line": values["line"][0],
+
+            "production_day": values["production_day"][0],
+
+            # "batch_0": values["batch"],
+
+            "a_ok_0": 0,
+
+            "b_ok_0": 0,
+
+            "combined_scrap_0_a": 0,
+            "combined_scrap_0_b": 0,
+
+
+            "combined_ng_0_a": 0,
+            "combined_ng_0_b": 0,
+
+
+            "combined_re_0_a": 0,
+            "combined_re_0_b": 0,
+
+
+            "top_ng_0_a": 0,
+            "top_ng_0_b": 0,
+
+
+            "top_re_0_a": 0,
+            "top_re_0_b": 0,
+
+
+            "bottom_ng_0_a": 0,
+            "bottom_ng_0_b": 0,
+
+            "bottom_re_0_a": 0,
+            "bottom_re_0_b": 0,
+
+            "side_ng_0_a": 0,
+            "side_ng_0_b": 0,
+
+            "side_re_0_a": 0,
+            "side_re_0_b": 0
+            }
 
 def final_values_to_render(line, values):
 
@@ -177,13 +278,13 @@ class Hourly_dashboard(View):
     model = hourly_report
     def get(self, request):
 
-        line3 = past_seven_hours(3)
-        line4 = past_seven_hours(4)
-        line5 = past_seven_hours(5)
-        line7 = past_seven_hours(7)
-        line8 = past_seven_hours(8)
-        line9 = past_seven_hours(9)
-        line10 = past_seven_hours(10)
+        line3 = dashboard(3)
+        line4 = dashboard(4)
+        line5 = dashboard(5)
+        line7 = dashboard(7)
+        line8 = dashboard(8)
+        line9 = dashboard(9)
+        line10 = dashboard(10)
 
         return render(request, "dolcegusto/weekly_dashboard.html", {
         "line_3": 3,
@@ -274,18 +375,21 @@ class Line10_hourly(View):
 
 
 class Daily_dashboard(View):
+
     model = dashboard
+
     def get(self, request):
 
-        line3 = past_seven_days(3)
-        line4 = past_seven_days(4)
-        line5 = past_seven_days(5)
-        line7 = past_seven_days(7)
-        line8 = past_seven_days(8)
-        line9 = past_seven_days(9)
-        line10 = past_seven_days(10)
+        line3 = dashboard(3)
+        line4 = dashboard(4)
+        line5 = dashboard(5)
+        line7 = dashboard(7)
+        line8 = dashboard(8)
+        line9 = dashboard(9)
+        line10 = dashboard(10)
 
-        return render(request, "dolcegusto/daily_dashboard.html", {
+
+        data_dictionary = {
         "line_3": 3,
         "line_4": 4,
         "line_5": 5,
@@ -293,27 +397,46 @@ class Daily_dashboard(View):
         "line_8": 8,
         "line_9": 9,
         "line_10": 10,
-        "combined_scrap_0_3_a": final_values_to_render(3, line3)['combined_scrap_0_a'],
-        "combined_scrap_0_3_b": final_values_to_render(3, line3)['combined_scrap_0_b'],
 
-        "combined_scrap_0_4_a": final_values_to_render(4, line4)['combined_scrap_0_a'],
-        "combined_scrap_0_4_b": final_values_to_render(4, line4)['combined_scrap_0_b'],
+        # "production_day_3": render_dashbaord(line3)['production_day'][0],
+        # "production_day_4": render_dashbaord(line4)['production_day'][0],
+        # "production_day_5": render_dashbaord(line5)['production_day'][0],
+        # "production_day_7": render_dashbaord(line7)['production_day'][0],
+        # "production_day_8": render_dashbaord(line8)['production_day'][0],
+        # "production_day_9": render_dashbaord(line9)['production_day'][0],
+        # "production_day_10": render_dashbaord(line10)['production_day'][0],
 
-        "combined_scrap_0_5_a": final_values_to_render(5, line5)['combined_scrap_0_a'],
-        "combined_scrap_0_5_b": final_values_to_render(5, line5)['combined_scrap_0_b'],
+        # "production_day_3": render_dashbaord(3, line3)['batch'],
+        "combined_scrap_3_a": render_dashbaord(line3)['combined_scrap_0_a'],
+        "combined_scrap_3_b": render_dashbaord(line3)['combined_scrap_0_b'],
 
-        "combined_scrap_0_7_a": final_values_to_render(7, line7)['combined_scrap_0_a'],
-        "combined_scrap_0_7_b": final_values_to_render(7, line7)['combined_scrap_0_b'],
+        # "production_day_4": render_dashbaord(4, line4)['batch'],
+        "combined_scrap_4_a": render_dashbaord(line4)['combined_scrap_0_a'],
+        "combined_scrap_4_b": render_dashbaord(line4)['combined_scrap_0_b'],
 
-        "combined_scrap_0_8_a": final_values_to_render(8, line8)['combined_scrap_0_a'],
-        "combined_scrap_0_8_b": final_values_to_render(8, line8)['combined_scrap_0_b'],
+        # "production_day_5": render_dashbaord(5, line5)['batch'],
+        "combined_scrap_5_a": render_dashbaord(line5)['combined_scrap_0_a'],
+        "combined_scrap_5_b": render_dashbaord(line5)['combined_scrap_0_b'],
 
-        "combined_scrap_0_9_a": final_values_to_render(9, line9)['combined_scrap_0_a'],
-        "combined_scrap_0_9_b": final_values_to_render(9, line9)['combined_scrap_0_b'],
+        # "production_day_7": render_dashbaord(7, line7)['batch'],
+        "combined_scrap_7_a": render_dashbaord(line7)['combined_scrap_0_a'],
+        "combined_scrap_7_b": render_dashbaord(line7)['combined_scrap_0_b'],
 
-        "combined_scrap_0_10_a": final_values_to_render(10, line10)['combined_scrap_0_a'],
-        "combined_scrap_0_10_b": final_values_to_render(10, line10)['combined_scrap_0_b'],
-        })
+        # "production_day_8": render_dashbaord(8, line8)['batch'],
+        "combined_scrap_8_a": render_dashbaord(line8)['combined_scrap_0_a'],
+        "combined_scrap_8_b": render_dashbaord(line8)['combined_scrap_0_b'],
+
+        # "production_day_9": render_dashbaord(9, line9)['batch'],
+        "combined_scrap_9_a": render_dashbaord(line9)['combined_scrap_0_a'],
+        "combined_scrap_9_b": render_dashbaord(line9)['combined_scrap_0_b'],
+
+        # "production_day_10": render_dashbaord(10, line10)['batch'],
+        "combined_scrap_10_a": render_dashbaord(line10)['combined_scrap_0_a'],
+        "combined_scrap_10_b": render_dashbaord(line10)['combined_scrap_0_b'],
+        }
+
+
+        return render(request, "dolcegusto/dashboard_data.html", data_dictionary)
 
 class Line3_daily(View):
     model = daily_report

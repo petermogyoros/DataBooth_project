@@ -36,9 +36,10 @@ def dashboard(self):
         cursor.execute(
         "SELECT * FROM public.daily_scrap WHERE line = %s LIMIT 1", [self]
         )
-        dashboard = cursor.fetchall()
+        daily_report = cursor.fetchall()
     dashboard_df = DataFrame(daily_report, columns = [
-    'line',
+    'line', 'batch',
+    'a_ok', 'b_ok',
     'combined_side_a_ng', 'combined_side_b_ng',
     'combined_side_a_re', 'combined_side_b_re',
     'a_top_ng', 'b_top_ng',
@@ -49,6 +50,8 @@ def dashboard(self):
     'a_side_re', 'b_side_re',
     'production_day'])
 
+    # df = pd.DataFrame(dashboard_df)
+    # print(df)
     return dashboard_df
 
 
@@ -94,7 +97,6 @@ def daily_report(self):
     'a_side_re', 'b_side_re',
     'production_day'])
 
-    print(daily_report_df)
     return daily_report_df
 
 

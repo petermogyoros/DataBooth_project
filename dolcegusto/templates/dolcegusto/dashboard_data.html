@@ -1,0 +1,28 @@
+{% extends "sub_base_for_dashboard.html" %}
+
+
+{% block data %}
+
+<!-- graph values -->
+  <script>
+
+    var a3 = {{ combined_scrap_3_a }};
+    var a4 = {{ combined_scrap_4_a }};
+    var a5 = {{ combined_scrap_5_a }};
+    var a7 = {{ combined_scrap_7_a }};
+    var a8 = {{ combined_scrap_8_a }};
+    var a9 = {{ combined_scrap_9_a }};
+    var a10 = {{ combined_scrap_10_a }};
+
+
+    var b3 = {{ combined_scrap_3_b }};
+    var b4 = {{ combined_scrap_4_b }};
+    var b5 = {{ combined_scrap_5_b }};
+    var b7 = {{ combined_scrap_7_b }};
+    var b8 = {{ combined_scrap_8_b }};
+    var b9 = {{ combined_scrap_9_b }};
+    var b10 = {{ combined_scrap_10_b }};
+
+  </script>
+
+{% endblock %}
