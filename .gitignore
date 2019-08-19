@@ -5,6 +5,7 @@
 *.pot
 *.pyc
 *.ipynb
+*.csv
 __pycache__/
 local_settings.py
 /media
