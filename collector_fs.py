@@ -53,23 +53,49 @@ def process_data(line):
         to_dataframe.columns = ["values"]  # assign column name for easy reading
 
         # assign dataframe values to variables
-        date = str(to_dataframe.loc["Date"])
-        product = str(to_dataframe.loc["Product"]).split("\n")[0][10:]  # clean up product name
-        pass_ = int(to_dataframe.loc["Pass"])
-        reject = int(to_dataframe.loc["Reject"])
-        search = int(to_dataframe.loc[" Search"])
-        remap = int(to_dataframe.loc[" Remap"])
-        idv = int(to_dataframe.loc[" IdV"])
-        dimension = int(to_dataframe.loc[" Dimension"])
-        dc_top_view = int(to_dataframe.loc[" DC Top View"])
-        cap_inner = int(to_dataframe.loc[" Cap Inner"])
-        te_band = int(to_dataframe.loc[" TE Band"])
-        knurling = int(to_dataframe.loc[" Knurling"])
-        spout_top = int(to_dataframe.loc[" Spout Top"])
-        spout_side = int(to_dataframe.loc[" Spout Side"])
-        dc_ring = int(to_dataframe.loc[" DC Ring"])
-        dc_blob = int(to_dataframe.loc[" DC Blob"])
-        measure_height = int(to_dataframe.loc[" Measure Height"])
+        # conditional statements are needed for the difference in the inspection tools between the two cameras
+        # In september Line 13 was updated to have two inspections for the spout check (spout_top and spout_side)
+        # however, line 15 has not been updated with this tool.
+        if key_list[12] == " Spout Top":
+            date = str(to_dataframe.iloc[0])
+            product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
+            pass_ = int(to_dataframe.iloc[2])
+            reject = int(to_dataframe.iloc[3])
+            search = int(to_dataframe.iloc[4])
+            remap = int(to_dataframe.iloc[5])
+            idv = int(to_dataframe.iloc[6])
+            dimension = int(to_dataframe.iloc[7])
+            dc_top_view = int(to_dataframe.iloc[8])
+            cap_inner = int(to_dataframe.iloc[9])
+            te_band = int(to_dataframe.iloc[10])
+            knurling = int(to_dataframe.iloc[11])
+            spout = -1
+            spout_top = int(to_dataframe.iloc[12])
+            spout_side = int(to_dataframe.iloc[13])
+            dc_ring = int(to_dataframe.iloc[14])
+            dc_blob = int(to_dataframe.iloc[15])
+            measure_height = int(to_dataframe.iloc[16])
+
+
+        elif key_list[12] == " Spout":
+            date = str(to_dataframe.iloc[0])
+            product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
+            pass_ = int(to_dataframe.iloc[2])
+            reject = int(to_dataframe.iloc[3])
+            search = int(to_dataframe.iloc[4])
+            remap = int(to_dataframe.iloc[5])
+            idv = int(to_dataframe.iloc[6])
+            dimension = int(to_dataframe.iloc[7])
+            dc_top_view = int(to_dataframe.iloc[8])
+            cap_inner = int(to_dataframe.iloc[9])
+            te_band = int(to_dataframe.iloc[10])
+            knurling = int(to_dataframe.iloc[11])
+            spout = int(to_dataframe.iloc[12])
+            spout_top = -1
+            spout_side = -1
+            dc_ring = int(to_dataframe.iloc[13])
+            dc_blob = int(to_dataframe.iloc[14])
+            measure_height = int(to_dataframe.iloc[15])
 
         # Convert csv month name to month number string and save it to "month"
 
@@ -130,6 +156,7 @@ def process_data(line):
         list_of_results.append(cap_inner)
         list_of_results.append(te_band)
         list_of_results.append(knurling)
+        list_of_results.append(spout)
         list_of_results.append(spout_top)
         list_of_results.append(spout_side)
         list_of_results.append(dc_ring)

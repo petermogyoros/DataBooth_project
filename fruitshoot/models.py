@@ -28,3 +28,7 @@ class FruitShoot_table(models.Model):
     reject_short_spout = models.IntegerField()
     product = models.CharField(max_length=30, default="Fruit Shoot")
     production_site = models.CharField(max_length=30)
+
+    # this tool has been updated on line 13 but not on 15
+    # -1 means that the value is not applicable
+    spout = models.IntegerField(default=-1)
