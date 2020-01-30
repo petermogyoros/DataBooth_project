@@ -10,10 +10,8 @@ from pandas import DataFrame
 from datetime import datetime
 
 def process_data(line):
-    print(line)
+    print("Working on line: ", line)
     def clean_csv_and_return_list(list_of_results, read_csv):
-        print("============= cleaning =========")
-        print(list_of_results)
         # remove empty spaces from between the charachters
         c = -1
         decoded_from_csv = ""
@@ -138,12 +136,9 @@ def process_data(line):
         list_of_results.append(dc_blob)
         list_of_results.append(measure_height)
 
-        print(list_of_results)
         return list_of_results
 
     def update_db(line, list_of_results):
-        print("update db", list_of_results)
-
         db_update = FruitShoot_table(
         production_line = line,
         csv_datetime = list_of_results[0],
@@ -166,9 +161,8 @@ def process_data(line):
         product = "Fruit Shute",
         production_site = "Eaton Socon")
 
-        print(db_update)
         db_update.save()
-
+        print("Database was updated!")
 
     working_directory = '/home/peter/DataBooth_project'
 
@@ -189,7 +183,7 @@ def process_data(line):
         # only find files with the .csv extention
         if fnmatch.fnmatch(entry, pattern):
             os.chdir(csv_working_directory)  # Change working directory to log_folder to be able to ready cvs files
-
+            print("Working on file: ", entry)
         # read csv into "i2s" then close the original document
             with open(entry, "r") as opened_csv:
                 read_csv = opened_csv.read()
@@ -197,7 +191,6 @@ def process_data(line):
             list_of_results = []
             clean_csv_and_return_list(list_of_results, read_csv)
 
-            print(list_of_results)
             if bool(list_of_results) is True:
                 update_db(line, list_of_results)
 

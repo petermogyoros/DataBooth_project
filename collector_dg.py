@@ -152,7 +152,6 @@ def loop_through_folders(line):
     pattern = '*.csv' # choose search pater
     # loop through folders that contain the .csv files
     for entry in log_folder:
-        print(entry)
         # only find files with the .csv extention
         if fnmatch.fnmatch(entry, pattern):
             # Change working directory to log_folder to be able to ready cvs files
@@ -191,9 +190,6 @@ def run_exception(line):
         loop_through_folders(line)
     except:
         pass
-    #except Exception:
-        #traceback.print_exc()
-        #pass
 
 # searches for csv and updates database
 class Collector():
