@@ -4,6 +4,7 @@ from pandas import DataFrame
 
 # This class is to manage database fields. Add entries here to extend database.
 class FruitShoot_table(models.Model):
+
     csv_datetime = models.DateTimeField(
     default="1980-09-25 00:00:00",max_length=9)
     program = models.CharField(max_length=30)

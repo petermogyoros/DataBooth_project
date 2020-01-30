@@ -170,16 +170,16 @@ def process_data(line):
         db_update.save()
 
 
-    working_directory = '/home/peter/DataBooth_project'
+    working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\DataBooth_project'
 
     # assign directories for each line option
     if line == 15:
-        csv_working_directory = '/home/peter/csv/ES_FS1'
-        new_location = '/home/peter/csv/ES_FS1/processed/%s'
+        csv_working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\13'
+        new_location = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\15\\%s'
 
     elif line == 13:
-        csv_working_directory = '/home/peter/csv/ES_FS2'
-        new_location = '/home/peter/csv/ES_FS2/processed/%s'
+        csv_working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\13'
+        new_location = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\15\\%s'
 
     # list through each file in the working_directory
     log_folder = os.listdir(csv_working_directory)

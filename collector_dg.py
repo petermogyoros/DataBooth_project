@@ -9,7 +9,6 @@ import traceback
 
 # loop through folders to find new csv files and update datebase
 def loop_through_folders(line):
-    print("Working on Line ", line)
     def get_values_72_imp_stack_tool(csv1, list_of_results):
         datetime_list = []
 

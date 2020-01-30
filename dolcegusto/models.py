@@ -4,6 +4,7 @@ from pandas import DataFrame
 
 # This class is to manage database fields. Add entries here to extend database.
 class DolceGusto_table(models.Model):
+
     csv_datetime = models.DateTimeField(
     default="1980-09-25 00:00:00",max_length=9)
     line = models.IntegerField()
@@ -28,6 +29,7 @@ class DolceGusto_table(models.Model):
     b_side_re = models.IntegerField()
     product = models.CharField(max_length=30, default="Dolce Gusto")
     production_site = models.CharField(max_length=30, default="Eaton Socon")
+
 
 # bypassing django model and querying SQL views directely
 def dashboard(self):
