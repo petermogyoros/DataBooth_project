@@ -198,12 +198,12 @@ def process_data(line):
 
     # assign directories for each line option
     if line == 15:
-        csv_working_directory = '/home/peter/csv/ES_FL1'
-        new_location = '/home/peter/csv/ES_FL1/%s'
+        csv_working_directory = '/home/peter/csv/ES_FS1'
+        new_location = '/home/peter/csv/ES_FS1/processed/%s'
 
     elif line == 13:
-        csv_working_directory = '/home/peter/csv/ES_FL2'
-        new_location = '/home/peter/csv/ES_FL2/%s'
+        csv_working_directory = '/home/peter/csv/ES_FS2'
+        new_location = '/home/peter/csv/ES_FS2/processed/%s'
 
     # list through each file in the working_directory
     log_folder = os.listdir(csv_working_directory)
@@ -213,7 +213,7 @@ def process_data(line):
         # only find files with the .csv extention
         if fnmatch.fnmatch(entry, pattern):
             os.chdir(csv_working_directory)  # Change working directory to log_folder to be able to ready cvs files
-            print("Working on line: ",line, " file: " entry)
+            print("Working on line: ",line, " file: ", entry)
         # read csv into "i2s" then close the original document
             with open(entry, "r") as opened_csv:
                 read_csv = opened_csv.read()
@@ -221,11 +221,11 @@ def process_data(line):
             list_of_results = []
             clean_csv_and_return_list(list_of_results, read_csv)
 
-            if bool(list_of_results) is True:
-                update_db(line, list_of_results)
+          #  if bool(list_of_results) is True:
+            update_db(line, list_of_results)
 
-            else:
-                print("Empty list - PROBLEM IN CODE")
+        #    else:
+        #        print("Empty list - PROBLEM IN CODE")
 
 
             move_to = (new_location %(entry))
@@ -234,7 +234,7 @@ def process_data(line):
             # change back working directory to where collector.py is located
             os.chdir(working_directory)
 
-            time.sleep(0.2)
+            time.sleep(0.1)
 
 def check_machine_folder(line):
     try:
