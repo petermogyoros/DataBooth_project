@@ -31,4 +31,4 @@ class FruitShoot_table(models.Model):
 
     # this tool has been updated on line 13 but not on 15
     # -1 means that the value is not applicable
-    spout = models.IntegerField(default=-1)
+    spout = models.IntegerField()

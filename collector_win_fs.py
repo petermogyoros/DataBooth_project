@@ -56,6 +56,7 @@ def process_data(line):
         # conditional statements are needed for the difference in the inspection tools between the two cameras
         # In september Line 13 was updated to have two inspections for the spout check (spout_top and spout_side)
         # however, line 15 has not been updated with this tool.
+# assign dataframe values to variables
         if key_list[12] == " Spout Top":
             date = str(to_dataframe.iloc[0])
             product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
@@ -69,12 +70,12 @@ def process_data(line):
             cap_inner = int(to_dataframe.iloc[9])
             te_band = int(to_dataframe.iloc[10])
             knurling = int(to_dataframe.iloc[11])
-            spout = -1
             spout_top = int(to_dataframe.iloc[12])
             spout_side = int(to_dataframe.iloc[13])
             dc_ring = int(to_dataframe.iloc[14])
             dc_blob = int(to_dataframe.iloc[15])
             measure_height = int(to_dataframe.iloc[16])
+            spout = -1
 
 
         elif key_list[12] == " Spout":
@@ -90,13 +91,16 @@ def process_data(line):
             cap_inner = int(to_dataframe.iloc[9])
             te_band = int(to_dataframe.iloc[10])
             knurling = int(to_dataframe.iloc[11])
-            spout = int(to_dataframe.iloc[12])
             spout_top = -1
             spout_side = -1
             dc_ring = int(to_dataframe.iloc[13])
             dc_blob = int(to_dataframe.iloc[14])
             measure_height = int(to_dataframe.iloc[15])
+            spout = int(to_dataframe.iloc[12])
 
+        # update key_list to add spout=-1, as this value was not present in the .csv
+        key_list = ['date', 'product', 'pass_', 'reject', 'search', 'remap', 'idv', 'dimension', 'dc_top_view', 'cap_inner',
+       'te_band', 'knurling', 'spout_top', 'spout_side', 'dc_ring', 'dc_blob', 'measure_height', 'spout']
         # Convert csv month name to month number string and save it to "month"
 
         if date[14:17] == "Jan":
@@ -156,13 +160,14 @@ def process_data(line):
         list_of_results.append(cap_inner)
         list_of_results.append(te_band)
         list_of_results.append(knurling)
-        list_of_results.append(spout)
         list_of_results.append(spout_top)
         list_of_results.append(spout_side)
         list_of_results.append(dc_ring)
         list_of_results.append(dc_blob)
         list_of_results.append(measure_height)
+        list_of_results.append(spout)
 
+        print(list_of_results)
         return list_of_results
 
     def update_db(line, list_of_results):
@@ -185,22 +190,23 @@ def process_data(line):
         reject_dc_ring = list_of_results[14],
         reject_dc_blob = list_of_results[15],
         reject_short_spout = list_of_results[16],
-        product = "Fruit Shute",
-        production_site = "Eaton Socon")
+        product = "Fruit Shoot",
+        production_site = "Eaton Socon",
+        spout = list_of_results[17])
 
         db_update.save()
         print("Database was updated!")
 
-    working_directory = '/home/peter/DataBooth_project'
+    working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\DataBooth_project'
 
     # assign directories for each line option
     if line == 15:
-        csv_working_directory = '/home/peter/csv/ES_FS1'
-        new_location = '/home/peter/csv/ES_FS1/processed/%s'
+        csv_working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\15'
+        new_location = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\13\\%s'
 
     elif line == 13:
-        csv_working_directory = '/home/peter/csv/ES_FS2'
-        new_location = '/home/peter/csv/ES_FS2/processed/%s'
+        csv_working_directory = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\13'
+        new_location = 'C:\\Users\\mogyorosp\\Documents\\GitHub\\csv\\15\\%s'
 
     # list through each file in the working_directory
     log_folder = os.listdir(csv_working_directory)
@@ -234,10 +240,10 @@ def process_data(line):
             time.sleep(0.2)
 
 def check_machine_folder(line):
-    try:
-        process_data(line)
-    except:
-        pass
+    # try:
+    process_data(line)
+    # except:
+    #     pass
 
 
 # searches for csv and updates database
@@ -247,8 +253,8 @@ class Collector():
         while_counter += 1
 
         # add machine here to update database
-        # check_machine_folder(15)
+        check_machine_folder(15)
         check_machine_folder(13)
         time.sleep(5)
-        if while_counter == 10:
+        if while_counter == 2:
             quit()
