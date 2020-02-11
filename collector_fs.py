@@ -200,10 +200,12 @@ def process_data(line):
     if line == 15:
         csv_working_directory = '/home/peter/csv/ES_FS1'
         new_location = '/home/peter/csv/ES_FS1/processed/%s'
+        failed_location = '/home/peter/csv/ES_FS1/failed/%s'
 
     elif line == 13:
         csv_working_directory = '/home/peter/csv/ES_FS2'
         new_location = '/home/peter/csv/ES_FS2/processed/%s'
+        failed_location = '/home/peter/csv/ES_FS2/failed/%s'
 
     # list through each file in the working_directory
     log_folder = os.listdir(csv_working_directory)
@@ -219,18 +221,21 @@ def process_data(line):
                 read_csv = opened_csv.read()
 
             list_of_results = []
-            clean_csv_and_return_list(list_of_results, read_csv)
 
-          #  if bool(list_of_results) is True:
-            update_db(line, list_of_results)
+            try:
+                clean_csv_and_return_list(list_of_results, read_csv)
 
-        #    else:
-        #        print("Empty list - PROBLEM IN CODE")
+              #  if bool(list_of_results) is True:
+                update_db(line, list_of_results)
 
+                move_to = (new_location %(entry))
+                os.rename(entry, move_to)
+                print("Success")
 
-            move_to = (new_location %(entry))
-            os.rename(entry, move_to)
-
+            except:
+                move_to = (failed_location %(entry))
+                os.rename(entry, move_to)
+                print("File Failed to Process. Moved to 'failed' folder")
             # change back working directory to where collector.py is located
             os.chdir(working_directory)
 
