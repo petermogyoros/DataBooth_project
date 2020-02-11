@@ -17,6 +17,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'dolcegusto.apps.DolcegustoConfig',
     'fruitshoot.apps.FruitshootConfig',
+    'secure_flip_i2s.apps.SecureFlipI2SConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

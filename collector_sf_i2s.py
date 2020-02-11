@@ -1,12 +1,9 @@
-from fruitshoot.models import FruitShoot_table
+from secure_flip_i2s.models import SecureFlip_I2S_table
 import os, fnmatch
 import time
 import traceback
-
-
 import pandas as pd
 from pandas import DataFrame
-# import numpy as np
 from datetime import datetime
 
 def process_data(line):
@@ -52,56 +49,21 @@ def process_data(line):
         to_dataframe.columns = ["values"]  # assign column name for easy reading
 
         # assign dataframe values to variables
-        # conditional statements are needed for the difference in the inspection tools between the two cameras
-        # In september Line 13 was updated to have two inspections for the spout check (spout_top and spout_side)
-        # however, line 15 has not been updated with this tool.
-# assign dataframe values to variables
-        if key_list[12] == " Spout Top":
-            date = str(to_dataframe.iloc[0])
-            product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
-            pass_ = int(to_dataframe.iloc[2])
-            reject = int(to_dataframe.iloc[3])
-            search = int(to_dataframe.iloc[4])
-            remap = int(to_dataframe.iloc[5])
-            idv = int(to_dataframe.iloc[6])
-            dimension = int(to_dataframe.iloc[7])
-            dc_top_view = int(to_dataframe.iloc[8])
-            cap_inner = int(to_dataframe.iloc[9])
-            te_band = int(to_dataframe.iloc[10])
-            knurling = int(to_dataframe.iloc[11])
-            spout_top = int(to_dataframe.iloc[12])
-            spout_side = int(to_dataframe.iloc[13])
-            dc_ring = int(to_dataframe.iloc[14])
-            dc_blob = int(to_dataframe.iloc[15])
-            measure_height = int(to_dataframe.iloc[16])
-            spout = -1
+        date = str(to_dataframe.iloc[0])
+        product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
+        pass_ = int(to_dataframe.iloc[2])
+        reject = int(to_dataframe.iloc[3])
+        search = int(to_dataframe.iloc[4])
+        remap = int(to_dataframe.iloc[5])
+        idv = int(to_dataframe.iloc[6])
+        spout_top = int(to_dataframe.iloc[7])
+        cap_top = int(to_dataframe.iloc[8])
+        seal_side = int(to_dataframe.iloc[9])
+        dc_side = int(to_dataframe.iloc[10])
+        cap_side = int(to_dataframe.iloc[11])
+        measure_slit = int(to_dataframe.iloc[12])
 
-
-        elif key_list[12] == " Spout":
-            date = str(to_dataframe.iloc[0])
-            product = str(to_dataframe.iloc[1]).split("\n")[0][10:]  # clean up product name
-            pass_ = int(to_dataframe.iloc[2])
-            reject = int(to_dataframe.iloc[3])
-            search = int(to_dataframe.iloc[4])
-            remap = int(to_dataframe.iloc[5])
-            idv = int(to_dataframe.iloc[6])
-            dimension = int(to_dataframe.iloc[7])
-            dc_top_view = int(to_dataframe.iloc[8])
-            cap_inner = int(to_dataframe.iloc[9])
-            te_band = int(to_dataframe.iloc[10])
-            knurling = int(to_dataframe.iloc[11])
-            spout_top = -1
-            spout_side = -1
-            dc_ring = int(to_dataframe.iloc[13])
-            dc_blob = int(to_dataframe.iloc[14])
-            measure_height = int(to_dataframe.iloc[15])
-            spout = int(to_dataframe.iloc[12])
-
-        # update key_list to add spout=-1, as this value was not present in the .csv
-        key_list = ['date', 'product', 'pass_', 'reject', 'search', 'remap', 'idv', 'dimension', 'dc_top_view', 'cap_inner',
-       'te_band', 'knurling', 'spout_top', 'spout_side', 'dc_ring', 'dc_blob', 'measure_height', 'spout']
         # Convert csv month name to month number string and save it to "month"
-
         if date[14:17] == "Jan":
             month = "01"
         elif date[14:17] == "Feb":
@@ -154,21 +116,17 @@ def process_data(line):
         list_of_results.append(search)
         list_of_results.append(remap)
         list_of_results.append(idv)
-        list_of_results.append(dimension)
-        list_of_results.append(dc_top_view)
-        list_of_results.append(cap_inner)
-        list_of_results.append(te_band)
-        list_of_results.append(knurling)
         list_of_results.append(spout_top)
-        list_of_results.append(spout_side)
-        list_of_results.append(dc_ring)
-        list_of_results.append(dc_blob)
-        list_of_results.append(measure_height)
-        list_of_results.append(spout)
+        list_of_results.append(cap_top)
+        list_of_results.append(seal_side)
+        list_of_results.append(dc_side)
+        list_of_results.append(cap_side)
+        list_of_results.append(measure_slit)
 
         return list_of_results
 
     def update_db(line, list_of_results):
+
         db_update = FruitShoot_table(
         production_line = line,
         csv_datetime = list_of_results[0],
@@ -178,34 +136,26 @@ def process_data(line):
         reject_search = list_of_results[4],
         reject_remap = list_of_results[5],
         reject_idv = list_of_results[6],
-        reject_dimension = list_of_results[7],
-        reject_dc_top_view = list_of_results[8],
-        reject_cap_inner = list_of_results[9],
-        reject_te_band = list_of_results[10],
-        reject_body = list_of_results[11],
-        reject_spout_top = list_of_results[12],
-        reject_spout_side = list_of_results[13],
-        reject_dc_ring = list_of_results[14],
-        reject_dc_blob = list_of_results[15],
-        reject_short_spout = list_of_results[16],
-        product = "Fruit Shoot",
-        production_site = "Eaton Socon",
-        spout = list_of_results[17])
+        reject_spout_top = list_of_results[7],
+        reject_cap_top = list_of_results[8],
+        reject_seal_side = list_of_results[9],
+        reject_dc_side = list_of_results[10],
+        reject_cap_side = list_of_results[11],
+        reject_measure_slit = list_of_results[12],
+
+        product = "Secure Flip 1881",
+        production_site = "Flitwick",
 
         db_update.save()
 
     working_directory = '/home/peter/DataBooth_project'
 
     # assign directories for each line option
-    if line == 15:
-        csv_working_directory = '/home/peter/csv/ES_FS1'
-        new_location = '/home/peter/csv/ES_FS1/processed/%s'
-        failed_location = '/home/peter/csv/ES_FS1/failed/%s'
+    if line == 1:
+        csv_working_directory = '/home/peter/csv/FS1881'
+        new_location = '/home/peter/csv/SF1881/processed/%s'
+        failed_location = '/home/peter/csv/SF1881/failed/%s'
 
-    elif line == 13:
-        csv_working_directory = '/home/peter/csv/ES_FS2'
-        new_location = '/home/peter/csv/ES_FS2/processed/%s'
-        failed_location = '/home/peter/csv/ES_FS2/failed/%s'
 
     # list through each file in the working_directory
     log_folder = os.listdir(csv_working_directory)
@@ -259,8 +209,8 @@ class Collector():
         while_counter += 1
 
         # add machine here to update database
-        check_machine_folder(15)
-        check_machine_folder(13)
+        check_machine_folder(1)
+
         time.sleep(5)
         if while_counter == 2:
             quit()
