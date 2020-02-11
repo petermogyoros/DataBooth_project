@@ -190,7 +190,7 @@ def process_data(line):
                 os.rename(entry, move_to)
                 print("File Failed to Process. Moved to 'failed' folder")
 
-            change back working directory to where collector.py is located
+            # change back working directory to where collector.py is located
             os.chdir(working_directory)
 
             time.sleep(0.1)
