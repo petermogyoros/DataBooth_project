@@ -196,10 +196,10 @@ def process_data(line):
             time.sleep(0.1)
 
 def check_machine_folder(line):
-    try:
-        process_data(line)
-    except:
-        pass
+    # try:
+    process_data(line)
+    # except:
+    #     pass
 
 
 # searches for csv and updates database
