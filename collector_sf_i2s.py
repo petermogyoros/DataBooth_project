@@ -143,7 +143,7 @@ def process_data(line):
         reject_cap_side = list_of_results[11],
         reject_measure_slit = list_of_results[12],
 
-        product = "SF 1881",
+        product = "Secure Flip 1881",
         production_site = "Flitwick")
 
         db_update.save()
@@ -186,9 +186,9 @@ def process_data(line):
             print("Success")
 
             # except:
-            move_to = (failed_location %(entry))
-            os.rename(entry, move_to)
-            print("File Failed to Process. Moved to 'failed' folder")
+            # move_to = (failed_location %(entry))
+            # os.rename(entry, move_to)
+            # print("File Failed to Process. Moved to 'failed' folder")
 
             # change back working directory to where collector.py is located
             os.chdir(working_directory)
