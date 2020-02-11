@@ -127,7 +127,7 @@ def process_data(line):
 
     def update_db(line, list_of_results):
 
-        db_update = FruitShoot_table(
+        db_update = SecureFlip_I2S_table(
         production_line = line,
         csv_datetime = list_of_results[0],
         program = list_of_results[1],
