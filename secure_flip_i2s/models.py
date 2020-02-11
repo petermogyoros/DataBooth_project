@@ -7,7 +7,7 @@ class SecureFlip_I2S_table(models.Model):
 
     csv_datetime = models.DateTimeField(
     default="1980-09-25 00:00:00",max_length=9)
-    program = models.CharField(max_length=30)
+    program = models.CharField(max_length=60)
     production_line = models.IntegerField()
     ok_caps = models.IntegerField()
     rejects_overal = models.IntegerField()
