@@ -175,31 +175,31 @@ def process_data(line):
             # some .csv file are irregular and will crash the program
             # these will be storred in ~/csv/ES#/failed
             # for further analysis
-            # try:
-            clean_csv_and_return_list(list_of_results, read_csv)
+            try:
+                clean_csv_and_return_list(list_of_results, read_csv)
 
-          #  if bool(list_of_results) is True:
-            update_db(line, list_of_results)
+              #  if bool(list_of_results) is True:
+                update_db(line, list_of_results)
 
-            move_to = (new_location %(entry))
-            os.rename(entry, move_to)
-            print("Success")
+                move_to = (new_location %(entry))
+                os.rename(entry, move_to)
+                print("Success")
 
-            # except:
-            # move_to = (failed_location %(entry))
-            # os.rename(entry, move_to)
-            # print("File Failed to Process. Moved to 'failed' folder")
+            except:
+                move_to = (failed_location %(entry))
+                os.rename(entry, move_to)
+                print("File Failed to Process. Moved to 'failed' folder")
 
-            # change back working directory to where collector.py is located
+            change back working directory to where collector.py is located
             os.chdir(working_directory)
 
             time.sleep(0.1)
 
 def check_machine_folder(line):
-    # try:
-    process_data(line)
-    # except:
-    #     pass
+    try:
+        process_data(line)
+    except:
+        pass
 
 
 # searches for csv and updates database
