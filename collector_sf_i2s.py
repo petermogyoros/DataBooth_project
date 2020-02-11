@@ -143,7 +143,7 @@ def process_data(line):
         reject_cap_side = list_of_results[11],
         reject_measure_slit = list_of_results[12],
 
-        product = "Secure Flip 1881",
+        product = "SF 1881",
         production_site = "Flitwick")
 
         db_update.save()
