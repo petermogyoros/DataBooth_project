@@ -144,7 +144,7 @@ def process_data(line):
         reject_measure_slit = list_of_results[12],
 
         product = "Secure Flip 1881",
-        production_site = "Flitwick",
+        production_site = "Flitwick")
 
         db_update.save()
 
@@ -152,9 +152,9 @@ def process_data(line):
 
     # assign directories for each line option
     if line == 1:
-        csv_working_directory = '/home/peter/csv/FS1881'
-        new_location = '/home/peter/csv/SF1881/processed/%s'
-        failed_location = '/home/peter/csv/SF1881/failed/%s'
+        csv_working_directory = '/home/peter/csv/FL1881'
+        new_location = '/home/peter/csv/FL1881/processed/%s'
+        failed_location = '/home/peter/csv/FL1881/failed/%s'
 
 
     # list through each file in the working_directory
